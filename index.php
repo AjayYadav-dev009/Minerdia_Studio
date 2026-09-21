@@ -28,6 +28,15 @@
     
     <!-- Form1 section -->
     <?php include __DIR__ . '/home-page/form1.php'; ?>
+    
+    <!-- Testimonial section -->
+    <?php include __DIR__ . '/home-page/testimonial.php'; ?>
+    
+    <!-- Faqs section -->
+    <?php include __DIR__ . '/home-page/faqs.php'; ?>
+    
+    <!-- Popup Form section -->
+    <?php include __DIR__ . '/home-page/popup-form.php'; ?>
 
 </main>
 
