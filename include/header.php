@@ -868,7 +868,7 @@
 
                     <div class="minerdia-dropdown-menu minerdia-company-menu">
 
-                        <a href="https://minerdiastudio.com/about-us/">
+                        <a href="">
                             About Us
                         </a>
 
