@@ -3,7 +3,8 @@
 <main style="overflow: hidden;">
 
     <?php require __DIR__ . '/hero.php'; ?>
-    
+    <?php require __DIR__ . '/about.php'; ?>
+
 </main>
 
 <?php include __DIR__ . '/../include/footer.php'; ?>
