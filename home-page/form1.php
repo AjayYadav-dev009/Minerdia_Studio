@@ -26,9 +26,134 @@
 
                 </div>
 
-                <!-- FLUENT FORM SHORTCODE -->
+                <!-- CONTACT FORM (Fluent Forms markup, handled by home-page/submit-contact.php) -->
                 <div class="mff-contact__form-slot">
-                    [fluentform id="3"]
+                    <div class="fluentform ff-default fluentform_wrapper_3 ffs_default_wrap">
+
+                        <form id="fluentform_3"
+                            class="frm-fluent-form fluent_form_3 ff-el-form-top ff_form_instance_3_1 ffs_default"
+                            data-form_id="3"
+                            method="post"
+                            action="home-page/submit-contact.php"
+                            novalidate>
+
+                            <fieldset style="border: none!important; margin: 0!important; padding: 0!important; background-color: transparent!important; box-shadow: none!important; outline: none!important; min-inline-size: 100%;">
+
+                                <legend class="ff_screen_reader_title" style="display: block; margin: 0!important; padding: 0!important; height: 0!important; text-indent: -999999px; width: 0!important; overflow: hidden;">Contact Form</legend>
+
+                            <div class="ff-t-container ff-column-container ff_columns_total_2">
+                                <div class="ff-t-cell ff-t-column-1" style="flex-basis: 50%;">
+                                    <div class="ff-el-group ff-el-form-top ff-el-is-required">
+                                        <div class="ff-el-input--label ff-el-is-required asterisk-right">
+                                            <label for="ff_3_name" aria-label="Name">Name</label>
+                                        </div>
+                                        <div class="ff-el-input--content">
+                                            <input type="text" name="name" id="ff_3_name" class="ff-el-form-control" placeholder="Enter Your Full Name" data-name="name" aria-invalid="false" aria-required="true" autocomplete="name">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="ff-t-cell ff-t-column-2" style="flex-basis: 50%;">
+                                    <div class="ff-el-group ff-el-form-top ff-el-is-required">
+                                        <div class="ff-el-input--label ff-el-is-required asterisk-right">
+                                            <label for="ff_3_business_name" aria-label="Business Name">Business Name</label>
+                                        </div>
+                                        <div class="ff-el-input--content">
+                                            <input type="text" name="business_name" id="ff_3_business_name" class="ff-el-form-control" placeholder="Business Name" data-name="business_name" aria-invalid="false" aria-required="true" autocomplete="organization">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                                <div class="ff-t-container ff-column-container ff_columns_total_2">
+                                <div class="ff-t-cell ff-t-column-1" style="flex-basis: 50%;">
+                                    <div class="ff-el-group ff-el-form-top ff-el-is-required">
+                                        <div class="ff-el-input--label ff-el-is-required asterisk-right">
+                                            <label for="ff_3_phone" aria-label="Phone Number">Phone Number</label>
+                                        </div>
+                                        <div class="ff-el-input--content">
+                                            <input type="tel" name="phone" id="ff_3_phone" class="ff-el-form-control" placeholder="Phone Number" data-name="phone" aria-invalid="false" aria-required="true" autocomplete="tel">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="ff-t-cell ff-t-column-2" style="flex-basis: 50%;">
+                                    <div class="ff-el-group ff-el-form-top ff-el-is-required">
+                                        <div class="ff-el-input--label ff-el-is-required asterisk-right">
+                                            <label for="ff_3_email" aria-label="Email">Email</label>
+                                        </div>
+                                        <div class="ff-el-input--content">
+                                            <input type="email" name="email" id="ff_3_email" class="ff-el-form-control" placeholder="Email Address" data-name="email" aria-invalid="false" aria-required="true" autocomplete="email">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                                <div class="ff-t-container ff-column-container ff_columns_total_2">
+                                <div class="ff-t-cell ff-t-column-1" style="flex-basis: 50%;">
+                                    <div class="ff-el-group ff-el-form-top">
+                                        <div class="ff-el-input--label">
+                                            <label for="ff_3_website" aria-label="Website Url">Website Url</label>
+                                        </div>
+                                        <div class="ff-el-input--content">
+                                            <input type="url" name="website" id="ff_3_website" class="ff-el-form-control" placeholder="Website Url" data-name="website" aria-invalid="false" aria-required="false" autocomplete="url">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="ff-t-cell ff-t-column-2" style="flex-basis: 50%;">
+                                    <div class="ff-el-group ff-el-form-top ff-el-is-required">
+                                        <div class="ff-el-input--label ff-el-is-required asterisk-right">
+                                            <label for="ff_3_services" aria-label="Services">Services</label>
+                                        </div>
+                                        <div class="ff-el-input--content">
+                                            <select name="services" id="ff_3_services" class="ff-el-form-control ff-el-form-select" data-name="services" aria-invalid="false" aria-required="true">
+                                                <option value="" selected="selected">Select Services</option>
+                                                <option value="Social Media Management">Social Media Management</option>
+                                                <option value="Podcast">Podcast</option>
+                                                <option value="Google Ads">Google Ads</option>
+                                                <option value="Facebook Ads">Facebook Ads</option>
+                                                <option value="Email Marketing">Email Marketing</option>
+                                                <option value="Scriptwriting">Scriptwriting</option>
+                                                <option value="Video Editing">Video Editing</option>
+                                                <option value="Graphic Designing">Graphic Designing</option>
+                                                <option value="Search Engine Optimization (SEO)">Search Engine Optimization (SEO)</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                                <!-- Terms checkbox -->
+                                <div class="ff-el-group ff-el-form-top ff-el-is-required">
+                                    <div class="ff-el-input--content">
+                                        <div class="ff-el-form-check ff-el-tc" data-name="terms">
+                                            <label class="ff-el-form-check-label ff_tc_label" for="ff_3_terms">
+                                                <input type="checkbox" name="terms" id="ff_3_terms"
+                                                    class="ff-el-form-check-input ff-el-form-check-checkbox ff_tc_checkbox"
+                                                    value="on" aria-invalid="false" aria-required="true">
+                                                <span class="ff_tc_label">I have read and agree to the
+                                                    <a href="https://minerdiastudio.com/terms-and-conditions/" target="_blank" rel="noopener"><strong>Terms and Conditions</strong></a>
+                                                    and
+                                                    <a href="https://minerdiastudio.com/privacy-policy/" target="_blank" rel="noopener"><strong>Privacy Policy</strong></a></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Honeypot (bots fill this, humans never see it) -->
+                                <div aria-hidden="true" style="position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden;">
+                                    <label for="ff_3_website_hp">Leave this field empty</label>
+                                    <input type="text" name="website_hp" id="ff_3_website_hp" tabindex="-1" autocomplete="off" value="">
+                                </div>
+
+                                <div class="ff-el-group ff-text-center ff_submit_btn_wrapper ff_submit_btn_wrapper_custom">
+                                    <button type="submit" class="ff-btn ff-btn-submit ff-btn-md ff_btn_style" aria-label="Submit Form">Submit Form</button>
+                                </div>
+
+                                <div class="ff-message-success" id="mffFormMsg" role="status" aria-live="polite" hidden></div>
+
+                            </fieldset>
+                        </form>
+
+                    </div>
                 </div>
 
             </div>
@@ -867,6 +992,92 @@
         }
 
         /* =====================================================
+                  FLUENT FORM EXTRAS (asterisk / links / states)
+        ====================================================== */
+
+        /* Line box used by the label rows and the terms row
+           (the live theme gives the form a roomier line-height) */
+        .mff-contact__form-slot {
+            font-size: 16px;
+            line-height: 1.65;
+        }
+
+        /* Checkbox sits inline on the text baseline, like the live site */
+        .mff-contact #fluentform_3 .ff-el-form-check-label input[type="checkbox"] {
+            display: inline-block !important;
+            flex: none !important;
+            vertical-align: baseline;
+        }
+
+        /* Breathing room around the terms row (matches the live spacing) */
+        .mff-contact #fluentform_3 .ff-el-form-check.ff-el-tc {
+            padding: 7px 0 6px !important;
+        }
+
+        /* Red required asterisk, placed right of the label */
+        .mff-contact #fluentform_3 .ff-el-input--label.asterisk-right label::after {
+            content: " *";
+            margin-left: 3px;
+            color: #f56c6c;
+        }
+
+        /* Terms + Privacy links: dark text, purple underline (as on the live site) */
+        .mff-contact #fluentform_3 .ff-el-form-check-label a,
+        .mff-contact #fluentform_3 .ff-el-form-check-label a strong {
+            color: var(--mff-black) !important;
+            font-weight: 500 !important;
+            text-decoration: underline !important;
+            text-decoration-color: var(--mff-purple) !important;
+            text-underline-offset: 2px;
+        }
+
+        /* Validation state */
+        .mff-contact #fluentform_3 .ff-el-is-error input,
+        .mff-contact #fluentform_3 .ff-el-is-error select {
+            border-color: #f56c6c !important;
+        }
+
+        .mff-contact #fluentform_3 .error.text-danger {
+            display: block;
+            margin: 4px 0 0 !important;
+            padding: 0 !important;
+            color: #f56c6c !important;
+            font-family: Arial, sans-serif;
+            font-size: 11.5px;
+            line-height: 1.3;
+            font-weight: 400;
+        }
+
+        /* Success message */
+        .mff-contact #fluentform_3 .ff-message-success {
+            margin: 14px 0 0 !important;
+            padding: 12px 14px !important;
+            border: 1px solid rgba(47, 168, 161, 0.22) !important;
+            border-radius: 12px !important;
+            background: #f2fffc !important;
+            color: #216b64 !important;
+            font-family: Arial, sans-serif;
+            font-size: 12.5px !important;
+            line-height: 1.5 !important;
+            text-align: center;
+        }
+
+        .mff-contact #fluentform_3 .ff-message-success[hidden] {
+            display: none !important;
+        }
+
+        .mff-contact #fluentform_3 .ff-message-error {
+            border-color: rgba(245, 108, 108, 0.35) !important;
+            background: #fff5f5 !important;
+            color: #b42318 !important;
+        }
+
+        .mff-contact #fluentform_3 .ff-btn-submit[disabled] {
+            opacity: 0.7;
+            cursor: progress !important;
+        }
+
+        /* =====================================================
                             TABLET
         ====================================================== */
 
@@ -1479,6 +1690,154 @@
                     setTimeout(synchronizeFluentFields, 1000);
                 }
             );
+        })();
+    </script>
+
+    <script>
+        (function() {
+            var form = document.getElementById("fluentform_3");
+
+            if (!form) {
+                return;
+            }
+
+            var msg = document.getElementById("mffFormMsg");
+            var btn = form.querySelector(".ff-btn-submit");
+            var REQUIRED = "This field is required";
+
+            function groupOf(el) {
+                return el.closest(".ff-el-group");
+            }
+
+            function clearError(el) {
+                var group = groupOf(el);
+
+                if (!group) {
+                    return;
+                }
+
+                group.classList.remove("ff-el-is-error");
+
+                var old = group.querySelector(".error.text-danger");
+
+                if (old) {
+                    old.remove();
+                }
+            }
+
+            function showError(el, text) {
+                clearError(el);
+
+                var group = groupOf(el);
+                var holder = group.querySelector(".ff-el-input--content") || group;
+                var err = document.createElement("div");
+
+                err.className = "error text-danger";
+                err.innerHTML = "<span></span>";
+                err.firstChild.textContent = text;
+
+                holder.appendChild(err);
+                group.classList.add("ff-el-is-error");
+            }
+
+            function checkField(el) {
+                var value = (el.type === "checkbox" ? (el.checked ? "on" : "") : el.value).trim();
+                var required = el.getAttribute("aria-required") === "true";
+
+                if (required && !value) {
+                    showError(el, REQUIRED);
+                    return false;
+                }
+
+                if (value && el.name === "email" &&
+                    !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(value)) {
+                    showError(el, "This field must contain a valid email");
+                    return false;
+                }
+
+                if (value && el.name === "phone" &&
+                    !/^[0-9+\-\s()]{7,20}$/.test(value)) {
+                    showError(el, "Please enter a valid phone number");
+                    return false;
+                }
+
+                if (value && el.name === "website" &&
+                    !/^https?:\/\/[^\s.]+\.[^\s]{2,}$/i.test(value)) {
+                    showError(el, "This field must contain a valid url (include https://)");
+                    return false;
+                }
+
+                clearError(el);
+                return true;
+            }
+
+            var fields = form.querySelectorAll(
+                "input.ff-el-form-control, select.ff-el-form-control, input.ff_tc_checkbox"
+            );
+
+            fields.forEach(function(el) {
+                var evt = (el.tagName === "SELECT" || el.type === "checkbox") ? "change" : "blur";
+
+                el.addEventListener(evt, function() {
+                    checkField(el);
+                });
+
+                el.addEventListener("input", function() {
+                    if (groupOf(el).classList.contains("ff-el-is-error")) {
+                        checkField(el);
+                    }
+                });
+            });
+
+            function setMessage(text, ok) {
+                msg.textContent = text;
+                msg.classList.toggle("ff-message-error", !ok);
+                msg.hidden = false;
+            }
+
+            form.addEventListener("submit", function(e) {
+                e.preventDefault();
+
+                msg.hidden = true;
+
+                var firstBad = null;
+
+                fields.forEach(function(el) {
+                    if (!checkField(el) && !firstBad) {
+                        firstBad = el;
+                    }
+                });
+
+                if (firstBad) {
+                    firstBad.focus();
+                    return;
+                }
+
+                btn.disabled = true;
+                btn.classList.add("ff-btn-processing");
+
+                fetch(form.action, {
+                        method: "POST",
+                        body: new FormData(form)
+                    })
+                    .then(function(r) {
+                        return r.json();
+                    })
+                    .then(function(res) {
+                        setMessage(res.message, !!res.ok);
+
+                        if (res.ok) {
+                            form.reset();
+                        }
+                    })
+                    .catch(function() {
+                        setMessage("Network error. Please try again.", false);
+                    })
+                    .finally(function() {
+                        btn.disabled = false;
+                        btn.classList.remove("ff-btn-processing");
+                    });
+            });
         })();
     </script>
 

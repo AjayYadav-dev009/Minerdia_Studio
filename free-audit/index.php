@@ -1,3 +1,5 @@
+<?php include __DIR__ . '/../include/header.php'; ?>
+
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;500;600&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>

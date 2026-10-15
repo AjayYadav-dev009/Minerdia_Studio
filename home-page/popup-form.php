@@ -1,3 +1,25 @@
+<?php
+
+$form_action = 'submit-audit.php';
+
+/* ---- EDIT: services shown in the first dropdown ---- */
+$services = [
+    'Google Ads',
+    'Social Media Management',
+    'Podcast Production & Strategy',
+    'Script Writing & Content Creation',
+    'Paid Advertising',
+    'Designing & Video Editing',
+    'Website Development',
+    'Email Marketing',
+    'Search Engine Optimization',
+];
+
+$budgets = [
+    'Google Ads' => ['Google Ads Price'],
+    'default'    => ['Select budget'],
+];
+?>
 <div
     class="ms-popup-overlay"
     id="msPopup"
@@ -31,7 +53,89 @@
             </p>
 
             <div class="ms-popup-form">
-                [fluentform id="10"]
+
+                <form class="fluentform frm-fluent-form" id="msAuditForm" method="post" action="<?php echo htmlspecialchars($form_action); ?>" novalidate>
+
+                    <!-- honeypot (spam trap) -->
+                    <div style="position:absolute;left:-9999px" aria-hidden="true">
+                        <input type="text" name="website_hp" tabindex="-1" autocomplete="off">
+                    </div>
+
+                    <div class="ff-t-container">
+                        <div class="ff-t-cell">
+                            <div class="ff-el-group ff-el-is-required">
+                                <div class="ff-el-input--label"><label for="ms_name">Your Name</label></div>
+                                <div class="ff-el-input--content">
+                                    <input type="text" id="ms_name" name="name" placeholder="Enter Your Full Name" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ff-t-cell">
+                            <div class="ff-el-group ff-el-is-required">
+                                <div class="ff-el-input--label"><label for="ms_business">Business name</label></div>
+                                <div class="ff-el-input--content">
+                                    <input type="text" id="ms_business" name="business" placeholder="Business name" required>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ff-t-container">
+                        <div class="ff-t-cell">
+                            <div class="ff-el-group">
+                                <div class="ff-el-input--label"><label for="ms_url">Website Url</label></div>
+                                <div class="ff-el-input--content">
+                                    <input type="url" id="ms_url" name="website" placeholder="Website Url">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ff-t-cell">
+                            <div class="ff-el-group ff-el-is-required">
+                                <div class="ff-el-input--label"><label for="ms_phone">Phone Number</label></div>
+                                <div class="ff-el-input--content">
+                                    <input type="tel" id="ms_phone" name="phone" placeholder="Mobile Number" required>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ff-t-container">
+                        <div class="ff-t-cell">
+                            <div class="ff-el-group ff-el-is-required">
+                                <div class="ff-el-input--label"><label for="ms_service">Which service are you interested in?</label></div>
+                                <div class="ff-el-input--content">
+                                    <select id="ms_service" name="service" required>
+                                        <?php foreach ($services as $s): ?>
+                                            <option value="<?php echo htmlspecialchars($s); ?>"><?php echo htmlspecialchars($s); ?></option>
+                                        <?php endforeach; ?>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ff-t-cell">
+                            <div class="ff-el-group ff-el-is-required">
+                                <div class="ff-el-input--label"><label for="ms_budget">Monthly marketing budget</label></div>
+                                <div class="ff-el-input--content">
+                                    <select id="ms_budget" name="budget" required>
+                                        <?php
+                                        $first = $services[0];
+                                        $initial = isset($budgets[$first]) ? $budgets[$first] : $budgets['default'];
+                                        foreach ($initial as $b): ?>
+                                            <option value="<?php echo htmlspecialchars($b); ?>"><?php echo htmlspecialchars($b); ?></option>
+                                        <?php endforeach; ?>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ff_submit_btn_wrapper">
+                        <button type="submit" class="ff-btn ff-btn-submit">Submit Form</button>
+                    </div>
+
+                    <div class="ff-message-success" id="msFormMsg" hidden></div>
+                </form>
+
             </div>
 
         </div>
@@ -48,6 +152,23 @@
     #msPopup,
     #msPopup * {
         box-sizing: border-box;
+    }
+
+
+    /* =========================================================
+   FONT  (EDIT: put the exact font used on your production site)
+   ========================================================= */
+
+    #msPopup,
+    #msPopup * {
+        font-family: "YOUR-SITE-FONT", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+    }
+
+    #msPopup input,
+    #msPopup textarea,
+    #msPopup select,
+    #msPopup button {
+        font-family: inherit !important;
     }
 
 
@@ -74,13 +195,12 @@
 
         padding: 18px;
 
-        /*
-   IMPORTANT:
-   No fullscreen backdrop-filter.
-   This was one of the heaviest effects.
-  */
-
         background: rgba(255, 255, 255, .18);
+
+        /* Blurred page behind the popup (matches production screenshot).
+           Remove these two lines if you prefer maximum performance. */
+        -webkit-backdrop-filter: blur(8px);
+        backdrop-filter: blur(8px);
 
         overflow-x: hidden;
         overflow-y: auto;
@@ -91,8 +211,6 @@
     }
 
 
-    /* Completely remove popup from rendering
-   while closed */
     #msPopup[hidden] {
         display: none !important;
     }
@@ -125,11 +243,6 @@
         border: 1px solid rgba(90, 46, 166, .12);
         border-radius: 24px;
 
-        /*
-   Normal solid/transparent background instead of
-   backdrop blur = significantly lighter.
-  */
-
         background:
             radial-gradient(circle at 0% 0%,
                 rgba(154, 114, 236, .07),
@@ -153,17 +266,11 @@
     }
 
 
- 
-
-
     #msPopup.active .ms-popup-box {
         transform: translateY(0) scale(1);
         opacity: 1;
     }
 
-
-    /* Small premium highlight.
-   Cheap CSS gradient only. */
 
     #msPopup .ms-popup-box::before {
         content: "";
@@ -337,7 +444,41 @@
 
 
     /* =========================================================
-   FLUENT FORM
+   FORM LAYOUT
+   (previously supplied by the Fluent Forms stylesheet)
+   ========================================================= */
+
+    #msPopup .ms-popup-form .ff-t-container {
+        display: flex;
+        gap: 15px;
+    }
+
+    #msPopup .ms-popup-form .ff-t-cell {
+        flex: 1 1 0;
+        min-width: 0;
+    }
+
+    #msPopup .ms-popup-form .ff-el-input--content {
+        width: 100%;
+    }
+
+    #msPopup .ms-popup-form .ff-el-is-required .ff-el-input--label label::after {
+        content: " *";
+        color: #F56C6C;
+    }
+
+    #msPopup .ms-popup-form select {
+        -webkit-appearance: menulist;
+        appearance: menulist;
+    }
+
+    #msPopup .ms-popup-form [hidden] {
+        display: none !important;
+    }
+
+
+    /* =========================================================
+   FLUENT FORM STYLES (unchanged)
    ========================================================= */
 
     #msPopup .ms-popup-form,
@@ -367,14 +508,10 @@
 
     #msPopup .ms-popup-form label,
     #msPopup .ms-popup-form .ff-el-input--label label {
-
         margin: 0 0 4px !important;
-
         color: rgba(40, 30, 61, .88) !important;
-
-        font-size: 11.25px !important;
+        font-size: 13px !important;
         line-height: 1.28 !important;
-
         font-weight: 600 !important;
     }
 
@@ -421,9 +558,6 @@
             border-color .2s ease,
             box-shadow .2s ease !important;
     }
-
-
-    /* No backdrop blur on each form input */
 
 
     #msPopup .ms-popup-form textarea {
@@ -581,8 +715,6 @@
     }
 
 
-
-
     #msPopup .ms-popup-form .ff-btn-submit:hover,
     #msPopup .ms-popup-form button[type="submit"]:hover,
     #msPopup .ms-popup-form input[type="submit"]:hover {
@@ -601,8 +733,6 @@
         transform: translateY(0) !important;
     }
 
-
-    /* Fluent Forms loading state */
 
     #msPopup .ms-popup-form .ff-btn-submit:disabled,
     #msPopup .ms-popup-form button[type="submit"]:disabled,
@@ -628,7 +758,7 @@
 
     #msPopup .ms-popup-form .ff-message-success {
 
-        margin: 0 !important;
+        margin: 12px 0 0 !important;
 
         padding: 12px 13px !important;
 
@@ -763,6 +893,17 @@
     }
 
 
+    /* Stack the two-column rows on very small phones */
+    @media(max-width:480px) {
+
+        #msPopup .ms-popup-form .ff-t-container {
+            flex-direction: column;
+            gap: 0;
+        }
+
+    }
+
+
     /* =========================================================
    SHORT SCREEN
    ========================================================= */
@@ -810,10 +951,9 @@
 
         "use strict";
 
+        /* Budget options per service (generated from the PHP array above) */
+        var MS_BUDGETS = <?php echo json_encode($budgets, JSON_UNESCAPED_UNICODE); ?>;
 
-        /* =======================================================
-           RUN AFTER PAGE HTML HAS LOADED
-           ======================================================= */
 
         function initMinerdiaPopup() {
 
@@ -823,8 +963,6 @@
                 return;
             }
 
-
-            /* Prevent double initialization */
 
             if (popup.dataset.initialized === "true") {
                 return;
@@ -844,10 +982,6 @@
 
             var previousBodyOverflow = "";
 
-
-            /* =====================================================
-               GET FOCUSABLE ITEMS
-               ===================================================== */
 
             function getFocusableElements() {
 
@@ -888,11 +1022,6 @@
                     document.body.style.overflow;
 
 
-                /*
-                 First unhide.
-                 Browser does not paint popup before this.
-                */
-
                 popup.hidden = false;
 
                 popup.classList.add("ms-visible");
@@ -907,11 +1036,6 @@
                     "hidden";
 
 
-                /*
-                 requestAnimationFrame allows the browser
-                 to render initial state before animation.
-                */
-
                 requestAnimationFrame(function() {
 
                     requestAnimationFrame(function() {
@@ -922,10 +1046,6 @@
 
                 });
 
-
-                /*
-                 Focus after short open animation
-                */
 
                 window.setTimeout(function() {
 
@@ -981,11 +1101,6 @@
                     previousBodyOverflow;
 
 
-                /*
-                 Wait until close transition finishes,
-                 then completely remove popup from rendering.
-                */
-
                 window.setTimeout(function() {
 
                     popup.classList.remove("ms-visible");
@@ -994,10 +1109,6 @@
 
                 }, 230);
 
-
-                /*
-                 Return keyboard focus
-                */
 
                 if (
                     lastFocusedElement &&
@@ -1176,19 +1287,120 @@
 
 
             /* =====================================================
-               AUTO OPEN
-               AFTER 2 SECONDS
+               AUTO OPEN IMMEDIATELY WHEN THE SITE LOADS
+
+               Set MS_SHOW_ONCE_PER_SESSION to true if you only want
+               it to appear once per visit (not on every page).
                ===================================================== */
 
-            window.setTimeout(
-                openPopup,
-                2000
-            );
+            var MS_SHOW_ONCE_PER_SESSION = false;
+
+            var alreadyShown = false;
+
+            if (MS_SHOW_ONCE_PER_SESSION) {
+
+                try {
+                    alreadyShown = sessionStorage.getItem("msPopupShown") === "1";
+                    sessionStorage.setItem("msPopupShown", "1");
+                } catch (error) {}
+
+            }
+
+            if (!alreadyShown) {
+
+                openPopup();
+
+            }
 
 
             /* =====================================================
-               OPTIONAL GLOBAL FUNCTIONS
+               SERVICE -> BUDGET OPTIONS
                ===================================================== */
+
+            var serviceSelect = document.getElementById("ms_service");
+            var budgetSelect = document.getElementById("ms_budget");
+
+            if (serviceSelect && budgetSelect) {
+
+                serviceSelect.addEventListener("change", function() {
+
+                    var list = MS_BUDGETS[serviceSelect.value] || MS_BUDGETS["default"] || [];
+
+                    budgetSelect.innerHTML = "";
+
+                    list.forEach(function(text) {
+
+                        var opt = document.createElement("option");
+
+                        opt.value = text;
+                        opt.textContent = text;
+
+                        budgetSelect.appendChild(opt);
+
+                    });
+
+                });
+
+            }
+
+
+            /* =====================================================
+               FORM SUBMIT (AJAX -> submit-audit.php)
+               ===================================================== */
+
+            var form = document.getElementById("msAuditForm");
+
+            if (form) {
+
+                form.addEventListener("submit", function(e) {
+
+                    e.preventDefault();
+
+                    var btn = form.querySelector(".ff-btn-submit");
+                    var msg = document.getElementById("msFormMsg");
+
+                    if (!form.checkValidity()) {
+                        form.reportValidity();
+                        return;
+                    }
+
+                    btn.disabled = true;
+                    btn.classList.add("ff-btn-processing");
+
+                    fetch(form.action, {
+                            method: "POST",
+                            body: new FormData(form)
+                        })
+                        .then(function(r) {
+                            return r.json();
+                        })
+                        .then(function(res) {
+
+                            msg.textContent = res.message;
+                            msg.hidden = false;
+
+                            if (res.ok) {
+                                form.reset();
+                            }
+
+                        })
+                        .catch(function() {
+
+                            msg.textContent = "Network error. Please try again.";
+                            msg.hidden = false;
+
+                        })
+                        .finally(function() {
+
+                            btn.disabled = false;
+                            btn.classList.remove("ff-btn-processing");
+
+                        });
+
+                });
+
+            }
+
 
             window.openMinerdiaPopup =
                 openPopup;
@@ -1199,10 +1411,6 @@
 
         }
 
-
-        /* =======================================================
-           INITIALIZE
-           ======================================================= */
 
         if (document.readyState === "loading") {
 

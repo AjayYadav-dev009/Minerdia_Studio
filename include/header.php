@@ -9,6 +9,11 @@
 
 <body>
     <style>
+        /* Hero must start at the very top; the header floats over it */
+        body {
+            margin: 0;
+        }
+
         /* ==========================================
                     MINERDIA STUDIO HEADER
         ========================================== */
@@ -25,7 +30,12 @@
             --mh-cyan: #22a5ae;
             --mh-text: #17131e;
 
-            position: relative;
+            /* Float over the hero (like the live site) instead of
+               taking its own row above it */
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
             z-index: 9999;
 
             width: 100%;
