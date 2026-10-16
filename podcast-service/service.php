@@ -1,4 +1,24 @@
+<?php
+$services = [
+    ['🎙', 'Podcast Recording', 'Professional recording support for creators, founders, experts and branded podcast episodes.'],
+    ['🎥', 'Multi-Camera Video Production', 'Dynamic camera angles, smooth framing and engaging video podcast production setup.'],
+    ['🎧', 'Professional Audio Recording', 'Clean sound recording with professional microphones and studio-grade audio setup.'],
+    ['💡', 'Studio Lighting Setup', 'Controlled lighting environment to make every podcast visually polished and premium.'],
+    ['✂', 'Podcast Editing', 'Raw recordings are polished into clean, professional and publish-ready podcast content.'],
+    ['🔊', 'Audio Enhancement', 'Noise management, sound balancing and audio cleanup for crystal-clear conversations.'],
+    ['🎨', 'Color Grading', 'Professional visual enhancement to improve tone, consistency and final video quality.'],
+    ['💬', 'Subtitle Creation', 'Readable subtitles that make your podcast clips more accessible and social-friendly.'],
+    ['🖼', 'Thumbnail Design', 'Creative thumbnails designed to improve clicks, visibility and content presentation.'],
+    ['⭐', 'Highlight Videos', 'Important moments from your episode are turned into engaging highlight content.'],
+    ['📱', 'Short Reels Creation', 'Podcast clips are converted into short-form reels for Instagram, YouTube and LinkedIn.'],
+    ['🚀', 'Platform-Ready Delivery', 'Final files are delivered ready to publish across the platforms you want to target.'],
+];
+?>
 <section class="ms-complete-service-section">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
     <style>
         .ms-complete-service-section,
         .ms-complete-service-section * {
@@ -11,7 +31,7 @@
             --dark: #17142b;
             --text: #4f4f5d;
             font-family: Arial, sans-serif;
-            padding: 20px 20px 25px;
+            padding: 20px 20px 35px;
             background: #ffffff;
             overflow: hidden;
         }
@@ -75,11 +95,12 @@
             text-align: center;
         }
 
+        /* Slider: extra bottom padding + softer shadow so the shadow is not hard-clipped into a grey band */
         .ms-service-slider {
             width: 100%;
             overflow: hidden;
             position: relative;
-            padding: 8px 0 12px;
+            padding: 8px 0 34px;
         }
 
         .ms-service-slider::before,
@@ -105,6 +126,7 @@
 
         .ms-service-track {
             display: flex;
+            align-items: stretch;
             gap: 22px;
             width: max-content;
             animation: msServiceSlide 38s linear infinite;
@@ -120,13 +142,11 @@
             flex: 0 0 auto;
             padding: 24px 20px;
             border-radius: 26px;
-            background: rgba(255, 255, 255, .68);
+            background: rgba(255, 255, 255, .85);
             border: 1px solid rgba(255, 255, 255, .92);
-            backdrop-filter: blur(24px) saturate(150%);
-            -webkit-backdrop-filter: blur(24px) saturate(150%);
             box-shadow:
                 inset 0 1px 1px rgba(255, 255, 255, .95),
-                0 18px 45px rgba(23, 20, 43, .08);
+                0 10px 26px rgba(23, 20, 43, .06);
             position: relative;
             overflow: hidden;
             transition: .35s ease;
@@ -164,7 +184,7 @@
         }
 
         .ms-service-card:hover {
-            transform: translateY(-8px);
+            transform: translateY(-6px);
         }
 
         .ms-service-icon {
@@ -201,6 +221,38 @@
             position: relative;
             z-index: 2;
             text-align: justify;
+        }
+
+        /* Bottom highlight bar (missing before) */
+        .ms-complete-bar {
+            max-width: 1140px;
+            margin: 6px auto 0;
+            padding: 22px 26px;
+            display: grid;
+            grid-template-columns: .85fr 1.6fr;
+            gap: 40px;
+            align-items: center;
+            border-left: 4px solid var(--purple);
+            border-radius: 16px;
+            background: linear-gradient(90deg, #f0ecf9 0%, #eef6f7 100%);
+            box-shadow: 0 8px 22px rgba(23, 20, 43, .12);
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+
+        .ms-complete-bar h3 {
+            margin: 0;
+            font-size: 20px;
+            line-height: 1.3;
+            font-weight: 600;
+            color: #000;
+        }
+
+        .ms-complete-bar p {
+            margin: 0;
+            font-size: 15.5px;
+            line-height: 1.7;
+            font-weight: 400;
+            color: #222;
         }
 
         @keyframes msServiceSlide {
@@ -260,7 +312,7 @@
 
         @media(max-width:991px) {
             .ms-complete-service-section {
-                padding: 15px 18px 20px;
+                padding: 15px 18px 25px;
             }
 
             .ms-complete-title {
@@ -274,11 +326,15 @@
             .ms-service-card {
                 width: 270px;
             }
+
+            .ms-complete-bar {
+                gap: 24px;
+            }
         }
 
         @media(max-width:767px) {
             .ms-complete-service-section {
-                padding: 10px 15px 15px;
+                padding: 10px 15px 20px;
             }
 
             .ms-complete-head {
@@ -303,6 +359,20 @@
                 width: 255px;
                 min-height: 240px;
             }
+
+            .ms-complete-bar {
+                grid-template-columns: 1fr;
+                gap: 10px;
+                padding: 18px 18px;
+            }
+
+            .ms-complete-bar h3 {
+                font-size: 18px;
+            }
+
+            .ms-complete-bar p {
+                font-size: 14.5px;
+            }
         }
     </style>
 
@@ -321,100 +391,21 @@
 
         <div class="ms-service-slider">
             <div class="ms-service-track" id="msServiceTrack">
-
-                <div class="ms-service-card">
-                    <div class="ms-service-icon">🎙</div>
-                    <h3>Podcast Recording</h3>
-                    <p>Professional recording support for creators, founders, experts and branded podcast episodes.</p>
-                </div>
-                <div class="ms-service-card">
-                    <div class="ms-service-icon">🎥</div>
-                    <h3>Multi-Camera Video Production</h3>
-                    <p>Dynamic camera angles, smooth framing and engaging video podcast production setup.</p>
-                </div>
-                <div class="ms-service-card">
-                    <div class="ms-service-icon">🎧</div>
-                    <h3>Professional Audio Recording</h3>
-                    <p>Clean sound recording with professional microphones and studio-grade audio setup.</p>
-                </div>
-                <div class="ms-service-card">
-                    <div class="ms-service-icon">💡</div>
-                    <h3>Studio Lighting Setup</h3>
-                    <p>Controlled lighting environment to make every podcast visually polished and premium.</p>
-                </div>
-                <div class="ms-service-card">
-                    <div class="ms-service-icon">✂</div>
-                    <h3>Podcast Editing</h3>
-                    <p>Raw recordings are polished into clean, professional and publish-ready podcast content.</p>
-                </div>
-                <div class="ms-service-card">
-                    <div class="ms-service-icon">🔊</div>
-                    <h3>Audio Enhancement</h3>
-                    <p>Noise management, sound balancing and audio cleanup for crystal-clear conversations.</p>
-                </div>
-                <div class="ms-service-card">
-                    <div class="ms-service-icon">🎨</div>
-                    <h3>Color Grading</h3>
-                    <p>Professional visual enhancement to improve tone, consistency and final video quality.</p>
-                </div>
-                <div class="ms-service-card">
-                    <div class="ms-service-icon">💬</div>
-                    <h3>Subtitle Creation</h3>
-                    <p>Readable subtitles that make your podcast clips more accessible and social-friendly.</p>
-                </div>
-                <div class="ms-service-card">
-                    <div class="ms-service-icon">🖼</div>
-                    <h3>Thumbnail Design</h3>
-                    <p>Creative thumbnails designed to improve clicks, visibility and content presentation.</p>
-                </div>
-                <div class="ms-service-card">
-                    <div class="ms-service-icon">⭐</div>
-                    <h3>Highlight Videos</h3>
-                    <p>Important moments from your episode are turned into engaging highlight content.</p>
-                </div>
-                <div class="ms-service-card">
-                    <div class="ms-service-icon">📱</div>
-                    <h3>Short Reels Creation</h3>
-                    <p>Podcast clips are converted into short-form reels for Instagram, YouTube and LinkedIn.</p>
-                </div>
-                <div class="ms-service-card">
-                    <div class="ms-service-icon">🚀</div>
-                    <h3>Platform-Ready Delivery</h3>
-                    <p>Final files are delivered ready to publish across the platforms you want to target.</p>
-                </div>
-
-                <div class="ms-service-card">
-                    <div class="ms-service-icon">🎙</div>
-                    <h3>Podcast Recording</h3>
-                    <p>Professional recording support for creators, founders, experts and branded podcast episodes.</p>
-                </div>
-                <div class="ms-service-card">
-                    <div class="ms-service-icon">🎥</div>
-                    <h3>Multi-Camera Video Production</h3>
-                    <p>Dynamic camera angles, smooth framing and engaging video podcast production setup.</p>
-                </div>
-                <div class="ms-service-card">
-                    <div class="ms-service-icon">🎧</div>
-                    <h3>Professional Audio Recording</h3>
-                    <p>Clean sound recording with professional microphones and studio-grade audio setup.</p>
-                </div>
-                <div class="ms-service-card">
-                    <div class="ms-service-icon">💡</div>
-                    <h3>Studio Lighting Setup</h3>
-                    <p>Controlled lighting environment to make every podcast visually polished and premium.</p>
-                </div>
-                <div class="ms-service-card">
-                    <div class="ms-service-icon">✂</div>
-                    <h3>Podcast Editing</h3>
-                    <p>Raw recordings are polished into clean, professional and publish-ready podcast content.</p>
-                </div>
-                <div class="ms-service-card">
-                    <div class="ms-service-icon">🔊</div>
-                    <h3>Audio Enhancement</h3>
-                    <p>Noise management, sound balancing and audio cleanup for crystal-clear conversations.</p>
-                </div>
-
+                <?php for ($loop = 0; $loop < 2; $loop++) : ?>
+                    <?php foreach ($services as $s) : ?>
+                        <div class="ms-service-card">
+                            <div class="ms-service-icon"><?php echo $s[0]; ?></div>
+                            <h3><?php echo htmlspecialchars($s[1]); ?></h3>
+                            <p><?php echo htmlspecialchars($s[2]); ?></p>
+                        </div>
+                    <?php endforeach; ?>
+                <?php endfor; ?>
             </div>
+        </div>
+
+        <div class="ms-complete-bar">
+            <h3>Complete production. One studio. One team.</h3>
+            <p>This all-in-one solution helps creators and businesses save time while ensuring professional production quality for every episode.</p>
         </div>
     </div>
 
@@ -423,9 +414,7 @@
             var track = document.getElementById("msServiceTrack");
             if (!track) return;
 
-            var cards = track.querySelectorAll(".ms-service-card");
-
-            cards.forEach(function(card) {
+            track.querySelectorAll(".ms-service-card").forEach(function(card) {
                 card.addEventListener("click", function() {
                     track.classList.toggle("ms-service-paused");
                 });

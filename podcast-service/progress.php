@@ -87,13 +87,13 @@
             z-index: 1;
         }
 
-        .ms-step-card {
+        .ms-proc-card {
             position: relative;
             z-index: 2;
             padding-top: 0;
         }
 
-        .ms-step-circle {
+        .ms-proc-circle {
             width: 72px;
             height: 72px;
             margin: 0 auto 18px;
@@ -111,7 +111,7 @@
             position: relative;
         }
 
-        .ms-step-circle span {
+        .ms-proc-circle span {
             width: 44px;
             height: 44px;
             border-radius: 50%;
@@ -125,7 +125,7 @@
             animation: msNumberFloat 3s ease-in-out infinite;
         }
 
-        .ms-step-content {
+        .ms-proc-content {
             min-height: 185px;
             padding: 24px 20px;
             border-radius: 26px;
@@ -141,7 +141,7 @@
             transition: .35s ease;
         }
 
-        .ms-step-content:before {
+        .ms-proc-content:before {
             content: "";
             position: absolute;
             top: -90%;
@@ -154,14 +154,14 @@
             pointer-events: none;
         }
 
-        .ms-step-content:hover {
+        .ms-proc-content:hover {
             transform: translateY(-7px);
             box-shadow:
                 inset 0 1px 1px rgba(255, 255, 255, .95),
                 0 24px 58px rgba(23, 20, 43, .11);
         }
 
-        .ms-step-content h3 {
+        .ms-proc-content h3 {
             margin: 0 0 10px;
             font-size: 18px;
             line-height: 1.3;
@@ -172,7 +172,7 @@
             text-align: center;
         }
 
-        .ms-step-content p {
+        .ms-proc-content p {
             margin: 0;
             font-size: 14px;
             line-height: 1.65;
@@ -257,7 +257,7 @@
                 display: none;
             }
 
-            .ms-step-content {
+            .ms-proc-content {
                 min-height: 165px;
                 padding: 20px 16px;
             }
@@ -286,24 +286,24 @@
                 display: none;
             }
 
-            .ms-step-card {
+            .ms-proc-card {
                 display: grid;
                 grid-template-columns: 72px 1fr;
                 gap: 14px;
                 align-items: center;
             }
 
-            .ms-step-circle {
+            .ms-proc-circle {
                 margin: 0;
             }
 
-            .ms-step-content {
+            .ms-proc-content {
                 min-height: auto;
                 padding: 20px 18px;
             }
 
-            .ms-step-content h3,
-            .ms-step-content p {
+            .ms-proc-content h3,
+            .ms-proc-content p {
                 text-align: left;
             }
         }
@@ -320,49 +320,49 @@
 
         <div class="ms-timeline">
 
-            <div class="ms-step-card">
-                <div class="ms-step-circle"><span>1</span></div>
-                <div class="ms-step-content">
+            <div class="ms-proc-card">
+                <div class="ms-proc-circle"><span>1</span></div>
+                <div class="ms-proc-content">
                     <h3>Consultation</h3>
                     <p>Knowing what you want, who you are working for and what type of content you are looking for.</p>
                 </div>
             </div>
 
-            <div class="ms-step-card">
-                <div class="ms-step-circle"><span>2</span></div>
-                <div class="ms-step-content">
+            <div class="ms-proc-card">
+                <div class="ms-proc-circle"><span>2</span></div>
+                <div class="ms-proc-content">
                     <h3>Planning</h3>
                     <p>Setting up the recordings and production process.</p>
                 </div>
             </div>
 
-            <div class="ms-step-card">
-                <div class="ms-step-circle"><span>3</span></div>
-                <div class="ms-step-content">
+            <div class="ms-proc-card">
+                <div class="ms-proc-circle"><span>3</span></div>
+                <div class="ms-proc-content">
                     <h3>Studio Recording</h3>
                     <p>Professional recording session with technical assistance.</p>
                 </div>
             </div>
 
-            <div class="ms-step-card">
-                <div class="ms-step-circle"><span>4</span></div>
-                <div class="ms-step-content">
+            <div class="ms-proc-card">
+                <div class="ms-proc-circle"><span>4</span></div>
+                <div class="ms-proc-content">
                     <h3>Editing</h3>
                     <p>Post production of Audio and Video.</p>
                 </div>
             </div>
 
-            <div class="ms-step-card">
-                <div class="ms-step-circle"><span>5</span></div>
-                <div class="ms-step-content">
+            <div class="ms-proc-card">
+                <div class="ms-proc-circle"><span>5</span></div>
+                <div class="ms-proc-content">
                     <h3>Content Creation</h3>
                     <p>Reels, highlights, thumbnails and more.</p>
                 </div>
             </div>
 
-            <div class="ms-step-card">
-                <div class="ms-step-circle"><span>6</span></div>
-                <div class="ms-step-content">
+            <div class="ms-proc-card">
+                <div class="ms-proc-circle"><span>6</span></div>
+                <div class="ms-proc-content">
                     <h3>Final Delivery</h3>
                     <p>Ready-to-publish podcast content.</p>
                 </div>

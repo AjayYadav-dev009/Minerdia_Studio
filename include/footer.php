@@ -151,11 +151,92 @@
             box-shadow: 0 12px 28px rgba(90, 46, 166, .18) !important;
         }
 
+        /* Static newsletter form (replaces the WordPress Fluent Form shortcode) */
+        .ms-news-form-static {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .ms-news-label {
+            font-size: 14px;
+            color: var(--text);
+            margin-bottom: 8px;
+        }
+
+        .ms-news-label span {
+            color: #e03131;
+        }
+
+        .ms-news-form-static input {
+            width: 100%;
+            padding: 0 18px;
+            margin-bottom: 20px;
+            outline: none;
+            font-family: inherit;
+            color: var(--text);
+        }
+
+        .ms-news-form-static button {
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 15px;
+            transition: .3s ease;
+        }
+
+        .ms-news-form-static button:hover {
+            transform: translateY(-2px);
+        }
+
         .ms-social {
             display: flex;
             gap: 10px;
             flex-wrap: wrap;
             align-items: center;
+        }
+
+        /* Black copyright bar */
+        .ms-copyright {
+            width: 100%;
+            background: #000;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            padding: 12px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px 20px;
+            font-size: 15px;
+            font-weight: 700;
+        }
+
+        .ms-copyright .ms-brand {
+            color: var(--teal, #2FA8A1);
+        }
+
+        .ms-copyright-links {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .ms-copyright-links a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .ms-copyright-links a:hover {
+            color: #2FA8A1;
+        }
+
+        @media(max-width:767px) {
+            .ms-copyright {
+                justify-content: center;
+                text-align: center;
+                font-size: 13px;
+                padding: 12px;
+            }
         }
 
         .ms-social a {
@@ -404,12 +485,14 @@
                 Subscribe to our newsletter and get updates about creative content, marketing trends and business growth strategies.
             </p>
 
-            <div class="ms-news-form">
-                [fluentform id="4"]
-            </div>
+            <form class="ms-news-form ms-news-form-static" action="subscribe.php" method="post">
+                <label for="ms-news-email" class="ms-news-label">Email <span>*</span></label>
+                <input type="email" id="ms-news-email" name="email" placeholder="Email Address" required>
+                <button type="submit">Submit Form</button>
+            </form>
 
             <div class="ms-social">
-                <a class="ms-facebook" href="https://www.facebook.com/share/1DuRJ3KHHW/?mibextid=wwXIfr" target="po_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a class="ms-facebook" href="https://www.facebook.com/share/1DuRJ3KHHW/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
                 <a class="ms-pinterest" href="https://in.pinterest.com/minerdiastudio/" target="_blank" rel="noopener" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
                 <a class="ms-instagram" href="https://www.instagram.com/minerdiastudio/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                 <a class="ms-linkedin" href="https://www.linkedin.com/company/minerdia-studio/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
@@ -421,6 +504,15 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </footer>
+
+<div class="ms-copyright">
+    <div>Copyright @<?php echo date('Y'); ?> <span class="ms-brand">Minerdia Studio</span> | All Right Reserved</div>
+    <div class="ms-copyright-links">
+        <a href="terms-and-conditions.php">Terms &amp; Conditions</a>
+        <span>|</span>
+        <a href="privacy-policy.php">Privacy Policy</a>
+    </div>
+</div>
 
 </body>
 
