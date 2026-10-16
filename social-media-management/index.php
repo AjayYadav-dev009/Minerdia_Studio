@@ -3,6 +3,12 @@
 <main style="overflow: hidden;">
 
     <?php require __DIR__ . '/hero.php'; ?>
+    <?php require __DIR__ . '/about.php'; ?>
+    <?php require __DIR__ . '/features.php'; ?>
+    <?php require __DIR__ . '/platform.php'; ?>
+    <?php require __DIR__ . '/offer.php'; ?>
+    <?php require __DIR__ . '/ugc.php'; ?>
+    <?php require __DIR__ . '/influancer.php'; ?>
     <?php require __DIR__ . '/portfolio.php'; ?>
     
 </main>
