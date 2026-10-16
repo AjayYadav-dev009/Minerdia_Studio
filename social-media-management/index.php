@@ -9,6 +9,9 @@
     <?php require __DIR__ . '/offer.php'; ?>
     <?php require __DIR__ . '/ugc.php'; ?>
     <?php require __DIR__ . '/influancer.php'; ?>
+    <?php require __DIR__ . '/post.php'; ?>
     <?php require __DIR__ . '/portfolio.php'; ?>
+    <?php require __DIR__ . '/features-form.php'; ?>
+    <?php require __DIR__ . '/faqs.php'; ?>
     
 </main>
