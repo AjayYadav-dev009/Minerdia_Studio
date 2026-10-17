@@ -5,10 +5,11 @@ $paragraphs = [
     'In the end what we want to do is simple. We want to make a website that helps your business do well online and get results.',
 ];
 
+// third value: show the dotted pattern in the bottom-left corner of the card
 $cards = [
-    ['Custom Website', 'We make websites that\'re just for you and your business. Every website we build is made to fit your business needs. This differentiates your business. Helps you stand out on the internet.'],
-    ['Responsive Design', 'Our websites work well on your phone, tablet and computer. This means that no matter what device people are using, they can easily use your website.'],
-    ['Clean & Optimized', 'Our websites are easy to find on search engines like Google, load quickly, and use clean code to improve performance and rankings, ensuring your website reaches people searching for your business.'],
+    ['Custom Website', 'We make websites that\'re just for you and your business. Every website we build is made to fit your business needs. This differentiates your business. Helps you stand out on the internet.', true],
+    ['Responsive Design', 'Our websites work well on your phone, tablet and computer. This means that no matter what device people are using, they can easily use your website.', false],
+    ['Clean & Optimized', 'Our websites are easy to find on search engines like Google, load quickly, and use clean code to improve performance and rankings, ensuring your website reaches people searching for your business.', true],
 ];
 ?>
 <section class="ms-wdfeat">
@@ -25,7 +26,7 @@ $cards = [
         .ms-wdfeat {
             --purple: #5A2EA6;
             width: 100%;
-            padding: 40px 20px 50px;
+            padding: 60px 20px 70px;
             background: #fff;
             font-family: 'Poppins', Arial, sans-serif;
         }
@@ -38,36 +39,40 @@ $cards = [
         /* ---------- Top: text + image ---------- */
         .ms-wdfeat-top {
             display: grid;
-            grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
-            gap: 30px;
-            align-items: start;
+            grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+            gap: 40px;
+            align-items: center;
         }
 
         .ms-wdfeat-label {
             display: block;
-            margin: 0 0 6px;
+            margin: 0 0 8px;
             font-family: 'Lato', Arial, sans-serif;
-            font-size: 13px;
+            font-size: 18px;
             font-weight: 400;
             text-transform: uppercase;
             color: var(--purple);
         }
 
         .ms-wdfeat-title {
-            margin: 0 0 14px;
-            max-width: 300px;
-            font-size: 24px;
-            line-height: 1.35;
+            margin: 0 0 18px;
+            max-width: 480px;
+            font-size: 34px;
+            line-height: 1.25;
             font-weight: 600;
             color: #000;
         }
 
         .ms-wdfeat-text p {
-            margin: 0;
-            font-size: 11.5px;
-            line-height: 1.55;
+            margin: 0 0 10px;
+            font-size: 15px;
+            line-height: 1.7;
             font-weight: 400;
-            color: #111;
+            color: #222;
+        }
+
+        .ms-wdfeat-text p:last-child {
+            margin-bottom: 0;
         }
 
         .ms-wdfeat-text strong {
@@ -75,57 +80,47 @@ $cards = [
         }
 
         .ms-wdfeat-img {
-            border-radius: 28px;
+            border-radius: 36px;
             overflow: hidden;
-            border: 2px solid #fff;
-            box-shadow: 0 8px 24px rgba(90, 46, 166, .22), 0 0 0 1px rgba(90, 46, 166, .12);
+            border: 3px solid #fff;
+            box-shadow: 0 10px 30px rgba(90, 46, 166, .25), 0 0 0 1px rgba(90, 46, 166, .15);
+            transition: transform .3s ease;
+        }
+
+        .ms-wdfeat-img:hover {
+            transform: translateY(-8px); /* same "float" hover as Elementor */
         }
 
         .ms-wdfeat-img img {
             display: block;
             width: 100%;
-            aspect-ratio: 16 / 10;
-            object-fit: cover;
+            height: auto;
         }
 
         /* ---------- Bottom: 3 cards ---------- */
         .ms-wdfeat-cards {
             display: grid;
             grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 26px;
-            margin-top: 22px;
+            gap: 30px;
+            margin-top: 50px;
         }
 
         .ms-wdfeat-card {
             position: relative;
-            padding: 26px 22px 28px 26px;
-            border-radius: 4px;
+            padding: 34px 30px 38px;
+            border-radius: 6px;
             background: #fff;
-            box-shadow: 0 10px 34px rgba(0, 0, 0, .12);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, .12);
             transition: .3s ease;
         }
 
         .ms-wdfeat-card:hover {
-            transform: translateY(-5px);
-        }
-
-        /* dotted corner decoration (bottom-left) */
-        .ms-wdfeat-card::after {
-            content: "";
-            position: absolute;
-            left: -2px;
-            bottom: -2px;
-            width: 34px;
-            height: 34px;
-            background-image: radial-gradient(var(--purple) 1px, transparent 1.4px);
-            background-size: 5px 5px;
-            opacity: .55;
-            pointer-events: none;
+            transform: translateY(-6px);
         }
 
         .ms-wdfeat-card h3 {
-            margin: 0 0 8px;
-            font-size: 17px;
+            margin: 0 0 12px;
+            font-size: 24px;
             line-height: 1.3;
             font-weight: 400;
             color: var(--purple);
@@ -133,44 +128,65 @@ $cards = [
 
         .ms-wdfeat-card p {
             margin: 0;
-            font-size: 11.5px;
-            line-height: 1.65;
+            font-size: 15px;
+            line-height: 1.7;
             font-weight: 400;
-            color: #111;
+            color: #222;
+        }
+
+        /* dotted pattern image, bottom-left corner of the card */
+        .ms-wdfeat-dots {
+            position: absolute;
+            left: -14px;
+            bottom: -14px;
+            width: 64px;
+            height: 64px;
+            pointer-events: none;
         }
 
         /* ---------- Responsive ---------- */
         @media (max-width: 991px) {
             .ms-wdfeat-top {
                 grid-template-columns: 1fr;
+                gap: 30px;
             }
 
             .ms-wdfeat-title {
                 max-width: none;
+                font-size: 30px;
             }
 
             .ms-wdfeat-cards {
                 grid-template-columns: 1fr;
-                gap: 20px;
+                gap: 24px;
+                margin-top: 40px;
             }
         }
 
         @media (max-width: 575px) {
             .ms-wdfeat {
-                padding: 30px 14px 40px;
+                padding: 35px 16px 45px;
+            }
+
+            .ms-wdfeat-label,
+            .ms-wdfeat-title {
+                text-align: center;
+            }
+
+            .ms-wdfeat-label {
+                font-size: 16px;
             }
 
             .ms-wdfeat-title {
-                font-size: 21px;
+                font-size: 26px;
             }
 
-            .ms-wdfeat-text p,
-            .ms-wdfeat-card p {
-                font-size: 13px;
+            .ms-wdfeat-card {
+                padding: 28px 22px 32px;
             }
 
             .ms-wdfeat-card h3 {
-                font-size: 18px;
+                font-size: 21px;
             }
         }
     </style>
@@ -187,7 +203,7 @@ $cards = [
             </div>
 
             <div class="ms-wdfeat-img">
-                <img src="images/web-development.jpg" alt="Website development" loading="lazy">
+                <img src="https://minerdiastudio.com/wp-content/uploads/2026/06/website-devlopment-Your-Website-Needs-1.png" alt="Website Development Services" width="1536" height="1024" loading="lazy">
             </div>
         </div>
 
@@ -196,6 +212,9 @@ $cards = [
                 <div class="ms-wdfeat-card">
                     <h3><?php echo htmlspecialchars($card[0]); ?></h3>
                     <p><?php echo htmlspecialchars($card[1]); ?></p>
+                    <?php if ($card[2]) : ?>
+                        <img class="ms-wdfeat-dots" src="https://minerdiastudio.com/wp-content/uploads/2026/04/doted.png" alt="" width="64" height="64" loading="lazy">
+                    <?php endif; ?>
                 </div>
             <?php endforeach; ?>
         </div>

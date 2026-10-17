@@ -1,20 +1,32 @@
 <?php
 $intro = 'Our website development process is very simple to follow, it\'s all about getting results. We begin by determining what you need and planning how your website will be configured. Then we create a design for your website that is modern and user-friendly. This design will show what your brand is about. When you are happy with the design our team will start building your website using the tools. We check your website to make sure it is fast and works well on all devices. When we are sure everything is working perfectly we make your website available to everyone. At our website development agency we want to make sure you are happy with your website, for a time. So we keep helping you with your website even after it\'s live to make sure it keeps working well.';
 
+// Icons taken from the live site (same SVGs as the Elementor icon boxes)
+$icon_search = <<<'SVG'
+<svg viewBox="0 0 38 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M4.72 8.16h8.16v1.12h-8.16v-1.12zM4.72 10.56h5.84v1.12h-5.84v-1.12zM4.72 14.080h8.16v1.12h-8.16v-1.12zM4.72 16.4h5.84v1.12h-5.84v-1.12zM4.72 19.92h8.16v1.12h-8.16v-1.12zM4.72 22.24h4.72v1.12h-4.72v-1.12zM36.8 28.24l-6.24-6.24-1.12 1.2-2.48-2.48c1.12-1.36 1.84-3.040 1.84-4.96 0-3.84-2.88-7.040-6.64-7.52v-8.24h-17.12l-5.040 4.96v26.56h22.16v-6.48h-1.12v5.36h-20v-24.64h4.72v-4.64h15.28v7.040c-4.080 0.080-7.44 3.44-7.44 7.6s3.36 7.6 7.6 7.6c1.92 0 3.6-0.72 4.96-1.84l2.48 2.48-1.2 1.2 6.24 6.24c0.4 0.4 0.96 0.64 1.52 0.64s1.12-0.24 1.52-0.64c0.96-0.96 0.96-2.32 0.080-3.2zM4.72 4.72h-2.88l2.8-2.88v2.88zM21.2 22.24c-3.6 0-6.48-2.88-6.48-6.48s2.88-6.48 6.48-6.48 6.48 2.88 6.48 6.48-2.88 6.48-6.48 6.48zM36.080 30.56c-0.24 0.24-0.48 0.32-0.8 0.32s-0.56-0.080-0.8-0.32l-5.44-5.44 1.6-1.6 5.44 5.44c0.4 0.48 0.4 1.2 0 1.6zM21.36 12.88c-0.080 0-0.080 0-0.16 0s-0.080 0-0.16 0c-2.72 0.080-4.88 2.4-4.96 2.56l0.8 0.72c0 0 0.64-0.64 1.52-1.28-0.080 0.24-0.16 0.56-0.16 0.88 0 1.6 1.28 2.88 2.88 2.88s2.88-1.28 2.88-2.88c0-0.32-0.080-0.64-0.16-0.88 0.88 0.56 1.52 1.2 1.52 1.28l0.8-0.72c0.080-0.16-2.080-2.48-4.8-2.56zM21.2 17.52c-0.96 0-1.76-0.8-1.76-1.76s0.72-1.76 1.68-1.76c0 0 0.080 0 0.080 0s0.080 0 0.080 0c0.96 0.080 1.68 0.8 1.68 1.76 0.080 0.96-0.72 1.76-1.76 1.76z"></path></svg>
+SVG;
+
+$icon_curve = <<<'SVG'
+<svg viewBox="0 0 640 512" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M368 32h-96c-17.67 0-32 14.33-32 32v96c0 17.67 14.33 32 32 32h96c17.67 0 32-14.33 32-32V64c0-17.67-14.33-32-32-32zM208 88h-84.75C113.75 64.56 90.84 48 64 48 28.66 48 0 76.65 0 112s28.66 64 64 64c26.84 0 49.75-16.56 59.25-40h79.73c-55.37 32.52-95.86 87.32-109.54 152h49.4c11.3-41.61 36.77-77.21 71.04-101.56-3.7-8.08-5.88-16.99-5.88-26.44V88zm-48 232H64c-17.67 0-32 14.33-32 32v96c0 17.67 14.33 32 32 32h96c17.67 0 32-14.33 32-32v-96c0-17.67-14.33-32-32-32zM576 48c-26.84 0-49.75 16.56-59.25 40H432v72c0 9.45-2.19 18.36-5.88 26.44 34.27 24.35 59.74 59.95 71.04 101.56h49.4c-13.68-64.68-54.17-119.48-109.54-152h79.73c9.5 23.44 32.41 40 59.25 40 35.34 0 64-28.65 64-64s-28.66-64-64-64zm0 272h-96c-17.67 0-32 14.33-32 32v96c0 17.67 14.33 32 32 32h96c17.67 0 32-14.33 32-32v-96c0-17.67-14.33-32-32-32z"></path></svg>
+SVG;
+
+$icon_gear = <<<'SVG'
+<svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M20.553 23.446c-0.336-0.202-0.682-0.405-1.027-0.605 0.081-0.692 0.081-1.392 0-2.082 0.347-0.2 0.692-0.403 1.027-0.604 0.564-0.339 0.799-1.053 0.547-1.663 0 0 0 0-0-0l-0.736-1.776c-0.252-0.609-0.924-0.948-1.562-0.789-0.379 0.094-0.767 0.195-1.153 0.299-0.431-0.546-0.926-1.041-1.473-1.472 0.104-0.386 0.204-0.774 0.299-1.154 0.159-0.638-0.18-1.31-0.789-1.562l-1.776-0.736c-0.609-0.252-1.324-0.018-1.663 0.546-0.202 0.336-0.405 0.681-0.605 1.027-0.692-0.081-1.391-0.081-2.082-0-0.2-0.347-0.403-0.692-0.604-1.027-0.339-0.564-1.054-0.799-1.663-0.546l-1.776 0.736c-0.609 0.252-0.948 0.924-0.789 1.562 0.095 0.38 0.195 0.768 0.298 1.153-0.546 0.431-1.041 0.926-1.472 1.473-0.387-0.104-0.775-0.204-1.154-0.299-0.638-0.159-1.31 0.18-1.562 0.789l-0.736 1.776c-0.252 0.609-0.017 1.324 0.546 1.663 0.336 0.202 0.681 0.405 1.027 0.605-0.081 0.692-0.081 1.391-0 2.082-0.346 0.2-0.691 0.403-1.027 0.605-0.564 0.339-0.799 1.054-0.546 1.663l0.736 1.776c0.252 0.609 0.923 0.948 1.562 0.789 0.379-0.094 0.767-0.195 1.153-0.299 0.431 0.546 0.926 1.040 1.473 1.472-0.104 0.387-0.204 0.775-0.299 1.154-0.159 0.638 0.18 1.31 0.789 1.562l1.776 0.736c0.165 0.068 0.338 0.101 0.509 0.101 0.46 0 0.907-0.236 1.154-0.647 0.2-0.333 0.403-0.678 0.605-1.027 0.692 0.081 1.392 0.081 2.082 0 0.199 0.345 0.402 0.69 0.604 1.027 0.339 0.564 1.054 0.799 1.663 0.546l1.776-0.736c0.609-0.252 0.948-0.924 0.789-1.562-0.094-0.377-0.194-0.765-0.299-1.153 0.546-0.431 1.041-0.926 1.472-1.473 0.386 0.104 0.774 0.204 1.154 0.299 0.638 0.159 1.31-0.18 1.562-0.789l0.736-1.776c0.252-0.609 0.017-1.324-0.546-1.663zM19.070 26.265c-0.365-0.091-0.737-0.188-1.106-0.288-0.523-0.141-1.076 0.043-1.407 0.469-0.381 0.489-0.822 0.93-1.31 1.311-0.425 0.331-0.609 0.884-0.468 1.407 0.1 0.372 0.197 0.744 0.288 1.106l-1.633 0.676c-0.194-0.324-0.389-0.655-0.579-0.985-0.27-0.47-0.791-0.73-1.326-0.664-0.614 0.076-1.238 0.076-1.853-0-0.537-0.067-1.057 0.194-1.327 0.663-0.192 0.334-0.387 0.665-0.579 0.986l-1.633-0.676c0.091-0.364 0.188-0.736 0.288-1.106 0.141-0.523-0.043-1.076-0.469-1.407-0.489-0.381-0.93-0.822-1.311-1.31-0.331-0.426-0.883-0.609-1.407-0.468-0.37 0.1-0.742 0.196-1.106 0.288l-0.676-1.633c0.323-0.193 0.654-0.388 0.985-0.579 0.47-0.27 0.73-0.791 0.664-1.326-0.076-0.614-0.076-1.238 0-1.853 0.067-0.536-0.194-1.057-0.663-1.327-0.332-0.191-0.663-0.385-0.986-0.579l0.676-1.633c0.364 0.091 0.736 0.188 1.106 0.288 0.523 0.141 1.076-0.043 1.407-0.469 0.381-0.489 0.822-0.93 1.31-1.311 0.426-0.331 0.609-0.884 0.468-1.407-0.099-0.369-0.196-0.741-0.288-1.106l1.633-0.676c0.193 0.322 0.387 0.653 0.579 0.985 0.271 0.47 0.791 0.731 1.326 0.664 0.614-0.076 1.238-0.076 1.854 0 0.536 0.067 1.057-0.194 1.327-0.664 0.191-0.332 0.385-0.663 0.579-0.986l1.633 0.676c-0.091 0.365-0.188 0.736-0.288 1.106-0.141 0.523 0.043 1.076 0.469 1.407 0.489 0.381 0.93 0.822 1.311 1.31 0.331 0.425 0.883 0.609 1.407 0.468 0.37-0.1 0.742-0.196 1.106-0.288l0.676 1.633c-0.322 0.193-0.653 0.387-0.985 0.579-0.47 0.27-0.73 0.791-0.664 1.326 0.076 0.614 0.076 1.238-0 1.854-0.067 0.536 0.194 1.056 0.664 1.327 0.331 0.191 0.662 0.385 0.986 0.579l-0.676 1.633zM15.11 19.932c0 0 0 0-0-0-1.030-2.487-3.891-3.672-6.378-2.642s-3.672 3.891-2.642 6.378c0.499 1.205 1.437 2.143 2.642 2.642 0.602 0.249 1.235 0.374 1.868 0.374s1.266-0.125 1.868-0.374c2.487-1.030 3.672-3.891 2.642-6.378zM11.92 24.987c-0.851 0.353-1.789 0.352-2.64 0s-1.514-1.016-1.867-1.867c-0.728-1.757 0.11-3.779 1.867-4.507 0.43-0.178 0.876-0.263 1.315-0.263 1.354 0 2.642 0.802 3.191 2.129 0.728 1.757-0.11 3.779-1.867 4.507zM31.035 6.708c-0.247-0.037-0.501-0.073-0.757-0.107-0.129-0.429-0.301-0.844-0.513-1.239 0.157-0.205 0.311-0.41 0.46-0.611 0.331-0.448 0.283-1.082-0.111-1.476l-0.988-0.988c-0.394-0.394-1.029-0.442-1.477-0.111-0.202 0.15-0.407 0.304-0.611 0.46-0.395-0.212-0.81-0.385-1.239-0.513-0.034-0.256-0.070-0.51-0.107-0.757-0.082-0.55-0.565-0.966-1.123-0.966h-1.397c-0.558 0-1.040 0.415-1.123 0.965-0.037 0.247-0.073 0.501-0.107 0.757-0.429 0.129-0.844 0.301-1.239 0.513-0.204-0.156-0.409-0.31-0.611-0.46-0.448-0.331-1.082-0.283-1.477 0.111l-0.988 0.988c-0.394 0.394-0.442 1.029-0.111 1.477 0.149 0.201 0.303 0.407 0.46 0.611-0.212 0.395-0.384 0.81-0.513 1.239-0.256 0.034-0.51 0.070-0.757 0.107-0.55 0.082-0.966 0.565-0.966 1.123v1.397c0 0.558 0.415 1.040 0.965 1.123 0.247 0.037 0.501 0.073 0.757 0.107 0.129 0.429 0.301 0.844 0.513 1.239-0.156 0.204-0.311 0.409-0.46 0.611-0.331 0.447-0.283 1.082 0.111 1.476l0.988 0.988c0.394 0.394 1.029 0.442 1.477 0.111 0.202-0.149 0.407-0.304 0.611-0.46 0.395 0.212 0.81 0.384 1.239 0.513 0.034 0.256 0.070 0.51 0.107 0.757 0.082 0.55 0.565 0.965 1.123 0.965h1.397c0.558 0 1.040-0.415 1.123-0.966 0.037-0.247 0.073-0.501 0.107-0.757 0.429-0.129 0.844-0.301 1.239-0.513 0.204 0.156 0.409 0.31 0.611 0.46 0.447 0.331 1.082 0.283 1.477-0.111l0.988-0.988c0.394-0.394 0.442-1.029 0.111-1.477-0.149-0.202-0.303-0.407-0.46-0.611 0.212-0.395 0.384-0.81 0.513-1.239 0.256-0.034 0.51-0.070 0.757-0.107 0.55-0.082 0.966-0.565 0.966-1.123v-1.397c-0-0.558-0.415-1.040-0.965-1.123zM30.639 9.034c-0.224 0.033-0.454 0.064-0.683 0.094-0.455 0.059-0.827 0.382-0.948 0.822-0.116 0.421-0.285 0.828-0.501 1.208-0.226 0.397-0.191 0.888 0.089 1.252 0.141 0.183 0.281 0.368 0.417 0.55l-0.713 0.713c-0.183-0.136-0.367-0.276-0.55-0.417-0.363-0.28-0.855-0.314-1.252-0.089-0.38 0.216-0.787 0.385-1.208 0.501-0.44 0.121-0.763 0.493-0.822 0.948-0.030 0.23-0.061 0.459-0.094 0.683h-1.008c-0.033-0.225-0.064-0.454-0.094-0.683-0.059-0.455-0.382-0.827-0.822-0.948-0.421-0.116-0.827-0.284-1.208-0.501-0.397-0.226-0.889-0.191-1.252 0.089-0.183 0.141-0.367 0.28-0.55 0.417l-0.713-0.713c0.136-0.182 0.276-0.367 0.417-0.55 0.279-0.363 0.314-0.855 0.089-1.252-0.216-0.38-0.384-0.787-0.501-1.208-0.121-0.44-0.493-0.763-0.948-0.822-0.23-0.030-0.459-0.062-0.683-0.094v-1.008c0.224-0.033 0.454-0.064 0.683-0.094 0.455-0.059 0.827-0.382 0.948-0.822 0.116-0.421 0.284-0.828 0.501-1.208 0.226-0.397 0.191-0.888-0.089-1.252-0.141-0.184-0.281-0.368-0.417-0.55l0.713-0.713c0.183 0.136 0.367 0.276 0.55 0.417 0.363 0.28 0.855 0.315 1.252 0.089 0.38-0.216 0.787-0.385 1.208-0.501 0.44-0.121 0.763-0.493 0.822-0.948 0.030-0.23 0.062-0.459 0.094-0.683h1.008c0.033 0.224 0.064 0.454 0.094 0.683 0.059 0.455 0.382 0.827 0.822 0.948 0.421 0.116 0.828 0.285 1.208 0.501 0.397 0.226 0.889 0.191 1.252-0.089 0.183-0.141 0.367-0.28 0.55-0.417l0.713 0.713c-0.136 0.182-0.276 0.367-0.417 0.55-0.279 0.363-0.314 0.855-0.089 1.252 0.216 0.38 0.384 0.787 0.501 1.208 0.121 0.44 0.493 0.763 0.948 0.822 0.23 0.030 0.459 0.062 0.683 0.094v1.008zM23.87 5.63c-1.599 0-2.9 1.301-2.9 2.9s1.301 2.9 2.9 2.9 2.9-1.301 2.9-2.9c0-1.599-1.301-2.9-2.9-2.9zM23.87 10.141c-0.888 0-1.611-0.723-1.611-1.611s0.723-1.611 1.611-1.611c0.888 0 1.611 0.723 1.611 1.611s-0.723 1.611-1.611 1.611z"></path></svg>
+SVG;
+
 $cards = [
-    ['fa-solid fa-briefcase', 'Business Website Development', 'We help companies make a business website to get customers and be seen online. Business website development is what we do to make this happen for our clients. Our goal with business website development is to get people to notice our clients.'],
-    ['fa-solid fa-cart-shopping', 'E-commerce Website', 'We build e-commerce websites that are secure for payments and easy to manage products. This ensures smooth shopping for users. We focus on UI/UX design to create clean, user-friendly layouts that are easy to navigate and understand.'],
-    ['fa-solid fa-sliders', 'Website Setup & Customization', 'We can set up. Customize a WordPress website for you. We do this based on what you need for your WordPress website customization.'],
-    ['fa-solid fa-mobile-screen-button', 'Mobile-Friendly Development', 'We make sure our websites work well on all phones and computers. This is called friendly development and it means our websites work on every device'],
-    ['fa-solid fa-screwdriver-wrench', 'Website Fixing & Support', 'We do also. Take care of websites to make sure they are safe and working well. Our website maintenance services keep your website up to date. Free from problems. We do this so your website keeps working and people can always see it.'],
-    ['fa-solid fa-bug', 'WordPress Bug Fixes', 'Our dedicated team of experts focus their time on providing you with the best software development solutions.'],
+    [$icon_search, 'Business Website Development', 'We help companies make a business website to get customers and be seen online. Business website development is what we do to make this happen for our clients. Our goal with business website development is to get people to notice our clients.'],
+    [$icon_curve, 'E-commerce Website', 'We build e-commerce websites that are secure for payments and easy to manage products. This ensures smooth shopping for users. We focus on UI/UX design to create clean, user-friendly layouts that are easy to navigate and understand.'],
+    [$icon_gear, 'Website Setup & Customization', 'We can set up. Customize a WordPress website for you. We do this based on what you need for your WordPress website customization.'],
+    [$icon_gear, 'Mobile-Friendly Development', 'We make sure our websites work well on all phones and computers. This is called friendly development and it means our websites work on every device'],
+    [$icon_gear, 'Website Fixing & Support', 'We do also. Take care of websites to make sure they are safe and working well. Our website maintenance services keep your website up to date. Free from problems. We do this so your website keeps working and people can always see it.'],
+    [$icon_gear, 'WordPress Bug Fixes', 'Our dedicated team of experts focus their time on providing you with the best software development solutions.'],
 ];
 ?>
 <section class="ms-hww">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <style>
         .ms-hww,
@@ -25,7 +37,7 @@ $cards = [
         .ms-hww {
             --purple: #5A2EA6;
             width: 100%;
-            padding: 30px 20px 50px;
+            padding: 60px 20px 70px;
             background: #fff;
             font-family: 'Poppins', Arial, sans-serif;
         }
@@ -36,10 +48,10 @@ $cards = [
         }
 
         .ms-hww-title {
-            margin: 0 0 18px;
+            margin: 0 0 20px;
             text-align: center;
-            font-size: 34px;
-            line-height: 1.25;
+            font-size: 44px;
+            line-height: 1.2;
             font-weight: 600;
             color: #000;
         }
@@ -49,24 +61,24 @@ $cards = [
         }
 
         .ms-hww-intro {
-            margin: 0 auto 55px;
-            max-width: 1000px;
+            margin: 0 auto 60px;
+            max-width: 1040px;
             text-align: center;
-            font-size: 11px;
-            line-height: 1.7;
+            font-size: 14px;
+            line-height: 1.75;
             font-weight: 400;
-            color: #111;
+            color: #222;
         }
 
         .ms-hww-grid {
             display: grid;
             grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 14px 12px;
+            gap: 24px;
         }
 
         .ms-hww-card {
-            padding: 22px 26px 24px;
-            border-radius: 18px;
+            padding: 34px 30px 36px;
+            border-radius: 24px;
             border: 1px solid #ececec;
             background: #f6f6f6;
             text-align: center;
@@ -74,26 +86,30 @@ $cards = [
         }
 
         .ms-hww-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 10px 24px rgba(90, 46, 166, .15);
+            transform: translateY(-5px);
+            box-shadow: 0 12px 28px rgba(90, 46, 166, .16);
         }
 
         .ms-hww-icon {
-            width: 36px;
-            height: 36px;
-            margin: 0 auto 12px;
+            width: 62px;
+            height: 62px;
+            margin: 0 auto 18px;
             border-radius: 50%;
-            border: 1.5px solid #111;
+            border: 1px solid #111;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 14px;
-            color: #111;
+        }
+
+        .ms-hww-icon svg {
+            width: 28px;
+            height: 28px;
+            fill: #111;
         }
 
         .ms-hww-card h3 {
-            margin: 0 0 12px;
-            font-size: 14px;
+            margin: 0 0 14px;
+            font-size: 20px;
             line-height: 1.35;
             font-weight: 600;
             color: #000;
@@ -101,42 +117,49 @@ $cards = [
 
         .ms-hww-card p {
             margin: 0;
-            font-size: 10.5px;
-            line-height: 1.85;
+            font-size: 14px;
+            line-height: 1.8;
             font-weight: 400;
             color: #222;
         }
 
+        /* ---------- Responsive ---------- */
         @media (max-width: 991px) {
             .ms-hww-grid {
                 grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 20px;
+            }
+
+            .ms-hww-title {
+                font-size: 36px;
             }
         }
 
         @media (max-width: 575px) {
             .ms-hww {
-                padding: 24px 14px 40px;
+                padding: 35px 14px 45px;
             }
 
             .ms-hww-title {
-                font-size: 28px;
+                font-size: 30px;
             }
 
             .ms-hww-intro {
-                font-size: 13px;
-                margin-bottom: 30px;
+                font-size: 14px;
+                margin-bottom: 32px;
             }
 
             .ms-hww-grid {
                 grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .ms-hww-card {
+                padding: 28px 22px 30px;
             }
 
             .ms-hww-card h3 {
-                font-size: 16px;
-            }
-
-            .ms-hww-card p {
-                font-size: 13px;
+                font-size: 18px;
             }
         }
     </style>
@@ -148,7 +171,7 @@ $cards = [
         <div class="ms-hww-grid">
             <?php foreach ($cards as $card) : ?>
                 <div class="ms-hww-card">
-                    <div class="ms-hww-icon"><i class="<?php echo htmlspecialchars($card[0]); ?>"></i></div>
+                    <div class="ms-hww-icon"><?php echo $card[0]; ?></div>
                     <h3><?php echo htmlspecialchars($card[1]); ?></h3>
                     <p><?php echo htmlspecialchars($card[2]); ?></p>
                 </div>
