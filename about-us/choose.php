@@ -5,7 +5,7 @@
         --ms-teal: #2FA8A1;
         --ms-dark: #17142b;
         --ms-text: #57576a;
-        font-family: Arial, sans-serif;
+        font-family: var(--font-body);
         padding: 54px 20px;
         background: linear-gradient(135deg, #ffffff 0%, #fbf8ff 50%, #effafa 100%);
         overflow: hidden;

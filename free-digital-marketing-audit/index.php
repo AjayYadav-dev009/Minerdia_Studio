@@ -4,7 +4,6 @@ $page_description = 'Request a free digital marketing audit from Minerdia Studio
 include __DIR__ . '/../include/header.php';
 ?>
 
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;500;600&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
     .minerdia-growth-section {
@@ -16,7 +15,7 @@ include __DIR__ . '/../include/header.php';
         --gradient: linear-gradient(120deg, #5A2EA6 0%, #7A49D6 40%, #2FA8A1 100%);
         --desktop-top-space: 130px;
         --mobile-top-space: 150px;
-        font-family: 'Hanken Grotesk', sans-serif;
+        font-family: var(--font-head);
         color: var(--text);
         background: radial-gradient(circle at top left, rgba(47, 168, 161, .10), transparent 40%), radial-gradient(circle at top right, rgba(90, 46, 166, .12), transparent 40%), #fff;
         overflow: hidden;
@@ -68,7 +67,7 @@ include __DIR__ . '/../include/header.php';
     }
 
     .minerdia-content h1 {
-        font-family: 'Fraunces', serif;
+        font-family: var(--font-head);
         font-size: 52px;
         line-height: 1.18;
         font-weight: 500;
@@ -201,7 +200,7 @@ include __DIR__ . '/../include/header.php';
     }
 
     .minerdia-card h2 {
-        font-family: 'Fraunces', serif;
+        font-family: var(--font-head);
         font-size: 24px;
         line-height: 1.1;
         margin: 0 0 6px;
@@ -362,7 +361,7 @@ include __DIR__ . '/../include/header.php';
 
         .minerdia-next-title {
             text-align: center;
-            font-family: 'Fraunces', serif;
+            font-family: var(--font-head);
             font-size: 52px;
             font-weight: 500;
             color: #17142b;
@@ -639,5 +638,3 @@ include __DIR__ . '/../include/header.php';
     </div>
 
 </section>
-
-<?php include __DIR__ . '/../include/footer.php'; ?>

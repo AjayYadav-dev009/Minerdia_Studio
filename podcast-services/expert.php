@@ -10,7 +10,7 @@
       --teal:#2FA8A1;
       --dark:#17142b;
       --text:#4f4f5d;
-      font-family:Arial,sans-serif;
+      font-family: var(--font-body);
       background:#ffffff;
       padding:28px 20px 30px;
       overflow:hidden;

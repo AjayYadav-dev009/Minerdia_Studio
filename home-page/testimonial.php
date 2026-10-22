@@ -401,7 +401,7 @@
             padding: 0 20px 38px;
 
             background: #ffffff !important;
-            font-family: Arial, sans-serif;
+            font-family: var(--font-body);
         }
 
         .mgr-container {
@@ -494,7 +494,7 @@
             padding: 2px 0 5px;
 
             color: var(--mgr-black);
-            font-family: Arial, sans-serif;
+            font-family: var(--font-head);
             font-size: clamp(42px, 4vw, 60px);
             line-height: 1.08;
             font-weight: 800;

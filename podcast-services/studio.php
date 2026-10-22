@@ -12,7 +12,7 @@
         width: 100%;
         padding: 58px 20px;
         overflow: hidden;
-        font-family: Arial, sans-serif;
+        font-family: var(--font-body);
         color: var(--dark);
         background:
             radial-gradient(circle at 10% 15%,

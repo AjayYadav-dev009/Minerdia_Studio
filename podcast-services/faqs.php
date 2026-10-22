@@ -57,9 +57,6 @@ $schema = [
 ];
 ?>
 <section class="ms-faq">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Roboto+Condensed:wght@700&display=swap" rel="stylesheet">
 
     <style>
         .ms-faq,
@@ -73,7 +70,7 @@ $schema = [
             width: 100%;
             padding: 30px 20px 60px;
             background: #fff;
-            font-family: 'Poppins', Arial, sans-serif;
+            font-family: var(--font-body);
         }
 
         .ms-faq-head {
@@ -87,7 +84,7 @@ $schema = [
             border-radius: 50px;
             background: var(--green);
             color: #fff;
-            font-family: 'Roboto Condensed', Arial, sans-serif;
+            font-family: var(--font-head);
             font-size: 18px;
             font-weight: 700;
             box-shadow: 0 8px 18px rgba(34, 164, 124, .28);
@@ -123,7 +120,7 @@ $schema = [
             background: transparent;
             cursor: pointer;
             text-align: left;
-            font-family: 'Poppins', Arial, sans-serif;
+            font-family: var(--font-body);
             font-size: 14px;
             line-height: 1.4;
             font-weight: 700;

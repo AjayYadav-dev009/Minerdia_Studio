@@ -161,7 +161,7 @@ $budgets = [
 
     #msPopup,
     #msPopup * {
-        font-family: "YOUR-SITE-FONT", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+        font-family: var(--font-body);
     }
 
     #msPopup input,

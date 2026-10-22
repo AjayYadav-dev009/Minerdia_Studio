@@ -70,9 +70,6 @@ $e = function ($s) { return htmlspecialchars((string)$s, ENT_QUOTES | ENT_SUBSTI
 $total = count($services);
 ?>
 <section class="ms-svc" aria-roledescription="carousel" aria-label="Our services">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@600;700&family=Poppins:wght@400;500&display=swap" rel="stylesheet">
 
     <style>
         .ms-svc,
@@ -85,7 +82,7 @@ $total = count($services);
             width: 100%;
             padding: 20px 20px;
             background: #fff;
-            font-family: 'Poppins', Arial, sans-serif;
+            font-family: var(--font-body);
         }
 
         .ms-svc-wrap {
@@ -152,7 +149,7 @@ $total = count($services);
 
         .ms-svc-title {
             margin: 0 0 4px;
-            font-family: 'Inter', Arial, sans-serif;
+            font-family: var(--font-head);
             font-size: 18px;
             font-weight: 600;
             line-height: 1.3;

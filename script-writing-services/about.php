@@ -5,9 +5,6 @@ $watermark = 'Minerdia Studio';
 $text = 'A good script is the foundation of every great campaign or video. That\'s why at Minerdia Studio, we help our clients with <b>script writing services</b>, especially brands, businesses, influencers and content creators in India to attract customers online. We understand that different platforms have different requirements. YouTube videos need to be more engaging and hold the viewer\'s attention. Instagram Reels need to have a strong hook. WhatsApp and Facebook ads need to have a direct call to action. That\'s why we craft scripts based on the audience you wish to target, the goals you wish to achieve and the requirements of the platform. Our team strives to ensure that the content they create is clear, easy to read and engaging. This will ensure that your audience is engaged longer. We go a step further to craft scripts that are enticing, with a captivating opening and closing statement, flow of the story and engagement points to ensure that the video is professional and captures the viewer\'s attention.';
 ?>
 <section class="ms-swabout">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
         .ms-swabout,
@@ -20,7 +17,7 @@ $text = 'A good script is the foundation of every great campaign or video. That\
             width: 100%;
             padding: 70px 20px 60px;
             background: #fff;
-            font-family: 'Poppins', Arial, sans-serif;
+            font-family: var(--font-body);
             overflow: hidden; /* only clips the big watermark text, nothing sticky here */
         }
 

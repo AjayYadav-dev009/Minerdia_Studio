@@ -6,9 +6,6 @@ $title_accent = 'Services';
 $description = 'Minerdia Studio is a leading PPC and performance marketing agency in Delhi. We are experts in Meta Ads, Google Ads, Facebook Ads, Instagram Ads, Lead Generation and Conversion Focused Digital Marketing Strategies. We help startups, personal brands and growing businesses scale through high ROI paid advertising campaigns built to boost sales, generate quality leads, increase engagement and drive real business growth. From performance marketing to social media advertising and PPC management services Minerdia Studio delivers data-driven strategies that convert clicks to customers.';
 ?>
 <section class="ms-about">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
         .ms-about,
@@ -21,7 +18,7 @@ $description = 'Minerdia Studio is a leading PPC and performance marketing agenc
             width: 100%;
             padding: 40px 20px 50px;
             background: #fff;
-            font-family: 'Poppins', Arial, sans-serif;
+            font-family: var(--font-body);
             overflow: hidden;
         }
 

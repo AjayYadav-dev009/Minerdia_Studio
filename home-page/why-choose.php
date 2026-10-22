@@ -142,7 +142,7 @@
             overflow: hidden;
             padding: 32px 20px 52px;
             background: #ffffff !important;
-            font-family: Arial, sans-serif;
+            font-family: var(--font-body);
         }
 
         .msp-process__container {
@@ -239,7 +239,7 @@
             overflow: visible;
 
             color: var(--msp-black);
-            font-family: Arial, sans-serif;
+            font-family: var(--font-head);
             font-size: clamp(42px, 4vw, 60px);
             line-height: 1.08;
             font-weight: 800;
@@ -276,7 +276,7 @@
             margin: 14px auto 0;
 
             color: var(--msp-text);
-            font-family: Arial, sans-serif;
+            font-family: var(--font-body);
             font-size: 16px;
             line-height: 1.58;
             font-weight: 400;
@@ -533,7 +533,7 @@
             margin: 0;
 
             color: var(--msp-black);
-            font-family: Arial, sans-serif;
+            font-family: var(--font-head);
             font-size: 18px;
             line-height: 1.25;
             font-weight: 700;
@@ -548,7 +548,7 @@
             margin: 9px 0 0;
 
             color: var(--msp-text);
-            font-family: Arial, sans-serif;
+            font-family: var(--font-body);
             font-size: 13px;
             line-height: 1.52;
             font-weight: 400;

@@ -42,9 +42,6 @@ $platforms = [
 ];
 ?>
 <section class="ms-ad-slider">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
         .ms-ad-slider,
@@ -57,7 +54,7 @@ $platforms = [
             width: 100%;
             padding: 36px 20px 48px;
             background: linear-gradient(180deg, #f1edf8 0%, #cbbbe6 30%, #9a78d0 65%, #6a35b5 100%);
-            font-family: 'Poppins', Arial, sans-serif;
+            font-family: var(--font-body);
         }
 
         .ms-ad-slider-wrap {

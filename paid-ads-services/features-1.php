@@ -18,9 +18,6 @@ $image_src = 'images/paid-ads-performance.jpg';
 $image_alt = 'Team reviewing paid ads performance dashboard';
 ?>
 <section class="ms-ad-features">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600&family=Lato:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
     <style>
         .ms-ad-features,
@@ -33,7 +30,7 @@ $image_alt = 'Team reviewing paid ads performance dashboard';
             width: 100%;
             padding: 30px 20px 50px;
             background: #fff;
-            font-family: 'Poppins', Arial, sans-serif;
+            font-family: var(--font-body);
         }
 
         .ms-ad-features-wrap {
@@ -49,7 +46,7 @@ $image_alt = 'Team reviewing paid ads performance dashboard';
         .ms-ad-features-label {
             display: block;
             margin: 0 0 8px;
-            font-family: 'Lato', Arial, sans-serif;
+            font-family: var(--font-body);
             font-size: 18px;
             font-weight: 400;
             text-transform: uppercase;
@@ -89,7 +86,7 @@ $image_alt = 'Team reviewing paid ads performance dashboard';
             border-radius: 24px;
             background: #fff;
             box-shadow: 0 3px 8px rgba(0, 0, 0, .12);
-            font-family: 'Inter', Arial, sans-serif;
+            font-family: var(--font-body);
             font-size: 17px;
             font-weight: 600;
             line-height: 1.4;

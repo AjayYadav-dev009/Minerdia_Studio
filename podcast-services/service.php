@@ -15,9 +15,6 @@ $services = [
 ];
 ?>
 <section class="ms-complete-service-section">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
     <style>
         .ms-complete-service-section,
@@ -30,7 +27,7 @@ $services = [
             --teal: #2FA8A1;
             --dark: #17142b;
             --text: #4f4f5d;
-            font-family: Arial, sans-serif;
+            font-family: var(--font-body);
             padding: 20px 20px 35px;
             background: #ffffff;
             overflow: hidden;
@@ -236,7 +233,7 @@ $services = [
             border-radius: 16px;
             background: linear-gradient(90deg, #f0ecf9 0%, #eef6f7 100%);
             box-shadow: 0 8px 22px rgba(23, 20, 43, .12);
-            font-family: 'Poppins', Arial, sans-serif;
+            font-family: var(--font-body);
         }
 
         .ms-complete-bar h3 {

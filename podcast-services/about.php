@@ -6,7 +6,7 @@
         width: 100%;
         margin: 30px auto 0;
         background: #fff;
-        font-family: 'Poppins', Arial, sans-serif;
+        font-family: var(--font-body);
         text-align: center;
         overflow: hidden;
     }

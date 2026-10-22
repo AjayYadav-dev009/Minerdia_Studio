@@ -208,7 +208,7 @@
             overflow: hidden;
             padding: 22px 18px 26px;
             background: #ffffff !important;
-            font-family: Arial, sans-serif;
+            font-family: var(--font-body);
         }
 
         .mff-contact__container {
@@ -382,7 +382,7 @@
             padding: 1px 0 3px;
             overflow: visible;
             color: var(--mff-black);
-            font-family: Arial, sans-serif;
+            font-family: var(--font-head);
             font-size: clamp(27px, 2.4vw, 35px);
             line-height: 1.08;
             font-weight: 800;
@@ -412,7 +412,7 @@
             max-width: 500px;
             margin: 7px 0 0;
             color: var(--mff-text);
-            font-family: Arial, sans-serif;
+            font-family: var(--font-body);
             font-size: 13px;
             line-height: 1.48;
             font-weight: 400;
@@ -479,7 +479,7 @@
             margin: 0 !important;
             padding: 0 !important;
             color: var(--mff-black) !important;
-            font-family: Arial, sans-serif !important;
+            font-family: var(--font-body) !important;
             font-size: 12px !important;
             line-height: 1.3 !important;
             font-weight: 600 !important;
@@ -546,7 +546,7 @@
             backdrop-filter: blur(11px) !important;
             -webkit-backdrop-filter: blur(11px) !important;
 
-            font-family: Arial, sans-serif !important;
+            font-family: var(--font-body) !important;
             font-size: 12.5px !important;
             line-height: 1.35 !important;
             font-weight: 400 !important;
@@ -671,7 +671,7 @@
         .mff-contact #fluentform_3 .ff-el-form-check-label,
         .mff-contact #fluentform_3 .ff-el-form-check-label span {
             color: var(--mff-black) !important;
-            font-family: Arial, sans-serif !important;
+            font-family: var(--font-body) !important;
             font-size: 11.5px !important;
             line-height: 1.4 !important;
             font-weight: 500 !important;
@@ -732,7 +732,7 @@
                 0 11px 25px rgba(90, 46, 166, 0.27),
                 inset 0 1px 0 rgba(255, 255, 255, 0.28) !important;
 
-            font-family: Arial, sans-serif !important;
+            font-family: var(--font-head) !important;
             font-size: 13.5px !important;
             line-height: 1.2 !important;
             font-weight: 700 !important;
@@ -1042,7 +1042,7 @@
             margin: 4px 0 0 !important;
             padding: 0 !important;
             color: #f56c6c !important;
-            font-family: Arial, sans-serif;
+            font-family: var(--font-body);
             font-size: 11.5px;
             line-height: 1.3;
             font-weight: 400;
@@ -1056,7 +1056,7 @@
             border-radius: 12px !important;
             background: #f2fffc !important;
             color: #216b64 !important;
-            font-family: Arial, sans-serif;
+            font-family: var(--font-body);
             font-size: 12.5px !important;
             line-height: 1.5 !important;
             text-align: center;

@@ -10,7 +10,7 @@
             --teal: #2FA8A1;
             --dark: #17142b;
             --text: #5f5b70;
-            font-family: Arial, sans-serif;
+            font-family: var(--font-body);
             background: #fff;
             color: var(--dark);
             overflow: hidden;

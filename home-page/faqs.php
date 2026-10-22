@@ -284,7 +284,7 @@
             padding: 0 20px 48px;
 
             background: #ffffff !important;
-            font-family: Arial, sans-serif;
+            font-family: var(--font-body);
         }
 
         .mfq-container {
@@ -377,7 +377,7 @@
             padding: 2px 0 5px;
 
             color: var(--mfq-black);
-            font-family: Arial, sans-serif;
+            font-family: var(--font-head);
             font-size: clamp(42px, 4vw, 60px);
             line-height: 1.08;
             font-weight: 800;
@@ -528,7 +528,7 @@
             color: #202124;
             background: transparent;
 
-            font-family: Arial, sans-serif;
+            font-family: var(--font-head);
             font-size: 15px;
             line-height: 1.45;
             font-weight: 700;

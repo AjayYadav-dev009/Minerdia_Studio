@@ -33,9 +33,6 @@ $ms_offer_items = [
 ];
 ?>
 <section class="ms-offer">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
 
     <style>
         .ms-offer,
@@ -48,7 +45,7 @@ $ms_offer_items = [
             width: 100%;
             padding: 50px 20px 55px;
             background: #fff;
-            font-family: 'Poppins', Arial, sans-serif;
+            font-family: var(--font-body);
         }
 
         .ms-offer-wrap {
@@ -134,7 +131,7 @@ $ms_offer_items = [
 
         .ms-offer-card p {
             margin: 0;
-            font-family: 'Inter', Arial, sans-serif;
+            font-family: var(--font-body);
             font-size: 14px;
             line-height: 1.75;
             font-weight: 400;

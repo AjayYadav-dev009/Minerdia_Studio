@@ -8,9 +8,6 @@ $image  = 'https://minerdiastudio.com/wp-content/uploads/2026/04/email-desktop-1
 $alt    = 'Email Campaign Management';
 ?>
 <section class="ms-emcta">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
     <style>
         .ms-emcta,
@@ -23,7 +20,7 @@ $alt    = 'Email Campaign Management';
             width: 100%;
             padding: 20px 20px 80px;
             background: #fff;
-            font-family: 'Poppins', Arial, sans-serif;
+            font-family: var(--font-head);
         }
 
         .ms-emcta-wrap {
@@ -65,7 +62,7 @@ $alt    = 'Email Campaign Management';
             padding: 12px 26px;
             border-radius: 50px;
             background: var(--purple);
-            font-family: 'Poppins', Arial, sans-serif;
+            font-family: var(--font-head);
             font-size: 14px;
             font-weight: 600;
             line-height: 1.2;

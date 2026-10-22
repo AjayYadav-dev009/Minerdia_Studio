@@ -1,0 +1,71 @@
+/* =========================================================
+   MINERDIA STUDIO – FONTS (self-hosted, latin subset)
+   Poppins -> headings, buttons, links      (400 / 500 / 600 / 700)
+   Inter   -> body text, forms, everything else (variable, 100-900)
+   Files live in /assets/fonts/. Loaded once, cached by the browser.
+   ========================================================= */
+
+@font-face {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('../fonts/poppins-400.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: url('../fonts/poppins-500.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+    src: url('../fonts/poppins-600.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url('../fonts/poppins-700.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 100 900;
+    font-display: swap;
+    src: url('../fonts/inter-variable.woff2') format('woff2');
+}
+
+:root {
+    --font-head: 'Poppins', system-ui, -apple-system, 'Segoe UI', Arial, sans-serif;
+    --font-body: 'Inter', system-ui, -apple-system, 'Segoe UI', Arial, sans-serif;
+}
+
+/* Default for the whole site (section CSS uses the two variables above) */
+body {
+    font-family: var(--font-body);
+}
+
+/* Headings, buttons and links = Poppins */
+h1, h2, h3, h4, h5, h6,
+button,
+a,
+[role="button"],
+input[type="button"],
+input[type="submit"] {
+    font-family: var(--font-head);
+}
+
+/* Form fields = Inter */
+input, select, textarea {
+    font-family: var(--font-body);
+}

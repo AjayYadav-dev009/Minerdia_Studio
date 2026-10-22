@@ -17,9 +17,6 @@ $states = [
 ];
 ?>
 <section class="ms-emg">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Lato:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <style>
@@ -34,7 +31,7 @@ $states = [
             width: 100%;
             padding: 50px 20px 60px;
             background: #fff;
-            font-family: 'Poppins', Arial, sans-serif;
+            font-family: var(--font-body);
         }
 
         .ms-emg-wrap {
@@ -50,7 +47,7 @@ $states = [
         .ms-emg-label {
             display: block;
             margin: 0 0 8px;
-            font-family: 'Lato', Arial, sans-serif;
+            font-family: var(--font-body);
             font-size: 18px;
             font-weight: 400;
             text-transform: uppercase;
@@ -167,7 +164,7 @@ $states = [
             border-radius: 50px;
             border: 1px solid #dcdcdc;
             background: #efefef;
-            font-family: 'Inter', Arial, sans-serif;
+            font-family: var(--font-body);
             font-size: 13px;
             color: #444;
             outline: none;
@@ -198,7 +195,7 @@ $states = [
             border: 1px solid #3d1f7a;
             background: var(--purple);
             color: #fff;
-            font-family: 'Lato', Arial, sans-serif;
+            font-family: var(--font-body);
             font-size: 16px;
             font-weight: 700;
             cursor: pointer;

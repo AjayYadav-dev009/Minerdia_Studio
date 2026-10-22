@@ -26,9 +26,6 @@ $schema = [
 ];
 ?>
 <section class="ms-emfaq">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Roboto:wght@500;700&display=swap" rel="stylesheet">
 
     <style>
         .ms-emfaq,
@@ -41,7 +38,7 @@ $schema = [
             width: 100%;
             padding: 50px 20px 60px;
             background: #fff;
-            font-family: 'Poppins', Arial, sans-serif;
+            font-family: var(--font-body);
         }
 
         .ms-emfaq-wrap {
@@ -56,7 +53,7 @@ $schema = [
             border-radius: 50px;
             background: var(--green);
             color: #fff;
-            font-family: 'Roboto', Arial, sans-serif;
+            font-family: var(--font-head);
             font-size: 24px;
             line-height: 1.2;
             font-weight: 700;
@@ -91,7 +88,7 @@ $schema = [
             border: 0;
             background: transparent;
             text-align: left;
-            font-family: 'Poppins', Arial, sans-serif;
+            font-family: var(--font-body);
             font-size: 16px;
             font-weight: 600;
             line-height: 1.4;

@@ -1,7 +1,4 @@
 <section class="ms-smm">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
 
     <style>
         .ms-smm,
@@ -30,7 +27,7 @@
             top: -14px;
             left: 50%;
             transform: translateX(-50%);
-            font-family: 'Poppins', Arial, sans-serif;
+            font-family: var(--font-body);
             font-size: 78px;
             line-height: 1;
             font-weight: 700;
@@ -47,7 +44,7 @@
             position: relative;
             z-index: 1;
             margin: 0 0 28px;
-            font-family: 'Poppins', Arial, sans-serif;
+            font-family: var(--font-head);
             font-size: 50px;
             line-height: 1.25;
             font-weight: 600;
@@ -63,7 +60,7 @@
             z-index: 1;
             max-width: 1120px;
             margin: 0 auto;
-            font-family: 'Inter', Arial, sans-serif;
+            font-family: var(--font-body);
             font-size: 16px;
             line-height: 26px;
             font-weight: 400;

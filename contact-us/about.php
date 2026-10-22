@@ -5,9 +5,6 @@ $title_accent = 'Us';
 $description  = 'At <strong>Minerdia Studio</strong> we help businesses grow online with digital and creative services. We offer video editing and podcast production services. Our SEO services and paid advertising solutions are also available. Our team works hard to deliver solutions that fit your business goals. We provide website development services. Our team also manages media and creates high-quality content, for businesses. We support businesses at every stage.';
 ?>
 <section class="ms-contact">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
         .ms-contact,
@@ -20,7 +17,7 @@ $description  = 'At <strong>Minerdia Studio</strong> we help businesses grow onl
             width: 100%;
             padding: 40px 20px 40px;
             background: #fff;
-            font-family: 'Poppins', Arial, sans-serif;
+            font-family: var(--font-body);
             overflow: hidden;
         }
 
@@ -34,7 +31,7 @@ $description  = 'At <strong>Minerdia Studio</strong> we help businesses grow onl
         /* big light-grey background text */
         .ms-contact-shadow {
             display: block;
-            font-family: 'Poppins', Arial, sans-serif;
+            font-family: var(--font-body);
             font-size: clamp(40px, 8.5vw, 84px);
             font-weight: 700;
             line-height: 1;
@@ -50,7 +47,7 @@ $description  = 'At <strong>Minerdia Studio</strong> we help businesses grow onl
         .ms-contact-title {
             position: relative;
             margin: -0.62em 0 14px;
-            font-family: 'Poppins', Arial, sans-serif;
+            font-family: var(--font-head);
             font-size: clamp(28px, 4.2vw, 40px);
             font-weight: 600;
             line-height: 1.2;

@@ -9,9 +9,6 @@ $paragraphs = [
 ];
 ?>
 <section class="ms-emw">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
     <style>
         .ms-emw,
@@ -24,7 +21,7 @@ $paragraphs = [
             width: 100%;
             padding: 30px 20px 70px;
             background: #fff;
-            font-family: 'Poppins', Arial, sans-serif;
+            font-family: var(--font-body);
         }
 
         .ms-emw-wrap {

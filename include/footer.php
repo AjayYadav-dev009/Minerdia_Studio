@@ -13,7 +13,7 @@
             --text: #3f3b50;
             width: 100%;
             padding: 32px 20px 28px;
-            font-family: Arial, sans-serif;
+            font-family: var(--font-body);
             background:
                 radial-gradient(circle at 8% 18%, rgba(90, 46, 166, .12), transparent 28%),
                 radial-gradient(circle at 92% 20%, rgba(47, 168, 161, .13), transparent 28%),
@@ -201,7 +201,7 @@
             width: 100%;
             background: #000;
             color: #fff;
-            font-family: Arial, sans-serif;
+            font-family: var(--font-body);
             padding: 12px 30px;
             display: flex;
             justify-content: space-between;
@@ -599,42 +599,6 @@
         </svg>
     <?php endif; ?>
 </a>
-
-<script>
-/* Service-page lead forms (form[data-lead-form]) -> submit-form.php, no page reload */
-document.addEventListener('submit', function (ev) {
-    var form = ev.target;
-    if (!form.matches || !form.matches('form[data-lead-form]')) return;
-    ev.preventDefault();
-
-    var btn = form.querySelector('button[type="submit"]');
-    var msg = form.querySelector('.ms-lead-msg');
-    if (!msg) {
-        msg = document.createElement('p');
-        msg.className = 'ms-lead-msg';
-        msg.setAttribute('role', 'status');
-        msg.style.cssText = 'margin:12px 0 0;font-size:14px;font-weight:600;text-align:center';
-        form.appendChild(msg);
-    }
-    var label = btn ? btn.textContent : '';
-    if (btn) { btn.disabled = true; btn.textContent = 'Sending...'; }
-    msg.style.color = '#3f3b50';
-    msg.textContent = '';
-
-    fetch(form.action, { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } })
-        .then(function (r) { return r.json(); })
-        .then(function (d) {
-            msg.style.color = d.ok ? '#1c8a57' : '#c0392b';
-            msg.textContent = d.message;
-            if (d.ok) form.reset();
-        })
-        .catch(function () {
-            msg.style.color = '#c0392b';
-            msg.textContent = 'Network error. Please try again.';
-        })
-        .then(function () { if (btn) { btn.disabled = false; btn.textContent = label; } });
-});
-</script>
 
 </body>
 

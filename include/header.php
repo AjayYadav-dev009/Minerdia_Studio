@@ -26,6 +26,10 @@ $__logo_header = logo_url(LOGO_HEADER, 'https://minerdiastudio.com/wp-content/up
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Self-hosted fonts: Poppins (headings, buttons, links) + Inter (body) -->
+    <link rel="preload" href="<?php echo BASE; ?>assets/fonts/inter-variable.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="<?php echo BASE; ?>assets/fonts/poppins-600.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="<?php echo BASE; ?>assets/css/fonts.css">
     <title><?php echo e($page_title); ?></title>
     <meta name="description" content="<?php echo e($page_description); ?>">
     <?php if ($page_keywords): ?><meta name="keywords" content="<?php echo e($page_keywords); ?>"><?php endif; ?>
@@ -60,6 +64,41 @@ $__logo_header = logo_url(LOGO_HEADER, 'https://minerdiastudio.com/wp-content/up
     ], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>
 
     </script>
+<script>
+/* Service-page lead forms (form[data-lead-form]) -> submit-form.php, no page reload */
+document.addEventListener('submit', function (ev) {
+    var form = ev.target;
+    if (!form.matches || !form.matches('form[data-lead-form]')) return;
+    ev.preventDefault();
+
+    var btn = form.querySelector('button[type="submit"]');
+    var msg = form.querySelector('.ms-lead-msg');
+    if (!msg) {
+        msg = document.createElement('p');
+        msg.className = 'ms-lead-msg';
+        msg.setAttribute('role', 'status');
+        msg.style.cssText = 'margin:12px 0 0;font-size:14px;font-weight:600;text-align:center';
+        form.appendChild(msg);
+    }
+    var label = btn ? btn.textContent : '';
+    if (btn) { btn.disabled = true; btn.textContent = 'Sending...'; }
+    msg.style.color = '#3f3b50';
+    msg.textContent = '';
+
+    fetch(form.action, { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } })
+        .then(function (r) { return r.json(); })
+        .then(function (d) {
+            msg.style.color = d.ok ? '#1c8a57' : '#c0392b';
+            msg.textContent = d.message;
+            if (d.ok) form.reset();
+        })
+        .catch(function () {
+            msg.style.color = '#c0392b';
+            msg.textContent = 'Network error. Please try again.';
+        })
+        .then(function () { if (btn) { btn.disabled = false; btn.textContent = label; } });
+});
+</script>
 </head>
 
 <body>
@@ -94,7 +133,7 @@ $__logo_header = logo_url(LOGO_HEADER, 'https://minerdiastudio.com/wp-content/up
             width: 100%;
             padding: 12px 18px 0;
 
-            font-family: "Inter", "Poppins", Arial, sans-serif;
+            font-family: var(--font-body);
         }
 
         .minerdia-header-container {

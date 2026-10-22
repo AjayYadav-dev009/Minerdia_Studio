@@ -211,7 +211,7 @@
             overflow: hidden;
             padding: 28px 20px 38px;
             background: #ffffff !important;
-            font-family: Arial, sans-serif;
+            font-family: var(--font-body);
         }
 
         .mwc-container {
@@ -285,7 +285,7 @@
             padding: 2px 0 5px;
             overflow: visible;
             color: var(--mwc-black);
-            font-family: Arial, sans-serif;
+            font-family: var(--font-head);
             font-size: clamp(42px, 4vw, 60px);
             line-height: 1.08;
             font-weight: 800;
@@ -320,7 +320,7 @@
             width: min(100%, 1040px);
             margin: 18px auto 0;
             color: var(--mwc-text);
-            font-family: Arial, sans-serif;
+            font-family: var(--font-body);
             font-size: 16px;
             line-height: 1.58;
             font-weight: 400;
@@ -440,7 +440,7 @@
         .mwc-panel-title h3 {
             margin: 0;
             color: var(--mwc-black);
-            font-family: Arial, sans-serif;
+            font-family: var(--font-head);
             font-size: 21px;
             line-height: 1.2;
             font-weight: 700;
@@ -581,7 +581,7 @@
             background-clip: text;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            font-family: Arial, sans-serif;
+            font-family: var(--font-body);
             font-size: 18px;
             line-height: 1;
             font-weight: 800;

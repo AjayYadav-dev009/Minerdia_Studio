@@ -10,7 +10,7 @@
             --teal: #2FA8A1;
             --dark: #17142b;
             --text: #4f4f5d;
-            font-family: Arial, sans-serif;
+            font-family: var(--font-body);
             padding: 38px 20px 42px;
             background:
                 radial-gradient(circle at 10% 10%, rgba(90, 46, 166, .07), transparent 26%),

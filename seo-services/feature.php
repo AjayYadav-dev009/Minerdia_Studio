@@ -1,7 +1,4 @@
 <section class="ms-seores">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
     <style>
         .ms-seores,
@@ -14,7 +11,7 @@
             width: 100%;
             padding: 55px 20px 55px;
             background: #fff;
-            font-family: 'Poppins', Arial, sans-serif;
+            font-family: var(--font-body);
         }
 
         .ms-seores-wrap {
@@ -29,7 +26,7 @@
         .ms-seores-label {
             display: block;
             margin: 0 0 10px;
-            font-family: 'Lato', Arial, sans-serif;
+            font-family: var(--font-body);
             font-size: 18px;
             font-weight: 400;
             text-transform: uppercase;

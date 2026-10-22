@@ -109,9 +109,6 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') === 'POST' && isset($_POST['ms_cf_submit'
 }
 ?>
 <section class="ms-cf" id="ms-cf">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
         .ms-cf,
@@ -125,7 +122,7 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') === 'POST' && isset($_POST['ms_cf_submit'
             width: 100%;
             padding: 60px 20px 70px;
             background: #fff;
-            font-family: 'Poppins', Arial, sans-serif;
+            font-family: var(--font-body);
             overflow: hidden;
         }
 
@@ -205,7 +202,7 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') === 'POST' && isset($_POST['ms_cf_submit'
             border-radius: 50px;
             background: #ececec;
             box-shadow: 0 1px 4px rgba(0, 0, 0, .08);
-            font-family: 'Poppins', Arial, sans-serif;
+            font-family: var(--font-body);
             font-size: 12px;
             font-weight: 400;
             color: #222;
@@ -271,7 +268,7 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') === 'POST' && isset($_POST['ms_cf_submit'
             border-radius: 50px;
             background: var(--purple-dark);
             color: #fff;
-            font-family: 'Poppins', Arial, sans-serif;
+            font-family: var(--font-head);
             font-size: 12px;
             font-weight: 600;
             cursor: pointer;

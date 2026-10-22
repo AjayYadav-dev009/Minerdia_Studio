@@ -22,7 +22,7 @@
             overflow: hidden;
             padding: 26px 0 12px;
             background: #ffffff;
-            font-family: Arial, sans-serif;
+            font-family: var(--font-body);
         }
 
         /* =====================================================
@@ -68,7 +68,7 @@
             margin: 0 !important;
             padding: 0 !important;
             color: var(--black);
-            font-family: Arial, sans-serif;
+            font-family: var(--font-body);
             font-size: 15px;
             line-height: 1.35;
             font-weight: 600;
@@ -116,7 +116,7 @@
             padding: 2px 0 7px;
             overflow: visible !important;
             color: var(--black);
-            font-family: Arial, sans-serif;
+            font-family: var(--font-head);
             font-size: clamp(42px, 4vw, 60px);
             line-height: 1.12;
             font-weight: 800;
@@ -152,7 +152,7 @@
             width: min(100%, 1120px);
             margin: 14px auto 0;
             color: var(--text);
-            font-family: Arial, sans-serif;
+            font-family: var(--font-body);
             font-size: 17px;
             line-height: 1.62;
             font-weight: 400;

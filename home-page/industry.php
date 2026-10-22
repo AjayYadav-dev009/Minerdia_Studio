@@ -370,7 +370,7 @@
             overflow: hidden;
             padding: 28px 0 12px;
             background: #ffffff !important;
-            font-family: Arial, sans-serif;
+            font-family: var(--font-body);
         }
 
         /* Heading Area */
@@ -427,7 +427,7 @@
             padding: 0 !important;
 
             color: var(--mni-black);
-            font-family: Arial, sans-serif;
+            font-family: var(--font-body);
             font-size: 15px;
             line-height: 1.35;
             font-weight: 600;
@@ -480,7 +480,7 @@
 
             margin: 0;
             color: var(--mni-black);
-            font-family: Arial, sans-serif;
+            font-family: var(--font-head);
             font-size: clamp(42px, 4vw, 60px);
             line-height: 1.05;
             font-weight: 800;
@@ -511,7 +511,7 @@
             margin: 20px auto 0;
 
             color: var(--mni-text);
-            font-family: Arial, sans-serif;
+            font-family: var(--font-body);
             font-size: 17px;
             line-height: 1.55;
             font-weight: 400;
@@ -669,7 +669,7 @@
             color: var(--mni-purple);
             background: #ffffff;
 
-            font-family: Arial, sans-serif;
+            font-family: var(--font-head);
             font-size: 8.5px;
             line-height: 1;
             font-weight: 800;
@@ -699,7 +699,7 @@
             margin: 0 auto 8px;
 
             color: var(--mni-black);
-            font-family: Arial, sans-serif;
+            font-family: var(--font-head);
             font-size: 18px;
             line-height: 1.22;
             font-weight: 700;
@@ -713,7 +713,7 @@
             margin: 0 auto;
 
             color: #4B4B4B;
-            font-family: Arial, sans-serif;
+            font-family: var(--font-body);
             font-size: 14px;
             line-height: 1.45;
             font-weight: 400;

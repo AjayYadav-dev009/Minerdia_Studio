@@ -1,7 +1,4 @@
 <section class="ms-grow">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
     <style>
         .ms-grow,
@@ -15,7 +12,7 @@
             width: 100%;
             padding: 35px 18px 50px;
             background: #fff;
-            font-family: 'Poppins', Arial, sans-serif;
+            font-family: var(--font-body);
         }
 
         .ms-grow-wrap {
@@ -145,7 +142,7 @@
             border: 1px solid #dcdcdc;
             border-radius: 20px;
             background: #efefef;
-            font-family: 'Inter', Arial, sans-serif;
+            font-family: var(--font-body);
             font-size: 13px;
             color: #444;
             outline: none;
@@ -182,7 +179,7 @@
             border: 1px solid #3f1d80;
             border-radius: 30px;
             background: var(--purple);
-            font-family: 'Lato', Arial, sans-serif;
+            font-family: var(--font-head);
             font-size: 16px;
             font-weight: 700;
             color: #fff;

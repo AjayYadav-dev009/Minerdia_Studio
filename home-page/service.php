@@ -209,7 +209,7 @@
             padding: 0 20px 24px;
             overflow: hidden;
             background: #ffffff !important;
-            font-family: Arial, sans-serif;
+            font-family: var(--font-body);
         }
 
         .mds-wrap {

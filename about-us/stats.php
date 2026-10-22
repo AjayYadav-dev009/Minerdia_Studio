@@ -5,7 +5,7 @@
         --ms-teal: #2FA8A1;
         --ms-dark: #17142b;
         --ms-text: #4f4f5d;
-        font-family: Arial, sans-serif;
+        font-family: var(--font-body);
         padding: 28px 20px 44px;
         background: #fff;
         overflow: hidden;

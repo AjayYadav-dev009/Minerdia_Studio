@@ -39,9 +39,6 @@ $icons = [
 $e = function ($s) { return htmlspecialchars((string)$s, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8'); };
 ?>
 <section class="ms-ci">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
 
     <style>
         .ms-ci,
@@ -54,7 +51,7 @@ $e = function ($s) { return htmlspecialchars((string)$s, ENT_QUOTES | ENT_SUBSTI
             width: 100%;
             padding: 24px 20px 24px;
             background: #fff;
-            font-family: 'Inter', Arial, sans-serif;
+            font-family: var(--font-body);
         }
 
         .ms-ci-wrap {

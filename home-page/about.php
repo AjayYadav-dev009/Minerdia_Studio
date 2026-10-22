@@ -72,7 +72,7 @@
             padding: 34px 20px 42px;
             background: #FFFFFF !important;
             color: var(--msa-text);
-            font-family: Arial, Helvetica, sans-serif;
+            font-family: var(--font-body);
         }
 
         .msa-wrap {
@@ -102,7 +102,7 @@
             content: attr(data-text);
             display: block;
             color: rgba(17, 17, 17, 0.045);
-            font-family: Arial, Helvetica, sans-serif;
+            font-family: var(--font-head);
             font-size: clamp(84px, 9vw, 132px);
             line-height: 1;
             font-weight: 800;
@@ -132,7 +132,7 @@
             gap: 10px;
             margin: 0;
             color: var(--msa-black);
-            font-family: Arial, Helvetica, sans-serif;
+            font-family: var(--font-head);
             font-size: clamp(42px, 4vw, 60px);
             line-height: 1.05;
             font-weight: 800;
@@ -179,7 +179,7 @@
         .msa-content p {
             margin: 0 auto 20px;
             color: var(--msa-text) !important;
-            font-family: Arial, Helvetica, sans-serif;
+            font-family: var(--font-body);
             font-size: 17px;
             line-height: 1.62;
             font-weight: 400;

@@ -10,9 +10,6 @@ $image = 'https://minerdiastudio.com/wp-content/uploads/2026/06/Email-Marketing-
 $alt   = 'Email Marketing Services';
 ?>
 <section class="ms-emf">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
     <style>
         .ms-emf,
@@ -25,7 +22,7 @@ $alt   = 'Email Marketing Services';
             width: 100%;
             padding: 40px 20px 70px;
             background: #fff;
-            font-family: 'Poppins', Arial, sans-serif;
+            font-family: var(--font-body);
         }
 
         .ms-emf-wrap {
@@ -41,7 +38,7 @@ $alt   = 'Email Marketing Services';
         .ms-emf-label {
             display: block;
             margin: 0 0 8px;
-            font-family: 'Lato', Arial, sans-serif;
+            font-family: var(--font-body);
             font-size: 18px;
             font-weight: 400;
             text-transform: uppercase;

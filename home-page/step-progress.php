@@ -244,7 +244,7 @@
             overflow: hidden;
             padding: 34px 20px 38px;
             background: #ffffff !important;
-            font-family: Arial, sans-serif;
+            font-family: var(--font-body);
         }
 
         .mvgj-container {
@@ -329,7 +329,7 @@
             margin: 0;
             padding: 2px 0 5px;
             color: var(--mvgj-black);
-            font-family: Arial, sans-serif;
+            font-family: var(--font-head);
             font-size: clamp(42px, 4vw, 60px);
             line-height: 1.08;
             font-weight: 800;
@@ -364,7 +364,7 @@
             width: min(100%, 830px);
             margin: 15px auto 0;
             color: var(--mvgj-text);
-            font-family: Arial, sans-serif;
+            font-family: var(--font-body);
             font-size: 16px;
             line-height: 1.58;
             font-weight: 400;
@@ -596,7 +596,7 @@
             width: 100%;
             margin: 0;
             color: var(--mvgj-black);
-            font-family: Arial, sans-serif;
+            font-family: var(--font-head);
             font-size: 23px;
             line-height: 1.22;
             font-weight: 700;
@@ -608,7 +608,7 @@
             width: 100%;
             margin: 10px 0 0;
             color: var(--mvgj-text);
-            font-family: Arial, sans-serif;
+            font-family: var(--font-body);
             font-size: 13.5px;
             line-height: 1.55;
             font-weight: 400;

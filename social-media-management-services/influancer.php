@@ -21,9 +21,6 @@ $ms_inf_items = [
 ];
 ?>
 <section class="ms-inf">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 
     <style>
         .ms-inf,
@@ -37,7 +34,7 @@ $ms_inf_items = [
             width: 100%;
             padding: 50px 20px 50px;
             background: #fff;
-            font-family: 'Poppins', Arial, sans-serif;
+            font-family: var(--font-body);
         }
 
         /* ---------- Heading ---------- */
@@ -105,7 +102,7 @@ $ms_inf_items = [
             border-radius: 22px;
             background: #f7f7f7;
             overflow: hidden;
-            font-family: 'Roboto', Arial, sans-serif;
+            font-family: var(--font-body);
             text-align: center;
         }
 

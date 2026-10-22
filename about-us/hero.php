@@ -1,7 +1,7 @@
 <style>
 
     .podcast-banner-root {
-        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+        font-family: var(--font-body);
         position: relative;
         width: 100%;
         min-height: 520px;

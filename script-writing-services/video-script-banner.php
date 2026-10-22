@@ -2,9 +2,6 @@
 $text = 'This will increase the reach of your content and the likelihood that it will be found more easily.';
 ?>
 <section class="ms-vsb">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
     <style>
         .ms-vsb,
@@ -17,7 +14,7 @@ $text = 'This will increase the reach of your content and the likelihood that it
             width: 100%;
             padding: 20px 20px 50px;
             background: #fff;
-            font-family: 'Poppins', Arial, sans-serif;
+            font-family: var(--font-body);
         }
 
         .ms-vsb-wrap {

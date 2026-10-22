@@ -74,9 +74,6 @@ $tabs = [
 ];
 ?>
 <section class="ms-adtabs">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <style>
@@ -91,7 +88,7 @@ $tabs = [
             width: 100%;
             padding: 40px 20px 50px;
             background: linear-gradient(135deg, #cdbdf0 0%, #e4d9f7 45%, #b9a2ea 100%);
-            font-family: 'Poppins', Arial, sans-serif;
+            font-family: var(--font-body);
         }
 
         .ms-adtabs-wrap {
@@ -116,7 +113,7 @@ $tabs = [
             border: 1px solid var(--purple);
             background: linear-gradient(180deg, #fff 0%, #ece4fa 100%);
             color: #222;
-            font-family: 'Poppins', Arial, sans-serif;
+            font-family: var(--font-head);
             font-size: 13px;
             font-weight: 400;
             cursor: pointer;
