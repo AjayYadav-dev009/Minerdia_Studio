@@ -1,4 +1,8 @@
-<?php include __DIR__ . '/../include/header.php'; ?>
+<?php
+$page_title       = 'Email Marketing Services | Minerdia Studio';
+$page_description = 'Email marketing strategy, campaigns and automation from Minerdia Studio.';
+include __DIR__ . '/../include/header.php';
+?>
 
 <main style="overflow: hidden;">
 

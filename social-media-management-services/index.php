@@ -1,4 +1,8 @@
-<?php include __DIR__ . '/../include/header.php'; ?>
+<?php
+$page_title       = 'Social Media Management Services | Minerdia Studio';
+$page_description = 'Social media management, content and influencer marketing from Minerdia Studio.';
+include __DIR__ . '/../include/header.php';
+?>
 
 <main style="overflow: hidden;">
 

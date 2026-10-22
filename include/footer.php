@@ -1,3 +1,4 @@
+<?php require_once __DIR__ . '/../config.php'; ?>
 <footer class="ms-footer">
     <style>
         .ms-footer,
@@ -426,8 +427,8 @@
     <div class="ms-footer-wrap">
 
         <div class="ms-footer-col">
-            <a class="ms-footer-logo" href="https://minerdiastudio.com/" aria-label="Minerdia Studio Home">
-                <img src="https://minerdiastudio.com/wp-content/uploads/2026/03/mendria-logo-1.png" alt="Minerdia Studio Logo">
+            <a class="ms-footer-logo" href="<?php echo BASE; ?>" aria-label="Minerdia Studio Home">
+                <img src="<?php echo e(logo_url(LOGO_FOOTER, 'https://minerdiastudio.com/wp-content/uploads/2026/03/mendria-logo-1.png')); ?>" alt="Minerdia Studio Logo">
             </a>
 
             <p class="ms-footer-about">
@@ -437,19 +438,17 @@
             <div class="ms-footer-contact">
                 <div class="ms-contact-item">
                     <span class="ms-contact-icon"><i class="fa-solid fa-location-dot"></i></span>
-                    <a href="https://share.google/5pqBE6DiiJmTzchum" target="_blank" rel="noopener">
-                        2nd Floor, Plot No-456, Kakrola Housing Complex, Opposite Metro Pillar 796, Dwarka Mor, New Delhi-110078
-                    </a>
+                    <a href="<?php echo e(MAP_URL); ?>" target="_blank" rel="noopener"><?php echo e(ADDRESS); ?></a>
                 </div>
 
                 <div class="ms-contact-item">
                     <span class="ms-contact-icon"><i class="fa-solid fa-envelope"></i></span>
-                    <a href="mailto:info@minerdiastudio.com">info@minerdiastudio.com</a>
+                    <a href="mailto:<?php echo e(EMAIL); ?>"><?php echo e(EMAIL); ?></a>
                 </div>
 
                 <div class="ms-contact-item">
                     <span class="ms-contact-icon"><i class="fa-solid fa-phone"></i></span>
-                    <a href="tel:+919711555223">+91 9711555223</a>
+                    <a href="tel:<?php echo e(PHONE); ?>"><?php echo e(PHONE_TXT); ?></a>
                 </div>
             </div>
         </div>
@@ -457,24 +456,24 @@
         <div class="ms-footer-col">
             <h3 class="ms-footer-title">Quick Links</h3>
             <div class="ms-footer-links">
-                <a href="https://minerdiastudio.com/">Home</a>
-                <a href="https://minerdiastudio.com/about-us/">About Us</a>
-                <a href="https://minerdiastudio.com/creative-gallery/">Gallery</a>
-                <a href="https://minerdiastudio.com/contact-us/">Contact Us</a>
+                <a href="<?php echo BASE; ?>">Home</a>
+                <a href="<?php echo BASE; ?>about-page/">About Us</a>
+                <a href="<?php echo BASE; ?>gallery/">Gallery</a>
+                <a href="<?php echo BASE; ?>contact-page/">Contact Us</a>
             </div>
         </div>
 
         <div class="ms-footer-col">
             <h3 class="ms-footer-title">Services</h3>
             <div class="ms-footer-links">
-                <a href="https://minerdiastudio.com/podcast-services/">Podcast Services</a>
-                <a href="https://minerdiastudio.com/professional-designing-and-video-editing/">Designing & Video Editing</a>
-                <a href="https://minerdiastudio.com/seo-services/">SEO Services</a>
-                <a href="https://minerdiastudio.com/social-media-management-services/">Social Media Management</a>
-                <a href="https://minerdiastudio.com/paid-ads-services/">Paid Ads Services</a>
-                <a href="https://minerdiastudio.com/website-development-services/">Website Development</a>
-                <a href="https://minerdiastudio.com/script-writing-services/">Script Writing Services</a>
-                <a href="https://minerdiastudio.com/email-marketing-services/">Email Marketing Services</a>
+                <a href="<?php echo BASE; ?>podcast-service/">Podcast Services</a>
+                <a href="<?php echo BASE; ?>designing-video-editing/">Designing &amp; Video Editing</a>
+                <a href="<?php echo BASE; ?>seo-service/">SEO Services</a>
+                <a href="<?php echo BASE; ?>social-media-management/">Social Media Management</a>
+                <a href="<?php echo BASE; ?>paid-ad-service/">Paid Ads Services</a>
+                <a href="<?php echo BASE; ?>website-development/">Website Development</a>
+                <a href="<?php echo BASE; ?>script-writing/">Script Writing Services</a>
+                <a href="<?php echo BASE; ?>email-marketing/">Email Marketing Services</a>
             </div>
         </div>
 
@@ -485,18 +484,18 @@
                 Subscribe to our newsletter and get updates about creative content, marketing trends and business growth strategies.
             </p>
 
-            <form class="ms-news-form ms-news-form-static" action="subscribe.php" method="post">
+            <form class="ms-news-form ms-news-form-static" action="<?php echo BASE; ?>subscribe.php" method="post">
                 <label for="ms-news-email" class="ms-news-label">Email <span>*</span></label>
                 <input type="email" id="ms-news-email" name="email" placeholder="Email Address" required>
                 <button type="submit">Submit Form</button>
             </form>
 
             <div class="ms-social">
-                <a class="ms-facebook" href="https://www.facebook.com/share/1DuRJ3KHHW/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                <a class="ms-pinterest" href="https://in.pinterest.com/minerdiastudio/" target="_blank" rel="noopener" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
-                <a class="ms-instagram" href="https://www.instagram.com/minerdiastudio/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                <a class="ms-linkedin" href="https://www.linkedin.com/company/minerdia-studio/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                <a class="ms-youtube" href="https://www.youtube.com/@minerdiastudio" target="_blank" rel="noopener" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                <a class="ms-facebook" href="<?php echo e(FACEBOOK); ?>" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a class="ms-pinterest" href="<?php echo e(PINTEREST); ?>" target="_blank" rel="noopener" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+                <a class="ms-instagram" href="<?php echo e(INSTAGRAM); ?>" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a class="ms-linkedin" href="<?php echo e(LINKEDIN); ?>" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a class="ms-youtube" href="<?php echo e(YOUTUBE); ?>" target="_blank" rel="noopener" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
             </div>
         </div>
 
@@ -508,11 +507,77 @@
 <div class="ms-copyright">
     <div>Copyright @<?php echo date('Y'); ?> <span class="ms-brand">Minerdia Studio</span> | All Right Reserved</div>
     <div class="ms-copyright-links">
-        <a href="terms-and-conditions.php">Terms &amp; Conditions</a>
+        <a href="https://minerdiastudio.com/terms-and-conditions/">Terms &amp; Conditions</a>
         <span>|</span>
-        <a href="privacy-policy.php">Privacy Policy</a>
+        <a href="https://minerdiastudio.com/privacy-policy/">Privacy Policy</a>
     </div>
 </div>
+
+<!-- ===== FLOATING WHATSAPP BUTTON (settings in config.php) ===== -->
+<style>
+    .ms-whatsapp {
+        position: fixed;
+        right: 22px;
+        bottom: 22px;
+        z-index: 9998;
+        width: 58px;
+        height: 58px;
+        border-radius: 50%;
+        background: #25d366;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 8px 22px rgba(0, 0, 0, .25);
+        transition: transform .2s ease, box-shadow .2s ease;
+        text-decoration: none;
+    }
+
+    .ms-whatsapp::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: 50%;
+        background: #25d366;
+        opacity: .5;
+        z-index: -1;
+        animation: ms-wa-pulse 2.2s ease-out infinite;
+    }
+
+    .ms-whatsapp:hover {
+        transform: scale(1.08);
+        box-shadow: 0 12px 28px rgba(0, 0, 0, .3);
+    }
+
+    .ms-whatsapp img,
+    .ms-whatsapp svg {
+        width: 34px;
+        height: 34px;
+        object-fit: contain;
+        display: block;
+    }
+
+    @keyframes ms-wa-pulse {
+        0%   { transform: scale(1);   opacity: .5; }
+        100% { transform: scale(1.7); opacity: 0;  }
+    }
+
+    @media (max-width: 600px) {
+        .ms-whatsapp { right: 16px; bottom: 16px; width: 54px; height: 54px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .ms-whatsapp::before { animation: none; }
+    }
+</style>
+
+<?php $__wa_icon = logo_url(LOGO_WHATSAPP); ?>
+<a class="ms-whatsapp" href="https://wa.me/<?php echo e(WHATSAPP_NUMBER); ?>?text=<?php echo rawurlencode(WHATSAPP_MESSAGE); ?>" target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp">
+    <?php if ($__wa_icon): ?>
+        <img src="<?php echo e($__wa_icon); ?>" alt="WhatsApp">
+    <?php else: ?>
+        <svg viewBox="0 0 32 32" fill="#fff" aria-hidden="true"><path d="M16.04 3C9 3 3.3 8.7 3.3 15.7c0 2.25.6 4.45 1.73 6.38L3 29l7.12-1.87a12.7 12.7 0 0 0 5.92 1.5h.01c7.04 0 12.75-5.7 12.75-12.7C28.8 8.9 23.08 3 16.04 3Zm0 23.4h-.01a10.6 10.6 0 0 1-5.4-1.48l-.39-.23-4.23 1.1 1.13-4.12-.25-.42a10.5 10.5 0 0 1-1.62-5.55c0-5.83 4.76-10.57 10.62-10.57 5.84 0 10.6 4.74 10.6 10.57 0 5.83-4.77 10.7-10.45 10.7Zm5.82-7.92c-.32-.16-1.89-.93-2.18-1.04-.29-.1-.5-.16-.72.16-.21.32-.82 1.04-1 1.25-.19.21-.37.24-.69.08-.32-.16-1.35-.5-2.57-1.58-.95-.85-1.59-1.9-1.77-2.22-.19-.32-.02-.49.14-.65.14-.14.32-.37.48-.56.16-.19.21-.32.32-.53.1-.21.05-.4-.03-.56-.08-.16-.72-1.73-.98-2.37-.26-.62-.52-.54-.72-.55h-.61c-.21 0-.56.08-.85.4-.29.32-1.12 1.1-1.12 2.67s1.15 3.1 1.31 3.32c.16.21 2.26 3.45 5.47 4.84.76.33 1.36.53 1.82.68.77.24 1.46.21 2.01.13.61-.09 1.89-.77 2.15-1.52.27-.75.27-1.39.19-1.52-.08-.13-.29-.21-.61-.37Z"/></svg>
+    <?php endif; ?>
+</a>
 
 </body>
 

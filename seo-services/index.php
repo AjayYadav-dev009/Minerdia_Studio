@@ -1,4 +1,8 @@
-<?php include __DIR__ . '/../include/header.php'; ?>
+<?php
+$page_title       = 'SEO Services | Minerdia Studio';
+$page_description = 'Search engine optimization services from Minerdia Studio to grow your rankings and organic traffic.';
+include __DIR__ . '/../include/header.php';
+?>
 
 <main style="overflow: hidden;">
 

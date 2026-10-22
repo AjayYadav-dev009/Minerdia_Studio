@@ -1,4 +1,8 @@
-<?php include __DIR__ . '/../include/header.php'; ?>
+<?php
+$page_title       = 'Contact Us | Minerdia Studio';
+$page_description = 'Get in touch with Minerdia Studio for a free consultation on your digital marketing goals.';
+include __DIR__ . '/../include/header.php';
+?>
 
 <main style="overflow: hidden;">
 

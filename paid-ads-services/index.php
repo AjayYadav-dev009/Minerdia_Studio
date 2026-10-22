@@ -1,4 +1,8 @@
-<?php include __DIR__ . '/../include/header.php'; ?>
+<?php
+$page_title       = 'Paid Ads Services | Minerdia Studio';
+$page_description = 'Google Ads and Facebook Ads management from Minerdia Studio that turns spend into leads.';
+include __DIR__ . '/../include/header.php';
+?>
 
 <main style="overflow: hidden;">
 

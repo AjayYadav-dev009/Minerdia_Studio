@@ -1,10 +1,65 @@
+<?php
+require_once __DIR__ . '/../config.php';
+
+$page_title       = $page_title       ?? SITE_NAME;
+$page_description = $page_description ?? DEFAULT_DESC;
+$page_keywords    = $page_keywords    ?? '';
+$page_noindex     = $page_noindex     ?? (SITE_ENV === 'local');     // local/dev copies are never indexed
+
+// canonical = live domain + this page's path (auto), unless the page sets its own
+if (!isset($page_canonical)) {
+    $__path = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH);
+    $__path = preg_replace('#index\.php$#', '', (string) $__path);
+    if (BASE !== '/' && strpos($__path, BASE) === 0) {
+        $__path = substr($__path, strlen(BASE));
+    }
+    $page_canonical = LIVE_BASE . ltrim($__path, '/');
+}
+
+$__share = logo_url(LOGO_SHARE) ? LIVE_BASE . 'assets/image/logo/' . LOGO_SHARE : 'https://minerdiastudio.com/wp-content/uploads/2026/03/mendria-logo-2.png';
+$page_image = $page_image ?? $__share;
+$__logo_header = logo_url(LOGO_HEADER, 'https://minerdiastudio.com/wp-content/uploads/2026/03/mendria-logo-2.png');
+?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title><?php echo e($page_title); ?></title>
+    <meta name="description" content="<?php echo e($page_description); ?>">
+    <?php if ($page_keywords): ?><meta name="keywords" content="<?php echo e($page_keywords); ?>"><?php endif; ?>
+
+    <meta name="robots" content="<?php echo $page_noindex ? 'noindex, nofollow' : 'index, follow'; ?>">
+    <link rel="canonical" href="<?php echo e($page_canonical); ?>">
+
+    <!-- Open Graph / Twitter -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="<?php echo e(SITE_NAME); ?>">
+    <meta property="og:title" content="<?php echo e($page_title); ?>">
+    <meta property="og:description" content="<?php echo e($page_description); ?>">
+    <meta property="og:url" content="<?php echo e($page_canonical); ?>">
+    <meta property="og:image" content="<?php echo e($page_image); ?>">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="<?php echo e($page_title); ?>">
+    <meta name="twitter:description" content="<?php echo e($page_description); ?>">
+    <meta name="twitter:image" content="<?php echo e($page_image); ?>">
+
+    <!-- Organization schema -->
+    <script type="application/ld+json">
+    <?php echo json_encode([
+        '@context'  => 'https://schema.org',
+        '@type'     => 'Organization',
+        'name'      => SITE_NAME,
+        'url'       => LIVE_BASE,
+        'logo'      => $page_image,
+        'email'     => EMAIL,
+        'telephone' => PHONE,
+        'address'   => ADDRESS,
+        'sameAs'    => [FACEBOOK, PINTEREST, INSTAGRAM, LINKEDIN, YOUTUBE],
+    ], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>
+
+    </script>
 </head>
 
 <body>
@@ -791,33 +846,19 @@
         <div class="minerdia-header-container">
 
             <!-- LOGO -->
-            <a
-                href="https://minerdiastudio.com/"
-                class="minerdia-logo"
-                aria-label="Minerdia Studio Home">
-                <img
-                    src="https://minerdiastudio.com/wp-content/uploads/2026/03/mendria-logo-2.png"
-                    alt="Minerdia Studio"
-                    width="82"
-                    height="54">
+            <a href="<?php echo BASE; ?>" class="minerdia-logo" aria-label="Minerdia Studio Home">
+                <img src="<?php echo e($__logo_header); ?>" alt="Minerdia Studio" width="82" height="54">
             </a>
 
             <!-- NAVIGATION -->
             <nav class="minerdia-nav" aria-label="Main Navigation">
 
-                <a
-                    href="https://minerdiastudio.com/"
-                    class="minerdia-nav-link">
-                    Home
-                </a>
+                <a href="<?php echo BASE; ?>" class="minerdia-nav-link">Home</a>
 
                 <!-- SERVICES DROPDOWN -->
                 <div class="minerdia-dropdown">
 
-                    <button
-                        type="button"
-                        class="minerdia-nav-link minerdia-dropdown-toggle"
-                        aria-expanded="false">
+                    <button type="button" class="minerdia-nav-link minerdia-dropdown-toggle" aria-expanded="false">
                         <span>Services</span>
 
                         <svg viewBox="0 0 20 20" aria-hidden="true">
@@ -826,49 +867,21 @@
                     </button>
 
                     <div class="minerdia-dropdown-menu minerdia-services-menu">
-
-                        <a href="https://minerdiastudio.com/podcast-services/">
-                            Podcast Services
-                        </a>
-
-                        <a href="https://minerdiastudio.com/professional-designing-and-video-editing/">
-                            Designing &amp; Video Editing
-                        </a>
-
-                        <a href="https://minerdiastudio.com/seo-services/">
-                            SEO Services
-                        </a>
-
-                        <a href="https://minerdiastudio.com/social-media-management-services/">
-                            Social Media Management
-                        </a>
-
-                        <a href="https://minerdiastudio.com/paid-ads-services/">
-                            Paid Ads Services
-                        </a>
-
-                        <a href="https://minerdiastudio.com/website-development-services/">
-                            Website Development
-                        </a>
-
-                        <a href="https://minerdiastudio.com/script-writing-services/">
-                            Script Writing Services
-                        </a>
-
-                        <a href="https://minerdiastudio.com/email-marketing-services/">
-                            Email Marketing Services
-                        </a>
-
+                        <a href="<?php echo BASE; ?>podcast-services/">Podcast Services</a>
+                        <a href="<?php echo BASE; ?>professional-designing-and-video-editing/">Designing &amp; Video Editing</a>
+                        <a href="<?php echo BASE; ?>seo-services/">SEO Services</a>
+                        <a href="<?php echo BASE; ?>social-media-management-services/">Social Media Management</a>
+                        <a href="<?php echo BASE; ?>paid-ads-services/">Paid Ads Services</a>
+                        <a href="<?php echo BASE; ?>website-development-services/">Website Development</a>
+                        <a href="<?php echo BASE; ?>script-writing-services/">Script Writing Services</a>
+                        <a href="<?php echo BASE; ?>email-marketing-services/">Email Marketing Services</a>
                     </div>
                 </div>
 
                 <!-- COMPANY DROPDOWN -->
                 <div class="minerdia-dropdown">
 
-                    <button
-                        type="button"
-                        class="minerdia-nav-link minerdia-dropdown-toggle"
-                        aria-expanded="false">
+                    <button type="button" class="minerdia-nav-link minerdia-dropdown-toggle" aria-expanded="false">
                         <span>Company</span>
 
                         <svg viewBox="0 0 20 20" aria-hidden="true">
@@ -877,43 +890,23 @@
                     </button>
 
                     <div class="minerdia-dropdown-menu minerdia-company-menu">
-
-                        <a href="/about-page/index.php">
-                            About Us
-                        </a>
-
-                        <a href="https://minerdiastudio.com/creative-gallery/">
-                            Gallery
-                        </a>
-
-                        <a href="https://minerdiastudio.com/contact-us/">
-                            Contact Us
-                        </a>
-
+                        <a href="<?php echo BASE; ?>about-us/">About Us</a>
+                        <a href="<?php echo BASE; ?>creative-gallery/">Gallery</a>
+                        <a href="<?php echo BASE; ?>contact-us/">Contact Us</a>
                     </div>
                 </div>
 
-                <a
-                    href="https://minerdiastudio.com/contact-us/"
-                    class="minerdia-nav-link">
-                    Contact Us
-                </a>
+                <a href="<?php echo BASE; ?>contact-us/" class="minerdia-nav-link">Contact Us</a>
 
             </nav>
 
             <!-- FREE AUDIT BUTTON -->
-            <a
-                href="https://minerdiastudio.com/free-digital-marketing-audit/"
-                class="minerdia-audit-btn">
+            <a href="<?php echo BASE; ?>free-digital-marketing-audit/" class="minerdia-audit-btn">
                 <span>Free Audit</span>
             </a>
 
             <!-- MOBILE MENU BUTTON -->
-            <button
-                type="button"
-                class="minerdia-menu-btn"
-                aria-label="Open navigation menu"
-                aria-expanded="false">
+            <button type="button" class="minerdia-menu-btn" aria-label="Open navigation menu" aria-expanded="false">
                 <span></span>
                 <span></span>
                 <span></span>

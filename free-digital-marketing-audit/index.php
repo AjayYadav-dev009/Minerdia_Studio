@@ -1,4 +1,8 @@
-<?php include __DIR__ . '/../include/header.php'; ?>
+<?php
+$page_title       = 'Free Digital Marketing Audit | Minerdia Studio';
+$page_description = 'Request a free digital marketing audit from Minerdia Studio and find out where your brand can grow.';
+include __DIR__ . '/../include/header.php';
+?>
 
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;500;600&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 

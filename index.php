@@ -1,4 +1,8 @@
-<?php include __DIR__ . '/include/header.php'; ?>
+<?php
+$page_title       = 'Minerdia Studio | Digital Marketing Agency in India';
+$page_description = 'Minerdia Studio is a digital marketing agency in India offering SEO, social media, paid ads, web development, podcast, video and email marketing services.';
+include __DIR__ . '/include/header.php';
+?>
 
 <main>
 

@@ -1,4 +1,8 @@
-<?php include __DIR__ . '/../include/header.php'; ?>
+<?php
+$page_title       = 'Professional Designing & Video Editing | Minerdia Studio';
+$page_description = 'Professional graphic design and video editing services from Minerdia Studio.';
+include __DIR__ . '/../include/header.php';
+?>
 
 <main style="overflow: hidden;">
 

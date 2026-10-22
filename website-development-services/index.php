@@ -1,4 +1,8 @@
-<?php include __DIR__ . '/../include/header.php'; ?>
+<?php
+$page_title       = 'Website Development Services | Minerdia Studio';
+$page_description = 'Custom, fast and conversion-focused website development from Minerdia Studio.';
+include __DIR__ . '/../include/header.php';
+?>
 
 <main style="overflow: hidden;">
 
