@@ -93,7 +93,7 @@
             <div class="mds-model mds-model-animate">
                 <img
                     class="mds-model-image"
-                    src="https://minerdiastudio.com/wp-content/uploads/2026/07/Indian-model-Minerdia-studio.png"
+                    src="assets/image/home/home-1.webp"
                     alt="Indian model presenting Minerdia Studio services"
                     loading="lazy"
                     decoding="async">

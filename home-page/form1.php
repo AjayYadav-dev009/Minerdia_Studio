@@ -173,7 +173,7 @@
             <div class="mff-contact__image-wrap">
 
                 <img
-                    src="https://minerdiastudio.com/wp-content/uploads/2026/07/minerdia-studio11-1.png"
+                    src="assets/image/home/home-2.webp"
                     alt="Minerdia Studio digital marketing consultant presenting business growth services"
                     loading="lazy"
                     decoding="async">
