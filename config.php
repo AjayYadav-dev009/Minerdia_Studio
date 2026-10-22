@@ -15,8 +15,8 @@ define('DEFAULT_DESC',     'Minerdia Studio is a digital marketing agency in Ind
 /* ---------- LOGOS  (files inside assets/image/logo/) ----------
    Change the file names to match yours. If a file is missing,
    the old logo URL below is used instead.                        */
-define('LOGO_HEADER',   'logo-header.webp');
-define('LOGO_FOOTER',   'logo-footer.webp');
+define('LOGO_HEADER',   'header-logo-2.webp');
+define('LOGO_FOOTER',   'footer-logo-1.webp');
 define('LOGO_WHATSAPP', 'whatsapp.webp');       // missing = built-in WhatsApp icon is used
 define('LOGO_SHARE',    'logo-header.webp');    // image shown when a link is shared (Open Graph)
 
@@ -24,6 +24,7 @@ define('LOGO_SHARE',    'logo-header.webp');    // image shown when a link is sh
 define('ADDRESS',   '2nd Floor, Plot No-456, Kakrola Housing Complex, Opposite Metro Pillar 796, Dwarka Mor, New Delhi-110078');
 define('MAP_URL',   'https://share.google/5pqBE6DiiJmTzchum');
 define('EMAIL',     'info@minerdiastudio.com');
+define('EMAIL2',    'marketingminerdia@gmail.com');
 define('PHONE',     '+919711555223');
 define('PHONE_TXT', '+91 9711555223');
 
