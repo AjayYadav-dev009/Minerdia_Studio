@@ -313,7 +313,7 @@
     <div class="ms-podcast-visual">
       <div class="ms-podcast-image-box">
         <img
-          src="https://minerdiastudio.com/wp-content/uploads/2026/06/podcast-production-service.png"
+          src="assets/image/services/pd-1.webp"
           alt="Professional Podcast Production Services in Delhi NCR"
           loading="eager"
           fetchpriority="high"
