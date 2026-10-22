@@ -276,7 +276,9 @@
 
         <!-- RIGHT: sticky form -->
         <div class="ms-grow-formcol">
-            <form class="ms-grow-form" method="post" action="">
+            <form class="ms-grow-form" method="post" action="<?php echo BASE; ?>submit-form.php" data-lead-form>
+                <input type="hidden" name="source_page" value="SEO">
+                <input type="text" name="website_hp" value="" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;opacity:0;height:0;width:0">
                 <div class="ms-grow-row">
                     <div class="ms-grow-field">
                         <label for="ms-grow-name">Full Name <span>*</span></label>

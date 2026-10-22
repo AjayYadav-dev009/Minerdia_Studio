@@ -40,6 +40,19 @@ define('LINKEDIN',  'https://www.linkedin.com/company/minerdia-studio/');
 define('YOUTUBE',   'https://www.youtube.com/@minerdiastudio');
 
 
+/* ---------- LEADS  (Google Sheets + optional email) ----------
+   Paste the Apps Script "Web app" URLs here (see google-apps-script-service-leads.gs).
+   SHEETS_TOKEN must be EXACTLY the same as SECRET_TOKEN inside the Apps Script.   */
+define('SHEETS_TOKEN',        'kR7xPm2nQw9Lb4Yt6HjZ');   // must match the token in the Google Apps Script
+define('SHEETS_URL_SERVICE',  'https://script.google.com/macros/s/AKfycbyhfUgWSLXSzyUEZw3IkCOoOjGuxrLoHoFtBuWppwmVRhhzyDuJe4nwheDvOAHv1OBU/exec');   // service-page forms  -> "Service Leads" tab
+define('SHEETS_URL_AUDIT',    'PASTE_AUDIT_WEB_APP_URL_HERE');           // free audit popup    -> "Get Free Audit Form" tab
+define('SHEETS_URL_CONTACT',  '');                                       // home contact form   (empty = uses the audit URL)
+
+define('LEAD_EMAIL_ENABLED',  false);                                    // also email every lead? (mail() often fails on localhost)
+define('LEAD_EMAIL_TO',       EMAIL);
+define('LEAD_EMAIL_FROM',     'no-reply@minerdiastudio.com');
+
+
 /* =========================================================
    Nothing below needs editing
    ========================================================= */

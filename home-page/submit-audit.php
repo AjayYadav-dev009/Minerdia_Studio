@@ -5,20 +5,21 @@
    and can optionally also send an email.
    ========================================================= */
 
+require_once __DIR__ . '/../config.php';
 header('Content-Type: application/json; charset=utf-8');
 
-/* ---------------- EDIT THESE ---------------- */
+/* ---- settings now live in /config.php (LEADS section) ---- */
 
 // Web app URL you get after deploying google-apps-script.gs
-$GOOGLE_SCRIPT_URL = 'PASTE_YOUR_APPS_SCRIPT_WEB_APP_URL_HERE';
+$GOOGLE_SCRIPT_URL = SHEETS_URL_AUDIT;
 
 // Must be EXACTLY the same as SECRET_TOKEN inside google-apps-script.gs
-$SECRET_TOKEN = 'CHANGE_THIS_TO_A_LONG_RANDOM_STRING';
+$SECRET_TOKEN = SHEETS_TOKEN;
 
 // Also email each lead? (mail() often fails on localhost)
-$SEND_EMAIL = false;
-$EMAIL_TO   = 'you@yourdomain.com';
-$EMAIL_FROM = 'no-reply@yourdomain.com';
+$SEND_EMAIL = LEAD_EMAIL_ENABLED;
+$EMAIL_TO   = LEAD_EMAIL_TO;
+$EMAIL_FROM = LEAD_EMAIL_FROM;
 
 /* -------------------------------------------- */
 

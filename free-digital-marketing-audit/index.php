@@ -639,3 +639,5 @@ include __DIR__ . '/../include/header.php';
     </div>
 
 </section>
+
+<?php include __DIR__ . '/../include/footer.php'; ?>

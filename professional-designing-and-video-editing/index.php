@@ -12,3 +12,5 @@ include __DIR__ . '/../include/header.php';
     <?php require __DIR__ . '/faqs.php'; ?>
     
 </main>
+
+<?php include __DIR__ . '/../include/footer.php'; ?>

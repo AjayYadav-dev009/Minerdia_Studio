@@ -7,20 +7,21 @@
    Google Sheets (via Apps Script) and can optionally email it.
    ========================================================= */
 
+require_once __DIR__ . '/../config.php';
 header('Content-Type: application/json; charset=utf-8');
 
-/* ---------------- EDIT THESE ---------------- */
+/* ---- settings now live in /config.php (LEADS section) ---- */
 
 // Web app URL you get after deploying your Apps Script
-$GOOGLE_SCRIPT_URL = 'PASTE_YOUR_APPS_SCRIPT_WEB_APP_URL_HERE';
+$GOOGLE_SCRIPT_URL = (SHEETS_URL_CONTACT !== '' ? SHEETS_URL_CONTACT : SHEETS_URL_AUDIT);
 
 // Must be EXACTLY the same as SECRET_TOKEN inside the Apps Script
-$SECRET_TOKEN = 'CHANGE_THIS_TO_A_LONG_RANDOM_STRING';
+$SECRET_TOKEN = SHEETS_TOKEN;
 
 // Also email each lead? (mail() often fails on localhost)
-$SEND_EMAIL = false;
-$EMAIL_TO   = 'you@yourdomain.com';
-$EMAIL_FROM = 'no-reply@yourdomain.com';
+$SEND_EMAIL = LEAD_EMAIL_ENABLED;
+$EMAIL_TO   = LEAD_EMAIL_TO;
+$EMAIL_FROM = LEAD_EMAIL_FROM;
 
 /* -------------------------------------------- */
 
@@ -105,7 +106,7 @@ if (!in_array($service, $ALLOWED_SERVICES, true)) {
 
 /* ---------------- SAVE TO GOOGLE SHEETS ---------------- */
 
-$sheetsConfigured = strpos($GOOGLE_SCRIPT_URL, 'PASTE_YOUR') === false;
+$sheetsConfigured = strpos($GOOGLE_SCRIPT_URL, 'PASTE_') === false;
 
 $payload = [
     'token'    => $SECRET_TOKEN,
