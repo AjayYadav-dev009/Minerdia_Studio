@@ -84,14 +84,12 @@ $__logo_header = logo_url(LOGO_HEADER, 'https://minerdiastudio.com/wp-content/up
             --mh-blue: #2475d5;
             --mh-cyan: #22a5ae;
             --mh-text: #17131e;
-
-            /* Float over the hero (like the live site) instead of
-               taking its own row above it */
-            position: absolute;
+            position: fixed;
             top: 0;
             left: 0;
             right: 0;
             z-index: 9999;
+            pointer-events: none;
 
             width: 100%;
             padding: 12px 18px 0;
@@ -101,6 +99,7 @@ $__logo_header = logo_url(LOGO_HEADER, 'https://minerdiastudio.com/wp-content/up
 
         .minerdia-header-container {
             position: relative;
+            pointer-events: auto;
 
             width: min(1120px, 100%);
             min-height: 66px;
