@@ -3,125 +3,54 @@
    MINERDIA STUDIO – FREE AUDIT FORM HANDLER
    Saves every submission to Google Sheets (via Apps Script)
    and can optionally also send an email.
+   Settings live in /config.php (LEADS section).
    ========================================================= */
 
-require_once __DIR__ . '/../config.php';
-header('Content-Type: application/json; charset=utf-8');
+require_once __DIR__ . '/../include/lead-helpers.php';
 
-/* ---- settings now live in /config.php (LEADS section) ---- */
+lead_guard('audit');
 
-// Web app URL you get after deploying google-apps-script.gs
-// (falls back to SHEETS_URL_SERVICE: one Apps Script handles all forms)
-$GOOGLE_SCRIPT_URL = (strpos(SHEETS_URL_AUDIT, 'PASTE_') === false) ? SHEETS_URL_AUDIT : SHEETS_URL_SERVICE;
+$name     = lead_clean($_POST['name'] ?? '');
+$business = lead_clean($_POST['business'] ?? '');
+$website  = lead_clean($_POST['website'] ?? '', 250);
+$phone    = lead_clean($_POST['phone'] ?? '', 25);
+$service  = lead_clean($_POST['service'] ?? '');
+$budget   = lead_clean($_POST['budget'] ?? '');
 
-// Must be EXACTLY the same as SECRET_TOKEN inside google-apps-script.gs
-$SECRET_TOKEN = SHEETS_TOKEN;
-
-// Also email each lead? (mail() often fails on localhost)
-$SEND_EMAIL = LEAD_EMAIL_ENABLED;
-$EMAIL_TO   = LEAD_EMAIL_TO;
-$EMAIL_FROM = LEAD_EMAIL_FROM;
-
-/* -------------------------------------------- */
-
-
-function respond($ok, $message, $code = 200)
-{
-    http_response_code($code);
-    echo json_encode(['ok' => $ok, 'message' => $message]);
-    exit;
+if ($name === '' || $business === '' || $phone === '' || $service === '' || $budget === '') {
+    lead_finish(false, 'Please fill all required fields.', 422);
+}
+if (!lead_valid_phone($phone)) {
+    lead_finish(false, 'Please enter a valid phone number.', 422);
+}
+if (!lead_valid_url($website)) {
+    lead_finish(false, 'Please enter a valid website URL (include https://).', 422);
 }
 
-function clean($v)
-{
-    return trim(strip_tags($v ?? ''));
-}
+$saved = lead_save_to_sheets(
+    lead_sheets_url([SHEETS_URL_AUDIT, SHEETS_URL_SERVICE]),
+    [
+        'form'     => 'audit',
+        'date'     => date('d/m/Y'),
+        'name'     => lead_safe_cell($name),
+        'business' => lead_safe_cell($business),
+        'website'  => lead_safe_cell($website),
+        'phone'    => $phone,
+        'service'  => lead_safe_cell($service),
+        'budget'   => lead_safe_cell($budget),
+        'page'     => lead_safe_cell(lead_clean($_SERVER['HTTP_REFERER'] ?? '', 250)),
+    ],
+    'audit form'
+);
 
-
-if ($_SERVER['REQUEST_METHOD'] !== 'POST' || !empty($_POST['website_hp'])) {
-    respond(false, 'Invalid request.', 400);
-}
-
-$name     = clean($_POST['name'] ?? '');
-$business = clean($_POST['business'] ?? '');
-$website  = clean($_POST['website'] ?? '');
-$phone    = clean($_POST['phone'] ?? '');
-$service  = clean($_POST['service'] ?? '');
-$budget   = clean($_POST['budget'] ?? '');
-
-if (!$name || !$business || !$phone || !$service || !$budget) {
-    respond(false, 'Please fill all required fields.');
-}
-
-if (!preg_match('/^[0-9+\-\s()]{7,20}$/', $phone)) {
-    respond(false, 'Please enter a valid phone number.');
-}
-
-if ($website !== '' && !filter_var($website, FILTER_VALIDATE_URL)) {
-    respond(false, 'Please enter a valid website URL (include https://).');
-}
-
-
-/* ---------------- SAVE TO GOOGLE SHEETS ---------------- */
-
-$payload = [
-    'token'    => $SECRET_TOKEN,
-    'form'     => 'audit',
-    'name'     => $name,
-    'business' => $business,
-    'website'  => $website,
-    'phone'    => $phone,
-    'service'  => $service,
-    'budget'   => $budget,
-    'page'     => clean($_SERVER['HTTP_REFERER'] ?? ''),
-];
-
-$saved = false;
-
-if (function_exists('curl_init')) {
-
-    $ch = curl_init($GOOGLE_SCRIPT_URL);
-
-    curl_setopt_array($ch, [
-        CURLOPT_POST           => true,
-        CURLOPT_POSTFIELDS     => http_build_query($payload),
-        CURLOPT_RETURNTRANSFER => true,
-        CURLOPT_FOLLOWLOCATION => true,   // Apps Script answers with a redirect
-        CURLOPT_TIMEOUT        => 20,
-    ]);
-
-    $response = curl_exec($ch);
-    $status   = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-    $error    = curl_error($ch);
-    curl_close($ch);
-
-    if ($response !== false && $status === 200) {
-        $json  = json_decode($response, true);
-        $saved = is_array($json) && !empty($json['ok']);
-    } else {
-        error_log('Minerdia Sheets error: ' . $error . ' (HTTP ' . $status . ')');
-    }
-}
-
-
-/* ---------------- OPTIONAL EMAIL ---------------- */
-
-$emailed = false;
-
-if ($SEND_EMAIL) {
-
-    $body  = "Name: $name\nBusiness: $business\nWebsite: $website\n";
-    $body .= "Phone: $phone\nService: $service\nBudget: $budget\n";
-
-    $headers  = "From: $EMAIL_FROM\r\n";
-    $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
-
-    $emailed = @mail($EMAIL_TO, 'New Free Audit Request - ' . $business, $body, $headers);
-}
-
+$emailed = lead_email(
+    'New Free Audit Request - ' . $business,
+    "Name: $name\nBusiness: $business\nWebsite: $website\nPhone: $phone\nService: $service\nBudget: $budget\n"
+);
 
 if ($saved || $emailed) {
-    respond(true, 'Thank you! Our team will contact you shortly.');
+    lead_mark_done('audit');
+    lead_finish(true, 'Thank you! Our team will contact you shortly.');
 }
 
-respond(false, 'Something went wrong. Please try again.', 500);
+lead_finish(false, 'Something went wrong. Please try again.', 500);

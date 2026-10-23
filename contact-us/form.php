@@ -1,15 +1,15 @@
 <?php
 // ---------------------------------------------------------------
-// CONFIG: change these values
+// CONFIG
+// Submissions go to home-page/submit-contact.php -> Google Sheets
+// ("Home Contact" tab, the Page column shows /contact-us/).
 // ---------------------------------------------------------------
-$to_email    = 'your-email@minerdiastudio.com';   // where enquiries are delivered
-$from_email  = 'noreply@minerdiastudio.com';      // should be an address on your own domain
-$site_name   = 'Minerdia Studio';
 $image_src   = 'https://minerdiastudio.com/wp-content/uploads/2026/07/sdfgdg.png';
 $image_alt   = 'Digital Marketing Consultation Services in India';
-$terms_url   = 'https://minerdiastudio.com/terms-and-conditions/';
-$privacy_url = 'https://minerdiastudio.com/privacy-policy/';
+$terms_url   = BASE . 'terms-and-conditions/';
+$privacy_url = BASE . 'privacy-policies/';
 
+// Must match $ALLOWED_SERVICES in home-page/submit-contact.php
 $services = [
     'Social Media Management',
     'Podcast',
@@ -22,91 +22,9 @@ $services = [
     'Search Engine Optimization (SEO)',
 ];
 
-// ---------------------------------------------------------------
-// Helpers
-// ---------------------------------------------------------------
-$e     = function ($s) { return htmlspecialchars((string)$s, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8'); };
-$clean = function ($s) { return trim(preg_replace('/[\r\n]+/', ' ', (string)$s)); };
-
-// CSRF token (needs a session; skipped safely if headers were already sent)
-if (session_status() === PHP_SESSION_NONE && !headers_sent()) {
-    session_start();
-}
-$use_session = session_status() === PHP_SESSION_ACTIVE;
-if ($use_session && empty($_SESSION['ms_cf_token'])) {
-    $_SESSION['ms_cf_token'] = bin2hex(random_bytes(32));
-}
-$token = $use_session ? $_SESSION['ms_cf_token'] : '';
-
-// ---------------------------------------------------------------
-// Form handling
-// ---------------------------------------------------------------
-$old    = ['name' => '', 'business' => '', 'phone' => '', 'email' => '', 'url' => '', 'service' => '', 'terms' => ''];
-$errors = [];
-$sent   = false;
-
-if (($_SERVER['REQUEST_METHOD'] ?? '') === 'POST' && isset($_POST['ms_cf_submit'])) {
-    foreach ($old as $key => $_) {
-        $old[$key] = $clean($_POST[$key] ?? '');
-    }
-
-    // Honeypot: real users never fill this hidden field
-    $is_bot = !empty($_POST['company_site']);
-
-    if ($use_session && !hash_equals($token, (string)($_POST['token'] ?? ''))) {
-        $errors[] = 'Your session expired. Please refresh the page and try again.';
-    }
-
-    if ($old['name'] === '')     { $errors[] = 'Please enter your full name.'; }
-    if ($old['business'] === '') { $errors[] = 'Please enter your business name.'; }
-
-    if (!preg_match('/^[0-9+\-\s()]{7,20}$/', $old['phone'])) {
-        $errors[] = 'Please enter a valid phone number.';
-    }
-    if (!filter_var($old['email'], FILTER_VALIDATE_EMAIL)) {
-        $errors[] = 'Please enter a valid email address.';
-    }
-    if ($old['url'] !== '' && !filter_var($old['url'], FILTER_VALIDATE_URL)) {
-        $errors[] = 'Please enter a valid website URL (including https://).';
-    }
-    if (!in_array($old['service'], $services, true)) {
-        $errors[] = 'Please select a service.';
-    }
-    if ($old['terms'] !== 'on') {
-        $errors[] = 'Please accept the Terms and Conditions and Privacy Policy.';
-    }
-
-    if (!$errors) {
-        if ($is_bot) {
-            $sent = true; // pretend success, send nothing
-        } else {
-            $subject = 'New enquiry: ' . $old['service'];
-            $body    = "New contact form enquiry\n\n"
-                     . "Name:          {$old['name']}\n"
-                     . "Business:      {$old['business']}\n"
-                     . "Phone:         {$old['phone']}\n"
-                     . "Email:         {$old['email']}\n"
-                     . "Website:       " . ($old['url'] !== '' ? $old['url'] : '-') . "\n"
-                     . "Service:       {$old['service']}\n";
-            $headers = "From: {$site_name} <{$from_email}>\r\n"
-                     . "Reply-To: {$old['email']}\r\n"
-                     . "Content-Type: text/plain; charset=UTF-8\r\n";
-
-            if (mail($to_email, $subject, $body, $headers)) {
-                $sent = true;
-                if ($use_session) {
-                    $_SESSION['ms_cf_token'] = bin2hex(random_bytes(32));
-                    $token = $_SESSION['ms_cf_token'];
-                }
-            } else {
-                $errors[] = 'Sorry, we could not send your message right now. Please try again later.';
-            }
-        }
-        if ($sent) {
-            $old = array_fill_keys(array_keys($old), '');
-        }
-    }
-}
+$e = function ($s) {
+    return htmlspecialchars((string)$s, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
+};
 ?>
 <section class="ms-cf" id="ms-cf">
 
@@ -331,7 +249,8 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') === 'POST' && isset($_POST['ms_cf_submit'
             }
 
             .ms-cf-image {
-                display: none; /* image hidden on tablet/mobile, like the original */
+                display: none;
+                /* image hidden on tablet/mobile, like the original */
             }
         }
 
@@ -373,91 +292,79 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') === 'POST' && isset($_POST['ms_cf_submit'
             <svg class="ms-cf-cube" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                 <defs>
                     <linearGradient id="ms-cf-top" x1="0" y1="0" x2="1" y2="1">
-                        <stop offset="0" stop-color="#ffffff" stop-opacity=".95"/>
-                        <stop offset="1" stop-color="#cfe0ea" stop-opacity=".55"/>
+                        <stop offset="0" stop-color="#ffffff" stop-opacity=".95" />
+                        <stop offset="1" stop-color="#cfe0ea" stop-opacity=".55" />
                     </linearGradient>
                     <linearGradient id="ms-cf-left" x1="0" y1="0" x2="1" y2="1">
-                        <stop offset="0" stop-color="#e3edf3" stop-opacity=".75"/>
-                        <stop offset="1" stop-color="#9fb4c2" stop-opacity=".45"/>
+                        <stop offset="0" stop-color="#e3edf3" stop-opacity=".75" />
+                        <stop offset="1" stop-color="#9fb4c2" stop-opacity=".45" />
                     </linearGradient>
                     <linearGradient id="ms-cf-right" x1="0" y1="0" x2="1" y2="1">
-                        <stop offset="0" stop-color="#bccddb" stop-opacity=".6"/>
-                        <stop offset="1" stop-color="#7f95a6" stop-opacity=".5"/>
+                        <stop offset="0" stop-color="#bccddb" stop-opacity=".6" />
+                        <stop offset="1" stop-color="#7f95a6" stop-opacity=".5" />
                     </linearGradient>
                 </defs>
-                <polygon points="10,30 50,50 50,92 10,70" fill="url(#ms-cf-left)" stroke="#8fa1ae" stroke-width="1.6" stroke-linejoin="round"/>
-                <polygon points="50,50 90,30 90,70 50,92" fill="url(#ms-cf-right)" stroke="#8fa1ae" stroke-width="1.6" stroke-linejoin="round"/>
-                <polygon points="50,10 90,30 50,50 10,30" fill="url(#ms-cf-top)" stroke="#8fa1ae" stroke-width="1.6" stroke-linejoin="round"/>
+                <polygon points="10,30 50,50 50,92 10,70" fill="url(#ms-cf-left)" stroke="#8fa1ae" stroke-width="1.6" stroke-linejoin="round" />
+                <polygon points="50,50 90,30 90,70 50,92" fill="url(#ms-cf-right)" stroke="#8fa1ae" stroke-width="1.6" stroke-linejoin="round" />
+                <polygon points="50,10 90,30 50,50 10,30" fill="url(#ms-cf-top)" stroke="#8fa1ae" stroke-width="1.6" stroke-linejoin="round" />
                 <!-- inner glass edges -->
-                <polyline points="50,50 50,92" fill="none" stroke="#ffffff" stroke-opacity=".8" stroke-width="1.2"/>
-                <polyline points="22,36 50,50 78,36" fill="none" stroke="#ffffff" stroke-opacity=".7" stroke-width="1.2"/>
-                <polyline points="22,44 22,64" fill="none" stroke="#ffffff" stroke-opacity=".6" stroke-width="1.2"/>
+                <polyline points="50,50 50,92" fill="none" stroke="#ffffff" stroke-opacity=".8" stroke-width="1.2" />
+                <polyline points="22,36 50,50 78,36" fill="none" stroke="#ffffff" stroke-opacity=".7" stroke-width="1.2" />
+                <polyline points="22,44 22,64" fill="none" stroke="#ffffff" stroke-opacity=".6" stroke-width="1.2" />
             </svg>
 
-            <?php if ($sent) : ?>
-                <div class="ms-cf-msg ms-cf-msg--ok" role="status">Thank you! Your message has been sent. We will get back to you soon.</div>
-            <?php elseif ($errors) : ?>
-                <div class="ms-cf-msg ms-cf-msg--err" role="alert">
-                    <ul>
-                        <?php foreach ($errors as $err) : ?>
-                            <li><?php echo $e($err); ?></li>
-                        <?php endforeach; ?>
-                    </ul>
-                </div>
-            <?php endif; ?>
-
-            <form method="POST" action="<?php echo $e($_SERVER['REQUEST_URI'] ?? ''); ?>#ms-cf" novalidate>
-                <input type="hidden" name="token" value="<?php echo $e($token); ?>">
+            <form id="ms-cf-form" method="POST" action="<?php echo BASE; ?>home-page/submit-contact.php" novalidate>
                 <div class="ms-cf-hp" aria-hidden="true">
-                    <label>Leave this field empty <input type="text" name="company_site" tabindex="-1" autocomplete="off"></label>
+                    <label>Leave this field empty <input type="text" name="website_hp" tabindex="-1" autocomplete="off"></label>
                 </div>
 
                 <div class="ms-cf-row">
                     <div class="ms-cf-field">
                         <label class="ms-cf-sr" for="ms-cf-name">Name</label>
-                        <input type="text" id="ms-cf-name" name="name" placeholder="Enter Your Full Name" value="<?php echo $e($old['name']); ?>" aria-required="true" required>
+                        <input type="text" id="ms-cf-name" name="name" placeholder="Enter Your Full Name" aria-required="true" required>
                     </div>
                     <div class="ms-cf-field">
                         <label class="ms-cf-sr" for="ms-cf-business">Business Name</label>
-                        <input type="text" id="ms-cf-business" name="business" placeholder="Business Name" value="<?php echo $e($old['business']); ?>" aria-required="true" required>
+                        <input type="text" id="ms-cf-business" name="business_name" placeholder="Business Name" aria-required="true" required>
                     </div>
                 </div>
 
                 <div class="ms-cf-row">
                     <div class="ms-cf-field">
                         <label class="ms-cf-sr" for="ms-cf-phone">Phone Number</label>
-                        <input type="tel" id="ms-cf-phone" name="phone" inputmode="tel" placeholder="Phone Number" value="<?php echo $e($old['phone']); ?>" aria-required="true" required>
+                        <input type="tel" id="ms-cf-phone" name="phone" inputmode="tel" placeholder="Phone Number" aria-required="true" required>
                     </div>
                     <div class="ms-cf-field">
                         <label class="ms-cf-sr" for="ms-cf-email">Email</label>
-                        <input type="email" id="ms-cf-email" name="email" placeholder="Email Address" value="<?php echo $e($old['email']); ?>" aria-required="true" required>
+                        <input type="email" id="ms-cf-email" name="email" placeholder="Email Address" aria-required="true" required>
                     </div>
                 </div>
 
                 <div class="ms-cf-row">
                     <div class="ms-cf-field">
                         <label class="ms-cf-sr" for="ms-cf-url">Website Url</label>
-                        <input type="url" id="ms-cf-url" name="url" placeholder="Website Url" value="<?php echo $e($old['url']); ?>">
+                        <input type="url" id="ms-cf-url" name="website" placeholder="Website Url">
                     </div>
                     <div class="ms-cf-field">
                         <label class="ms-cf-sr" for="ms-cf-service">Services</label>
-                        <select id="ms-cf-service" name="service" aria-required="true" required>
+                        <select id="ms-cf-service" name="services" aria-required="true" required>
                             <option value="">Select Services</option>
                             <?php foreach ($services as $service) : ?>
-                                <option value="<?php echo $e($service); ?>"<?php echo $old['service'] === $service ? ' selected' : ''; ?>><?php echo $e($service); ?></option>
+                                <option value="<?php echo $e($service); ?>"><?php echo $e($service); ?></option>
                             <?php endforeach; ?>
                         </select>
                     </div>
                 </div>
 
                 <label class="ms-cf-terms">
-                    <input type="checkbox" name="terms" value="on"<?php echo $old['terms'] === 'on' ? ' checked' : ''; ?> required>
-                    <span>I have read and agree to the <a href="<?php echo $e($terms_url); ?>">Terms and Conditions</a> and <a href="<?php echo $e($privacy_url); ?>">Privacy Policy</a></span>
+                    <input type="checkbox" name="terms" value="on" required>
+                    <span>I have read and agree to the <a href="<?php echo $e($terms_url); ?>" target="_blank" rel="noopener">Terms and Conditions</a> and <a href="<?php echo $e($privacy_url); ?>" target="_blank" rel="noopener">Privacy Policy</a></span>
                 </label>
 
                 <div class="ms-cf-btnwrap">
-                    <button type="submit" name="ms_cf_submit" value="1" class="ms-cf-btn">Submit Form</button>
+                    <button type="submit" class="ms-cf-btn">Submit Form</button>
                 </div>
+                <div id="ms-cf-msg" class="ms-cf-msg" role="status" hidden style="margin:16px 0 0"></div>
             </form>
         </div>
 
@@ -465,4 +372,52 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') === 'POST' && isset($_POST['ms_cf_submit'
             <img src="<?php echo $e($image_src); ?>" width="1080" height="1350" alt="<?php echo $e($image_alt); ?>" loading="lazy" decoding="async">
         </div>
     </div>
+    <script>
+        (function() {
+            var form = document.getElementById('ms-cf-form');
+            var msg = document.getElementById('ms-cf-msg');
+            if (!form) return;
+
+            form.addEventListener('submit', function(ev) {
+                ev.preventDefault();
+                var btn = form.querySelector('button[type="submit"]');
+                var label = btn.textContent;
+
+                if (!form.checkValidity()) {
+                    form.reportValidity();
+                    return;
+                }
+
+                btn.disabled = true;
+                btn.textContent = 'Sending...';
+                msg.hidden = true;
+
+                fetch(form.action, {
+                        method: 'POST',
+                        body: new FormData(form),
+                        headers: {
+                            'Accept': 'application/json'
+                        }
+                    })
+                    .then(function(r) {
+                        return r.json();
+                    })
+                    .then(function(res) {
+                        msg.className = 'ms-cf-msg ' + (res.ok ? 'ms-cf-msg--ok' : 'ms-cf-msg--err');
+                        msg.textContent = res.message;
+                        msg.hidden = false;
+                        if (res.ok) form.reset();
+                    })
+                    .catch(function() {
+                        msg.className = 'ms-cf-msg ms-cf-msg--err';
+                        msg.textContent = 'Network error. Please try again.';
+                        msg.hidden = false;
+                    })
+                    .then(function() {
+                        btn.disabled = false;
+                        btn.textContent = label;
+                    });
+            });
+        })();
+    </script>
 </section>

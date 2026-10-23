@@ -34,7 +34,7 @@
                             class="frm-fluent-form fluent_form_3 ff-el-form-top ff_form_instance_3_1 ffs_default"
                             data-form_id="3"
                             method="post"
-                            action="home-page/submit-contact.php"
+                            action="<?php echo BASE; ?>home-page/submit-contact.php"
                             novalidate>
 
                             <fieldset style="border: none!important; margin: 0!important; padding: 0!important; background-color: transparent!important; box-shadow: none!important; outline: none!important; min-inline-size: 100%;">
@@ -1818,7 +1818,8 @@
 
                 fetch(form.action, {
                         method: "POST",
-                        body: new FormData(form)
+                        body: new FormData(form),
+                            headers: { "Accept": "application/json" }
                     })
                     .then(function(r) {
                         return r.json();

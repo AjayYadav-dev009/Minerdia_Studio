@@ -2,32 +2,11 @@
 /* =========================================================
    MINERDIA STUDIO – HOME PAGE CONTACT FORM HANDLER
    (the "Start Your Growth Journey" form in home-page/form1.php)
-
-   Same set-up as submit-audit.php: saves every submission to
-   Google Sheets (via Apps Script) and can optionally email it.
+   Saves to Google Sheets ("Home Contact" tab).
+   Settings live in /config.php (LEADS section).
    ========================================================= */
 
-require_once __DIR__ . '/../config.php';
-header('Content-Type: application/json; charset=utf-8');
-
-/* ---- settings now live in /config.php (LEADS section) ---- */
-
-// Web app URL you get after deploying your Apps Script
-// (falls back to SHEETS_URL_AUDIT, then SHEETS_URL_SERVICE: one Apps Script handles all forms)
-$GOOGLE_SCRIPT_URL = SHEETS_URL_CONTACT;
-if (strpos($GOOGLE_SCRIPT_URL, 'http') !== 0) { $GOOGLE_SCRIPT_URL = SHEETS_URL_AUDIT; }
-if (strpos($GOOGLE_SCRIPT_URL, 'http') !== 0) { $GOOGLE_SCRIPT_URL = SHEETS_URL_SERVICE; }
-
-// Must be EXACTLY the same as SECRET_TOKEN inside the Apps Script
-$SECRET_TOKEN = SHEETS_TOKEN;
-
-// Also email each lead? (mail() often fails on localhost)
-$SEND_EMAIL = LEAD_EMAIL_ENABLED;
-$EMAIL_TO   = LEAD_EMAIL_TO;
-$EMAIL_FROM = LEAD_EMAIL_FROM;
-
-/* -------------------------------------------- */
-
+require_once __DIR__ . '/../include/lead-helpers.php';
 
 // Must match the options in the Services dropdown of form1.php
 $ALLOWED_SERVICES = [
@@ -42,144 +21,60 @@ $ALLOWED_SERVICES = [
     'Search Engine Optimization (SEO)',
 ];
 
+lead_guard('contact');
 
-function respond($ok, $message, $code = 200)
-{
-    http_response_code($code);
-    echo json_encode(['ok' => $ok, 'message' => $message]);
-    exit;
+$name     = lead_clean($_POST['name'] ?? '', 250);
+$business = lead_clean($_POST['business_name'] ?? '', 250);
+$phone    = lead_clean($_POST['phone'] ?? '', 25);
+$email    = lead_clean($_POST['email'] ?? '', 250);
+$website  = lead_clean($_POST['website'] ?? '', 250);
+$service  = lead_clean($_POST['services'] ?? '', 250);
+$terms    = lead_clean($_POST['terms'] ?? '');
+
+if ($name === '' || $business === '' || $phone === '' || $email === '' || $service === '') {
+    lead_finish(false, 'Please fill all required fields.', 422);
 }
-
-function clean($v)
-{
-    if (!is_string($v)) {
-        return '';
-    }
-
-    $v = trim(strip_tags($v));
-
-    return function_exists('mb_substr') ? mb_substr($v, 0, 250) : substr($v, 0, 250);
-}
-
-function is_local_request()
-{
-    $ip = $_SERVER['REMOTE_ADDR'] ?? '';
-
-    return $ip === '127.0.0.1' || $ip === '::1';
-}
-
-
-/* ---------------- BASIC CHECKS ---------------- */
-
-// Bots fill the hidden honeypot field; people never see it
-if ($_SERVER['REQUEST_METHOD'] !== 'POST' || !empty($_POST['website_hp'])) {
-    respond(false, 'Invalid request.', 400);
-}
-
-$name     = clean($_POST['name'] ?? '');
-$business = clean($_POST['business_name'] ?? '');
-$phone    = clean($_POST['phone'] ?? '');
-$email    = clean($_POST['email'] ?? '');
-$website  = clean($_POST['website'] ?? '');
-$service  = clean($_POST['services'] ?? '');
-$terms    = clean($_POST['terms'] ?? '');
-
-if (!$name || !$business || !$phone || !$email || !$service) {
-    respond(false, 'Please fill all required fields.');
-}
-
 if ($terms !== 'on') {
-    respond(false, 'Please accept the Terms and Conditions and Privacy Policy.');
+    lead_finish(false, 'Please accept the Terms and Conditions and Privacy Policy.', 422);
 }
-
-if (!preg_match('/^[0-9+\-\s()]{7,20}$/', $phone)) {
-    respond(false, 'Please enter a valid phone number.');
+if (!lead_valid_phone($phone)) {
+    lead_finish(false, 'Please enter a valid phone number.', 422);
 }
-
 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    respond(false, 'Please enter a valid email address.');
+    lead_finish(false, 'Please enter a valid email address.', 422);
 }
-
-if ($website !== '' && (!filter_var($website, FILTER_VALIDATE_URL) || !preg_match('#^https?://#i', $website))) {
-    respond(false, 'Please enter a valid website URL (include https://).');
+if (!lead_valid_url($website)) {
+    lead_finish(false, 'Please enter a valid website URL (include https://).', 422);
 }
-
 if (!in_array($service, $ALLOWED_SERVICES, true)) {
-    respond(false, 'Please choose a service from the list.');
+    lead_finish(false, 'Please choose a service from the list.', 422);
 }
 
+$saved = lead_save_to_sheets(
+    lead_sheets_url([SHEETS_URL_CONTACT, SHEETS_URL_AUDIT, SHEETS_URL_SERVICE]),
+    [
+        'form'     => 'contact',
+        'date'     => date('d/m/Y'),
+        'name'     => lead_safe_cell($name),
+        'business' => lead_safe_cell($business),
+        'phone'    => $phone,
+        'email'    => $email,
+        'website'  => lead_safe_cell($website),
+        'service'  => lead_safe_cell($service),
+        'page'     => lead_safe_cell(lead_clean($_SERVER['HTTP_REFERER'] ?? '', 250)),
+    ],
+    'contact form'
+);
 
-/* ---------------- SAVE TO GOOGLE SHEETS ---------------- */
-
-$sheetsConfigured = strpos($GOOGLE_SCRIPT_URL, 'PASTE_') === false;
-
-$payload = [
-    'token'    => $SECRET_TOKEN,
-    'form'     => 'contact',           // lets the Apps Script tell the forms apart
-    'name'     => $name,
-    'business' => $business,
-    'phone'    => $phone,
-    'email'    => $email,
-    'website'  => $website,
-    'service'  => $service,
-    'page'     => clean($_SERVER['HTTP_REFERER'] ?? ''),
-];
-
-$saved = false;
-
-if ($sheetsConfigured && function_exists('curl_init')) {
-
-    $ch = curl_init($GOOGLE_SCRIPT_URL);
-
-    curl_setopt_array($ch, [
-        CURLOPT_POST           => true,
-        CURLOPT_POSTFIELDS     => http_build_query($payload),
-        CURLOPT_RETURNTRANSFER => true,
-        CURLOPT_FOLLOWLOCATION => true,   // Apps Script answers with a redirect
-        CURLOPT_TIMEOUT        => 20,
-    ]);
-
-    $response = curl_exec($ch);
-    $status   = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-    $error    = curl_error($ch);
-    curl_close($ch);
-
-    if ($response !== false && $status === 200) {
-        $json  = json_decode($response, true);
-        $saved = is_array($json) && !empty($json['ok']);
-    } else {
-        error_log('Minerdia contact form - Sheets error: ' . $error . ' (HTTP ' . $status . ')');
-    }
-}
-
-
-/* ---------------- OPTIONAL EMAIL ---------------- */
-
-$emailed = false;
-
-if ($SEND_EMAIL) {
-
-    $body  = "Name: $name\nBusiness: $business\nPhone: $phone\nEmail: $email\n";
-    $body .= "Website: $website\nService: $service\n";
-
-    // Remove line breaks so nothing can be injected into the mail headers
-    $safeBusiness = preg_replace('/[\r\n]+/', ' ', $business);
-
-    $headers  = "From: $EMAIL_FROM\r\n";
-    $headers .= "Reply-To: $email\r\n";
-    $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
-
-    $emailed = @mail($EMAIL_TO, 'New Website Enquiry - ' . $safeBusiness, $body, $headers);
-}
-
+$emailed = lead_email(
+    'New Website Enquiry - ' . $business,
+    "Name: $name\nBusiness: $business\nPhone: $phone\nEmail: $email\nWebsite: $website\nService: $service\n",
+    $email
+);
 
 if ($saved || $emailed) {
-    respond(true, 'Thank you! Our team will contact you shortly.');
+    lead_mark_done('contact');
+    lead_finish(true, 'Thank you! Our team will contact you shortly.');
 }
 
-// Helpful hint while developing on localhost only (never shown to real visitors)
-if (!$sheetsConfigured && !$SEND_EMAIL && is_local_request()) {
-    respond(false, 'Form works, but nothing is connected yet: set $GOOGLE_SCRIPT_URL (or $SEND_EMAIL) in home-page/submit-contact.php.', 500);
-}
-
-respond(false, 'Something went wrong. Please try again.', 500);
+lead_finish(false, 'Something went wrong. Please try again.', 500);

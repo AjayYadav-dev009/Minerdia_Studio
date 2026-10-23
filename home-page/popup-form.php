@@ -1,6 +1,6 @@
 <?php
 
-$form_action = 'submit-audit.php';
+$form_action = BASE . 'home-page/submit-audit.php';
 
 /* ---- EDIT: services shown in the first dropdown ---- */
 $services = [
@@ -1369,7 +1369,8 @@ $budgets = [
 
                     fetch(form.action, {
                             method: "POST",
-                            body: new FormData(form)
+                            body: new FormData(form),
+                            headers: { "Accept": "application/json" }
                         })
                         .then(function(r) {
                             return r.json();
