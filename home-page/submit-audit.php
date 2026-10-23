@@ -11,7 +11,8 @@ header('Content-Type: application/json; charset=utf-8');
 /* ---- settings now live in /config.php (LEADS section) ---- */
 
 // Web app URL you get after deploying google-apps-script.gs
-$GOOGLE_SCRIPT_URL = SHEETS_URL_AUDIT;
+// (falls back to SHEETS_URL_SERVICE: one Apps Script handles all forms)
+$GOOGLE_SCRIPT_URL = (strpos(SHEETS_URL_AUDIT, 'PASTE_') === false) ? SHEETS_URL_AUDIT : SHEETS_URL_SERVICE;
 
 // Must be EXACTLY the same as SECRET_TOKEN inside google-apps-script.gs
 $SECRET_TOKEN = SHEETS_TOKEN;
@@ -65,6 +66,7 @@ if ($website !== '' && !filter_var($website, FILTER_VALIDATE_URL)) {
 
 $payload = [
     'token'    => $SECRET_TOKEN,
+    'form'     => 'audit',
     'name'     => $name,
     'business' => $business,
     'website'  => $website,

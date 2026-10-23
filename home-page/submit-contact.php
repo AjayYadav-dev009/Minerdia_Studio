@@ -13,7 +13,10 @@ header('Content-Type: application/json; charset=utf-8');
 /* ---- settings now live in /config.php (LEADS section) ---- */
 
 // Web app URL you get after deploying your Apps Script
-$GOOGLE_SCRIPT_URL = (SHEETS_URL_CONTACT !== '' ? SHEETS_URL_CONTACT : SHEETS_URL_AUDIT);
+// (falls back to SHEETS_URL_AUDIT, then SHEETS_URL_SERVICE: one Apps Script handles all forms)
+$GOOGLE_SCRIPT_URL = SHEETS_URL_CONTACT;
+if (strpos($GOOGLE_SCRIPT_URL, 'http') !== 0) { $GOOGLE_SCRIPT_URL = SHEETS_URL_AUDIT; }
+if (strpos($GOOGLE_SCRIPT_URL, 'http') !== 0) { $GOOGLE_SCRIPT_URL = SHEETS_URL_SERVICE; }
 
 // Must be EXACTLY the same as SECRET_TOKEN inside the Apps Script
 $SECRET_TOKEN = SHEETS_TOKEN;
@@ -53,7 +56,9 @@ function clean($v)
         return '';
     }
 
-    return mb_substr(trim(strip_tags($v)), 0, 250);
+    $v = trim(strip_tags($v));
+
+    return function_exists('mb_substr') ? mb_substr($v, 0, 250) : substr($v, 0, 250);
 }
 
 function is_local_request()
@@ -110,7 +115,7 @@ $sheetsConfigured = strpos($GOOGLE_SCRIPT_URL, 'PASTE_') === false;
 
 $payload = [
     'token'    => $SECRET_TOKEN,
-    'form'     => 'home-contact',      // lets your Apps Script tell this form from the audit form
+    'form'     => 'contact',           // lets the Apps Script tell the forms apart
     'name'     => $name,
     'business' => $business,
     'phone'    => $phone,

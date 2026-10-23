@@ -6,8 +6,6 @@ include __DIR__ . '/../include/header.php';
 
 
 <?php
-// Free-audit form: services and the budget options shown for each one.
-// Edit here to change the dropdowns (the budget list updates when the service changes).
 $audit_services = [
     'Google Ads'          => ['15,000 - 30,000', '30,000 - 60,000', 'Arrange Call'],
     'Facebook Ads'        => ['15,000 - 30,000', '30,000 - 60,000', 'Arrange Call'],
@@ -417,19 +415,18 @@ $audit_default = 'Google Ads';
             <div class="minerdia-card">
                 <h2>Get your <span>free audit</span></h2>
                 <p>Answer a few quick questions. We reply on WhatsApp within minutes.</p>
-                <form class="minerdia-form" action="submit-form.php" method="post">
-                    <input type="hidden" name="source_page" value="Free Audit">
-                    <input type="hidden" name="submitted_on" value="<?php echo date('d/m/Y'); ?>">
+                <form class="minerdia-form" action="<?php echo BASE; ?>home-page/submit-audit.php" method="post" data-lead-form>
+                    <input type="text" name="website_hp" value="" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;opacity:0;height:0;width:0">
 
                     <div class="minerdia-form-grid">
                         <div class="minerdia-field">
                             <label for="mf-name">Your Name <span>*</span></label>
-                            <input type="text" id="mf-name" name="full_name" placeholder="Enter Your Full Name" required>
+                            <input type="text" id="mf-name" name="name" placeholder="Enter Your Full Name" required>
                         </div>
 
                         <div class="minerdia-field">
                             <label for="mf-business">Business name <span>*</span></label>
-                            <input type="text" id="mf-business" name="business_name" placeholder="Business name" required>
+                            <input type="text" id="mf-business" name="business" placeholder="Business name" required>
                         </div>
 
                         <div class="minerdia-field">
@@ -792,3 +789,5 @@ $audit_default = 'Google Ads';
     </div>
 
 </section>
+
+<?php include __DIR__ . '/../include/footer.php'; ?>
