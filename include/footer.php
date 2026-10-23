@@ -198,7 +198,7 @@
 
         /* Black copyright bar */
         .ms-copyright {
-            width: 100%;
+            /* width: 100%; */
             background: #000;
             color: #fff;
             font-family: var(--font-body);
@@ -210,6 +210,7 @@
             gap: 8px 20px;
             font-size: 15px;
             font-weight: 700;
+            overflow: hidden;
         }
 
         .ms-copyright .ms-brand {
@@ -512,9 +513,9 @@
 <div class="ms-copyright">
     <div>Copyright @<?php echo date('Y'); ?> <span class="ms-brand">Minerdia Studio</span> | All Right Reserved</div>
     <div class="ms-copyright-links">
-        <a href="https://minerdiastudio.com/terms-and-conditions/">Terms &amp; Conditions</a>
+        <a href="<?php echo BASE; ?>terms-and-conditions/">Terms &amp; Conditions</a>
         <span>|</span>
-        <a href="https://minerdiastudio.com/privacy-policy/">Privacy Policy</a>
+        <a href="<?php echo BASE; ?>privacy-policies/">Privacy Policy</a>
     </div>
 </div>
 

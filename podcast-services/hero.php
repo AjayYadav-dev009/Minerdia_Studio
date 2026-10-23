@@ -1,16 +1,5 @@
 <style>
 
-    * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-    }
-
-    html,
-    body {
-        overflow-x: hidden;
-    }
-
     .podcast-banner-root {
         font-family: var(--font-body);
         position: relative;
