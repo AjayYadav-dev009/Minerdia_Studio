@@ -4,7 +4,6 @@ $text   = 'Reach the right audience, increase engagement, and grow your business
 $button = 'Get Started Today';
 $link   = 'https://minerdiastudio.com/free-audit/';
 
-$image  = 'https://minerdiastudio.com/wp-content/uploads/2026/04/email-desktop-1.png';
 $alt    = 'Email Campaign Management';
 ?>
 <section class="ms-emcta">
@@ -138,7 +137,7 @@ $alt    = 'Email Campaign Management';
             </div>
 
             <div class="ms-emcta-img">
-                <img src="<?php echo htmlspecialchars($image); ?>" alt="<?php echo htmlspecialchars($alt); ?>" width="650" height="320" loading="lazy">
+                <img src="<?php echo BASE; ?>assets/image/services/email-2.webp" alt="<?php echo htmlspecialchars($alt); ?>" width="650" height="320" loading="lazy">
             </div>
 
         </div>

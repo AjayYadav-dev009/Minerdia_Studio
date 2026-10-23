@@ -6,7 +6,6 @@ $paragraphs = [
     'Email marketing is one of the best ways to connect directly with your audience. At Minerdia Studio, we create smart and engaging email marketing campaigns that help businesses build trust, increase customer engagement, and grow their brand. As a trusted <strong>Email Marketing Company in India</strong>, we focus on personalized content, audience targeting, mobile-friendly designs, and performance tracking to deliver better opens, clicks, and conversions. From newsletters to promotional campaigns, we help businesses stay connected with customers through effective email marketing solutions.',
 ];
 
-$image = 'https://minerdiastudio.com/wp-content/uploads/2026/06/Email-Marketing-Services-2.png';
 $alt   = 'Email Marketing Services';
 ?>
 <section class="ms-emf">
@@ -133,7 +132,7 @@ $alt   = 'Email Marketing Services';
         </div>
 
         <div class="ms-emf-img">
-            <img src="<?php echo htmlspecialchars($image); ?>" alt="<?php echo htmlspecialchars($alt); ?>" width="1536" height="1024" loading="lazy">
+            <img src="<?php echo BASE; ?>assets/image/services/email-1.webp" alt="<?php echo htmlspecialchars($alt); ?>" width="1536" height="1024" loading="lazy">
         </div>
 
     </div>

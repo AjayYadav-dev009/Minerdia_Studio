@@ -469,7 +469,7 @@ $e = function ($s) { return htmlspecialchars((string)$s, ENT_QUOTES | ENT_SUBSTI
         </div>
 
         <div class="ms-cf-image">
-            <img src="<?php echo $e($image_src); ?>" width="1080" height="1350" alt="<?php echo $e($image_alt); ?>" loading="lazy" decoding="async">
+            <img src="<?php echo BASE; ?>assets/image/contact/1.webp" width="1080" height="1350" alt="<?php echo $e($image_alt); ?>" loading="lazy" decoding="async">
         </div>
     </div>
 

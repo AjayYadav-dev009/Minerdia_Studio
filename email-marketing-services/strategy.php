@@ -7,7 +7,6 @@ $paragraphs = [
     'Every business wants to send better emails, build better customer relationships and get more predictable results. That is exactly what we help you do.',
 ];
 
-$image = 'https://minerdiastudio.com/wp-content/uploads/2026/06/Email-Marketing-Strategy.png';
 $alt   = 'Email Marketing Strategy';
 ?>
 <section class="ms-emst">
@@ -111,7 +110,7 @@ $alt   = 'Email Marketing Strategy';
         </div>
 
         <div class="ms-emst-img">
-            <img src="<?php echo htmlspecialchars($image); ?>" alt="<?php echo htmlspecialchars($alt); ?>" width="1536" height="1024" loading="lazy">
+            <img src="<?php echo BASE; ?>assets/image/services/email-3.webp" alt="<?php echo htmlspecialchars($alt); ?>" width="1536" height="1024" loading="lazy">
         </div>
 
     </div>

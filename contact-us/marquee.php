@@ -3,7 +3,7 @@
 // Logo marquee: edit the logos here
 // The list is shown twice automatically so the loop is seamless.
 // ---------------------------------------------------------------
-$logo_src = 'https://minerdiastudio.com/wp-content/uploads/2026/03/mendria-logo-1536x1536.png';
+$logo_src = (SITE_ENV === 'local' ? BASE : LIVE_BASE) . 'assets/image/logo/header-logo-2.webp';
 
 $logos = [
     ['src' => $logo_src, 'alt' => 'Minerdia Studio'],

@@ -1,9 +1,8 @@
 <?php
-// Each tab: label, image path, list of goals (shown in 2 columns)
 $tabs = [
     [
         'label' => 'Google Ads',
-        'image' => 'images/google-ads.jpg',
+        'image' => 'assets/image/services/paid-3.webp',
         'items' => [
             'Awareness and Dissemination',
             'Product & Brand Considerations',
@@ -17,7 +16,7 @@ $tabs = [
     ],
     [
         'label' => 'Facebook Ads',
-        'image' => 'images/facebook-ads.jpg',
+        'image' => 'assets/image/services/paid-4.webp',
         'items' => [
             'Brand Awareness and Reach',
             'Lead Generation Forms',
@@ -31,7 +30,7 @@ $tabs = [
     ],
     [
         'label' => 'Instagram Ads',
-        'image' => 'images/instagram-ads.jpg',
+        'image' => 'assets/image/services/paid-5.webp',
         'items' => [
             'Reels and Story Awareness',
             'Influencer-style Creatives',
@@ -45,7 +44,7 @@ $tabs = [
     ],
     [
         'label' => 'Youtube Ads',
-        'image' => 'images/youtube-ads.jpg',
+        'image' => 'assets/image/services/paid-6.webp',
         'items' => [
             'Brand Awareness and Reach',
             'Product Consideration',
@@ -59,7 +58,7 @@ $tabs = [
     ],
     [
         'label' => 'Linkedin Ads',
-        'image' => 'images/linkedin-ads.jpg',
+        'image' => 'assets/image/services/paid-7.webp',
         'items' => [
             'B2B Brand Awareness',
             'Thought Leadership Content',
@@ -77,10 +76,6 @@ $tabs = [
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <style>
-        .ms-adtabs,
-        .ms-adtabs * {
-            box-sizing: border-box;
-        }
 
         .ms-adtabs {
             --purple: #5A2EA6;
@@ -251,7 +246,7 @@ $tabs = [
             <div class="ms-adtabs-panel<?php echo $i === 0 ? ' is-active' : ''; ?>"
                  id="ms-adtab-<?php echo $i; ?>" role="tabpanel">
                 <div class="ms-adtabs-img">
-                    <img src="<?php echo htmlspecialchars($tab['image']); ?>"
+                    <img src="<?php echo BASE; htmlspecialchars($tab['image']); ?>"
                          alt="<?php echo htmlspecialchars($tab['label']); ?>" loading="lazy">
                 </div>
                 <ul class="ms-adtabs-list">

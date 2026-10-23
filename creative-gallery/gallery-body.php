@@ -583,36 +583,36 @@
             </div>
 
             <div class="ms-post-grid">
-                <a class="ms-post-card" href="https://minerdiastudio.com/wp-content/uploads/2026/05/We-dont-just-add-voice-to-visuals…we-give-them-a-soul.ApkiAawaaz-Studio-—-where-every-voice-te.jpg">
-                    <img src="https://minerdiastudio.com/wp-content/uploads/2026/05/We-dont-just-add-voice-to-visuals…we-give-them-a-soul.ApkiAawaaz-Studio-—-where-every-voice-te.jpg" alt="Podcast Studio Creative Design">
+                <a class="ms-post-card" href="<?php echo BASE; ?>assets/image/gallery/gallery-1.webp">
+                    <img src="<?php echo BASE; ?>assets/image/gallery/gallery-1.webp" alt="Podcast Studio Creative Design">
                 </a>
 
-                <a class="ms-post-card" href="https://minerdiastudio.com/wp-content/uploads/2026/05/mpost5.jpeg">
-                    <img src="https://minerdiastudio.com/wp-content/uploads/2026/05/mpost5.jpeg" alt="Event Promotion Social Media Design">
+                <a class="ms-post-card" href="<?php echo BASE; ?>assets/image/gallery/gallery-2.webp">
+                    <img src="<?php echo BASE; ?>assets/image/gallery/gallery-2.webp" alt="Event Promotion Social Media Design">
                 </a>
 
-                <a class="ms-post-card" href="https://minerdiastudio.com/wp-content/uploads/2026/05/mpost1.jpeg">
-                    <img src="https://minerdiastudio.com/wp-content/uploads/2026/05/mpost1.jpeg" alt="Healthcare Product Social Media Design">
+                <a class="ms-post-card" href="<?php echo BASE; ?>assets/image/gallery/gallery-3.webp">
+                    <img src="<?php echo BASE; ?>assets/image/gallery/gallery-3.webp" alt="Healthcare Product Social Media Design">
                 </a>
 
-                <a class="ms-post-card" href="https://minerdiastudio.com/wp-content/uploads/2026/05/mpost6.jpg">
-                    <img src="https://minerdiastudio.com/wp-content/uploads/2026/05/mpost6.jpg" alt="Podcast Studio Branding Design">
+                <a class="ms-post-card" href="<?php echo BASE; ?>assets/image/gallery/gallery-4.webp">
+                    <img src="<?php echo BASE; ?>assets/image/gallery/gallery-4.webp" alt="Podcast Studio Branding Design">
                 </a>
 
-                <a class="ms-post-card" href="https://minerdiastudio.com/wp-content/uploads/2026/05/mpost3.png">
-                    <img src="https://minerdiastudio.com/wp-content/uploads/2026/05/mpost3.png" alt="Podcast Marketing Creative Design">
+                <a class="ms-post-card" href="<?php echo BASE; ?>assets/image/gallery/gallery-5.webp">
+                    <img src="<?php echo BASE; ?>assets/image/gallery/gallery-5.webp" alt="Podcast Marketing Creative Design">
                 </a>
 
-                <a class="ms-post-card" href="https://minerdiastudio.com/wp-content/uploads/2026/05/Strong-visuals-arent-optional-anymore…-theyre-everything-🎥From-motion-graphics-to-video-edit.jpg">
-                    <img src="https://minerdiastudio.com/wp-content/uploads/2026/05/Strong-visuals-arent-optional-anymore…-theyre-everything-🎥From-motion-graphics-to-video-edit.jpg" alt="Voice Over Service Promotion">
+                <a class="ms-post-card" href="<?php echo BASE; ?>assets/image/gallery/gallery-6.webp">
+                    <img src="<?php echo BASE; ?>assets/image/gallery/gallery-6.webp" alt="Voice Over Service Promotion">
                 </a>
 
-                <a class="ms-post-card" href="https://minerdiastudio.com/wp-content/uploads/2026/05/mpost12.png">
-                    <img src="https://minerdiastudio.com/wp-content/uploads/2026/05/mpost12.png" alt="Eid Festival Social Media Creative">
+                <a class="ms-post-card" href="<?php echo BASE; ?>assets/image/gallery/gallery-7.webp">
+                    <img src="<?php echo BASE; ?>assets/image/gallery/gallery-7.webp" alt="Eid Festival Social Media Creative">
                 </a>
 
-                <a class="ms-post-card" href="https://minerdiastudio.com/wp-content/uploads/2026/08/minerdia-dubbing-lip-sync-service.jpg">
-                    <img src="https://minerdiastudio.com/wp-content/uploads/2026/08/minerdia-dubbing-lip-sync-service.jpg" alt="Professional Dubbing Service Design">
+                <a class="ms-post-card" href="<?php echo BASE; ?>assets/image/gallery/gallery-8.webp">
+                    <img src="<?php echo BASE; ?>assets/image/gallery/gallery-8.webp" alt="Professional Dubbing Service Design">
                 </a>
             </div>
         </div>
@@ -645,28 +645,28 @@
             </div>
 
             <div class="ms-thumb-grid">
-                <a class="ms-thumb-card" href="https://minerdiastudio.com/wp-content/uploads/2026/05/XxVDJmR2r70-HD.jpg">
-                    <img src="https://minerdiastudio.com/wp-content/uploads/2026/05/XxVDJmR2r70-HD.jpg" alt="Executive Assistant Podcast Thumbnail">
+                <a class="ms-thumb-card" href="<?php echo BASE; ?>assets/image/gallery/gallery-9.webp">
+                    <img src="<?php echo BASE; ?>assets/image/gallery/gallery-9.webp" alt="Executive Assistant Podcast Thumbnail">
                 </a>
 
-                <a class="ms-thumb-card" href="https://minerdiastudio.com/wp-content/uploads/2026/05/rEeZLVIqU-E-HD.jpg">
-                    <img src="https://minerdiastudio.com/wp-content/uploads/2026/05/rEeZLVIqU-E-HD.jpg" alt="Tony Kakkar Reaction Thumbnail">
+                <a class="ms-thumb-card" href="<?php echo BASE; ?>assets/image/gallery/gallery-10.webp">
+                    <img src="<?php echo BASE; ?>assets/image/gallery/gallery-10.webp" alt="Tony Kakkar Reaction Thumbnail">
                 </a>
 
-                <a class="ms-thumb-card" href="https://minerdiastudio.com/wp-content/uploads/2026/05/m5rBr7e34N8-HD.jpg">
-                    <img src="https://minerdiastudio.com/wp-content/uploads/2026/05/m5rBr7e34N8-HD.jpg" alt="Podcast Debate YouTube Thumbnail">
+                <a class="ms-thumb-card" href="<?php echo BASE; ?>assets/image/gallery/gallery-11.webp">
+                    <img src="<?php echo BASE; ?>assets/image/gallery/gallery-11.webp" alt="Podcast Debate YouTube Thumbnail">
                 </a>
 
-                <a class="ms-thumb-card" href="https://minerdiastudio.com/wp-content/uploads/2026/05/5bvcU8yDep8-HD.jpg">
-                    <img src="https://minerdiastudio.com/wp-content/uploads/2026/05/5bvcU8yDep8-HD.jpg" alt="Guru Randhawa Reaction Thumbnail">
+                <a class="ms-thumb-card" href="<?php echo BASE; ?>assets/image/gallery/gallery-12.webp">
+                    <img src="<?php echo BASE; ?>assets/image/gallery/gallery-12.webp" alt="Guru Randhawa Reaction Thumbnail">
                 </a>
 
-                <a class="ms-thumb-card" href="https://minerdiastudio.com/wp-content/uploads/2026/05/mpost11.png">
-                    <img src="https://minerdiastudio.com/wp-content/uploads/2026/05/mpost11.png" alt="Motivational Podcast Thumbnail">
+                <a class="ms-thumb-card" href="<?php echo BASE; ?>assets/image/gallery/gallery-13.webp">
+                    <img src="<?php echo BASE; ?>assets/image/gallery/gallery-13.webp" alt="Motivational Podcast Thumbnail">
                 </a>
 
-                <a class="ms-thumb-card" href="https://minerdiastudio.com/wp-content/uploads/2026/05/mpost10.png">
-                    <img src="https://minerdiastudio.com/wp-content/uploads/2026/05/mpost10.png" alt="2026 Numerology Prediction Thumbnail">
+                <a class="ms-thumb-card" href="<?php echo BASE; ?>assets/image/gallery/gallery-14.webp">
+                    <img src="<?php echo BASE; ?>assets/image/gallery/gallery-14.webp" alt="2026 Numerology Prediction Thumbnail">
                 </a>
             </div>
         </div>
