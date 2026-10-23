@@ -22,9 +22,7 @@ $services = [
     'Search Engine Optimization (SEO)',
 ];
 
-$e = function ($s) {
-    return htmlspecialchars((string)$s, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
-};
+$e = function ($s) { return htmlspecialchars((string)$s, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8'); };
 ?>
 <section class="ms-cf" id="ms-cf">
 
@@ -38,61 +36,137 @@ $e = function ($s) {
             --purple: #5a2ea6;
             --purple-dark: #4a2392;
             width: 100%;
-            padding: 60px 20px 70px;
+            padding: 90px 24px 100px;
             background: #fff;
             font-family: var(--font-body);
             overflow: hidden;
         }
 
+        /* ---------- two columns: form | image ---------- */
         .ms-cf-wrap {
-            max-width: 1100px;
+            max-width: 1240px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: minmax(0, 520px) minmax(0, 340px);
-            justify-content: center;
+            grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
             align-items: center;
-            gap: 70px;
+            gap: 40px;
+        }
+
+        .ms-cf-formcol {
+            display: flex;
+            justify-content: flex-end;
+            padding-right: 10px;
+        }
+
+        /* stage: soft colour glows behind the glass so the blur has something to show */
+        .ms-cf-stage {
+            position: relative;
+            width: 100%;
+            max-width: 580px;
+            isolation: isolate;
+        }
+
+        .ms-cf-stage::before,
+        .ms-cf-stage::after {
+            content: "";
+            position: absolute;
+            z-index: -2;
+            border-radius: 50%;
+            filter: blur(46px);
+            pointer-events: none;
+        }
+
+        .ms-cf-stage::before {
+            width: 300px;
+            height: 300px;
+            top: -60px;
+            left: -70px;
+            background: radial-gradient(circle, rgba(124, 82, 224, .55), rgba(124, 82, 224, 0) 70%);
+        }
+
+        .ms-cf-stage::after {
+            width: 320px;
+            height: 320px;
+            right: -70px;
+            bottom: -80px;
+            background: radial-gradient(circle, rgba(34, 165, 174, .45), rgba(34, 165, 174, 0) 70%);
         }
 
         /* ---------- form card ---------- */
         .ms-cf-card {
             position: relative;
-            padding: 28px 26px 30px;
-            border-radius: 22px;
-            background: #f6f6f6;
-            box-shadow: 0 4px 22px rgba(0, 0, 0, .10);
+            z-index: 1;
+            width: 100%;
+            padding: 38px 36px 40px;
+            border-radius: 30px;
+            /* glassmorphism */
+            background: linear-gradient(135deg, rgba(255, 255, 255, .34), rgba(255, 255, 255, .10));
+            -webkit-backdrop-filter: blur(16px) saturate(180%);
+            backdrop-filter: blur(16px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, .6);
+            box-shadow:
+                0 18px 50px rgba(74, 35, 146, .18),
+                inset 0 1px 0 rgba(255, 255, 255, .9),
+                inset 0 -1px 0 rgba(255, 255, 255, .25);
         }
 
-        /* purple sphere, top-left corner */
+        @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+            .ms-cf-card {
+                background: rgba(246, 244, 252, .96);
+            }
+        }
+
         .ms-cf-sphere {
             position: absolute;
-            top: -26px;
-            left: -26px;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: radial-gradient(circle at 32% 28%, #d9ccf7 0%, #9b78e0 38%, #6a3dc4 68%, #4a2392 100%);
-            box-shadow: 0 6px 12px rgba(74, 35, 146, .35);
+            top: -54px;
+            left: -58px;
+            width: 100px;
+            height: auto;
+            z-index: 0;
             pointer-events: none;
+            user-select: none;
         }
 
-        /* glass cube, bottom-right corner */
         .ms-cf-cube {
             position: absolute;
-            right: -18px;
-            bottom: -34px;
-            width: 62px;
-            height: 62px;
-            transform: rotate(-10deg);
+            right: -68px;
+            bottom: -68px;
+            width: 124px;
+            height: auto;
+            z-index: 0;
             pointer-events: none;
-            filter: drop-shadow(0 6px 8px rgba(0, 0, 0, .12));
+            user-select: none;
+        }
+
+        .ms-cf-head {
+            margin: 0 0 22px;
+        }
+
+        .ms-cf-head h2 {
+            margin: 0 0 8px;
+            font-family: var(--font-head);
+            font-size: 26px;
+            line-height: 1.2;
+            font-weight: 700;
+            color: #17131e;
+        }
+
+        .ms-cf-head h2 span {
+            color: var(--purple);
+        }
+
+        .ms-cf-head p {
+            margin: 0;
+            font-size: 14px;
+            line-height: 1.6;
+            color: #4b4658;
         }
 
         .ms-cf-row {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 12px;
-            margin-bottom: 12px;
+            gap: 14px;
+            margin-bottom: 14px;
         }
 
         .ms-cf-field {
@@ -114,48 +188,51 @@ $e = function ($s) {
         .ms-cf input[type="url"],
         .ms-cf select {
             width: 100%;
-            height: 38px;
-            padding: 0 16px;
-            border: 1px solid transparent;
+            height: 48px;
+            padding: 0 20px;
+            border: 1px solid rgba(255, 255, 255, .7);
             border-radius: 50px;
-            background: #ececec;
-            box-shadow: 0 1px 4px rgba(0, 0, 0, .08);
+            background: rgba(255, 255, 255, .32);
+            -webkit-backdrop-filter: blur(6px);
+            backdrop-filter: blur(6px);
+            box-shadow: 0 4px 14px rgba(74, 35, 146, .08), inset 0 1px 0 rgba(255, 255, 255, .8);
             font-family: var(--font-body);
-            font-size: 12px;
+            font-size: 14px;
             font-weight: 400;
             color: #222;
             outline: none;
-            transition: border-color .2s ease, box-shadow .2s ease;
+            transition: border-color .2s ease, box-shadow .2s ease, background .2s ease;
         }
 
         .ms-cf select {
             appearance: none;
             -webkit-appearance: none;
-            padding-right: 34px;
+            padding-right: 46px;
             background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23111' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
             background-repeat: no-repeat;
-            background-position: right 13px center;
-            background-size: 12px;
+            background-position: right 20px center;
+            background-size: 14px;
             cursor: pointer;
         }
 
         .ms-cf input::placeholder {
-            color: #3a3a3a;
+            color: #5a5470;
             opacity: 1;
         }
 
         .ms-cf input:focus,
         .ms-cf select:focus {
+            background: rgba(255, 255, 255, .6);
             border-color: var(--purple);
-            box-shadow: 0 0 0 3px rgba(90, 46, 166, .15);
+            box-shadow: 0 0 0 4px rgba(90, 46, 166, .15);
         }
 
         .ms-cf-terms {
             display: flex;
             align-items: flex-start;
-            gap: 10px;
-            margin: 18px 0 20px 2px;
-            font-size: 12px;
+            gap: 12px;
+            margin: 20px 0 22px 4px;
+            font-size: 13px;
             line-height: 1.6;
             color: #000;
             cursor: pointer;
@@ -163,8 +240,8 @@ $e = function ($s) {
 
         .ms-cf-terms input {
             flex: 0 0 auto;
-            width: 14px;
-            height: 14px;
+            width: 18px;
+            height: 18px;
             margin-top: 3px;
             accent-color: var(--purple);
             cursor: pointer;
@@ -181,30 +258,36 @@ $e = function ($s) {
         }
 
         .ms-cf-btn {
-            padding: 11px 30px;
+            min-width: 200px;
+            padding: 13px 36px;
             border: 0;
             border-radius: 50px;
             background: var(--purple-dark);
             color: #fff;
             font-family: var(--font-head);
-            font-size: 12px;
+            font-size: 15px;
             font-weight: 600;
             cursor: pointer;
-            box-shadow: 0 6px 14px rgba(74, 35, 146, .30);
+            box-shadow: 0 8px 20px rgba(74, 35, 146, .32);
             transition: background .2s ease, transform .2s ease;
         }
 
         .ms-cf-btn:hover {
             background: #3b1e6d;
-            transform: translateY(-1px);
+            transform: translateY(-2px);
+        }
+
+        .ms-cf-btn:disabled {
+            opacity: .7;
+            cursor: wait;
         }
 
         .ms-cf-msg {
-            margin-bottom: 16px;
-            padding: 12px 16px;
+            padding: 14px 18px;
             border-radius: 14px;
-            font-size: 12.5px;
+            font-size: 14px;
             line-height: 1.6;
+            text-align: center;
         }
 
         .ms-cf-msg--ok {
@@ -217,11 +300,6 @@ $e = function ($s) {
             color: #9b1c1c;
         }
 
-        .ms-cf-msg ul {
-            margin: 0;
-            padding-left: 18px;
-        }
-
         .ms-cf-hp {
             position: absolute;
             left: -9999px;
@@ -229,149 +307,172 @@ $e = function ($s) {
             overflow: hidden;
         }
 
-        /* ---------- image (cut-out PNG, shown as-is) ---------- */
+        /* ---------- image ---------- */
+        .ms-cf-image {
+            align-self: end;
+            max-width: 520px;
+        }
+
         .ms-cf-image img {
             display: block;
             width: 100%;
             height: auto;
         }
 
-        @media (max-width: 1000px) {
+        /* ---------- laptop ---------- */
+        @media (max-width: 1100px) {
             .ms-cf-wrap {
-                grid-template-columns: minmax(0, 500px) minmax(0, 280px);
-                gap: 50px;
+                grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+                gap: 24px;
+            }
+
+            .ms-cf-card {
+                padding: 32px 28px 34px;
+            }
+
+            .ms-cf-head h2 {
+                font-size: 24px;
             }
         }
 
-        @media (max-width: 860px) {
+        /* ---------- tablet / mobile: image hidden, form centred ---------- */
+        @media (max-width: 900px) {
             .ms-cf-wrap {
-                grid-template-columns: minmax(0, 560px);
+                grid-template-columns: minmax(0, 640px);
+                justify-content: center;
+            }
+
+            .ms-cf-formcol {
+                padding-right: 0;
+                justify-content: center;
             }
 
             .ms-cf-image {
                 display: none;
-                /* image hidden on tablet/mobile, like the original */
             }
         }
 
-        @media (max-width: 767px) {
+        @media (max-width: 640px) {
             .ms-cf {
-                padding: 45px 18px 55px;
+                padding: 60px 18px 70px;
             }
 
             .ms-cf-card {
-                padding: 22px 16px 24px;
+                padding: 30px 20px 32px;
+                border-radius: 22px;
+            }
+
+            .ms-cf-head h2 {
+                font-size: 23px;
             }
 
             .ms-cf-row {
                 grid-template-columns: 1fr;
-                gap: 10px;
-                margin-bottom: 10px;
+                gap: 14px;
+                margin-bottom: 14px;
+            }
+
+            .ms-cf input[type="text"],
+            .ms-cf input[type="tel"],
+            .ms-cf input[type="email"],
+            .ms-cf input[type="url"],
+            .ms-cf select {
+                height: 50px;
+                font-size: 14.5px;
             }
 
             .ms-cf-sphere {
-                top: -18px;
-                left: -10px;
-                width: 32px;
-                height: 32px;
+                top: -30px;
+                left: -12px;
+                width: 76px;
             }
 
             .ms-cf-cube {
-                right: -8px;
-                bottom: -28px;
-                width: 52px;
-                height: 52px;
+                right: -10px;
+                bottom: -40px;
+                width: 90px;
+            }
+
+            .ms-cf-btn {
+                width: 100%;
             }
         }
     </style>
 
     <div class="ms-cf-wrap">
-        <div class="ms-cf-card">
-            <span class="ms-cf-sphere" aria-hidden="true"></span>
+        <div class="ms-cf-formcol">
+            <div class="ms-cf-stage">
+                <img class="ms-cf-sphere" src="<?php echo BASE; ?>assets/image/contact/sphere.webp" alt="" aria-hidden="true" width="112" height="113">
+                <img class="ms-cf-cube" src="<?php echo BASE; ?>assets/image/contact/cube.webp" alt="" aria-hidden="true" width="140" height="154">
+            <div class="ms-cf-card">
 
-            <svg class="ms-cf-cube" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <defs>
-                    <linearGradient id="ms-cf-top" x1="0" y1="0" x2="1" y2="1">
-                        <stop offset="0" stop-color="#ffffff" stop-opacity=".95" />
-                        <stop offset="1" stop-color="#cfe0ea" stop-opacity=".55" />
-                    </linearGradient>
-                    <linearGradient id="ms-cf-left" x1="0" y1="0" x2="1" y2="1">
-                        <stop offset="0" stop-color="#e3edf3" stop-opacity=".75" />
-                        <stop offset="1" stop-color="#9fb4c2" stop-opacity=".45" />
-                    </linearGradient>
-                    <linearGradient id="ms-cf-right" x1="0" y1="0" x2="1" y2="1">
-                        <stop offset="0" stop-color="#bccddb" stop-opacity=".6" />
-                        <stop offset="1" stop-color="#7f95a6" stop-opacity=".5" />
-                    </linearGradient>
-                </defs>
-                <polygon points="10,30 50,50 50,92 10,70" fill="url(#ms-cf-left)" stroke="#8fa1ae" stroke-width="1.6" stroke-linejoin="round" />
-                <polygon points="50,50 90,30 90,70 50,92" fill="url(#ms-cf-right)" stroke="#8fa1ae" stroke-width="1.6" stroke-linejoin="round" />
-                <polygon points="50,10 90,30 50,50 10,30" fill="url(#ms-cf-top)" stroke="#8fa1ae" stroke-width="1.6" stroke-linejoin="round" />
-                <!-- inner glass edges -->
-                <polyline points="50,50 50,92" fill="none" stroke="#ffffff" stroke-opacity=".8" stroke-width="1.2" />
-                <polyline points="22,36 50,50 78,36" fill="none" stroke="#ffffff" stroke-opacity=".7" stroke-width="1.2" />
-                <polyline points="22,44 22,64" fill="none" stroke="#ffffff" stroke-opacity=".6" stroke-width="1.2" />
-            </svg>
-
-            <form id="ms-cf-form" method="POST" action="<?php echo BASE; ?>home-page/submit-contact.php" novalidate>
-                <div class="ms-cf-hp" aria-hidden="true">
-                    <label>Leave this field empty <input type="text" name="website_hp" tabindex="-1" autocomplete="off"></label>
+                <div class="ms-cf-head">
+                    <h2>Let&rsquo;s Talk About <span>Your Growth</span></h2>
+                    <p>Fill in the form and our team will get back to you shortly.</p>
                 </div>
 
-                <div class="ms-cf-row">
-                    <div class="ms-cf-field">
-                        <label class="ms-cf-sr" for="ms-cf-name">Name</label>
-                        <input type="text" id="ms-cf-name" name="name" placeholder="Enter Your Full Name" aria-required="true" required>
+                <form id="ms-cf-form" method="POST" action="<?php echo BASE; ?>home-page/submit-contact.php" novalidate>
+                    <div class="ms-cf-hp" aria-hidden="true">
+                        <label>Leave this field empty <input type="text" name="website_hp" tabindex="-1" autocomplete="off"></label>
                     </div>
-                    <div class="ms-cf-field">
-                        <label class="ms-cf-sr" for="ms-cf-business">Business Name</label>
-                        <input type="text" id="ms-cf-business" name="business_name" placeholder="Business Name" aria-required="true" required>
-                    </div>
-                </div>
 
-                <div class="ms-cf-row">
-                    <div class="ms-cf-field">
-                        <label class="ms-cf-sr" for="ms-cf-phone">Phone Number</label>
-                        <input type="tel" id="ms-cf-phone" name="phone" inputmode="tel" placeholder="Phone Number" aria-required="true" required>
+                    <div class="ms-cf-row">
+                        <div class="ms-cf-field">
+                            <label class="ms-cf-sr" for="ms-cf-name">Name</label>
+                            <input type="text" id="ms-cf-name" name="name" placeholder="Enter Your Full Name" autocomplete="name" aria-required="true" required>
+                        </div>
+                        <div class="ms-cf-field">
+                            <label class="ms-cf-sr" for="ms-cf-business">Business Name</label>
+                            <input type="text" id="ms-cf-business" name="business_name" placeholder="Business Name" autocomplete="organization" aria-required="true" required>
+                        </div>
                     </div>
-                    <div class="ms-cf-field">
-                        <label class="ms-cf-sr" for="ms-cf-email">Email</label>
-                        <input type="email" id="ms-cf-email" name="email" placeholder="Email Address" aria-required="true" required>
-                    </div>
-                </div>
 
-                <div class="ms-cf-row">
-                    <div class="ms-cf-field">
-                        <label class="ms-cf-sr" for="ms-cf-url">Website Url</label>
-                        <input type="url" id="ms-cf-url" name="website" placeholder="Website Url">
+                    <div class="ms-cf-row">
+                        <div class="ms-cf-field">
+                            <label class="ms-cf-sr" for="ms-cf-phone">Phone Number</label>
+                            <input type="tel" id="ms-cf-phone" name="phone" inputmode="tel" placeholder="Phone Number" autocomplete="tel" aria-required="true" required>
+                        </div>
+                        <div class="ms-cf-field">
+                            <label class="ms-cf-sr" for="ms-cf-email">Email</label>
+                            <input type="email" id="ms-cf-email" name="email" placeholder="Email Address" autocomplete="email" aria-required="true" required>
+                        </div>
                     </div>
-                    <div class="ms-cf-field">
-                        <label class="ms-cf-sr" for="ms-cf-service">Services</label>
-                        <select id="ms-cf-service" name="services" aria-required="true" required>
-                            <option value="">Select Services</option>
-                            <?php foreach ($services as $service) : ?>
-                                <option value="<?php echo $e($service); ?>"><?php echo $e($service); ?></option>
-                            <?php endforeach; ?>
-                        </select>
+
+                    <div class="ms-cf-row">
+                        <div class="ms-cf-field">
+                            <label class="ms-cf-sr" for="ms-cf-url">Website Url</label>
+                            <input type="url" id="ms-cf-url" name="website" placeholder="Website Url" autocomplete="url">
+                        </div>
+                        <div class="ms-cf-field">
+                            <label class="ms-cf-sr" for="ms-cf-service">Services</label>
+                            <select id="ms-cf-service" name="services" aria-required="true" required>
+                                <option value="">Select Services</option>
+                                <?php foreach ($services as $service) : ?>
+                                    <option value="<?php echo $e($service); ?>"><?php echo $e($service); ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
                     </div>
-                </div>
 
-                <label class="ms-cf-terms">
-                    <input type="checkbox" name="terms" value="on" required>
-                    <span>I have read and agree to the <a href="<?php echo $e($terms_url); ?>" target="_blank" rel="noopener">Terms and Conditions</a> and <a href="<?php echo $e($privacy_url); ?>" target="_blank" rel="noopener">Privacy Policy</a></span>
-                </label>
+                    <label class="ms-cf-terms">
+                        <input type="checkbox" name="terms" value="on" required>
+                        <span>I have read and agree to the <a href="<?php echo $e($terms_url); ?>" target="_blank" rel="noopener">Terms and Conditions</a> and <a href="<?php echo $e($privacy_url); ?>" target="_blank" rel="noopener">Privacy Policy</a></span>
+                    </label>
 
-                <div class="ms-cf-btnwrap">
-                    <button type="submit" class="ms-cf-btn">Submit Form</button>
-                </div>
-                <div id="ms-cf-msg" class="ms-cf-msg" role="status" hidden style="margin:16px 0 0"></div>
-            </form>
+                    <div class="ms-cf-btnwrap">
+                        <button type="submit" class="ms-cf-btn">Submit Form</button>
+                    </div>
+                    <div id="ms-cf-msg" class="ms-cf-msg" role="status" hidden style="margin:18px 0 0"></div>
+                </form>
+            </div>
+            </div>
         </div>
 
         <div class="ms-cf-image">
             <img src="<?php echo $e($image_src); ?>" width="1080" height="1350" alt="<?php echo $e($image_alt); ?>" loading="lazy" decoding="async">
         </div>
     </div>
+
     <script>
         (function() {
             var form = document.getElementById('ms-cf-form');
@@ -395,13 +496,9 @@ $e = function ($s) {
                 fetch(form.action, {
                         method: 'POST',
                         body: new FormData(form),
-                        headers: {
-                            'Accept': 'application/json'
-                        }
+                        headers: { 'Accept': 'application/json' }
                     })
-                    .then(function(r) {
-                        return r.json();
-                    })
+                    .then(function(r) { return r.json(); })
                     .then(function(res) {
                         msg.className = 'ms-cf-msg ' + (res.ok ? 'ms-cf-msg--ok' : 'ms-cf-msg--err');
                         msg.textContent = res.message;
