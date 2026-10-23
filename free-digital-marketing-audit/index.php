@@ -5,6 +5,19 @@ include __DIR__ . '/../include/header.php';
 ?>
 
 
+<?php
+// Free-audit form: services and the budget options shown for each one.
+// Edit here to change the dropdowns (the budget list updates when the service changes).
+$audit_services = [
+    'Google Ads'          => ['15,000 - 30,000', '30,000 - 60,000', 'Arrange Call'],
+    'Facebook Ads'        => ['15,000 - 30,000', '30,000 - 60,000', 'Arrange Call'],
+    'Social Media'        => ['20,000 - 40,000', '40,000 - 60,000', '60,000 - 80,000', '80,000 - 1,00,000', 'Arrange Call'],
+    'Website Development' => ['20,000 - 60,000', '60,000 - 1,00,000', 'Arrange Call'],
+    'Complete Brand'      => ['Arrange Call'],
+];
+$audit_default = 'Google Ads';
+?>
+
 <style>
     .minerdia-growth-section {
         --violet: #5A2EA6;
@@ -256,6 +269,79 @@ include __DIR__ . '/../include/header.php';
         cursor: pointer !important;
     }
 
+    /* ---------- Free audit form (native PHP form) ---------- */
+    .minerdia-form-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14px 12px;
+    }
+
+    .minerdia-field {
+        display: flex;
+        flex-direction: column;
+        min-width: 0;
+    }
+
+    .minerdia-field label {
+        display: block;
+        margin: 0 0 6px;
+        line-height: 1.35;
+    }
+
+    .minerdia-field label span {
+        color: #e03131;
+        margin-left: 3px;
+    }
+
+    /* border-box so padding doesn't push inputs wider/taller than their column */
+    .minerdia-card .minerdia-field input,
+    .minerdia-card .minerdia-field select {
+        box-sizing: border-box !important;
+        height: 42px !important;
+        max-width: 100% !important;
+    }
+
+    /* keeps inputs level when one label wraps onto two lines */
+    .minerdia-field input,
+    .minerdia-field select {
+        margin-top: auto;
+        font-family: inherit;
+        color: var(--text);
+        outline: none;
+        transition: border-color .25s ease, background .25s ease;
+    }
+
+    .minerdia-field select {
+        cursor: pointer;
+    }
+
+    .minerdia-field input::placeholder {
+        color: #8a87a0;
+    }
+
+    .minerdia-card .minerdia-field input:focus,
+    .minerdia-card .minerdia-field select:focus {
+        border-color: var(--violet) !important;
+        background: #fff !important;
+    }
+
+    .minerdia-card .minerdia-form-submit {
+        display: block;
+        margin-top: 18px;
+        transition: transform .25s ease, box-shadow .25s ease;
+    }
+
+    .minerdia-card .minerdia-form-submit:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 22px rgba(90, 46, 166, .28);
+    }
+
+    @media(max-width:480px) {
+        .minerdia-form-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+
     @media(max-width:767px) {
         .minerdia-container {
             padding: var(--mobile-top-space) 20px 45px;
@@ -331,7 +417,80 @@ include __DIR__ . '/../include/header.php';
             <div class="minerdia-card">
                 <h2>Get your <span>free audit</span></h2>
                 <p>Answer a few quick questions. We reply on WhatsApp within minutes.</p>
-                [fluentform id="10"]
+                <form class="minerdia-form" action="submit-form.php" method="post">
+                    <input type="hidden" name="source_page" value="Free Audit">
+                    <input type="hidden" name="submitted_on" value="<?php echo date('d/m/Y'); ?>">
+
+                    <div class="minerdia-form-grid">
+                        <div class="minerdia-field">
+                            <label for="mf-name">Your Name <span>*</span></label>
+                            <input type="text" id="mf-name" name="full_name" placeholder="Enter Your Full Name" required>
+                        </div>
+
+                        <div class="minerdia-field">
+                            <label for="mf-business">Business name <span>*</span></label>
+                            <input type="text" id="mf-business" name="business_name" placeholder="Business name" required>
+                        </div>
+
+                        <div class="minerdia-field">
+                            <label for="mf-url">Website Url</label>
+                            <input type="url" id="mf-url" name="website" placeholder="Website Url">
+                        </div>
+
+                        <div class="minerdia-field">
+                            <label for="mf-phone">Phone Number <span>*</span></label>
+                            <input type="tel" id="mf-phone" name="phone" placeholder="Mobile Number" inputmode="tel" required>
+                        </div>
+
+                        <div class="minerdia-field">
+                            <label for="mf-service">Which service are you interested in? <span>*</span></label>
+                            <select id="mf-service" name="service" required>
+                                <?php foreach ($audit_services as $service => $budgets) : ?>
+                                    <option value="<?php echo htmlspecialchars($service); ?>"<?php echo $service === $audit_default ? ' selected' : ''; ?>><?php echo htmlspecialchars($service); ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
+
+                        <div class="minerdia-field">
+                            <label for="mf-budget">Monthly marketing budget <span>*</span></label>
+                            <select id="mf-budget" name="budget" required>
+                                <option value=""><?php echo htmlspecialchars($audit_default); ?> Price</option>
+                                <?php foreach ($audit_services[$audit_default] as $budget) : ?>
+                                    <option value="<?php echo htmlspecialchars($budget); ?>"><?php echo htmlspecialchars($budget); ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="minerdia-form-submit">Submit Form</button>
+                </form>
+
+                <script>
+                    (function() {
+                        var budgets = <?php echo json_encode($audit_services, JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_UNESCAPED_UNICODE); ?>;
+                        var service = document.getElementById('mf-service');
+                        var budget = document.getElementById('mf-budget');
+                        if (!service || !budget) return;
+
+                        // Rebuild the budget list whenever the service changes
+                        service.addEventListener('change', function() {
+                            var list = budgets[service.value] || [];
+                            budget.innerHTML = '';
+
+                            var first = document.createElement('option');
+                            first.value = '';
+                            first.textContent = service.value + ' Price';
+                            budget.appendChild(first);
+
+                            list.forEach(function(item) {
+                                var opt = document.createElement('option');
+                                opt.value = item;
+                                opt.textContent = item;
+                                budget.appendChild(opt);
+                            });
+                        });
+                    })();
+                </script>
             </div>
 
         </div>
