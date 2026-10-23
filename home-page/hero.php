@@ -1,16 +1,4 @@
 <style>
-
-    * {
-        box-sizing: border-box;
-    }
-
-    html,
-    body {
-        margin: 0;
-        padding: 0;
-        overflow-x: hidden;
-    }
-
     .banner-root {
         font-family: var(--font-body);
         position: relative;
@@ -48,9 +36,9 @@
         align-items: center;
         justify-content: space-between;
         gap: 28px;
-        width: 100%;
-        max-width: 100%;
-        min-height: 600px;
+        /* width: 100%; */
+        /* max-width: 100%; */
+        /* min-height: 600px; */
         padding: 96px 42px 20px;
     }
 
@@ -534,9 +522,9 @@
             flex-direction: row;
             align-items: flex-start;
             justify-content: space-between;
-            padding: 90px 20px 2px;
+            padding: 50px 20px 0px;
             gap: 14px;
-            min-height: 390px;
+            min-height: 300px;
         }
 
         .hero-left {
@@ -806,7 +794,7 @@
 
         .hero {
             min-height: auto !important;
-            padding: 72px 14px 20px !important;
+            padding: 10px 14px 20px !important;
             gap: 12px;
         }
 

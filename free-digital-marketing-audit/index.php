@@ -21,11 +21,6 @@ include __DIR__ . '/../include/header.php';
         overflow: hidden;
     }
 
-    .minerdia-growth-section,
-    .minerdia-growth-section * {
-        box-sizing: border-box;
-    }
-
     .elementor-widget-html,
     .elementor-widget-container {
         margin: 0 !important;

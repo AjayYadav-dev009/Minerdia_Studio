@@ -31,7 +31,7 @@
         position: relative;
         z-index: 2;
         min-height: 520px;
-        padding: 150px 42px 24px;
+        /* padding: 150px 42px 24px; */
         display: flex;
         align-items: center;
         justify-content: center;

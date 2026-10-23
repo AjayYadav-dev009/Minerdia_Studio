@@ -1,16 +1,5 @@
     <style>
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        html,
-        body {
-            overflow-x: hidden;
-        }
-
         .podcast-banner-root {
             font-family: var(--font-body);
             position: relative;
@@ -43,7 +32,7 @@
             position: relative;
             z-index: 2;
             min-height: 520px;
-            padding: 210px 42px 24px;
+            /* padding: 210px 42px 24px; */
             display: flex;
             align-items: center;
             justify-content: center;
