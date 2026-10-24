@@ -3,43 +3,71 @@
 $eyebrow  = 'Performance Marketing Services by Minerdia Studio';
 $title    = 'High-Converting';
 $accent   = 'Paid Ads';
-$subtitle = 'Scale your business across the world’s most powerful advertising platforms — we manage every click, every campaign.';
+$subtitle = 'Scale your business across the world\'s most powerful advertising platforms — we manage every click, every campaign.';
 
-// 'logo' is inline SVG (trusted markup, not escaped). 'link' is where the arrow button goes.
+/*
+ * Logos: put the 5 PNGs (720x720) in assets/image/services/ads/ with the file names below.
+ * Until a local file exists, the page automatically uses the old WordPress URL (the 'remote' value).
+ * 'link' is where the arrow button goes.
+ */
+$wp = 'https://minerdiastudio.com/wp-content/uploads/2026/04/';
 $platforms = [
     [
-        'name'  => 'Instagram Ads',
-        'text'  => 'Stop-the-scroll reels, stories & shopping ads that sell.',
-        'stat'  => '2 B',
-        'label' => 'Active users',
-        'link'  => '#',
-        'logo'  => '<svg viewBox="0 0 48 48" aria-hidden="true"><defs><linearGradient id="ms-ig-g" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#FEDA75"/><stop offset=".3" stop-color="#FA7E1E"/><stop offset=".55" stop-color="#D62976"/><stop offset=".8" stop-color="#962FBF"/><stop offset="1" stop-color="#4F5BD5"/></linearGradient></defs><rect width="48" height="48" rx="11" fill="url(#ms-ig-g)"/><rect x="10" y="10" width="28" height="28" rx="8" fill="none" stroke="#fff" stroke-width="3"/><circle cx="24" cy="24" r="6.5" fill="none" stroke="#fff" stroke-width="3"/><circle cx="31.5" cy="16.5" r="2" fill="#fff"/></svg>',
+        'name'   => 'YouTube Ads',
+        'text'   => 'Skippable, bumper & in-feed video ads that convert.',
+        'stat'   => '2.7',
+        'unit'   => 'B',
+        'label'  => 'Active users',
+        'link'   => '#',
+        'local'  => 'assets/image/services/ads/youtube-ads.png',
+        'remote' => $wp . 'youtube-adss.png',
     ],
     [
-        'name'  => 'Google Ads',
-        'text'  => 'Stop-the-scroll reels, stories & shopping ads that sell.',
-        'stat'  => '2.7 B',
-        'label' => 'Active users',
-        'link'  => '#',
-        'logo'  => '<svg viewBox="0 0 48 48" aria-hidden="true"><rect x="19" y="3" width="11" height="34" rx="5.5" transform="rotate(30 24.5 20)" fill="#4285F4"/><rect x="6" y="3" width="11" height="34" rx="5.5" transform="rotate(-30 11.5 20)" fill="#FBBC04" transform-origin="center"/><circle cx="10" cy="38" r="6" fill="#34A853"/></svg>',
+        'name'   => 'Facebook Ads',
+        'text'   => 'Precision targeting across feeds, reels & marketplace.',
+        'stat'   => '3',
+        'unit'   => 'B',
+        'label'  => 'Active users',
+        'link'   => '#',
+        'local'  => 'assets/image/services/ads/facebook-ads.png',
+        'remote' => $wp . 'facebook-ads.png',
     ],
     [
-        'name'  => 'Linkedin Ads',
-        'text'  => 'Stop-the-scroll reels, stories & shopping ads that sell.',
-        'stat'  => '465 M',
-        'label' => 'Active users',
-        'link'  => '#',
-        'logo'  => '<svg viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="4" fill="#0A66C2"/><rect x="9" y="19" width="6.5" height="20" fill="#fff"/><circle cx="12.25" cy="12.5" r="3.8" fill="#fff"/><path d="M20 19h6.2v2.8c.9-1.8 3.1-3.3 6.3-3.3 6 0 7.5 3.8 7.5 8.7V39h-6.5v-10c0-2.4-.1-4.6-3-4.6s-3.5 2.1-3.5 4.5V39H20z" fill="#fff"/></svg>',
+        'name'   => 'Instagram Ads',
+        'text'   => 'Stop-the-scroll reels, stories & shopping ads that sell.',
+        'stat'   => '2',
+        'unit'   => 'B',
+        'label'  => 'Active users',
+        'link'   => '#',
+        'local'  => 'assets/image/services/ads/instagram-ads.png',
+        'remote' => $wp . 'instagram-ads.png',
     ],
     [
-        'name'  => 'YouTube Ads',
-        'text'  => 'Skippable, bumper & in-feed video ads that convert.',
-        'stat'  => '2.7 B',
-        'label' => 'Active users',
-        'link'  => '#',
-        'logo'  => '<svg viewBox="0 0 64 48" aria-hidden="true"><rect x="0" y="4" width="64" height="40" rx="12" fill="#FF0000"/><path d="M26 15l16 9-16 9z" fill="#fff"/></svg>',
+        'name'   => 'Google Ads',
+        'text'   => 'Stop-the-scroll reels, stories & shopping ads that sell.',
+        'stat'   => '2.7',
+        'unit'   => 'B',
+        'label'  => 'Active users',
+        'link'   => '#',
+        'local'  => 'assets/image/services/ads/google-ads.png',
+        'remote' => $wp . 'google-ads.png',
+    ],
+    [
+        'name'   => 'Linkedin Ads',
+        'text'   => 'Stop-the-scroll reels, stories & shopping ads that sell.',
+        'stat'   => '465',
+        'unit'   => 'M',
+        'label'  => 'Active users',
+        'link'   => '#',
+        'local'  => 'assets/image/services/ads/linkedin-ads.png',
+        'remote' => $wp . 'linkedin-ads.png',
     ],
 ];
+
+/** local file if it exists, otherwise the WordPress URL */
+$logo_for = function (array $p) {
+    return is_file(__DIR__ . '/../' . $p['local']) ? BASE . $p['local'] : $p['remote'];
+};
 ?>
 <section class="ms-ad-slider">
 
@@ -51,34 +79,38 @@ $platforms = [
 
         .ms-ad-slider {
             --purple: #5A2EA6;
+            --gap: 20px;
             width: 100%;
-            padding: 36px 20px 48px;
-            background: linear-gradient(180deg, #f1edf8 0%, #cbbbe6 30%, #9a78d0 65%, #6a35b5 100%);
+            padding: 64px 20px 76px;
+            background: linear-gradient(180deg, #f1edf8 0%, #cbbbe6 28%, #9a78d0 62%, #6a35b5 100%);
             font-family: var(--font-body);
+            overflow: hidden;
         }
 
         .ms-ad-slider-wrap {
-            max-width: 1110px;
+            max-width: 1290px;
             margin: 0 auto;
         }
 
         /* ---------- Heading ---------- */
         .ms-ad-slider-head {
             text-align: center;
-            margin-bottom: 26px;
+            margin-bottom: 44px;
         }
 
         .ms-ad-slider-eyebrow {
-            margin: 0 0 4px;
-            font-size: 14px;
-            font-weight: 600;
+            margin: 0 0 6px;
+            font-family: var(--font-body);
+            font-size: 16px;
+            font-weight: 500;
             color: #111;
         }
 
         .ms-ad-slider-title {
-            margin: 0 0 12px;
-            font-size: 38px;
-            line-height: 1.2;
+            margin: 0 0 16px;
+            font-family: var(--font-head);
+            font-size: 48px;
+            line-height: 1.15;
             font-weight: 600;
             color: #000;
         }
@@ -88,28 +120,29 @@ $platforms = [
         }
 
         .ms-ad-slider-sub {
-            margin: 0;
-            font-size: 11.5px;
+            margin: 0 auto;
+            max-width: 1000px;
+            font-size: 17px;
             line-height: 1.6;
             font-weight: 400;
-            color: #222;
+            color: #1a1a1a;
         }
 
         /* ---------- Slider ---------- */
         .ms-ad-slider-stage {
             position: relative;
-            padding: 0 36px;
+            padding: 0 46px;
         }
 
         .ms-ad-slider-track {
             display: flex;
-            gap: 14px;
+            gap: var(--gap);
             overflow-x: auto;
             scroll-snap-type: x mandatory;
             scroll-behavior: smooth;
             scrollbar-width: none;
             -ms-overflow-style: none;
-            padding: 4px 2px 8px;
+            padding: 6px 2px 14px;
         }
 
         .ms-ad-slider-track::-webkit-scrollbar {
@@ -117,48 +150,50 @@ $platforms = [
         }
 
         .ms-ad-slider-card {
-            flex: 0 0 calc((100% - 42px) / 4);
+            flex: 0 0 calc((100% - (3 * var(--gap))) / 4);
+            min-height: 307px;
             scroll-snap-align: start;
             display: flex;
             flex-direction: column;
-            padding: 24px 16px 14px;
-            border-radius: 18px;
-            background: rgba(255, 255, 255, .42);
-            border: 1px solid rgba(255, 255, 255, .55);
-            box-shadow: 0 8px 22px rgba(60, 20, 120, .18);
-            -webkit-backdrop-filter: blur(6px);
-            backdrop-filter: blur(6px);
+            padding: 28px 12px 18px;
+            border-radius: 28px;
+            background: rgba(255, 255, 255, .34);
+            border: 1px solid rgba(255, 255, 255, .6);
+            box-shadow: 0 10px 28px rgba(60, 20, 120, .16);
+            -webkit-backdrop-filter: blur(8px);
+            backdrop-filter: blur(8px);
             text-align: center;
         }
 
         .ms-ad-slider-logo {
-            height: 42px;
+            width: 76px;
+            height: 76px;
             margin: 0 auto 14px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
         }
 
-        .ms-ad-slider-logo svg {
+        .ms-ad-slider-logo img {
+            width: 100%;
             height: 100%;
-            width: auto;
+            object-fit: contain;
             display: block;
         }
 
         .ms-ad-slider-card h3 {
             margin: 0 0 8px;
-            font-size: 14px;
-            line-height: 1.3;
-            font-weight: 600;
+            font-family: var(--font-head);
+            font-size: 22px;
+            line-height: 1.25;
+            font-weight: 500;
             color: #000;
         }
 
         .ms-ad-slider-card p {
-            margin: 0 0 16px;
-            font-size: 11px;
+            margin: 0 0 18px;
+            padding: 0 10px;
+            font-size: 15.5px;
             line-height: 1.55;
             font-weight: 400;
-            color: #222;
+            color: #1f1f1f;
         }
 
         .ms-ad-slider-foot {
@@ -166,23 +201,24 @@ $platforms = [
             align-items: flex-end;
             justify-content: space-between;
             margin-top: auto;
-            padding-top: 10px;
-            border-top: 1px solid rgba(255, 255, 255, .7);
+            padding: 14px 4px 0;
+            border-top: 2px solid rgba(90, 46, 166, .16);
             text-align: left;
         }
 
         .ms-ad-slider-stat {
             display: block;
-            font-size: 15px;
+            font-family: var(--font-head);
+            font-size: 24px;
             line-height: 1.2;
-            font-weight: 700;
-            color: #e8171f;
+            font-weight: 500;
+            color: #f00000;
         }
 
         .ms-ad-slider-label {
             display: block;
-            margin-top: 2px;
-            font-size: 10px;
+            margin-top: 4px;
+            font-size: 14.5px;
             font-weight: 400;
             color: #222;
         }
@@ -191,36 +227,36 @@ $platforms = [
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 26px;
-            height: 26px;
+            width: 34px;
+            height: 34px;
+            margin-right: 6px;
             border-radius: 50%;
-            background: rgba(255, 255, 255, .85);
-            color: #e8171f;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, .15);
+            background: #f3c9d8;
+            color: #f00000;
             transition: .25s ease;
         }
 
         .ms-ad-slider-go:hover {
             background: #fff;
-            transform: translateX(2px);
+            transform: translateX(3px);
         }
 
         .ms-ad-slider-go svg {
-            width: 12px;
-            height: 12px;
+            width: 16px;
+            height: 16px;
         }
 
-        /* ---------- Arrows ---------- */
+        /* ---------- Arrows (outside the cards) ---------- */
         .ms-ad-slider-arrow {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            width: 26px;
-            height: 26px;
+            width: 30px;
+            height: 30px;
             padding: 0;
-            border: 1.5px solid #fff;
+            border: 2px solid #fff;
             border-radius: 50%;
-            background: rgba(255, 255, 255, .15);
+            background: transparent;
             color: #fff;
             display: flex;
             align-items: center;
@@ -245,44 +281,60 @@ $platforms = [
         }
 
         .ms-ad-slider-arrow svg {
-            width: 12px;
-            height: 12px;
+            width: 14px;
+            height: 14px;
         }
 
         .ms-ad-slider-prev {
-            left: 0;
+            left: 4px;
         }
 
         .ms-ad-slider-next {
-            right: 0;
+            right: 4px;
         }
 
         /* ---------- Responsive ---------- */
-        @media (max-width: 991px) {
+        @media (max-width: 1100px) {
             .ms-ad-slider-title {
-                font-size: 32px;
+                font-size: 40px;
             }
 
             .ms-ad-slider-card {
-                flex-basis: calc((100% - 14px) / 2);
+                flex-basis: calc((100% - var(--gap)) / 2);
             }
         }
 
-        @media (max-width: 575px) {
+        @media (max-width: 767px) {
             .ms-ad-slider {
-                padding: 28px 14px 40px;
+                padding: 44px 14px 54px;
+            }
+
+            .ms-ad-slider-head {
+                margin-bottom: 30px;
             }
 
             .ms-ad-slider-title {
-                font-size: 26px;
+                font-size: 31px;
+            }
+
+            .ms-ad-slider-eyebrow {
+                font-size: 14px;
+            }
+
+            .ms-ad-slider-sub {
+                font-size: 15px;
             }
 
             .ms-ad-slider-stage {
-                padding: 0 30px;
+                padding: 0 34px;
             }
 
             .ms-ad-slider-card {
                 flex-basis: 100%;
+            }
+
+            .ms-ad-slider-card h3 {
+                font-size: 20px;
             }
         }
 
@@ -303,22 +355,29 @@ $platforms = [
 
         <div class="ms-ad-slider-stage">
             <button type="button" class="ms-ad-slider-arrow ms-ad-slider-prev" aria-label="Previous">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 5 8 12 15 19"></polyline></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <polyline points="15 5 8 12 15 19"></polyline>
+                </svg>
             </button>
 
             <div class="ms-ad-slider-track">
                 <?php foreach ($platforms as $p) : ?>
                     <article class="ms-ad-slider-card">
-                        <div class="ms-ad-slider-logo"><?php echo $p['logo']; ?></div>
+                        <div class="ms-ad-slider-logo">
+                            <img src="<?php echo htmlspecialchars($logo_for($p)); ?>" width="720" height="720" alt="<?php echo htmlspecialchars($p['name']); ?>" loading="lazy" decoding="async">
+                        </div>
                         <h3><?php echo htmlspecialchars($p['name']); ?></h3>
                         <p><?php echo htmlspecialchars($p['text']); ?></p>
                         <div class="ms-ad-slider-foot">
                             <div>
-                                <span class="ms-ad-slider-stat"><?php echo htmlspecialchars($p['stat']); ?></span>
+                                <span class="ms-ad-slider-stat"><?php echo htmlspecialchars($p['stat'] . ' ' . $p['unit']); ?></span>
                                 <span class="ms-ad-slider-label"><?php echo htmlspecialchars($p['label']); ?></span>
                             </div>
                             <a class="ms-ad-slider-go" href="<?php echo htmlspecialchars($p['link']); ?>" aria-label="<?php echo htmlspecialchars($p['name']); ?>">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="4" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <line x1="4" y1="12" x2="19" y2="12"></line>
+                                    <polyline points="12 5 19 12 12 19"></polyline>
+                                </svg>
                             </a>
                         </div>
                     </article>
@@ -326,7 +385,9 @@ $platforms = [
             </div>
 
             <button type="button" class="ms-ad-slider-arrow ms-ad-slider-next" aria-label="Next">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 5 16 12 9 19"></polyline></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <polyline points="9 5 16 12 9 19"></polyline>
+                </svg>
             </button>
         </div>
 
@@ -340,30 +401,76 @@ $platforms = [
             var track = stage.querySelector('.ms-ad-slider-track');
             var prev = stage.querySelector('.ms-ad-slider-prev');
             var next = stage.querySelector('.ms-ad-slider-next');
+            var paused = false;
+            var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
             function step() {
                 var card = track.querySelector('.ms-ad-slider-card');
                 if (!card) return 0;
-                return card.getBoundingClientRect().width + 14;
+                return card.getBoundingClientRect().width + (parseFloat(getComputedStyle(track).columnGap) || 20);
+            }
+
+            function maxScroll() {
+                return track.scrollWidth - track.clientWidth - 2;
             }
 
             function update() {
-                var max = track.scrollWidth - track.clientWidth - 2;
                 prev.disabled = track.scrollLeft <= 2;
-                next.disabled = track.scrollLeft >= max;
+                next.disabled = track.scrollLeft >= maxScroll();
             }
 
             prev.addEventListener('click', function() {
-                track.scrollBy({ left: -step(), behavior: 'smooth' });
+                track.scrollBy({
+                    left: -step(),
+                    behavior: 'smooth'
+                });
             });
             next.addEventListener('click', function() {
-                track.scrollBy({ left: step(), behavior: 'smooth' });
+                track.scrollBy({
+                    left: step(),
+                    behavior: 'smooth'
+                });
             });
 
-            track.addEventListener('scroll', update, { passive: true });
+            track.addEventListener('scroll', update, {
+                passive: true
+            });
             window.addEventListener('resize', update);
             window.addEventListener('load', update);
             update();
+
+            /* autoplay every 5s, back to the first card at the end; pauses on hover / focus / touch */
+            if (!reduce) {
+                ['mouseenter', 'focusin', 'touchstart'].forEach(function(ev) {
+                    stage.addEventListener(ev, function() {
+                        paused = true;
+                    }, {
+                        passive: true
+                    });
+                });
+                ['mouseleave', 'focusout', 'touchend'].forEach(function(ev) {
+                    stage.addEventListener(ev, function() {
+                        paused = false;
+                    }, {
+                        passive: true
+                    });
+                });
+
+                setInterval(function() {
+                    if (paused || document.hidden) return;
+                    if (track.scrollLeft >= maxScroll()) {
+                        track.scrollTo({
+                            left: 0,
+                            behavior: 'smooth'
+                        });
+                    } else {
+                        track.scrollBy({
+                            left: step(),
+                            behavior: 'smooth'
+                        });
+                    }
+                }, 5000);
+            }
         })();
     </script>
 </section>

@@ -246,7 +246,7 @@ $tabs = [
             <div class="ms-adtabs-panel<?php echo $i === 0 ? ' is-active' : ''; ?>"
                  id="ms-adtab-<?php echo $i; ?>" role="tabpanel">
                 <div class="ms-adtabs-img">
-                    <img src="<?php echo BASE; htmlspecialchars($tab['image']); ?>"
+                    <img src="<?php echo BASE . htmlspecialchars($tab['image']); ?>"
                          alt="<?php echo htmlspecialchars($tab['label']); ?>" loading="lazy">
                 </div>
                 <ul class="ms-adtabs-list">

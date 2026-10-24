@@ -10,55 +10,50 @@ $faqs = [
 ];
 ?>
 <section class="ms-faq">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
     <style>
-        .ms-faq,
-        .ms-faq * {
-            box-sizing: border-box;
-        }
 
         .ms-faq {
             --green: #21a67a;
             width: 100%;
-            padding: 40px 20px 50px;
+            padding: 64px 20px 90px;
             background: #fff;
             font-family: var(--font-body);
         }
 
         .ms-faq-wrap {
-            max-width: 800px;
+            max-width: 1000px;
             margin: 0 auto;
         }
 
         .ms-faq-badge {
             display: table;
-            margin: 0 auto 22px;
-            padding: 9px 36px;
+            margin: 0 auto 38px;
+            padding: 14px 56px;
             border-radius: 50px;
             background: var(--green);
             color: #fff;
             font-family: var(--font-head);
-            font-size: 18px;
-            font-weight: 700;
-            box-shadow: 0 6px 14px rgba(33, 166, 122, .35);
+            font-size: 26px;
+            line-height: 1.2;
+            font-weight: 600;
+            box-shadow: 0 8px 20px rgba(33, 166, 122, .35);
         }
 
         .ms-faq-list {
             display: grid;
-            gap: 14px;
+            gap: 20px;
         }
 
         .ms-faq-item {
-            border-radius: 30px;
+            border-radius: 36px;
             background: #f6f6f6;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, .05);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, .06);
             transition: .25s ease;
         }
 
         .ms-faq-item.is-open {
             background: #f1f1f1;
-            box-shadow: 0 6px 16px rgba(0, 0, 0, .10);
+            box-shadow: 0 8px 22px rgba(0, 0, 0, .12);
         }
 
         .ms-faq-q {
@@ -66,27 +61,28 @@ $faqs = [
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 16px;
-            padding: 15px 24px 15px 16px;
+            gap: 20px;
+            padding: 24px 34px 24px 32px;
             border: 0;
             background: transparent;
             text-align: left;
-            font-family: var(--font-body);
-            font-size: 12px;
-            font-weight: 600;
+            font-family: var(--font-head);
+            font-size: 20px;
+            font-weight: 500;
             line-height: 1.4;
             color: #000;
             cursor: pointer;
         }
 
-        .ms-faq-q i {
-            flex: 0 0 auto;
-            font-size: 18px;
-            color: #222;
+        .ms-faq-q svg {
+            flex: 0 0 30px;
+            width: 30px;
+            height: 30px;
+            fill: #111;
             transition: transform .3s ease;
         }
 
-        .ms-faq-item.is-open .ms-faq-q i {
+        .ms-faq-item.is-open .ms-faq-q svg {
             transform: rotate(180deg);
         }
 
@@ -98,26 +94,47 @@ $faqs = [
 
         .ms-faq-a p {
             margin: 0;
-            padding: 0 24px 18px 16px;
-            font-size: 12.5px;
-            line-height: 1.7;
+            padding: 0 34px 28px 32px;
+            font-size: 16.5px;
+            line-height: 1.75;
             font-weight: 400;
             color: #333;
         }
 
-        @media (max-width: 575px) {
+        @media (max-width: 767px) {
             .ms-faq {
-                padding: 30px 14px 40px;
+                padding: 44px 14px 56px;
             }
 
             .ms-faq-badge {
-                font-size: 16px;
-                padding: 8px 28px;
+                font-size: 20px;
+                padding: 11px 36px;
+                margin-bottom: 28px;
+            }
+
+            .ms-faq-list {
+                gap: 14px;
+            }
+
+            .ms-faq-item {
+                border-radius: 26px;
             }
 
             .ms-faq-q {
-                font-size: 12.5px;
-                padding: 14px 18px 14px 14px;
+                font-size: 16px;
+                padding: 18px 20px 18px 22px;
+                gap: 14px;
+            }
+
+            .ms-faq-q svg {
+                flex-basis: 26px;
+                width: 26px;
+                height: 26px;
+            }
+
+            .ms-faq-a p {
+                padding: 0 22px 22px;
+                font-size: 15px;
             }
         }
     </style>
@@ -130,7 +147,9 @@ $faqs = [
                 <div class="ms-faq-item">
                     <button type="button" class="ms-faq-q" aria-expanded="false" aria-controls="ms-faq-a-<?php echo $i; ?>">
                         <span><?php echo htmlspecialchars($faq[0]); ?></span>
-                        <i class="fa-regular fa-circle-down"></i>
+                        <svg viewBox="0 0 32 32" aria-hidden="true">
+                            <path d="M25.948 27.548c2.871-2.871 4.452-6.688 4.452-10.748s-1.581-7.877-4.452-10.748-6.688-4.452-10.748-4.452-7.877 1.581-10.748 4.452-4.452 6.688-4.452 10.748 1.581 7.877 4.452 10.748 6.688 4.452 10.748 4.452 7.877-1.581 10.748-4.452zM1.6 16.8c0-7.499 6.101-13.6 13.6-13.6s13.6 6.101 13.6 13.6c0 7.499-6.101 13.6-13.6 13.6s-13.6-6.101-13.6-13.6zM6.4 14.4c0-0.205 0.078-0.409 0.234-0.566 0.312-0.312 0.819-0.312 1.131 0l7.434 7.434 7.434-7.434c0.312-0.312 0.819-0.312 1.131 0s0.312 0.819 0 1.131l-8 8c-0.312 0.312-0.819 0.312-1.131 0l-8-8c-0.156-0.156-0.234-0.361-0.234-0.566z"></path>
+                        </svg>
                     </button>
                     <div class="ms-faq-a" id="ms-faq-a-<?php echo $i; ?>">
                         <p><?php echo htmlspecialchars($faq[1]); ?></p>
@@ -139,6 +158,17 @@ $faqs = [
             <?php endforeach; ?>
         </div>
     </div>
+
+
+    <script type="application/ld+json">
+        <?php
+        $schema = ['@context' => 'https://schema.org', '@type' => 'FAQPage', 'mainEntity' => []];
+        foreach ($faqs as $faq) {
+            $schema['mainEntity'][] = ['@type' => 'Question', 'name' => $faq[0], 'acceptedAnswer' => ['@type' => 'Answer', 'text' => $faq[1]]];
+        }
+        echo json_encode($schema, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_HEX_TAG);
+        ?>
+    </script>
 
     <script>
         (function() {

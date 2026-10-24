@@ -8,10 +8,6 @@ $description = 'Minerdia Studio is a leading PPC and performance marketing agenc
 <section class="ms-about">
 
     <style>
-        .ms-about,
-        .ms-about * {
-            box-sizing: border-box;
-        }
 
         .ms-about {
             --purple: #5A2EA6;
@@ -43,10 +39,10 @@ $description = 'Minerdia Studio is a leading PPC and performance marketing agenc
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            font-size: 108px;
+            font-size: 100px;
             line-height: 1;
-            font-weight: 700;
-            letter-spacing: -6px;
+            font-weight: 900;
+            letter-spacing: -5px;
             white-space: nowrap;
             color: #f1f1f1;
             pointer-events: none;
@@ -58,7 +54,7 @@ $description = 'Minerdia Studio is a leading PPC and performance marketing agenc
             margin: 0;
             font-size: 52px;
             line-height: 1.2;
-            font-weight: 600;
+            font-weight: 800;
             color: #000;
         }
 
@@ -69,7 +65,7 @@ $description = 'Minerdia Studio is a leading PPC and performance marketing agenc
         .ms-about-text {
             max-width: 1110px;
             margin: 0 auto;
-            font-size: 15.5px;
+            font-size: 16px;
             line-height: 1.7;
             font-weight: 400;
             color: #111;

@@ -14,16 +14,12 @@ $services = [
 ];
 
 // Put your image in this path (or change it)
-$image_src = 'images/paid-ads-performance.jpg';
+$image_src = 'assets/image/services/paid-1.webp';
 $image_alt = 'Team reviewing paid ads performance dashboard';
 ?>
 <section class="ms-ad-features">
 
     <style>
-        .ms-ad-features,
-        .ms-ad-features * {
-            box-sizing: border-box;
-        }
 
         .ms-ad-features {
             --purple: #5A2EA6;
@@ -170,7 +166,7 @@ $image_alt = 'Team reviewing paid ads performance dashboard';
         </div>
 
         <div class="ms-ad-features-media">
-            <img src="<?php echo htmlspecialchars($image_src); ?>" alt="<?php echo htmlspecialchars($image_alt); ?>" loading="lazy">
+            <img src="<?php echo BASE . htmlspecialchars($image_src); ?>" alt="<?php echo htmlspecialchars($image_alt); ?>" loading="lazy">
         </div>
 
     </div>
