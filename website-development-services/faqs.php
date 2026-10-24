@@ -28,11 +28,6 @@ $schema = [
 <section class="ms-wdfaq">
 
     <style>
-        .ms-wdfaq,
-        .ms-wdfaq * {
-            box-sizing: border-box;
-        }
-
         .ms-wdfaq {
             --green: #21a67a;
             width: 100%;
@@ -96,12 +91,20 @@ $schema = [
             cursor: pointer;
         }
 
+        .ms-wdfaq-q:hover {
+            color: #5A2EA6;
+        }
+
         .ms-wdfaq-q svg {
             flex: 0 0 auto;
             width: 24px;
             height: 24px;
             fill: #111;
             transition: transform .3s ease;
+        }
+
+        .ms-wdfaq-q:hover svg {
+            color: #5A2EA6;
         }
 
         .ms-wdfaq-item.is-open .ms-wdfaq-q svg {

@@ -43,206 +43,215 @@ $faqs = [
     ],
 ];
 
-// SEO: FAQ structured data built from the same list
+// FAQPage schema for Google (same data as the visible FAQs)
 $schema = [
-    '@context' => 'https://schema.org',
-    '@type' => 'FAQPage',
+    '@context'   => 'https://schema.org',
+    '@type'      => 'FAQPage',
     'mainEntity' => array_map(function ($f) {
         return [
-            '@type' => 'Question',
-            'name' => $f[0],
+            '@type'          => 'Question',
+            'name'           => $f[0],
             'acceptedAnswer' => ['@type' => 'Answer', 'text' => strip_tags($f[1])],
         ];
     }, $faqs),
 ];
 ?>
-<section class="ms-faq">
+<section class="ms-podfaq">
 
     <style>
-        .ms-faq,
-        .ms-faq * {
+        .ms-podfaq,
+        .ms-podfaq * {
             box-sizing: border-box;
         }
 
-        .ms-faq {
-            --green: #22a47c;
-            --purple: #5A2EA6;
+        .ms-podfaq {
+            --green: #21a67a;
             width: 100%;
-            padding: 30px 20px 60px;
+            padding: 50px 20px 60px;
             background: #fff;
             font-family: var(--font-body);
         }
 
-        .ms-faq-head {
-            text-align: center;
-            margin-bottom: 14px;
+        .ms-podfaq-wrap {
+            max-width: 1000px;
+            margin: 0 auto;
         }
 
-        .ms-faq-badge {
-            display: inline-block;
-            padding: 8px 26px;
+        .ms-podfaq-badge {
+            display: table;
+            margin: 0 auto 30px;
+            padding: 12px 52px;
             border-radius: 50px;
             background: var(--green);
             color: #fff;
             font-family: var(--font-head);
-            font-size: 18px;
+            font-size: 24px;
+            line-height: 1.2;
             font-weight: 700;
-            box-shadow: 0 8px 18px rgba(34, 164, 124, .28);
+            box-shadow: 0 8px 18px rgba(33, 166, 122, .35);
         }
 
-        .ms-faq-list {
-            max-width: 880px;
-            margin: 0 auto;
+        .ms-podfaq-list {
             display: grid;
-            gap: 14px;
+            gap: 18px;
         }
 
-        .ms-faq-item {
-            border-radius: 24px;
+        .ms-podfaq-item {
+            border-radius: 40px;
             background: #f6f6f6;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, .12);
-            overflow: hidden;
-            transition: box-shadow .3s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, .06);
+            transition: .25s ease;
         }
 
-        .ms-faq-item.is-open {
-            box-shadow: 0 8px 20px rgba(90, 46, 166, .18);
+        .ms-podfaq-item.is-open {
+            background: #f1f1f1;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, .12);
+            border-radius: 28px;
         }
 
-        .ms-faq-q {
+        .ms-podfaq-q {
             width: 100%;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 16px;
-            padding: 15px 24px;
+            gap: 20px;
+            padding: 22px 34px 22px 32px;
             border: 0;
             background: transparent;
-            cursor: pointer;
             text-align: left;
             font-family: var(--font-body);
-            font-size: 14px;
+            font-size: 16px;
+            font-weight: 600;
             line-height: 1.4;
-            font-weight: 700;
-            color: #1b1b1b;
+            color: #000;
+            cursor: pointer;
         }
 
-        .ms-faq-icon {
-            flex: 0 0 22px;
-            width: 22px;
-            height: 22px;
-            color: #222;
-            transition: transform .35s ease, color .3s ease;
+        .ms-podfaq-q:hover {
+            color: #5A2EA6;
         }
 
-        .ms-faq-icon svg {
-            width: 100%;
-            height: 100%;
-            display: block;
-            fill: none;
-            stroke: currentColor;
-            stroke-width: 1.6;
-            stroke-linecap: round;
-            stroke-linejoin: round;
+        .ms-podfaq-q svg {
+            flex: 0 0 auto;
+            width: 24px;
+            height: 24px;
+            fill: #111;
+            transition: transform .3s ease;
         }
 
-        .ms-faq-item.is-open .ms-faq-icon {
+        .ms-podfaq-q:hover svg {
+            color: #5A2EA6;
+        }
+
+        .ms-podfaq-item.is-open .ms-podfaq-q svg {
             transform: rotate(180deg);
-            color: var(--purple);
         }
 
-        .ms-faq-a {
+        .ms-podfaq-a {
             max-height: 0;
             overflow: hidden;
-            transition: max-height .4s ease;
+            transition: max-height .35s ease;
         }
 
-        .ms-faq-a-inner {
-            padding: 0 24px 18px;
-            font-size: 14.5px;
-            line-height: 1.7;
+        .ms-podfaq-a p {
+            margin: 0;
+            padding: 0 34px 24px 32px;
+            font-size: 15px;
+            line-height: 1.75;
             font-weight: 400;
-            color: #333;
+            color: #222;
         }
 
-        .ms-faq-a-inner strong {
+        .ms-podfaq-a p strong {
             font-weight: 700;
             color: #000;
         }
 
         @media (max-width: 767px) {
-            .ms-faq {
-                padding: 20px 14px 40px;
+            .ms-podfaq {
+                padding: 35px 14px 45px;
             }
 
-            .ms-faq-q {
-                padding: 14px 18px;
-                font-size: 13px;
+            .ms-podfaq-badge {
+                font-size: 20px;
+                padding: 10px 36px;
+                margin-bottom: 24px;
             }
 
-            .ms-faq-a-inner {
-                padding: 0 18px 16px;
-                font-size: 13.5px;
+            .ms-podfaq-list {
+                gap: 14px;
+            }
+
+            .ms-podfaq-q {
+                font-size: 14.5px;
+                padding: 16px 20px 16px 20px;
+            }
+
+            .ms-podfaq-q svg {
+                width: 22px;
+                height: 22px;
+            }
+
+            .ms-podfaq-a p {
+                font-size: 14px;
+                padding: 0 20px 18px 20px;
             }
         }
     </style>
 
-    <div class="ms-faq-head">
-        <span class="ms-faq-badge">FAQ Question</span>
-    </div>
+    <div class="ms-podfaq-wrap">
+        <h3 class="ms-podfaq-badge">FAQ Question</h3>
 
-    <div class="ms-faq-list">
-        <?php foreach ($faqs as $i => $faq) : ?>
-            <div class="ms-faq-item">
-                <button type="button" class="ms-faq-q" aria-expanded="false" aria-controls="ms-faq-a-<?php echo $i; ?>">
-                    <span><?php echo htmlspecialchars($faq[0]); ?></span>
-                    <span class="ms-faq-icon" aria-hidden="true">
-                        <svg viewBox="0 0 24 24">
-                            <circle cx="12" cy="12" r="10"></circle>
-                            <path d="M8 10.5l4 4 4-4"></path>
+        <div class="ms-podfaq-list">
+            <?php foreach ($faqs as $i => $faq) : ?>
+                <div class="ms-podfaq-item">
+                    <button type="button" class="ms-podfaq-q" aria-expanded="false" aria-controls="ms-podfaq-a-<?php echo $i; ?>">
+                        <span><?php echo htmlspecialchars($faq[0]); ?></span>
+                        <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <path d="M25.948 27.548c2.871-2.871 4.452-6.688 4.452-10.748s-1.581-7.877-4.452-10.748-6.688-4.452-10.748-4.452-7.877 1.581-10.748 4.452-4.452 6.688-4.452 10.748 1.581 7.877 4.452 10.748 6.688 4.452 10.748 4.452 7.877-1.581 10.748-4.452zM1.6 16.8c0-7.499 6.101-13.6 13.6-13.6s13.6 6.101 13.6 13.6c0 7.499-6.101 13.6-13.6 13.6s-13.6-6.101-13.6-13.6zM6.4 14.4c0-0.205 0.078-0.409 0.234-0.566 0.312-0.312 0.819-0.312 1.131 0l7.434 7.434 7.434-7.434c0.312-0.312 0.819-0.312 1.131 0s0.312 0.819 0 1.131l-8 8c-0.312 0.312-0.819 0.312-1.131 0l-8-8c-0.156-0.156-0.234-0.361-0.234-0.566z"></path>
                         </svg>
-                    </span>
-                </button>
-                <div class="ms-faq-a" id="ms-faq-a-<?php echo $i; ?>" role="region">
-                    <div class="ms-faq-a-inner"><?php echo $faq[1]; ?></div>
+                    </button>
+                    <div class="ms-podfaq-a" id="ms-podfaq-a-<?php echo $i; ?>" role="region">
+                        <p><?php echo $faq[1]; ?></p>
+                    </div>
                 </div>
-            </div>
-        <?php endforeach; ?>
+            <?php endforeach; ?>
+        </div>
     </div>
 
-    <script type="application/ld+json"><?php echo json_encode($schema, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES); ?></script>
+    <script type="application/ld+json">
+        <?php echo json_encode($schema, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_HEX_TAG); ?>
+    </script>
 
     <script>
         (function() {
-            var items = document.querySelectorAll('.ms-faq-item');
+            var items = document.querySelectorAll('.ms-podfaq-item');
 
             function close(item) {
                 item.classList.remove('is-open');
-                item.querySelector('.ms-faq-q').setAttribute('aria-expanded', 'false');
-                item.querySelector('.ms-faq-a').style.maxHeight = '0px';
-            }
-
-            function open(item) {
-                var panel = item.querySelector('.ms-faq-a');
-                item.classList.add('is-open');
-                item.querySelector('.ms-faq-q').setAttribute('aria-expanded', 'true');
-                panel.style.maxHeight = panel.scrollHeight + 'px';
+                item.querySelector('.ms-podfaq-q').setAttribute('aria-expanded', 'false');
+                item.querySelector('.ms-podfaq-a').style.maxHeight = null;
             }
 
             items.forEach(function(item) {
-                item.querySelector('.ms-faq-q').addEventListener('click', function() {
+                var btn = item.querySelector('.ms-podfaq-q');
+                var ans = item.querySelector('.ms-podfaq-a');
+
+                btn.addEventListener('click', function() {
                     var wasOpen = item.classList.contains('is-open');
-                    items.forEach(close); // one open at a time
-                    if (!wasOpen) open(item);
+                    items.forEach(close); // only one open at a time
+                    if (!wasOpen) {
+                        item.classList.add('is-open');
+                        btn.setAttribute('aria-expanded', 'true');
+                        ans.style.maxHeight = ans.scrollHeight + 'px';
+                    }
                 });
             });
 
+            // keep the open answer sized correctly if the window is resized
             window.addEventListener('resize', function() {
-                var openItem = document.querySelector('.ms-faq-item.is-open');
-                if (openItem) {
-                    var panel = openItem.querySelector('.ms-faq-a');
-                    panel.style.maxHeight = panel.scrollHeight + 'px';
-                }
+                var open = document.querySelector('.ms-podfaq-item.is-open .ms-podfaq-a');
+                if (open) open.style.maxHeight = open.scrollHeight + 'px';
             });
         })();
     </script>

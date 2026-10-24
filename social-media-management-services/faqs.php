@@ -1,5 +1,4 @@
 <?php
-// Edit questions and answers here.
 $faqs = [
     ['What are social media marketing services?', 'Social media marketing services help your brand grow on platforms like Instagram, Facebook, YouTube and LinkedIn. They cover strategy, content creation, posting, community management and performance tracking.'],
     ['Why does my business need social media marketing in Delhi?', 'Delhi is a highly competitive market and most of your customers are already active on social media. Consistent, well-planned content helps you get noticed, build trust and reach local buyers before your competitors do.'],
@@ -12,190 +11,211 @@ $faqs = [
     ['How long does it take to see results from social media marketing?', 'Most brands see better engagement within the first 4 to 8 weeks. Steady lead growth usually takes around 3 to 6 months of consistent work.'],
     ['Do you provide reports and performance tracking?', 'Yes. We share regular reports covering reach, engagement, follower growth and leads, along with suggestions to improve the next month.'],
 ];
+
+// FAQPage schema for Google (same data as the visible FAQs)
+$schema = [
+    '@context'   => 'https://schema.org',
+    '@type'      => 'FAQPage',
+    'mainEntity' => array_map(function ($f) {
+        return [
+            '@type'          => 'Question',
+            'name'           => $f[0],
+            'acceptedAnswer' => ['@type' => 'Answer', 'text' => $f[1]],
+        ];
+    }, $faqs),
+];
 ?>
-<section class="ms-faq">
+<section class="ms-smfaq">
 
     <style>
-        .ms-faq,
-        .ms-faq * {
+        .ms-smfaq,
+        .ms-smfaq * {
             box-sizing: border-box;
         }
 
-        .ms-faq {
-            --green: #22A87B;
+        .ms-smfaq {
+            --green: #21a67a;
             width: 100%;
-            padding: 30px 20px 50px;
+            padding: 50px 20px 60px;
             background: #fff;
             font-family: var(--font-body);
         }
 
-        .ms-faq-wrap {
-            max-width: 70vw;
+        .ms-smfaq-wrap {
+            max-width: 1000px;
             margin: 0 auto;
         }
 
-        .ms-faq-head {
-            text-align: center;
-            margin-bottom: 18px;
-        }
-
-        .ms-faq-badge {
-            display: inline-block;
-            margin: 0;
-            padding: 8px 28px;
+        .ms-smfaq-badge {
+            display: table;
+            margin: 0 auto 30px;
+            padding: 12px 52px;
             border-radius: 50px;
             background: var(--green);
             color: #fff;
-            font-size: 16px;
-            font-weight: 600;
-            line-height: 1.3;
-            box-shadow: 0 6px 14px rgba(34, 168, 123, .35);
+            font-family: var(--font-head);
+            font-size: 24px;
+            line-height: 1.2;
+            font-weight: 700;
+            box-shadow: 0 8px 18px rgba(33, 166, 122, .35);
         }
 
-        .ms-faq-list {
+        .ms-smfaq-list {
             display: grid;
-            gap: 16px;
+            gap: 18px;
         }
 
-        .ms-faq-item {
-            border-radius: 50px;
+        .ms-smfaq-item {
+            border-radius: 40px;
             background: #f6f6f6;
-            box-shadow: 0 3px 8px rgba(0, 0, 0, .12);
-            transition: border-radius .25s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, .06);
+            transition: .25s ease;
         }
 
-        .ms-faq-item.is-open {
-            border-radius: 26px;
+        .ms-smfaq-item.is-open {
+            background: #f1f1f1;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, .12);
+            border-radius: 28px;
         }
 
-        .ms-faq-q {
+        .ms-smfaq-q {
+            width: 100%;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 16px;
-            width: 100%;
-            padding: 10px 24px 10px 17px;
+            gap: 20px;
+            padding: 22px 34px 22px 32px;
             border: 0;
             background: transparent;
-            font-family: inherit;
-            font-size: 18px;
-            font-weight: 600;
-            line-height: 1.5;
             text-align: left;
+            font-family: var(--font-body);
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 1.4;
             color: #000;
             cursor: pointer;
         }
 
-        .ms-faq-q:focus-visible {
-            outline: 2px solid var(--green);
-            outline-offset: 2px;
-            border-radius: 50px;
+        .ms-smfaq-q:hover {
+            color: #5A2EA6;
         }
 
-        .ms-faq-icon {
-            flex: 0 0 18px;
-            width: 18px;
-            height: 18px;
-            transition: transform .25s ease;
+        .ms-smfaq-q svg {
+            flex: 0 0 auto;
+            width: 24px;
+            height: 24px;
+            fill: #111;
+            transition: transform .3s ease;
         }
 
-        .ms-faq-item.is-open .ms-faq-icon {
+        .ms-smfaq-q:hover svg {
+            color: #5A2EA6;
+        }
+
+        .ms-smfaq-item.is-open .ms-smfaq-q svg {
             transform: rotate(180deg);
         }
 
-        .ms-faq-a {
-            display: grid;
-            grid-template-rows: 0fr;
-            transition: grid-template-rows .3s ease;
-        }
-
-        .ms-faq-item.is-open .ms-faq-a {
-            grid-template-rows: 1fr;
-        }
-
-        .ms-faq-a-inner {
+        .ms-smfaq-a {
+            max-height: 0;
             overflow: hidden;
+            transition: max-height .35s ease;
         }
 
-        .ms-faq-a p {
+        .ms-smfaq-a p {
             margin: 0;
-            padding: 0 24px 16px 17px;
-            font-size: 13px;
-            line-height: 1.7;
+            padding: 0 34px 24px 32px;
+            font-size: 15px;
+            line-height: 1.75;
             font-weight: 400;
-            color: #333;
+            color: #222;
         }
 
-        @media (max-width: 575px) {
-            .ms-faq {
-                padding: 24px 14px 40px;
+        @media (max-width: 767px) {
+            .ms-smfaq {
+                padding: 35px 14px 45px;
             }
 
-            .ms-faq-badge {
-                font-size: 15px;
+            .ms-smfaq-badge {
+                font-size: 20px;
+                padding: 10px 36px;
+                margin-bottom: 24px;
             }
 
-            .ms-faq-q {
-                padding: 12px 18px 12px 16px;
+            .ms-smfaq-list {
+                gap: 14px;
             }
-        }
 
-        @media (prefers-reduced-motion: reduce) {
-            .ms-faq-item,
-            .ms-faq-icon,
-            .ms-faq-a {
-                transition: none;
+            .ms-smfaq-q {
+                font-size: 14.5px;
+                padding: 16px 20px 16px 20px;
+            }
+
+            .ms-smfaq-q svg {
+                width: 22px;
+                height: 22px;
+            }
+
+            .ms-smfaq-a p {
+                font-size: 14px;
+                padding: 0 20px 18px 20px;
             }
         }
     </style>
 
-    <div class="ms-faq-wrap">
+    <div class="ms-smfaq-wrap">
+        <h3 class="ms-smfaq-badge">FAQ Question</h3>
 
-        <div class="ms-faq-head">
-            <h2 class="ms-faq-badge">FAQ Question</h2>
-        </div>
-
-        <div class="ms-faq-list">
+        <div class="ms-smfaq-list">
             <?php foreach ($faqs as $i => $faq) : ?>
-                <div class="ms-faq-item">
-                    <button type="button" class="ms-faq-q" aria-expanded="false" aria-controls="ms-faq-a-<?php echo $i; ?>" id="ms-faq-q-<?php echo $i; ?>">
+                <div class="ms-smfaq-item">
+                    <button type="button" class="ms-smfaq-q" aria-expanded="false" aria-controls="ms-smfaq-a-<?php echo $i; ?>">
                         <span><?php echo htmlspecialchars($faq[0]); ?></span>
-                        <svg class="ms-faq-icon" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                            <circle cx="12" cy="12" r="10"></circle>
-                            <polyline points="8 10.5 12 14.5 16 10.5"></polyline>
+                        <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <path d="M25.948 27.548c2.871-2.871 4.452-6.688 4.452-10.748s-1.581-7.877-4.452-10.748-6.688-4.452-10.748-4.452-7.877 1.581-10.748 4.452-4.452 6.688-4.452 10.748 1.581 7.877 4.452 10.748 6.688 4.452 10.748 4.452 7.877-1.581 10.748-4.452zM1.6 16.8c0-7.499 6.101-13.6 13.6-13.6s13.6 6.101 13.6 13.6c0 7.499-6.101 13.6-13.6 13.6s-13.6-6.101-13.6-13.6zM6.4 14.4c0-0.205 0.078-0.409 0.234-0.566 0.312-0.312 0.819-0.312 1.131 0l7.434 7.434 7.434-7.434c0.312-0.312 0.819-0.312 1.131 0s0.312 0.819 0 1.131l-8 8c-0.312 0.312-0.819 0.312-1.131 0l-8-8c-0.156-0.156-0.234-0.361-0.234-0.566z"></path>
                         </svg>
                     </button>
-                    <div class="ms-faq-a" id="ms-faq-a-<?php echo $i; ?>" role="region" aria-labelledby="ms-faq-q-<?php echo $i; ?>">
-                        <div class="ms-faq-a-inner">
-                            <p><?php echo htmlspecialchars($faq[1]); ?></p>
-                        </div>
+                    <div class="ms-smfaq-a" id="ms-smfaq-a-<?php echo $i; ?>" role="region">
+                        <p><?php echo htmlspecialchars($faq[1]); ?></p>
                     </div>
                 </div>
             <?php endforeach; ?>
         </div>
-
     </div>
+
+    <script type="application/ld+json">
+        <?php echo json_encode($schema, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_HEX_TAG); ?>
+    </script>
 
     <script>
         (function() {
-            var items = document.querySelectorAll('.ms-faq-item');
+            var items = document.querySelectorAll('.ms-smfaq-item');
+
+            function close(item) {
+                item.classList.remove('is-open');
+                item.querySelector('.ms-smfaq-q').setAttribute('aria-expanded', 'false');
+                item.querySelector('.ms-smfaq-a').style.maxHeight = null;
+            }
 
             items.forEach(function(item) {
-                var btn = item.querySelector('.ms-faq-q');
+                var btn = item.querySelector('.ms-smfaq-q');
+                var ans = item.querySelector('.ms-smfaq-a');
+
                 btn.addEventListener('click', function() {
-                    var open = item.classList.contains('is-open');
-
-                    // Close the others (only one open at a time)
-                    items.forEach(function(other) {
-                        other.classList.remove('is-open');
-                        other.querySelector('.ms-faq-q').setAttribute('aria-expanded', 'false');
-                    });
-
-                    if (!open) {
+                    var wasOpen = item.classList.contains('is-open');
+                    items.forEach(close); // only one open at a time
+                    if (!wasOpen) {
                         item.classList.add('is-open');
                         btn.setAttribute('aria-expanded', 'true');
+                        ans.style.maxHeight = ans.scrollHeight + 'px';
                     }
                 });
+            });
+
+            // keep the open answer sized correctly if the window is resized
+            window.addEventListener('resize', function() {
+                var open = document.querySelector('.ms-smfaq-item.is-open .ms-smfaq-a');
+                if (open) open.style.maxHeight = open.scrollHeight + 'px';
             });
         })();
     </script>

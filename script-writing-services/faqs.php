@@ -96,12 +96,20 @@ $schema = [
             cursor: pointer;
         }
 
+        .ms-swfaq-q:hover {
+            color: #5A2EA6;
+        }
+
         .ms-swfaq-q svg {
             flex: 0 0 auto;
             width: 24px;
             height: 24px;
             fill: #111;
             transition: transform .3s ease;
+        }
+
+        .ms-swfaq-q:hover svg {
+            color: #5A2EA6;
         }
 
         .ms-swfaq-item.is-open .ms-swfaq-q svg {

@@ -1,5 +1,5 @@
 <?php
-$ms_faq_items = [
+$faqs = [
     ['What SEO services does Minerdia Studio provide?', 'We offer a full range of SEO services, including keyword research, on-page optimization, technical SEO, content optimization, link building, local SEO and ongoing reporting, all tailored to your business goals.'],
     ['What is SEO Services?', 'SEO services are the activities that improve your website\'s visibility in search engines like Google. The aim is to bring more qualified visitors to your site and turn them into leads and customers.'],
     ['How long does it take for SEO to work?', 'SEO is a long-term investment. Most websites start to see early improvements in 3 to 6 months, while stronger and more stable results usually build over 6 to 12 months, depending on competition and your starting point.'],
@@ -13,229 +13,210 @@ $ms_faq_items = [
     ['How are your SEO services different?', 'We focus on results that matter to your business, not just rankings. You get transparent communication, a strategy built around your goals and ongoing support from a dedicated team.'],
 ];
 
-$ms_faq_schema = [
+// FAQPage schema for Google (same data as the visible FAQs)
+$schema = [
     '@context'   => 'https://schema.org',
     '@type'      => 'FAQPage',
-    'mainEntity' => array_map(function ($i) {
+    'mainEntity' => array_map(function ($f) {
         return [
             '@type'          => 'Question',
-            'name'           => $i[0],
-            'acceptedAnswer' => ['@type' => 'Answer', 'text' => $i[1]],
+            'name'           => $f[0],
+            'acceptedAnswer' => ['@type' => 'Answer', 'text' => $f[1]],
         ];
-    }, $ms_faq_items),
+    }, $faqs),
 ];
 ?>
-<section class="ms-faq">
+<section class="ms-seofaq">
 
     <style>
-        .ms-faq,
-        .ms-faq * {
+        .ms-seofaq,
+        .ms-seofaq * {
             box-sizing: border-box;
         }
 
-        .ms-faq {
-            --purple: #5A2EA6;
-            --green: #21A67A;
+        .ms-seofaq {
+            --green: #21a67a;
             width: 100%;
-            padding: 30px 20px 60px;
+            padding: 50px 20px 60px;
             background: #fff;
             font-family: var(--font-body);
         }
 
-        .ms-faq-wrap {
-            max-width: 900px;
+        .ms-seofaq-wrap {
+            max-width: 1000px;
             margin: 0 auto;
         }
 
-        .ms-faq-head {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        .ms-faq-pill {
-            display: inline-block;
-            padding: 10px 40px;
-            border-radius: 40px;
+        .ms-seofaq-badge {
+            display: table;
+            margin: 0 auto 30px;
+            padding: 12px 52px;
+            border-radius: 50px;
             background: var(--green);
-            font-size: 19px;
-            line-height: 1.3;
-            font-weight: 600;
             color: #fff;
-            box-shadow: 0 5px 14px rgba(33, 166, 122, .35);
+            font-family: var(--font-head);
+            font-size: 24px;
+            line-height: 1.2;
+            font-weight: 700;
+            box-shadow: 0 8px 18px rgba(33, 166, 122, .35);
         }
 
-        .ms-faq-list {
-            display: flex;
-            flex-direction: column;
-            gap: 28px;
-            margin: 0;
-            padding: 0;
-            list-style: none;
+        .ms-seofaq-list {
+            display: grid;
+            gap: 18px;
         }
 
-        .ms-faq-item {
-            border: 1px solid #ececec;
-            border-radius: 32px;
+        .ms-seofaq-item {
+            border-radius: 40px;
             background: #f6f6f6;
-            box-shadow: 0 3px 9px rgba(0, 0, 0, .13);
-            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, .06);
+            transition: .25s ease;
         }
 
-        .ms-faq-q {
+        .ms-seofaq-item.is-open {
+            background: #f1f1f1;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, .12);
+            border-radius: 28px;
+        }
+
+        .ms-seofaq-q {
             width: 100%;
-            min-height: 58px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 16px;
-            padding: 10px 26px 10px 32px;
+            gap: 20px;
+            padding: 22px 34px 22px 32px;
             border: 0;
             background: transparent;
-            font-family: inherit;
-            font-size: 15px;
-            line-height: 1.4;
-            font-weight: 600;
-            color: #111;
             text-align: left;
+            font-family: var(--font-body);
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 1.4;
+            color: #000;
             cursor: pointer;
         }
 
-        .ms-faq-q:focus-visible {
-            outline: 2px solid var(--purple);
-            outline-offset: -4px;
-            border-radius: 32px;
+        .ms-seofaq-q:hover {
+            color: #5A2EA6;
         }
 
-        .ms-faq-icon {
-            flex: 0 0 26px;
-            width: 26px;
-            height: 26px;
-            border: 1.5px solid #222;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: transform .3s ease, background .3s, border-color .3s;
+        .ms-seofaq-q svg {
+            flex: 0 0 auto;
+            width: 24px;
+            height: 24px;
+            fill: #111;
+            transition: transform .3s ease;
         }
 
-        .ms-faq-icon svg {
-            width: 14px;
-            height: 14px;
-            fill: none;
-            stroke: #222;
-            stroke-width: 2;
-            stroke-linecap: round;
-            stroke-linejoin: round;
-            transition: stroke .3s;
+        .ms-seofaq-q:hover svg {
+            color: #5A2EA6;
         }
 
-        .ms-faq-item.is-open .ms-faq-icon {
+        .ms-seofaq-item.is-open .ms-seofaq-q svg {
             transform: rotate(180deg);
-            background: var(--purple);
-            border-color: var(--purple);
         }
 
-        .ms-faq-item.is-open .ms-faq-icon svg {
-            stroke: #fff;
-        }
-
-        .ms-faq-a {
+        .ms-seofaq-a {
             max-height: 0;
             overflow: hidden;
             transition: max-height .35s ease;
         }
 
-        .ms-faq-a p {
+        .ms-seofaq-a p {
             margin: 0;
-            padding: 0 32px 20px;
+            padding: 0 34px 24px 32px;
             font-size: 15px;
-            line-height: 1.7;
+            line-height: 1.75;
             font-weight: 400;
-            color: #333;
+            color: #222;
         }
 
         @media (max-width: 767px) {
-            .ms-faq {
-                padding: 25px 14px 45px;
+            .ms-seofaq {
+                padding: 35px 14px 45px;
             }
 
-            .ms-faq-pill {
-                font-size: 17px;
-                padding: 9px 30px;
+            .ms-seofaq-badge {
+                font-size: 20px;
+                padding: 10px 36px;
+                margin-bottom: 24px;
             }
 
-            .ms-faq-list {
-                gap: 16px;
+            .ms-seofaq-list {
+                gap: 14px;
             }
 
-            .ms-faq-q {
+            .ms-seofaq-q {
+                font-size: 14.5px;
+                padding: 16px 20px 16px 20px;
+            }
+
+            .ms-seofaq-q svg {
+                width: 22px;
+                height: 22px;
+            }
+
+            .ms-seofaq-a p {
                 font-size: 14px;
-                padding: 10px 18px 10px 22px;
-            }
-
-            .ms-faq-a p {
-                font-size: 14px;
-                padding: 0 22px 18px;
+                padding: 0 20px 18px 20px;
             }
         }
     </style>
 
-    <div class="ms-faq-wrap">
-        <div class="ms-faq-head">
-            <span class="ms-faq-pill">FAQ Question</span>
-        </div>
+    <div class="ms-seofaq-wrap">
+        <h3 class="ms-seofaq-badge">FAQ Question</h3>
 
-        <ul class="ms-faq-list">
-            <?php foreach ($ms_faq_items as $i => $item): ?>
-                <li class="ms-faq-item">
-                    <button class="ms-faq-q" type="button" aria-expanded="false" aria-controls="ms-faq-a-<?= $i ?>" id="ms-faq-q-<?= $i ?>">
-                        <span><?= htmlspecialchars($item[0]) ?></span>
-                        <span class="ms-faq-icon" aria-hidden="true">
-                            <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
-                        </span>
+        <div class="ms-seofaq-list">
+            <?php foreach ($faqs as $i => $faq) : ?>
+                <div class="ms-seofaq-item">
+                    <button type="button" class="ms-seofaq-q" aria-expanded="false" aria-controls="ms-seofaq-a-<?php echo $i; ?>">
+                        <span><?php echo htmlspecialchars($faq[0]); ?></span>
+                        <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <path d="M25.948 27.548c2.871-2.871 4.452-6.688 4.452-10.748s-1.581-7.877-4.452-10.748-6.688-4.452-10.748-4.452-7.877 1.581-10.748 4.452-4.452 6.688-4.452 10.748 1.581 7.877 4.452 10.748 6.688 4.452 10.748 4.452 7.877-1.581 10.748-4.452zM1.6 16.8c0-7.499 6.101-13.6 13.6-13.6s13.6 6.101 13.6 13.6c0 7.499-6.101 13.6-13.6 13.6s-13.6-6.101-13.6-13.6zM6.4 14.4c0-0.205 0.078-0.409 0.234-0.566 0.312-0.312 0.819-0.312 1.131 0l7.434 7.434 7.434-7.434c0.312-0.312 0.819-0.312 1.131 0s0.312 0.819 0 1.131l-8 8c-0.312 0.312-0.819 0.312-1.131 0l-8-8c-0.156-0.156-0.234-0.361-0.234-0.566z"></path>
+                        </svg>
                     </button>
-                    <div class="ms-faq-a" id="ms-faq-a-<?= $i ?>" role="region" aria-labelledby="ms-faq-q-<?= $i ?>">
-                        <p><?= htmlspecialchars($item[1]) ?></p>
+                    <div class="ms-seofaq-a" id="ms-seofaq-a-<?php echo $i; ?>" role="region">
+                        <p><?php echo htmlspecialchars($faq[1]); ?></p>
                     </div>
-                </li>
+                </div>
             <?php endforeach; ?>
-        </ul>
+        </div>
     </div>
 
-    <script type="application/ld+json"><?= json_encode($ms_faq_schema, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_HEX_TAG) ?></script>
+    <script type="application/ld+json">
+        <?php echo json_encode($schema, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_HEX_TAG); ?>
+    </script>
 
     <script>
-        (function () {
-            var items = document.querySelectorAll('.ms-faq-item');
+        (function() {
+            var items = document.querySelectorAll('.ms-seofaq-item');
 
             function close(item) {
                 item.classList.remove('is-open');
-                item.querySelector('.ms-faq-q').setAttribute('aria-expanded', 'false');
-                item.querySelector('.ms-faq-a').style.maxHeight = null;
+                item.querySelector('.ms-seofaq-q').setAttribute('aria-expanded', 'false');
+                item.querySelector('.ms-seofaq-a').style.maxHeight = null;
             }
 
-            function open(item) {
-                var panel = item.querySelector('.ms-faq-a');
-                item.classList.add('is-open');
-                item.querySelector('.ms-faq-q').setAttribute('aria-expanded', 'true');
-                panel.style.maxHeight = panel.scrollHeight + 'px';
-            }
+            items.forEach(function(item) {
+                var btn = item.querySelector('.ms-seofaq-q');
+                var ans = item.querySelector('.ms-seofaq-a');
 
-            items.forEach(function (item) {
-                item.querySelector('.ms-faq-q').addEventListener('click', function () {
+                btn.addEventListener('click', function() {
                     var wasOpen = item.classList.contains('is-open');
-                    items.forEach(close); /* one open at a time */
-                    if (!wasOpen) open(item);
+                    items.forEach(close); // only one open at a time
+                    if (!wasOpen) {
+                        item.classList.add('is-open');
+                        btn.setAttribute('aria-expanded', 'true');
+                        ans.style.maxHeight = ans.scrollHeight + 'px';
+                    }
                 });
             });
 
-            window.addEventListener('resize', function () {
-                items.forEach(function (item) {
-                    if (item.classList.contains('is-open')) {
-                        var panel = item.querySelector('.ms-faq-a');
-                        panel.style.maxHeight = panel.scrollHeight + 'px';
-                    }
-                });
+            // keep the open answer sized correctly if the window is resized
+            window.addEventListener('resize', function() {
+                var open = document.querySelector('.ms-seofaq-item.is-open .ms-seofaq-a');
+                if (open) open.style.maxHeight = open.scrollHeight + 'px';
             });
         })();
     </script>

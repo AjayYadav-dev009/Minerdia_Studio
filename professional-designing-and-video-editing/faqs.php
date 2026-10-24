@@ -1,5 +1,4 @@
 <?php
-// Answers can contain <strong> tags. Edit / add / remove items here.
 $faqs = [
     [
         'What is included in your graphic designing and video editing services?',
@@ -43,15 +42,15 @@ $faqs = [
     ],
 ];
 
-// SEO: FAQ structured data built from the same list
+// FAQPage schema for Google (same data as the visible FAQs)
 $schema = [
-    '@context' => 'https://schema.org',
-    '@type' => 'FAQPage',
+    '@context'   => 'https://schema.org',
+    '@type'      => 'FAQPage',
     'mainEntity' => array_map(function ($f) {
         return [
-            '@type' => 'Question',
-            'name' => $f[0],
-            'acceptedAnswer' => ['@type' => 'Answer', 'text' => strip_tags($f[1])],
+            '@type'          => 'Question',
+            'name'           => $f[0],
+            'acceptedAnswer' => ['@type' => 'Answer', 'text' => $f[1]],
         ];
     }, $faqs),
 ];
@@ -65,48 +64,48 @@ $schema = [
         }
 
         .ms-dfaq {
-            --green: #22a47c;
-            --purple: #5A2EA6;
+            --green: #21a67a;
             width: 100%;
-            padding: 30px 20px 60px;
+            padding: 50px 20px 60px;
             background: #fff;
             font-family: var(--font-body);
         }
 
-        .ms-dfaq-head {
-            text-align: center;
-            margin-bottom: 14px;
+        .ms-dfaq-wrap {
+            max-width: 1000px;
+            margin: 0 auto;
         }
 
         .ms-dfaq-badge {
-            display: inline-block;
-            padding: 8px 26px;
+            display: table;
+            margin: 0 auto 30px;
+            padding: 12px 52px;
             border-radius: 50px;
             background: var(--green);
             color: #fff;
             font-family: var(--font-head);
-            font-size: 18px;
+            font-size: 24px;
+            line-height: 1.2;
             font-weight: 700;
-            box-shadow: 0 8px 18px rgba(34, 164, 124, .28);
+            box-shadow: 0 8px 18px rgba(33, 166, 122, .35);
         }
 
         .ms-dfaq-list {
-            max-width: 880px;
-            margin: 0 auto;
             display: grid;
-            gap: 14px;
+            gap: 18px;
         }
 
         .ms-dfaq-item {
-            border-radius: 24px;
+            border-radius: 40px;
             background: #f6f6f6;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, .12);
-            overflow: hidden;
-            transition: box-shadow .3s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, .06);
+            transition: .25s ease;
         }
 
         .ms-dfaq-item.is-open {
-            box-shadow: 0 8px 20px rgba(90, 46, 166, .18);
+            background: #f1f1f1;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, .12);
+            border-radius: 28px;
         }
 
         .ms-dfaq-q {
@@ -114,103 +113,105 @@ $schema = [
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 16px;
-            padding: 15px 24px;
+            gap: 20px;
+            padding: 22px 34px 22px 32px;
             border: 0;
             background: transparent;
-            cursor: pointer;
             text-align: left;
             font-family: var(--font-body);
-            font-size: 14px;
+            font-size: 16px;
+            font-weight: 600;
             line-height: 1.4;
-            font-weight: 700;
-            color: #1b1b1b;
+            color: #000;
+            cursor: pointer;
         }
 
-        .ms-dfaq-icon {
-            flex: 0 0 22px;
-            width: 22px;
-            height: 22px;
-            color: #222;
-            transition: transform .35s ease, color .3s ease;
+        .ms-dfaq-q:hover {
+            color: #5A2EA6;
         }
 
-        .ms-dfaq-icon svg {
-            width: 100%;
-            height: 100%;
-            display: block;
-            fill: none;
-            stroke: currentColor;
-            stroke-width: 1.6;
-            stroke-linecap: round;
-            stroke-linejoin: round;
+        .ms-dfaq-q svg {
+            flex: 0 0 auto;
+            width: 24px;
+            height: 24px;
+            fill: #111;
+            transition: transform .3s ease;
         }
 
-        .ms-dfaq-item.is-open .ms-dfaq-icon {
+        .ms-dfaq-q:hover svg {
+            color: #5A2EA6;
+        }
+
+        .ms-dfaq-item.is-open .ms-dfaq-q svg {
             transform: rotate(180deg);
-            color: var(--purple);
         }
 
         .ms-dfaq-a {
             max-height: 0;
             overflow: hidden;
-            transition: max-height .4s ease;
+            transition: max-height .35s ease;
         }
 
-        .ms-dfaq-a-inner {
-            padding: 0 24px 18px;
-            font-size: 14.5px;
-            line-height: 1.7;
+        .ms-dfaq-a p {
+            margin: 0;
+            padding: 0 34px 24px 32px;
+            font-size: 15px;
+            line-height: 1.75;
             font-weight: 400;
-            color: #333;
-        }
-
-        .ms-dfaq-a-inner strong {
-            font-weight: 700;
-            color: #000;
+            color: #222;
         }
 
         @media (max-width: 767px) {
             .ms-dfaq {
-                padding: 20px 14px 40px;
+                padding: 35px 14px 45px;
+            }
+
+            .ms-dfaq-badge {
+                font-size: 20px;
+                padding: 10px 36px;
+                margin-bottom: 24px;
+            }
+
+            .ms-dfaq-list {
+                gap: 14px;
             }
 
             .ms-dfaq-q {
-                padding: 14px 18px;
-                font-size: 13px;
+                font-size: 14.5px;
+                padding: 16px 20px 16px 20px;
             }
 
-            .ms-dfaq-a-inner {
-                padding: 0 18px 16px;
-                font-size: 13.5px;
+            .ms-dfaq-q svg {
+                width: 22px;
+                height: 22px;
+            }
+
+            .ms-dfaq-a p {
+                font-size: 14px;
+                padding: 0 20px 18px 20px;
             }
         }
     </style>
 
-    <div class="ms-dfaq-head">
-        <span class="ms-dfaq-badge">FAQ Question</span>
-    </div>
+    <div class="ms-dfaq-wrap">
+        <h3 class="ms-dfaq-badge">FAQ Question</h3>
 
-    <div class="ms-dfaq-list">
-        <?php foreach ($faqs as $i => $faq) : ?>
-            <div class="ms-dfaq-item">
-                <button type="button" class="ms-dfaq-q" aria-expanded="false" aria-controls="ms-dfaq-a-<?php echo $i; ?>">
-                    <span><?php echo htmlspecialchars($faq[0]); ?></span>
-                    <span class="ms-dfaq-icon" aria-hidden="true">
-                        <svg viewBox="0 0 24 24">
-                            <circle cx="12" cy="12" r="10"></circle>
-                            <path d="M8 10.5l4 4 4-4"></path>
-                        </svg>
-                    </span>
-                </button>
-                <div class="ms-dfaq-a" id="ms-dfaq-a-<?php echo $i; ?>" role="region">
-                    <div class="ms-dfaq-a-inner"><?php echo $faq[1]; ?></div>
+        <div class="ms-dfaq-list">
+            <?php foreach ($faqs as $i => $faq) : ?>
+                <div class="ms-dfaq-item">
+                    <button type="button" class="ms-dfaq-q" aria-expanded="false" aria-controls="ms-dfaq-a-<?php echo $i; ?>">
+                        <span><?php echo htmlspecialchars($faq[0]); ?></span>
+                        <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M25.948 27.548c2.871-2.871 4.452-6.688 4.452-10.748s-1.581-7.877-4.452-10.748-6.688-4.452-10.748-4.452-7.877 1.581-10.748 4.452-4.452 6.688-4.452 10.748 1.581 7.877 4.452 10.748 6.688 4.452 10.748 4.452 7.877-1.581 10.748-4.452zM1.6 16.8c0-7.499 6.101-13.6 13.6-13.6s13.6 6.101 13.6 13.6c0 7.499-6.101 13.6-13.6 13.6s-13.6-6.101-13.6-13.6zM6.4 14.4c0-0.205 0.078-0.409 0.234-0.566 0.312-0.312 0.819-0.312 1.131 0l7.434 7.434 7.434-7.434c0.312-0.312 0.819-0.312 1.131 0s0.312 0.819 0 1.131l-8 8c-0.312 0.312-0.819 0.312-1.131 0l-8-8c-0.156-0.156-0.234-0.361-0.234-0.566z"></path></svg>
+                    </button>
+                    <div class="ms-dfaq-a" id="ms-dfaq-a-<?php echo $i; ?>" role="region">
+                        <p><?php echo htmlspecialchars($faq[1]); ?></p>
+                    </div>
                 </div>
-            </div>
-        <?php endforeach; ?>
+            <?php endforeach; ?>
+        </div>
     </div>
 
-    <script type="application/ld+json"><?php echo json_encode($schema, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES); ?></script>
+    <script type="application/ld+json"><?php echo json_encode($schema, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_HEX_TAG); ?></script>
 
     <script>
         (function() {
@@ -219,30 +220,28 @@ $schema = [
             function close(item) {
                 item.classList.remove('is-open');
                 item.querySelector('.ms-dfaq-q').setAttribute('aria-expanded', 'false');
-                item.querySelector('.ms-dfaq-a').style.maxHeight = '0px';
-            }
-
-            function open(item) {
-                var panel = item.querySelector('.ms-dfaq-a');
-                item.classList.add('is-open');
-                item.querySelector('.ms-dfaq-q').setAttribute('aria-expanded', 'true');
-                panel.style.maxHeight = panel.scrollHeight + 'px';
+                item.querySelector('.ms-dfaq-a').style.maxHeight = null;
             }
 
             items.forEach(function(item) {
-                item.querySelector('.ms-dfaq-q').addEventListener('click', function() {
+                var btn = item.querySelector('.ms-dfaq-q');
+                var ans = item.querySelector('.ms-dfaq-a');
+
+                btn.addEventListener('click', function() {
                     var wasOpen = item.classList.contains('is-open');
-                    items.forEach(close); // one open at a time
-                    if (!wasOpen) open(item);
+                    items.forEach(close); // only one open at a time
+                    if (!wasOpen) {
+                        item.classList.add('is-open');
+                        btn.setAttribute('aria-expanded', 'true');
+                        ans.style.maxHeight = ans.scrollHeight + 'px';
+                    }
                 });
             });
 
+            // keep the open answer sized correctly if the window is resized
             window.addEventListener('resize', function() {
-                var openItem = document.querySelector('.ms-dfaq-item.is-open');
-                if (openItem) {
-                    var panel = openItem.querySelector('.ms-dfaq-a');
-                    panel.style.maxHeight = panel.scrollHeight + 'px';
-                }
+                var open = document.querySelector('.ms-dfaq-item.is-open .ms-dfaq-a');
+                if (open) open.style.maxHeight = open.scrollHeight + 'px';
             });
         })();
     </script>
