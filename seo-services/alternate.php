@@ -5,7 +5,7 @@ $rows = [
     [
         'title' => 'SEO Strategy That Drives Growth',
         'text' => 'At Minerdia Studio our objective is to design SEO strategies. These produce results. We use data-driven approaches that incorporate keyword analysis, website optimisation and user experience. This boosts website performance and user retention. Through performance analysis we refine strategies using data. This helps your website compete and grow steadily over time.',
-        'image' => 'https://minerdiastudio.com/wp-content/uploads/2026/06/SEO-Strategy.png',
+        'image' => 'assets/image/services/seo-2.webp',
         'alt' => 'SEO Growth Strategy',
         'reverse' => false,
         'bg' => '#f2f0f9',
@@ -13,7 +13,7 @@ $rows = [
     [
         'title' => 'SEO Optimization for Better Visibility',
         'text' => 'We aim to optimise every element of your website. This boosts its search engine visibility. We focus on creating websites that users and search engines can find easily. Key areas of focus include enhancing page speed ensuring a user- design and seamless navigation. We specialize in SEO optimization. This makes sure your business can be found easily in \'near me\' searches.',
-        'image' => 'https://minerdiastudio.com/wp-content/uploads/2026/06/seo-service-in-India.png',
+        'image' => 'assets/image/services/seo-3.webp',
         'alt' => 'Website SEO Optimization',
         'reverse' => true,
         'bg' => '#ffffff',
@@ -124,7 +124,7 @@ $rows = [
             <div class="ms-seoalt-wrap">
                 <?php
                 $copy = '<div class="ms-seoalt-copy"><h2 class="ms-seoalt-title">' . htmlspecialchars($r['title']) . '</h2><p class="ms-seoalt-text">' . htmlspecialchars($r['text']) . '</p></div>';
-                $img = '<div class="ms-seoalt-img"><img src="' . htmlspecialchars($r['image']) . '" alt="' . htmlspecialchars($r['alt']) . '" loading="lazy"></div>';
+                $img = '<div class="ms-seoalt-img"><img src="' . BASE . htmlspecialchars($r['image']) . '" alt="' . htmlspecialchars($r['alt']) . '" loading="lazy"></div>';
                 echo $r['reverse'] ? $img . $copy : $copy . $img;
                 ?>
             </div>

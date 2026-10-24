@@ -107,7 +107,7 @@
         </div>
 
         <div class="ms-seores-img">
-            <img src="https://minerdiastudio.com/wp-content/uploads/2026/06/seo-Results-Driven-SEO.png" alt="SEO Optimization Services" loading="lazy">
+            <img src="<?php echo BASE; ?>assets/image/services/seo-1.webp" alt="SEO Optimization Services" loading="lazy">
         </div>
     </div>
 </section>
