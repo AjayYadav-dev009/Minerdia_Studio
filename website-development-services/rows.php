@@ -3,7 +3,7 @@ $rows = [
     [
         'label'   => '',
         'title'   => 'Smart Website Development That Works',
-        'image'   => 'https://minerdiastudio.com/wp-content/uploads/2026/06/website-devlopment-Smart-Website-Development.png',
+        'image'   => 'assets/image/services/wd-2.webp',
         'alt'     => 'Responsive Website Design',
         'reverse' => false, // image left, text right
         'paras'   => [
@@ -14,7 +14,7 @@ $rows = [
     [
         'label'   => 'Features',
         'title'   => 'WordPress & Custom Website Development',
-        'image'   => 'https://minerdiastudio.com/wp-content/uploads/2026/06/WordPress-Custom-Website-Development-1.png',
+        'image'   => 'assets/image/services/wd-3.webp',
         'alt'     => 'WordPress Website Development',
         'reverse' => true, // text left, image right
         'paras'   => [
@@ -163,7 +163,7 @@ $rows = [
         <?php foreach ($rows as $row) : ?>
             <div class="ms-wdrows-row<?php echo $row['reverse'] ? ' is-reverse' : ''; ?>">
                 <div class="ms-wdrows-img">
-                    <img src="<?php echo htmlspecialchars($row['image']); ?>" alt="<?php echo htmlspecialchars($row['alt']); ?>" width="1536" height="1024" loading="lazy">
+                    <img src="<?php echo BASE . htmlspecialchars($row['image']); ?>" alt="<?php echo htmlspecialchars($row['alt']); ?>" width="1536" height="1024" loading="lazy">
                 </div>
                 <div class="ms-wdrows-text">
                     <?php if ($row['label'] !== '') : ?>

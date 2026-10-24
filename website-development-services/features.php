@@ -109,6 +109,7 @@ $cards = [
             background: #fff;
             box-shadow: 0 12px 40px rgba(0, 0, 0, .12);
             transition: .3s ease;
+            z-index: 2;
         }
 
         .ms-wdfeat-card:hover {
@@ -139,6 +140,7 @@ $cards = [
             width: 64px;
             height: 64px;
             pointer-events: none;
+            z-index: 1;
         }
 
         /* ---------- Responsive ---------- */
@@ -200,7 +202,7 @@ $cards = [
             </div>
 
             <div class="ms-wdfeat-img">
-                <img src="https://minerdiastudio.com/wp-content/uploads/2026/06/website-devlopment-Your-Website-Needs-1.png" alt="Website Development Services" width="1536" height="1024" loading="lazy">
+                <img src="<?php echo BASE; ?>assets/image/services/wd-1.webp" alt="Website Development Services" width="1536" height="1024" loading="lazy">
             </div>
         </div>
 
@@ -210,7 +212,7 @@ $cards = [
                     <h3><?php echo htmlspecialchars($card[0]); ?></h3>
                     <p><?php echo htmlspecialchars($card[1]); ?></p>
                     <?php if ($card[2]) : ?>
-                        <img class="ms-wdfeat-dots" src="https://minerdiastudio.com/wp-content/uploads/2026/04/doted.png" alt="" width="64" height="64" loading="lazy">
+                        <img class="ms-wdfeat-dots" src="<?php echo BASE; ?>assets/image/doted.png" alt="" width="64" height="64" loading="lazy">
                     <?php endif; ?>
                 </div>
             <?php endforeach; ?>
