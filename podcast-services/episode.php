@@ -5,22 +5,17 @@
  * The live site's IDs are loaded by a JS widget, so I could not read them - replace the placeholders below.
  */
 $episodes = [
-    'VIDEO_ID_1',
-    'VIDEO_ID_2',
-    'VIDEO_ID_3',
-    'VIDEO_ID_4',
-    'VIDEO_ID_5',
-    'VIDEO_ID_6',
+    'XdlG5dijVrg',
+    't2mhmLMTi5A',
+    'MPJ35tv1SdQ',
+    '9cO3OA9wHx8',
+    'XxVDJmR2r70',
+    '65E_FMC1f5o',
 ];
 ?>
 <section class="ms-episodes">
 
     <style>
-        .ms-episodes,
-        .ms-episodes * {
-            box-sizing: border-box;
-        }
-
         .ms-episodes {
             --purple: #5A2EA6;
             --gap: 30px;

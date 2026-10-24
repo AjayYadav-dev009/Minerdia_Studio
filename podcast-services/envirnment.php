@@ -1,10 +1,5 @@
 <section class="ms-recording-studio-section">
     <style>
-        .ms-recording-studio-section,
-        .ms-recording-studio-section * {
-            box-sizing: border-box;
-        }
-
         .ms-recording-studio-section {
             --purple: #5A2EA6;
             --teal: #2FA8A1;
@@ -80,7 +75,7 @@
         }
 
         .ms-feature-item {
-            padding: 13px 15px;
+            padding: 0 15px;
             border-radius: 16px;
             background: rgba(255, 255, 255, .78);
             border: 1px solid rgba(255, 255, 255, .95);
@@ -318,7 +313,7 @@
 
         <div class="ms-recording-visual">
             <div class="ms-recording-image-box">
-                <img src="https://minerdiastudio.com/wp-content/uploads/2026/06/podcast-recording-studio-in-Delhi.png" alt="Podcast Recording Studio in Delhi">
+                <img src="<?php echo BASE; ?>assets/image/services/pd-3.webp" alt="Podcast Recording Studio in Delhi">
             </div>
         </div>
     </div>

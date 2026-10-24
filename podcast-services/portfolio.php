@@ -1,10 +1,5 @@
 <section class="ms-social-video-section">
     <style>
-        .ms-social-video-section,
-        .ms-social-video-section * {
-            box-sizing: border-box;
-        }
-
         .ms-social-video-section {
             --purple: #5A2EA6;
             --teal: #2FA8A1;
@@ -174,45 +169,45 @@
             <div class="ms-video-track" id="msVideoTrack">
 
                 <div class="ms-video-card">
-                    <video src="https://minerdiastudio.com/wp-content/uploads/2026/06/Sofia-Reel.mp4" autoplay muted loop playsinline preload="metadata"></video>
+                    <video src="<?php echo BASE; ?>assets/videos/sofia-reel.mp4" autoplay muted loop playsinline preload="metadata"></video>
                 </div>
 
                 <div class="ms-video-card">
-                    <video src="https://minerdiastudio.com/wp-content/uploads/2026/06/Mansha-Reel-3.mp4" autoplay muted loop playsinline preload="metadata"></video>
+                    <video src="<?php echo BASE; ?>assets/videos/Mansha-Reel.webm" autoplay muted loop playsinline preload="metadata"></video>
                 </div>
 
                 <div class="ms-video-card">
-                    <video src="https://minerdiastudio.com/wp-content/uploads/2026/06/Podcast-1.mp4" autoplay muted loop playsinline preload="metadata"></video>
+                    <video src="<?php echo BASE; ?>assets/videos/Podcast.mp4" autoplay muted loop playsinline preload="metadata"></video>
                 </div>
 
                 <div class="ms-video-card">
-                    <video src="https://minerdiastudio.com/wp-content/uploads/2026/06/M3M-3.mp4" autoplay muted loop playsinline preload="metadata"></video>
+                    <video src="<?php echo BASE; ?>assets/videos/M3M.mp4" autoplay muted loop playsinline preload="metadata"></video>
                 </div>
 
                 <div class="ms-video-card">
-                    <video src="https://minerdiastudio.com/wp-content/uploads/2026/06/Alpha-Auto-1-720-1.mp4" autoplay muted loop playsinline preload="metadata"></video>
+                    <video src="<?php echo BASE; ?>assets/videos/alpha-auto.mp4" autoplay muted loop playsinline preload="metadata"></video>
                 </div>
 
                 <!-- Duplicate Videos For Smooth Loop -->
 
                 <div class="ms-video-card">
-                    <video src="https://minerdiastudio.com/wp-content/uploads/2026/06/Sofia-Reel.mp4" autoplay muted loop playsinline preload="metadata"></video>
+                    <video src="<?php echo BASE; ?>assets/videos/sofia-reel.mp4" autoplay muted loop playsinline preload="metadata"></video>
                 </div>
 
                 <div class="ms-video-card">
-                    <video src="https://minerdiastudio.com/wp-content/uploads/2026/06/Mansha-Reel-3.mp4" autoplay muted loop playsinline preload="metadata"></video>
+                    <video src="<?php echo BASE; ?>assets/videos/Mansha-Reel.webm" autoplay muted loop playsinline preload="metadata"></video>
                 </div>
 
                 <div class="ms-video-card">
-                    <video src="https://minerdiastudio.com/wp-content/uploads/2026/06/Podcast-1.mp4" autoplay muted loop playsinline preload="metadata"></video>
+                    <video src="<?php echo BASE; ?>assets/videos/Podcast.mp4" autoplay muted loop playsinline preload="metadata"></video>
                 </div>
 
                 <div class="ms-video-card">
-                    <video src="https://minerdiastudio.com/wp-content/uploads/2026/06/M3M-3.mp4" autoplay muted loop playsinline preload="metadata"></video>
+                    <video src="<?php echo BASE; ?>assets/videos/M3M.mp4" autoplay muted loop playsinline preload="metadata"></video>
                 </div>
 
                 <div class="ms-video-card">
-                    <video src="https://minerdiastudio.com/wp-content/uploads/2026/06/Alpha-Auto-1-720-1.mp4" autoplay muted loop playsinline preload="metadata"></video>
+                    <video src="<?php echo BASE; ?>assets/videos/alpha-auto.mp4" autoplay muted loop playsinline preload="metadata"></video>
                 </div>
 
             </div>

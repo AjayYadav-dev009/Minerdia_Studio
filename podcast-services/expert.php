@@ -1,9 +1,5 @@
 <section class="ms-podcast-hero-section">
   <style>
-    .ms-podcast-hero-section,
-    .ms-podcast-hero-section *{
-      box-sizing:border-box;
-    }
 
     .ms-podcast-hero-section{
       --purple:#5A2EA6;
@@ -313,7 +309,7 @@
     <div class="ms-podcast-visual">
       <div class="ms-podcast-image-box">
         <img
-          src="assets/image/services/pd-1.webp"
+          src="<?php echo BASE; ?>assets/image/services/pd-1.webp"
           alt="Professional Podcast Production Services in Delhi NCR"
           loading="eager"
           fetchpriority="high"

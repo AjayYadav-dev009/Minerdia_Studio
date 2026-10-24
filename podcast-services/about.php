@@ -27,10 +27,10 @@
         left: 50%;
         top: 50%;
         transform: translate(-50%, -50%);
-        font-size: 90px;
-        font-weight: 800;
+        font-size: 100px;
+        font-weight: 900;
         line-height: 1;
-        /* letter-spacing: 1px; */
+        letter-spacing: -5px;
         color: #f0f0f0;
         text-transform: uppercase;
         white-space: nowrap;
@@ -43,9 +43,9 @@
         position: relative;
         z-index: 1;
         margin: 0;
-        font-size: 54px;
+        font-size: 52px;
         line-height: 1.2;
-        font-weight: 600;
+        font-weight: 800;
         color: #000;
     }
 
@@ -58,7 +58,7 @@
     .ms-about-podcast-text {
         max-width: 1120px;
         margin: 0 auto;
-        font-size: 15px;
+        font-size: 16px;
         line-height: 26px;
         font-weight: 400;
         color: #2b2b2b;
@@ -129,6 +129,6 @@
     </div>
 
     <p class="ms-about-podcast-text">
-        Welcome to <a href="https://minerdiastudio.com/">Minerdia Studio</a>, the best place to record <strong>podcasts in Delhi</strong>. Our fully furnished studio provides your voice the quality it deserves, whether you're starting a brand podcast, conducting interviews, or creating audio material on a large scale. We take care of everything, from editing and post-production to soundproofing and acoustics, so you can concentrate entirely on your message.
+        Welcome to <a href="<?php echo BASE; ?>">Minerdia Studio</a>, the best place to record <strong>podcasts in Delhi</strong>. Our fully furnished studio provides your voice the quality it deserves, whether you're starting a brand podcast, conducting interviews, or creating audio material on a large scale. We take care of everything, from editing and post-production to soundproofing and acoustics, so you can concentrate entirely on your message.
     </p>
 </section>

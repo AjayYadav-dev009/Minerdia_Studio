@@ -68,7 +68,7 @@ $faqs = [
             text-align: left;
             font-family: var(--font-head);
             font-size: 20px;
-            font-weight: 500;
+            font-weight: 600;
             line-height: 1.4;
             color: #000;
             cursor: pointer;
@@ -95,7 +95,7 @@ $faqs = [
         .ms-faq-a p {
             margin: 0;
             padding: 0 34px 28px 32px;
-            font-size: 16.5px;
+            font-size: 16px;
             line-height: 1.75;
             font-weight: 400;
             color: #333;

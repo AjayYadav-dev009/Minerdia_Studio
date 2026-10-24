@@ -1,8 +1,4 @@
 <style>
-    .ms-studio-section,
-    .ms-studio-section * {
-        box-sizing: border-box;
-    }
 
     .ms-studio-section {
         --purple: #5A2EA6;
@@ -281,7 +277,7 @@
         <div class="ms-studio-image-card">
             <div class="ms-studio-image-box">
                 <img
-                    src="https://minerdiastudio.com/wp-content/uploads/2026/06/proffesional-podcast-studio.png"
+                    src="<?php echo BASE; ?>assets/image/services/pd-2.webp"
                     alt="Professional Podcast Studio in Delhi"
                     loading="lazy">
             </div>

@@ -1,10 +1,5 @@
 <section class="ms-multicam-section">
     <style>
-        .ms-multicam-section,
-        .ms-multicam-section * {
-            box-sizing: border-box;
-        }
-
         .ms-multicam-section {
             --purple: #5A2EA6;
             --teal: #2FA8A1;
@@ -127,7 +122,7 @@
         }
 
         .ms-multicam-item {
-            padding: 13px 15px;
+            padding: 0 15px;
             border-radius: 16px;
             background: rgba(255, 255, 255, .78);
             border: 1px solid rgba(255, 255, 255, .95);
@@ -303,7 +298,7 @@
     <div class="ms-multicam-wrap">
         <div class="ms-multicam-visual">
             <div class="ms-multicam-image-box">
-                <img src="https://minerdiastudio.com/wp-content/uploads/2026/06/multi-camera-podcast-recording-studio.png" alt="Multi Camera Podcast Recording">
+                <img src="<?php echo BASE; ?>assets/image/services/pd-4.webp" alt="Multi Camera Podcast Recording">
             </div>
         </div>
 

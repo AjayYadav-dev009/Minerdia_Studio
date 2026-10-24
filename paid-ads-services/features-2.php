@@ -30,7 +30,7 @@ $states = [
         }
 
         .ms-agency-wrap {
-            max-width: 1240px;
+            max-width: 1200px;
             margin: 0 auto;
             display: grid;
             grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
@@ -43,7 +43,7 @@ $states = [
             margin: 0 0 34px;
             max-width: 600px;
             font-family: var(--font-head);
-            font-size: 38px;
+            font-size: 28px;
             line-height: 1.25;
             font-weight: 600;
             color: #000;
@@ -93,15 +93,15 @@ $states = [
         .ms-agency-card h3 {
             margin: 0 0 8px;
             font-family: var(--font-head);
-            font-size: 22px;
+            font-size: 20px;
             line-height: 1.3;
-            font-weight: 500;
+            font-weight: 600;
             color: #000;
         }
 
         .ms-agency-card p {
             margin: 0;
-            font-size: 15.5px;
+            font-size: 16px;
             line-height: 1.65;
             font-weight: 400;
             color: #222;
