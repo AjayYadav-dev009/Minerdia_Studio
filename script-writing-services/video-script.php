@@ -171,7 +171,7 @@ $chips = [
             </div>
 
             <div class="ms-vsw-img">
-                <img src="https://minerdiastudio.com/wp-content/uploads/2026/06/SEO-Friendly-Video-Script-Writing.png" alt="SEO Script Writing" width="1536" height="1024" loading="lazy">
+                <img src="<?php echo BASE; ?>assets/image/services/script-3.webp" alt="SEO Script Writing" width="1536" height="1024" loading="lazy">
             </div>
 
         </div>

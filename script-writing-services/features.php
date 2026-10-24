@@ -1,7 +1,7 @@
 <?php
 $label = 'Features';
 $title = 'High Converting Script Writing';
-$image = 'https://minerdiastudio.com/wp-content/uploads/2026/06/scriptwriting-company.png';
+$image = 'assets/image/services/script-1.webp';
 $alt   = 'Professional Script Writing';
 
 // <b> is allowed in these paragraphs
@@ -13,10 +13,6 @@ $paras = [
 <section class="ms-swfeat">
 
     <style>
-        .ms-swfeat,
-        .ms-swfeat * {
-            box-sizing: border-box;
-        }
 
         .ms-swfeat {
             --purple: #5A2EA6;
@@ -144,7 +140,7 @@ $paras = [
         </div>
 
         <div class="ms-swfeat-img">
-            <img src="<?php echo htmlspecialchars($image); ?>" alt="<?php echo htmlspecialchars($alt); ?>" width="1536" height="1024" loading="lazy">
+            <img src="<?php echo BASE . htmlspecialchars($image); ?>" alt="<?php echo htmlspecialchars($alt); ?>" width="1536" height="1024" loading="lazy">
         </div>
     </div>
 </section>

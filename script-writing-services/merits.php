@@ -1,6 +1,6 @@
 <?php
 $title = 'There are various merits of good scriptwriting, including the following:';
-$image = 'https://minerdiastudio.com/wp-content/uploads/2026/06/good-scriptwriting.png';
+$image = 'assets/image/services/script-2.webp';
 $alt   = 'Creative Script Writing';
 
 $paras = [
@@ -107,7 +107,7 @@ $paras = [
 
     <div class="ms-swmerits-wrap">
         <div class="ms-swmerits-img">
-            <img src="<?php echo htmlspecialchars($image); ?>" alt="<?php echo htmlspecialchars($alt); ?>" width="1536" height="1024" loading="lazy">
+            <img src="<?php echo BASE . htmlspecialchars($image); ?>" alt="<?php echo htmlspecialchars($alt); ?>" width="1536" height="1024" loading="lazy">
         </div>
 
         <div class="ms-swmerits-text">

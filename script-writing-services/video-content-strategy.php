@@ -7,7 +7,7 @@ $paragraphs = [
     'Our goal is simple. We create scripts that can make your video take off, without any tricks, and make people want to keep watching.',
 ];
 
-$image = 'https://minerdiastudio.com/wp-content/uploads/2026/06/Smart-Content-Strategy.png';
+$image = 'assets/image/services/script-4.webp';
 $alt   = 'Video Content Strategy';
 ?>
 <section class="ms-vcs">
@@ -110,7 +110,7 @@ $alt   = 'Video Content Strategy';
         <div class="ms-vcs-grid">
 
             <div class="ms-vcs-img">
-                <img src="<?php echo htmlspecialchars($image); ?>" alt="<?php echo htmlspecialchars($alt); ?>" width="1536" height="1024" loading="lazy">
+                <img src="<?php echo BASE . htmlspecialchars($image); ?>" alt="<?php echo htmlspecialchars($alt); ?>" width="1536" height="1024" loading="lazy">
             </div>
 
             <div class="ms-vcs-text">
