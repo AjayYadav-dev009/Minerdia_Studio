@@ -2,14 +2,14 @@
 // Add / remove posts here. 'img' is the image path, 'alt' is the alt text.
 // Put your images in the /images/posts/ folder (or change the path below).
 $posts = [
-    ['img' => 'images/posts/podcast-studio.jpg',    'alt' => 'Podcast Studio Design'],
-    ['img' => 'images/posts/rcs-reality.jpg',       'alt' => 'RCS Messaging Social Media Design'],
-    ['img' => 'images/posts/food-social.jpg',       'alt' => 'Food Social Media Design'],
-    ['img' => 'images/posts/saas-social.jpg',       'alt' => 'SaaS Social Media Design'],
-    ['img' => 'images/posts/product-ad.jpg',        'alt' => 'Product Advertisement Design'],
-    ['img' => 'images/posts/food-branding.jpg',     'alt' => 'Food Product Branding'],
-    ['img' => 'images/posts/whatsapp-api.jpg',      'alt' => 'WhatsApp API Social Media Design'],
-    ['img' => 'images/posts/festival-social.jpg',   'alt' => 'Festival Social Media Design'],
+    ['img' => 'assets/image/services/ssm-c-1.webp',    'alt' => 'Podcast Studio Design'],
+    ['img' => 'assets/image/services/ssm-c-2.webp',       'alt' => 'RCS Messaging Social Media Design'],
+    ['img' => 'assets/image/services/ssm-c-3.webp',       'alt' => 'Food Social Media Design'],
+    ['img' => 'assets/image/services/ssm-c-4.webp',       'alt' => 'SaaS Social Media Design'],
+    ['img' => 'assets/image/services/ssm-c-5.webp',        'alt' => 'Product Advertisement Design'],
+    ['img' => 'assets/image/services/ssm-c-6.webp',     'alt' => 'Food Product Branding'],
+    ['img' => 'assets/image/services/ssm-c-7.webp',      'alt' => 'WhatsApp API Social Media Design'],
+    ['img' => 'assets/image/services/ssm-c-8.webp',   'alt' => 'Festival Social Media Design'],
 ];
 ?>
 <section class="ms-posts">
@@ -137,7 +137,7 @@ $posts = [
         <div class="ms-posts-grid">
             <?php foreach ($posts as $post) : ?>
                 <div class="ms-post-card">
-                    <img src="<?php echo htmlspecialchars($post['img']); ?>"
+                    <img src="<?php echo BASE . htmlspecialchars($post['img']); ?>"
                          alt="<?php echo htmlspecialchars($post['alt']); ?>"
                          loading="lazy">
                 </div>

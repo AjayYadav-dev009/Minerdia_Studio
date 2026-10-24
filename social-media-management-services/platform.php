@@ -1,11 +1,9 @@
 <?php
-/* Replace each image with the real URL from your uploads folder */
-$ms_plat_base = 'https://minerdiastudio.com/wp-content/uploads/2026/06/';
 $ms_platforms = [
-    ['Youtube',   $ms_plat_base . 'social-media-youtube-service.png',   'YouTube marketing services'],
-    ['Facebook',  $ms_plat_base . 'social-media-facebook-service.png',  'Facebook marketing services'],
-    ['Instagram', $ms_plat_base . 'social-media-instagram-service.png', 'Instagram marketing services'],
-    ['Pintrest',  $ms_plat_base . 'Social-Media-pintrest-service.png', 'Pinterest marketing services'],
+    ['Youtube',   BASE . 'assets/image/services/ssm-2.webp',   'YouTube marketing services'],
+    ['Facebook',  BASE . 'assets/image/services/ssm-3.webp',  'Facebook marketing services'],
+    ['Instagram', BASE . 'assets/image/services/ssm-4.webp', 'Instagram marketing services'],
+    ['Pintrest',  BASE . 'assets/image/services/ssm-5.webp', 'Pinterest marketing services'],
 ];
 ?>
 <section class="ms-plat">

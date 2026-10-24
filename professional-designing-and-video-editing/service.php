@@ -990,28 +990,28 @@
                     </div>
 
                     <div class="ms-portfolio-card">
-                        <div class="ms-card-image"><img src="https://minerdiastudio.com/wp-content/uploads/2026/06/1as.png" alt="Brand Video"></div>
+                        <div class="ms-card-image"><img src="<?php echo BASE; ?>assets/image/services/design-7.webp" alt="Brand Video"></div>
                         <div class="ms-card-content">
                             <h3>Brand Videos</h3>
                             <p>Professional video edits for campaigns, promotions and marketing content.</p>
                         </div>
                     </div>
                     <div class="ms-portfolio-card">
-                        <div class="ms-card-image"><img src="https://minerdiastudio.com/wp-content/uploads/2026/06/2as.png" alt="Instagram Creative"></div>
+                        <div class="ms-card-image"><img src="<?php echo BASE; ?>assets/image/services/design-8.webp" alt="Instagram Creative"></div>
                         <div class="ms-card-content">
                             <h3>Instagram Creatives</h3>
                             <p>Clean social media designs made for engagement, branding and trust.</p>
                         </div>
                     </div>
                     <div class="ms-portfolio-card">
-                        <div class="ms-card-image"><img src="https://minerdiastudio.com/wp-content/uploads/2026/06/3as.png" alt="Reels Editing"></div>
+                        <div class="ms-card-image"><img src="<?php echo BASE; ?>assets/image/services/design-9.webp" alt="Reels Editing"></div>
                         <div class="ms-card-content">
                             <h3>Reels Editing</h3>
                             <p>Short-form videos edited with captions, hooks and smooth pacing.</p>
                         </div>
                     </div>
                     <div class="ms-portfolio-card">
-                        <div class="ms-card-image"><img src="https://minerdiastudio.com/wp-content/uploads/2026/06/4as.png" alt="Thumbnail Design"></div>
+                        <div class="ms-card-image"><img src="<?php echo BASE; ?>assets/image/services/design-6.webp" alt="Thumbnail Design"></div>
                         <div class="ms-card-content">
                             <h3>Thumbnail Design</h3>
                             <p>Clickable thumbnails with contrast, clarity and strong visual focus.</p>

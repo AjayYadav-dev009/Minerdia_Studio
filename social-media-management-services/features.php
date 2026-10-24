@@ -1,15 +1,10 @@
 <?php
 /* Replace with the real image URL from your uploads folder */
-$ms_smf_img = 'https://minerdiastudio.com/wp-content/uploads/2026/06/Social-Media-Experts-1-1.png';
+$ms_smf_img = 'assets/image/services/ssm-1.webp';
 ?>
 <section class="ms-smf">
 
     <style>
-        .ms-smf,
-        .ms-smf * {
-            box-sizing: border-box;
-        }
-
         .ms-smf {
             --purple: #5A2EA6;
             width: 100%;
@@ -116,7 +111,7 @@ $ms_smf_img = 'https://minerdiastudio.com/wp-content/uploads/2026/06/Social-Medi
         </div>
 
         <div class="ms-smf-img">
-            <img src="<?= htmlspecialchars($ms_smf_img) ?>" alt="Social media management team in a strategy meeting" loading="lazy">
+            <img src="<?= BASE . htmlspecialchars($ms_smf_img) ?>" alt="Social media management team in a strategy meeting" loading="lazy">
         </div>
     </div>
 </section>
