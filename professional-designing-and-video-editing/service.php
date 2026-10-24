@@ -1,10 +1,5 @@
 <section class="ms-gdve-page" id="graphic-designing-video-editing-services">
     <style>
-        .ms-gdve-page,
-        .ms-gdve-page * {
-            box-sizing: border-box;
-        }
-
         .ms-gdve-page {
             --purple: #5A2EA6;
             --teal: #2FA8A1;
@@ -748,7 +743,7 @@
                 </div>
 
                 <div class="ms-gdve-visual">
-                    <img src="https://minerdiastudio.com/wp-content/uploads/2026/06/Graphic-Designing-Video-Editing-Services-in-Delhi.png" alt="Professional Designing and Video Editing" loading="lazy">
+                    <img src="<?php echo BASE; ?>assets/image/services/design-1.webp" alt="Professional Designing and Video Editing" loading="lazy">
                 </div>
 
             </div>
@@ -770,7 +765,7 @@
 
                 <div class="ms-gdve-main-card">
                     <div class="ms-gdve-img">
-                        <img src="https://minerdiastudio.com/wp-content/uploads/2026/06/398d56e3-22de-49cf-8660-4f1ae278b9de.png" alt="Professional Graphic Designing Services in India" loading="lazy">
+                        <img src="<?php echo BASE; ?>assets/image/services/design-2.webp" alt="Professional Graphic Designing Services in India" loading="lazy">
                     </div>
                     <div class="ms-gdve-main-body">
                         <h3>Graphic Designing Services</h3>
@@ -788,7 +783,7 @@
 
                 <div class="ms-gdve-main-card">
                     <div class="ms-gdve-img">
-                        <img src="https://minerdiastudio.com/wp-content/uploads/2026/06/8b709e95-f356-456b-9a62-0b2f2c571d39.png" alt="Professional Video Editing Services in India" loading="lazy">
+                        <img src="<?php echo BASE; ?>assets/image/services/design-3.webp" alt="Professional Video Editing Services in India" loading="lazy">
                     </div>
                     <div class="ms-gdve-main-body">
                         <h3>Video Editing Services</h3>
@@ -860,7 +855,7 @@
             <div class="ms-gdve-split-grid">
 
                 <div class="ms-gdve-split-img">
-                    <img src="https://minerdiastudio.com/wp-content/uploads/2026/06/856f17b6-5add-4490-a7b5-faf8eeeb3537.png" alt="Graphic Design Services" loading="lazy">
+                    <img src="<?php echo BASE; ?>assets/image/services/design-4.webp" alt="Graphic Design Services" loading="lazy">
                 </div>
 
                 <div class="ms-gdve-text">
@@ -909,7 +904,7 @@
                 </div>
 
                 <div class="ms-gdve-split-img">
-                    <img src="https://minerdiastudio.com/wp-content/uploads/2026/06/53e85ec8-6850-447a-9e9f-2fa5268586db.png" alt="Professional Video Editing" loading="lazy">
+                    <img src="<?php echo BASE; ?>assets/image/services/design-5.webp" alt="Professional Video Editing" loading="lazy">
                 </div>
 
             </div>
@@ -966,28 +961,28 @@
             <div class="ms-slider-wrap" id="msSliderWrap">
                 <div class="ms-slider-track">
                     <div class="ms-portfolio-card">
-                        <div class="ms-card-image"><img src="https://minerdiastudio.com/wp-content/uploads/2026/06/1as.png" alt="Brand Video"></div>
+                        <div class="ms-card-image"><img src="<?php echo BASE; ?>assets/image/services/design-7.webp" alt="Brand Video"></div>
                         <div class="ms-card-content">
                             <h3>Brand Videos</h3>
                             <p>Professional video edits for campaigns, promotions and marketing content.</p>
                         </div>
                     </div>
                     <div class="ms-portfolio-card">
-                        <div class="ms-card-image"><img src="https://minerdiastudio.com/wp-content/uploads/2026/06/2as.png" alt="Instagram Creative"></div>
+                        <div class="ms-card-image"><img src="<?php echo BASE; ?>assets/image/services/design-8.webp" alt="Instagram Creative"></div>
                         <div class="ms-card-content">
                             <h3>Instagram Creatives</h3>
                             <p>Clean social media designs made for engagement, branding and trust.</p>
                         </div>
                     </div>
                     <div class="ms-portfolio-card">
-                        <div class="ms-card-image"><img src="https://minerdiastudio.com/wp-content/uploads/2026/06/3as.png" alt="Reels Editing"></div>
+                        <div class="ms-card-image"><img src="<?php echo BASE; ?>assets/image/services/design-9.webp" alt="Reels Editing"></div>
                         <div class="ms-card-content">
                             <h3>Reels Editing</h3>
                             <p>Short-form videos edited with captions, hooks and smooth pacing.</p>
                         </div>
                     </div>
                     <div class="ms-portfolio-card">
-                        <div class="ms-card-image"><img src="https://minerdiastudio.com/wp-content/uploads/2026/06/4as.png" alt="Thumbnail Design"></div>
+                        <div class="ms-card-image"><img src="<?php echo BASE; ?>assets/image/services/design-6.webp" alt="Thumbnail Design"></div>
                         <div class="ms-card-content">
                             <h3>Thumbnail Design</h3>
                             <p>Clickable thumbnails with contrast, clarity and strong visual focus.</p>
