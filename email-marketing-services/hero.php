@@ -4,7 +4,7 @@
         font-family: var(--font-body);
         position: relative;
         width: 100%;
-        min-height: 520px;
+        min-height: 0;
         overflow: hidden;
         background:
             radial-gradient(circle at 14% 20%, rgba(255, 255, 255, 0.22) 0%, transparent 26%),
@@ -34,17 +34,17 @@
     .emx-hero {
         position: relative;
         z-index: 2;
-        min-height: 520px;
-        /* padding: 150px 42px 24px; */
+        min-height: 0;
         display: flex;
-        align-items: center;
+        align-items: flex-start;
         justify-content: center;
+        padding: 115px 28px 40px;
     }
 
     .emx-glass-card {
         width: 100%;
         max-width: 1140px;
-        min-height: 290px;
+        min-height: 313px;
         border-radius: 30px;
         position: relative;
         display: flex;
@@ -63,6 +63,7 @@
             inset 0 -1px 0 rgba(255, 255, 255, 0.06),
             0 24px 60px rgba(48, 19, 110, 0.17);
         overflow: hidden;
+        box-sizing: border-box;
     }
 
     .emx-glass-card::before {
@@ -728,16 +729,16 @@
 
     @media (max-width:1200px) {
         .emx-banner-root {
-            min-height: 500px;
+            min-height: 0;
         }
 
         .emx-hero {
-            min-height: 500px;
-            padding: 78px 28px 18px;
+            min-height: 0;
+            padding: 115px 28px 40px;
         }
 
         .emx-glass-card {
-            min-height: 260px;
+            min-height: 313px;
             padding: 24px 24px;
         }
 
@@ -750,17 +751,17 @@
 
     @media (max-width:1024px) {
         .emx-banner-root {
-            min-height: 390px;
+            min-height: 0;
         }
 
         .emx-hero {
-            min-height: 390px;
-            padding: 135px 20px 12px;
+            min-height: 0;
+            padding: 111px 20px 36px;
         }
 
         .emx-glass-card {
-            margin-top: 30px;
-            margin-bottom: 20px;
+            margin-top: 0;
+            margin-bottom: 0;
             min-height: 220px;
             border-radius: 24px;
             gap: 28px;
@@ -814,17 +815,17 @@
     @media (max-width:767px) {
         .emx-banner-root {
             min-height: auto !important;
-            padding-top: 18px !important;
+            padding-top: 0 !important;
         }
 
         .emx-hero {
             min-height: auto !important;
-            padding: 82px 16px 35px !important;
+            padding: 106px 16px 32px !important;
         }
 
         .emx-glass-card {
-            margin-top: 50px !important;
-            margin-bottom: 20px !important;
+            margin-top: 0 !important;
+            margin-bottom: 0 !important;
             flex-direction: column;
             align-items: center;
             justify-content: flex-start;
@@ -880,17 +881,17 @@
 
     @media (max-width:480px) {
         .emx-banner-root {
-            padding-top: 24px !important;
+            padding-top: 0 !important;
         }
 
         .emx-hero {
-            padding: 78px 14px 20px !important;
+            padding: 103px 14px 28px !important;
             min-height: auto !important;
         }
 
         .emx-glass-card {
-            margin-top: 50px !important;
-            margin-bottom: 20px !important;
+            margin-top: 0 !important;
+            margin-bottom: 0 !important;
             padding: 22px 16px 24px !important;
             gap: 12px;
         }
