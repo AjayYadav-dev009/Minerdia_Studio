@@ -96,7 +96,7 @@ $rows = [
 
         .ms-wdrows-text p {
             margin: 0 0 10px;
-            font-size: 15px;
+            font-size: 16px;
             line-height: 1.75;
             font-weight: 400;
             color: #222;
@@ -154,7 +154,7 @@ $rows = [
             }
 
             .ms-wdrows-text p {
-                font-size: 14.5px;
+                font-size: 14px;
             }
         }
     </style>

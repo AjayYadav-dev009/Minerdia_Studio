@@ -601,6 +601,9 @@
     <?php endif; ?>
 </a>
 
+<script src="<?php echo BASE; ?>assets/js/lenis.min.js"></script>
+<script src="<?php echo BASE; ?>assets/js/smooth-scroll.js"></script>
+
 </body>
 
 </html>

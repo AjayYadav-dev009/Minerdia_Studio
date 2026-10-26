@@ -154,7 +154,7 @@
         margin: 0 0 12px;
         color: #17032f;
         font-size: clamp(28px, 3.6vw, 46px);
-        font-weight: 700;
+        font-weight: 800;
         line-height: .96;
         letter-spacing: -.05em;
     }
@@ -163,7 +163,7 @@
         margin: 0;
         max-width: 460px;
         color: rgba(53, 24, 98, .72);
-        font-size: 14px;
+        font-size: 16px;
         line-height: 1.6;
         font-weight: 500;
     }

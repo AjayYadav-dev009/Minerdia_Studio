@@ -55,8 +55,8 @@ $states = [
 
         .ms-wdp-intro {
             margin: 0 0 24px;
-            font-size: 14px;
-            line-height: 1.75;
+            font-size: 16px;
+            line-height: 1.65;
             font-weight: 400;
             color: #222;
         }
@@ -107,7 +107,7 @@ $states = [
 
         .ms-wdp-card p {
             margin: 0;
-            font-size: 15px;
+            font-size: 16px;
             line-height: 1.6;
             font-weight: 400;
             color: #222;
@@ -136,7 +136,7 @@ $states = [
         .ms-wdp-field label {
             display: block;
             margin-bottom: 8px;
-            font-size: 14.5px;
+            font-size: 15px;
             font-weight: 400;
             color: #111;
         }
@@ -185,7 +185,7 @@ $states = [
             border: 1px solid #3d1f7a;
             background: var(--purple);
             color: #fff;
-            font-family: var(--font-body);
+            font-family: var(--font-head);
             font-size: 16px;
             font-weight: 700;
             cursor: pointer;
@@ -344,7 +344,7 @@ $states = [
                     <span>I have read and agree to the
                         <a href="<?php echo BASE; ?>terms-and-conditions/" target="_blank" rel="noopener">Terms &amp; Conditions</a>
                         and
-                        <a href="<?php echo BASE; ?>privacy-policy/" target="_blank" rel="noopener">Privacy Policy</a>.</span>
+                        <a href="<?php echo BASE; ?>privacy-policies/" target="_blank" rel="noopener">Privacy Policy</a>.</span>
                 </label>
 
                 <button type="submit" class="ms-wdp-submit">Submit Form</button>

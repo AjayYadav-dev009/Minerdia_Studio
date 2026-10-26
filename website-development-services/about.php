@@ -28,7 +28,7 @@ $paragraphs = [
 
         .ms-wdabout-wrap {
             position: relative;
-            max-width: 1000px;
+            max-width: 1120px;
             margin: 0 auto;
             text-align: center;
         }
@@ -37,17 +37,17 @@ $paragraphs = [
         .ms-wdabout-wrap::before {
             content: attr(data-watermark);
             position: absolute;
-            top: -34px;
+            top: -14px;
             left: 50%;
             transform: translateX(-50%);
             width: 100%;
-            font-size: 72px;
+            font-size: 96px;
             line-height: 1;
-            font-weight: 700;
+            font-weight: 800;
             letter-spacing: 2px;
             text-transform: uppercase;
             white-space: nowrap;
-            color: #ececec;
+            color: #f0f0f0;
             pointer-events: none;
             user-select: none;
             z-index: 0;
@@ -57,8 +57,8 @@ $paragraphs = [
             position: relative;
             z-index: 1;
             margin: 0 0 18px;
-            font-size: 38px;
-            line-height: 1.25;
+            font-size: 54px;
+            line-height: 1.2;
             font-weight: 600;
             color: #000;
         }
@@ -74,11 +74,11 @@ $paragraphs = [
 
         .ms-wdabout-text p {
             margin: 0 auto 10px;
-            max-width: 900px;
-            font-size: 11.5px;
-            line-height: 1.65;
+            max-width: none;
+            font-size: 16px;
+            line-height: 1.62;
             font-weight: 400;
-            color: #111;
+            color: #2b2b2b;
         }
 
         .ms-wdabout-text p:last-child {
@@ -87,6 +87,17 @@ $paragraphs = [
 
         .ms-wdabout-text strong {
             font-weight: 600;
+        }
+
+        @media (max-width: 1024px) {
+            .ms-wdabout-wrap::before {
+                font-size: 66px;
+                top: -8px;
+            }
+
+            .ms-wdabout-title {
+                font-size: 44px;
+            }
         }
 
         @media (max-width: 767px) {
@@ -100,11 +111,11 @@ $paragraphs = [
             }
 
             .ms-wdabout-title {
-                font-size: 28px;
+                font-size: 30px;
             }
 
             .ms-wdabout-text p {
-                font-size: 13px;
+                font-size: 14px;
             }
         }
 
@@ -114,7 +125,7 @@ $paragraphs = [
             }
 
             .ms-wdabout-title {
-                font-size: 24px;
+                font-size: 26px;
             }
         }
     </style>

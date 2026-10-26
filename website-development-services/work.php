@@ -61,7 +61,7 @@ $cards = [
             margin: 0 auto 60px;
             max-width: 1040px;
             text-align: center;
-            font-size: 14px;
+            font-size: 16px;
             line-height: 1.75;
             font-weight: 400;
             color: #222;
@@ -114,10 +114,24 @@ $cards = [
 
         .ms-hww-card p {
             margin: 0;
-            font-size: 14px;
+            font-size: 15px;
             line-height: 1.8;
             font-weight: 400;
             color: #222;
+        }
+
+        /* Change heading color on card hover */
+        .ms-hww-card:hover h3 {
+            color: var(--purple);
+        }
+
+        /* Change icon border and SVG color on card hover */
+        .ms-hww-card:hover .ms-hww-icon {
+            border-color: var(--purple);
+        }
+
+        .ms-hww-card:hover .ms-hww-icon svg {
+            stroke: var(--purple);
         }
 
         /* ---------- Responsive ---------- */

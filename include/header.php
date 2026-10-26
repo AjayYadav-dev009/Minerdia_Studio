@@ -30,6 +30,7 @@ $__logo_header = logo_url(LOGO_HEADER, 'https://minerdiastudio.com/wp-content/up
     <link rel="preload" href="<?php echo BASE; ?>assets/fonts/inter-variable.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="<?php echo BASE; ?>assets/fonts/poppins-600.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="<?php echo BASE; ?>assets/css/fonts.css">
+    <link rel="stylesheet" href="<?php echo BASE; ?>assets/css/lenis.css">
     <title><?php echo e($page_title); ?></title>
     <meta name="description" content="<?php echo e($page_description); ?>">
     <?php if ($page_keywords): ?><meta name="keywords" content="<?php echo e($page_keywords); ?>"><?php endif; ?>
