@@ -126,7 +126,7 @@ $services = [
             align-items: stretch;
             gap: 22px;
             width: max-content;
-            animation: msServiceSlide 38s linear infinite;
+            animation: msServiceSlide 65s linear infinite;
         }
 
         .ms-service-track.ms-service-paused {

@@ -84,7 +84,7 @@
         display: flex;
         gap: 20px;
         width: max-content;
-        animation: msServicesSafeSlide 32s linear infinite;
+        animation: msServicesSafeSlide 68s linear infinite;
         will-change: transform;
     }
 

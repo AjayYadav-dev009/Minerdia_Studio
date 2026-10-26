@@ -104,6 +104,20 @@ $cards = [
             color: #222;
         }
 
+        /* Change heading color on card hover */
+        .ms-swproc-card:hover h3 {
+            color: var(--purple);
+        }
+
+        /* Change icon border and SVG color on card hover */
+        .ms-swproc-card:hover .ms-swproc-icon {
+            border-color: var(--purple);
+        }
+
+        .ms-swproc-card:hover .ms-swproc-icon svg {
+            stroke: var(--purple);
+        }
+
         /* ---------- Tablet ---------- */
         @media (max-width: 991px) {
             .ms-swproc-wrap {

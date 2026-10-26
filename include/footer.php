@@ -526,8 +526,8 @@
         left: 22px;
         bottom: 25px;
         z-index: 9998;
-        width: 58px;
-        height: 58px;
+        width: 45px;
+        height: 45px;
         border-radius: 50%;
         background: #25d366;
         display: flex;
@@ -556,8 +556,8 @@
 
     .ms-whatsapp img,
     .ms-whatsapp svg {
-        width: 34px;
-        height: 34px;
+        width: 45px;
+        height: 45px;
         object-fit: contain;
         display: block;
     }

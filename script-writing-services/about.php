@@ -32,14 +32,14 @@ $text = 'A good script is the foundation of every great campaign or video. That\
         .ms-swabout-wrap::before {
             content: attr(data-watermark);
             position: absolute;
-            top: -42px;
+            top: -20px;
             left: 50%;
             transform: translateX(-50%);
             width: 100%;
-            font-size: 110px;
+            font-size: 100px;
             line-height: 1;
-            font-weight: 700;
-            letter-spacing: 2px;
+            font-weight: 800;
+            letter-spacing: -5px;
             text-transform: uppercase;
             white-space: nowrap;
             color: #efefef;

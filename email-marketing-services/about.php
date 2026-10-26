@@ -38,7 +38,7 @@ $paragraphs = [
             display: flex;
             align-items: center;
             justify-content: center;
-            min-height: 110px;
+            min-height: 100px;
             margin-bottom: 26px;
             overflow: hidden;
         }
@@ -48,12 +48,12 @@ $paragraphs = [
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            font-size: 92px;
+            font-size: 100px;
             line-height: 1;
-            font-weight: 700;
-            letter-spacing: 2px;
+            font-weight: 900;
+            letter-spacing: -5px;
             white-space: nowrap;
-            color: rgba(90, 46, 166, .07);
+            color: #f1f1f1;
             pointer-events: none;
             user-select: none;
         }

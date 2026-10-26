@@ -10,7 +10,7 @@ $subtitle = 'Scale your business across the world\'s most powerful advertising p
  * Until a local file exists, the page automatically uses the old WordPress URL (the 'remote' value).
  * 'link' is where the arrow button goes.
  */
-$wp = 'https://minerdiastudio.com/wp-content/uploads/2026/04/';
+$wp = '';
 $platforms = [
     [
         'name'   => 'YouTube Ads',

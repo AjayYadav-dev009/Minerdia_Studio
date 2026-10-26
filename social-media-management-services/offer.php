@@ -138,6 +138,20 @@ $ms_offer_items = [
             color: #666;
         }
 
+        /* Change heading color on card hover */
+        .ms-offer-card:hover h3 {
+            color: var(--purple);
+        }
+
+        /* Change icon border and SVG color on card hover */
+        .ms-offer-card:hover .ms-offer-icon {
+            border-color: var(--purple);
+        }
+
+        .ms-offer-card:hover .ms-offer-icon svg {
+            stroke: var(--purple);
+        }
+
         @media (max-width: 991px) {
             .ms-offer-grid {
                 grid-template-columns: repeat(2, minmax(0, 1fr));

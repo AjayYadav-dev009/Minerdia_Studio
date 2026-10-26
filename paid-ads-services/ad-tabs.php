@@ -121,9 +121,9 @@ $tabs = [
         }
 
         .ms-adtabs-btn.is-active {
-            background: var(--green);
-            border-color: #3fae4a;
-            color: #111;
+            background: var(--purple);
+            border-color: var(--purple);
+            color: white;
             font-weight: 500;
         }
 

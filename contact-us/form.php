@@ -4,7 +4,7 @@
 // Submissions go to home-page/submit-contact.php -> Google Sheets
 // ("Home Contact" tab, the Page column shows /contact-us/).
 // ---------------------------------------------------------------
-$image_src   = 'https://minerdiastudio.com/wp-content/uploads/2026/07/sdfgdg.png';
+$image_src   = 'assets/image/contact/1.webp';
 $image_alt   = 'Digital Marketing Consultation Services in India';
 $terms_url   = BASE . 'terms-and-conditions/';
 $privacy_url = BASE . 'privacy-policies/';
@@ -36,7 +36,7 @@ $e = function ($s) { return htmlspecialchars((string)$s, ENT_QUOTES | ENT_SUBSTI
             --purple: #5a2ea6;
             --purple-dark: #4a2392;
             width: 100%;
-            padding: 90px 24px 100px;
+            padding: 70px 24px 100px;
             background: #fff;
             font-family: var(--font-body);
             overflow: hidden;
@@ -310,7 +310,7 @@ $e = function ($s) { return htmlspecialchars((string)$s, ENT_QUOTES | ENT_SUBSTI
         /* ---------- image ---------- */
         .ms-cf-image {
             align-self: end;
-            max-width: 520px;
+            max-width: 398px;
         }
 
         .ms-cf-image img {

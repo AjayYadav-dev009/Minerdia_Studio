@@ -1,95 +1,126 @@
-<?php
-$shadow_text  = 'MINERDIA STUDIO';
-$title_main   = 'Contact';
-$title_accent = 'Us';
-$description  = 'At <strong>Minerdia Studio</strong> we help businesses grow online with digital and creative services. We offer video editing and podcast production services. Our SEO services and paid advertising solutions are also available. Our team works hard to deliver solutions that fit your business goals. We provide website development services. Our team also manages media and creates high-quality content, for businesses. We support businesses at every stage.';
-?>
-<section class="ms-contact">
+<section class="ms-seoabout">
 
     <style>
-        .ms-contact,
-        .ms-contact * {
+        .ms-seoabout,
+        .ms-seoabout * {
             box-sizing: border-box;
         }
 
-        .ms-contact {
-            --purple: #5b2fb0;
+        .ms-seoabout {
+            --purple: #5A2EA6;
             width: 100%;
-            padding: 40px 20px 40px;
+            padding: 50px 20px 40px;
             background: #fff;
             font-family: var(--font-body);
+            text-align: center;
             overflow: hidden;
         }
 
-        .ms-contact-wrap {
+        /* Heading + faded watermark */
+        .ms-seoabout-head {
             position: relative;
-            max-width: 780px;
-            margin: 0 auto;
-            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            max-width: 1100px;
+            margin: 0 auto 26px;
+            min-height: 110px;
         }
 
-        /* big light-grey background text */
-        .ms-contact-shadow {
-            display: block;
-            font-family: var(--font-body);
-            font-size: clamp(40px, 8.5vw, 84px);
-            font-weight: 700;
+        .ms-seoabout-watermark {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 100px;
+            font-weight: 800;
             line-height: 1;
             letter-spacing: 1px;
-            white-space: nowrap;
+            color: #f0f0f0;
             text-transform: uppercase;
-            color: #efefef;
-            pointer-events: none;
+            white-space: nowrap;
             user-select: none;
+            pointer-events: none;
+            z-index: 0;
         }
 
-        /* title sits on top of the shadow text */
-        .ms-contact-title {
+        .ms-seoabout-title {
             position: relative;
-            margin: -0.62em 0 14px;
-            font-family: var(--font-head);
-            font-size: clamp(28px, 4.2vw, 40px);
-            font-weight: 600;
+            z-index: 1;
+            margin: 0;
+            font-size: 54px;
             line-height: 1.2;
-            color: #000;
-        }
-
-        .ms-contact-shadow + .ms-contact-title {
-            margin-top: calc(clamp(40px, 8.5vw, 84px) * -0.62);
-        }
-
-        .ms-contact-title span {
-            color: var(--purple);
-        }
-
-        .ms-contact-desc {
-            margin: 0 auto;
-            font-size: 13px;
-            font-weight: 400;
-            line-height: 1.75;
-            color: #333;
-        }
-
-        .ms-contact-desc strong {
             font-weight: 600;
             color: #000;
         }
 
-        @media (max-width: 767px) {
-            .ms-contact {
-                padding: 30px 14px 30px;
+        .ms-seoabout-title span {
+            color: var(--purple);
+            font-weight: 700;
+        }
+
+        /* Paragraph */
+        .ms-seoabout-text {
+            max-width: 1120px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.62;
+            font-weight: 400;
+            color: #2b2b2b;
+        }
+
+        .ms-seoabout-text strong {
+            font-weight: 700;
+            color: #000;
+        }
+
+        /* Tablet */
+        @media (max-width: 1024px) {
+            .ms-seoabout-watermark {
+                font-size: 84px;
             }
 
-            .ms-contact-desc {
-                font-size: 12.5px;
-                line-height: 1.7;
+            .ms-seoabout-title {
+                font-size: 44px;
+            }
+
+            .ms-seoabout-head {
+                min-height: 90px;
+            }
+        }
+
+        /* Mobile */
+        @media (max-width: 767px) {
+            .ms-seoabout {
+                padding: 35px 14px 30px;
+            }
+
+            .ms-seoabout-watermark {
+                font-size: 44px;
+            }
+
+            .ms-seoabout-title {
+                font-size: 30px;
+            }
+
+            .ms-seoabout-head {
+                min-height: 60px;
+                margin-bottom: 18px;
+            }
+
+            .ms-seoabout-text {
+                font-size: 14px;
+                line-height: 1.75;
             }
         }
     </style>
 
-    <div class="ms-contact-wrap">
-        <span class="ms-contact-shadow" aria-hidden="true"><?php echo htmlspecialchars($shadow_text); ?></span>
-        <h2 class="ms-contact-title"><?php echo htmlspecialchars($title_main); ?> <span><?php echo htmlspecialchars($title_accent); ?></span></h2>
-        <p class="ms-contact-desc"><?php echo $description; /* trusted HTML */ ?></p>
+    <div class="ms-seoabout-head">
+        <span class="ms-seoabout-watermark" aria-hidden="true">Minerdia Studio</span>
+        <h2 class="ms-seoabout-title">Contact <span>Us</span></h2>
     </div>
+
+    <p class="ms-seoabout-text">
+        At <strong>Minerdia Studio</strong> we help businesses grow online with digital and creative services. We offer video editing and podcast production services. Our SEO services and paid advertising solutions are also available. Our team works hard to deliver solutions that fit your business goals. We provide website development services. Our team also manages media and creates high-quality content, for businesses. We support businesses at every stage.
+    </p>
 </section>

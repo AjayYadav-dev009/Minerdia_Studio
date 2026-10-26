@@ -28,10 +28,10 @@
             left: 50%;
             transform: translateX(-50%);
             font-family: var(--font-body);
-            font-size: 78px;
+            font-size: 100px;
             line-height: 1;
-            font-weight: 700;
-            letter-spacing: -3px;
+            font-weight: 800;
+            letter-spacing: -5px;
             text-transform: uppercase;
             white-space: nowrap;
             color: #f1f1f1;

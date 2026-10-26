@@ -710,20 +710,25 @@
 
         if (!gallery || !section || !track || !lightbox || !content || !closeBtn) return;
 
-        var videos = [
-            "https://minerdiastudio.com/wp-content/uploads/2026/06/Alpha-Auto-1-720-1.mp4",
-            "https://minerdiastudio.com/wp-content/uploads/2026/06/Alpha_Auto-2.mp4",
-            "https://minerdiastudio.com/wp-content/uploads/2026/06/M3M-2.mp4",
-            "https://minerdiastudio.com/wp-content/uploads/2026/06/Prashant-Voice-Artist-15.mp4",
-            "https://minerdiastudio.com/wp-content/uploads/2026/06/Podcast-1.mp4",
-            "https://minerdiastudio.com/wp-content/uploads/2026/06/M3M-3.mp4",
-            "https://minerdiastudio.com/wp-content/uploads/2026/06/Mansha-Reel-2.mp4",
-            "https://minerdiastudio.com/wp-content/uploads/2026/06/Lennore.mp4",
-            "https://minerdiastudio.com/wp-content/uploads/2026/06/Sofia-Reel.mp4",
-            "https://minerdiastudio.com/wp-content/uploads/2026/06/M3M.mp4",
-            "https://minerdiastudio.com/wp-content/uploads/2026/06/Mansha-Reel-3.mp4",
-            "https://minerdiastudio.com/wp-content/uploads/2026/06/Lennore-2.mp4"
+        /* Files that exist in assets/videos/ (names are case-sensitive on Linux hosting) */
+        var base = <?php echo json_encode(BASE); ?>;
+        var files = [
+            "alpha-auto.mp4",
+            "alpha-auto-2.mp4",
+            "M3M.mp4",
+            "M3M-2.mp4",
+            "M3M-3.mp4",
+            "Podcast.mp4",
+            "lennore.mp4",
+            "lennore-2.mp4",
+            "Mansha-Reel.webm",
+            "mansha-reel-3.mp4",
+            "sofia-reel.mp4",
+            "prasant-voice-artist.mp4"
         ];
+        var videos = files.map(function(f) { return base + "assets/videos/" + f; });
+        /* Only 5 clips: repeat them so each half of the marquee is wider than the screen */
+        var set = videos.concat(videos);
 
         var mutedIcon =
             '<svg viewBox="0 0 24 24" aria-hidden="true">' +
@@ -739,7 +744,7 @@
             '<path d="M18.5 5.5a9 9 0 0 1 0 13"></path>' +
             '</svg>';
 
-        videos.concat(videos).forEach(function(src) {
+        set.concat(set).forEach(function(src) {
             var card = document.createElement("div");
             card.className = "ms-video-card";
 

@@ -129,8 +129,18 @@ $budgets = [
                         </div>
                     </div>
 
+                    <div class="ff-el-group ms-consent-group">
+                        <label class="ms-consent" for="ms_consent">
+                            <input type="checkbox" id="ms_consent" name="consent" value="yes" required>
+                            <span>I have read and agree to the
+                                <a href="<?php echo BASE; ?>terms-and-conditions/" target="_blank" rel="noopener">Terms &amp; Conditions</a>
+                                and
+                                <a href="<?php echo BASE; ?>privacy-policies/" target="_blank" rel="noopener">Privacy Policy</a>.</span>
+                        </label>
+                    </div>
+
                     <div class="ff_submit_btn_wrapper">
-                        <button type="submit" class="ff-btn ff-btn-submit">Submit Form</button>
+                        <button type="submit" class="ff-btn ff-btn-submit" disabled>Submit Form</button>
                     </div>
 
                     <div class="ff-message-success" id="msFormMsg" hidden></div>
@@ -624,6 +634,52 @@ $budgets = [
         color: rgba(40, 30, 61, .72) !important;
 
         font-size: 11px !important;
+    }
+
+
+    /* =========================================================
+   CONSENT CHECKBOX
+   ========================================================= */
+
+    #msPopup .ms-popup-form .ms-consent {
+        display: flex !important;
+        align-items: flex-start;
+        gap: 9px;
+        margin: 2px 0 0 !important;
+        cursor: pointer;
+        color: rgba(40, 30, 61, .72) !important;
+        font-size: 11.5px !important;
+        line-height: 1.5 !important;
+        font-weight: 400 !important;
+    }
+
+    #msPopup .ms-popup-form .ms-consent input[type="checkbox"] {
+        width: 16px !important;
+        height: 16px !important;
+        min-width: 16px !important;
+        min-height: 16px !important;
+        margin: 2px 0 0 !important;
+        padding: 0 !important;
+        flex-shrink: 0;
+        cursor: pointer;
+        box-shadow: none !important;
+    }
+
+    #msPopup .ms-popup-form .ms-consent a {
+        color: var(--ms-purple) !important;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #msPopup .ms-popup-form .ms-consent a:hover {
+        color: var(--ms-teal) !important;
+    }
+
+    #msPopup .ms-popup-form .ff-btn-submit:disabled:not(.ff-btn-processing) {
+        opacity: .5 !important;
+        cursor: not-allowed !important;
+        transform: none !important;
+        box-shadow: none !important;
     }
 
 
@@ -1352,6 +1408,20 @@ $budgets = [
 
             if (form) {
 
+                var consentBox = document.getElementById("ms_consent");
+                var submitBtn = form.querySelector(".ff-btn-submit");
+
+                /* Submit stays disabled until Terms & Privacy are accepted */
+                function syncSubmit() {
+                    if (submitBtn && consentBox) {
+                        submitBtn.disabled = !consentBox.checked;
+                    }
+                }
+
+                if (consentBox) {
+                    consentBox.addEventListener("change", syncSubmit);
+                }
+
                 form.addEventListener("submit", function(e) {
 
                     e.preventDefault();
@@ -1393,8 +1463,8 @@ $budgets = [
                         })
                         .finally(function() {
 
-                            btn.disabled = false;
                             btn.classList.remove("ff-btn-processing");
+                            syncSubmit();
 
                         });
 

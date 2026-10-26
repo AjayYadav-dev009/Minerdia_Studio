@@ -177,6 +177,20 @@ $slides = [
         .ms-swind-prev { left: 0; }
         .ms-swind-next { right: 0; }
 
+        /* Change heading color on card hover */
+        .ms-swind-card:hover h3 {
+            color: var(--purple);
+        }
+
+        /* Change icon border and SVG color on card hover */
+        .ms-swind-card:hover .ms-swind-icon {
+            border-color: var(--purple);
+        }
+
+        .ms-swind-card:hover .ms-swind-icon svg {
+            stroke: var(--purple);
+        }
+
         /* ---------- Tablet ---------- */
         @media (max-width: 991px) {
             .ms-swind-title {

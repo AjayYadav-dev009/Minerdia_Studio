@@ -20,6 +20,9 @@ $budget   = lead_clean($_POST['budget'] ?? '');
 if ($name === '' || $business === '' || $phone === '' || $service === '' || $budget === '') {
     lead_finish(false, 'Please fill all required fields.', 422);
 }
+if (($_POST['consent'] ?? '') !== 'yes') {
+    lead_finish(false, 'Please accept the Terms & Conditions and Privacy Policy.', 422);
+}
 if (!lead_valid_phone($phone)) {
     lead_finish(false, 'Please enter a valid phone number.', 422);
 }

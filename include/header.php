@@ -102,6 +102,7 @@ document.addEventListener('submit', function (ev) {
 </head>
 
 <body>
+       <?php include __DIR__ . '/preloader.php'; ?>
     <style>
         /* Hero must start at the very top; the header floats over it */
         body {
@@ -930,7 +931,7 @@ document.addEventListener('submit', function (ev) {
                     <div class="minerdia-dropdown-menu minerdia-company-menu">
                         <a href="<?php echo BASE; ?>about-us/">About Us</a>
                         <a href="<?php echo BASE; ?>creative-gallery/">Gallery</a>
-                        <a href="<?php echo BASE; ?>contact-us/">Contact Us</a>
+                        <!-- <a href="<?php //echo BASE; ?>contact-us/">Contact Us</a> -->
                     </div>
                 </div>
 

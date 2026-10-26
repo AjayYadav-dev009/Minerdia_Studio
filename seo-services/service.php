@@ -123,6 +123,20 @@ $icons = [
             color: #777;
         }
 
+        /* Change heading color on card hover */
+        .ms-seosvc-card:hover h3 {
+            color: var(--purple);
+        }
+
+        /* Change icon border and SVG color on card hover */
+        .ms-seosvc-card:hover .ms-seosvc-icon {
+            border-color: var(--purple);
+        }
+
+        .ms-seosvc-card:hover .ms-seosvc-icon svg {
+            stroke: var(--purple);
+        }
+
         @media (max-width: 991px) {
             .ms-seosvc-title {
                 font-size: 42px;

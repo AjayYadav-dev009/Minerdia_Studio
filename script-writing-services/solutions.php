@@ -99,9 +99,9 @@ $tabs = [
         }
 
         .ms-swtabs-btn.is-active {
-            background: var(--green);
-            border-color: #3fae4a;
-            color: #111;
+            background: var(--purple);
+            border-color: var(--purple);
+            color: #fff;
             font-weight: 500;
         }
 

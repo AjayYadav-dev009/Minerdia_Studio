@@ -334,6 +334,48 @@ $audit_default = 'Google Ads';
         box-shadow: 0 10px 22px rgba(90, 46, 166, .28);
     }
 
+    /* ---------- Consent checkbox ---------- */
+    .minerdia-consent {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        margin-top: 16px;
+        font-size: 13px;
+        line-height: 1.5;
+        color: var(--muted);
+        cursor: pointer;
+    }
+
+    .minerdia-card .minerdia-consent input[type="checkbox"] {
+        width: 18px !important;
+        height: 18px !important;
+        min-width: 18px !important;
+        min-height: 18px !important;
+        padding: 0 !important;
+        margin: 2px 0 0 !important;
+        border-radius: 4px !important;
+        accent-color: var(--violet);
+        cursor: pointer;
+        flex-shrink: 0;
+    }
+
+    .minerdia-consent a {
+        color: var(--violet);
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    .minerdia-consent a:hover {
+        color: var(--teal);
+    }
+
+    .minerdia-card .minerdia-form-submit:disabled {
+        opacity: .55 !important;
+        cursor: not-allowed !important;
+        transform: none;
+        box-shadow: none;
+    }
+
     @media(max-width:480px) {
         .minerdia-form-grid {
             grid-template-columns: 1fr;
@@ -443,7 +485,7 @@ $audit_default = 'Google Ads';
                             <label for="mf-service">Which service are you interested in? <span>*</span></label>
                             <select id="mf-service" name="service" required>
                                 <?php foreach ($audit_services as $service => $budgets) : ?>
-                                    <option value="<?php echo htmlspecialchars($service); ?>"<?php echo $service === $audit_default ? ' selected' : ''; ?>><?php echo htmlspecialchars($service); ?></option>
+                                    <option value="<?php echo htmlspecialchars($service); ?>" <?php echo $service === $audit_default ? ' selected' : ''; ?>><?php echo htmlspecialchars($service); ?></option>
                                 <?php endforeach; ?>
                             </select>
                         </div>
@@ -459,7 +501,15 @@ $audit_default = 'Google Ads';
                         </div>
                     </div>
 
-                    <button type="submit" class="minerdia-form-submit">Submit Form</button>
+                    <label class="minerdia-consent" for="mf-consent">
+                        <input type="checkbox" id="mf-consent" name="consent" value="yes" required>
+                        <span>I have read and agree to the
+                            <a href="<?php echo BASE; ?>terms-and-conditions/" target="_blank" rel="noopener">Terms &amp; Conditions</a>
+                            and
+                            <a href="<?php echo BASE; ?>privacy-policies/" target="_blank" rel="noopener">Privacy Policy</a>.</span>
+                    </label>
+
+                    <button type="submit" class="minerdia-form-submit" id="mf-submit" disabled>Submit Form</button>
                 </form>
 
                 <script>
@@ -467,7 +517,16 @@ $audit_default = 'Google Ads';
                         var budgets = <?php echo json_encode($audit_services, JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_UNESCAPED_UNICODE); ?>;
                         var service = document.getElementById('mf-service');
                         var budget = document.getElementById('mf-budget');
+                        var consent = document.getElementById('mf-consent');
+                        var submit = document.getElementById('mf-submit');
                         if (!service || !budget) return;
+
+                        // Submit stays disabled until the Terms & Privacy box is ticked
+                        if (consent && submit) {
+                            consent.addEventListener('change', function() {
+                                submit.disabled = !consent.checked;
+                            });
+                        }
 
                         // Rebuild the budget list whenever the service changes
                         service.addEventListener('change', function() {

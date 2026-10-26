@@ -9,7 +9,7 @@ $services = [
     'Google Adwords',
     'YouTube Advertising',
     'LinkedIn Advertising',
-    'Performance Marketing Campaigns',
+    'Performance Marketing',
     'Lead Generation Campaigns',
 ];
 
@@ -77,7 +77,7 @@ $image_alt = 'Team reviewing paid ads performance dashboard';
             align-items: center;
             justify-content: center;
             min-height: 68px;
-            padding: 10px 18px;
+            /* padding: 10px 18px; */
             border: 1px solid #dcdcdc;
             border-radius: 24px;
             background: #fff;

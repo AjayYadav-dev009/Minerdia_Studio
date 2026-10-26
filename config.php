@@ -17,7 +17,7 @@ define('DEFAULT_DESC',     'Minerdia Studio is a digital marketing agency in Ind
    the old logo URL below is used instead.                        */
 define('LOGO_HEADER',   'header-logo-2.webp');
 define('LOGO_FOOTER',   'footer-logo-1.webp');
-define('LOGO_WHATSAPP', 'whatsapp.webp');       // missing = built-in WhatsApp icon is used
+define('LOGO_WHATSAPP', 'whatsapp.png');       // missing = built-in WhatsApp icon is used
 define('LOGO_SHARE',    'logo-header.webp');    // image shown when a link is shared (Open Graph)
 
 /* ---------- CONTACT ---------- */
