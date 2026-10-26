@@ -495,6 +495,92 @@ $audit_default = 'Google Ads';
 </section>
 
 
+<section class="minerdia-pills-section">
+
+    <style>
+        .minerdia-pills-section {
+            padding: 0 0 20px;
+            background: #fff;
+        }
+
+        .minerdia-pills-container {
+            max-width: 1240px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .minerdia-pills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 22px;
+        }
+
+        .minerdia-pill {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 60px;
+            /* padding: 12px 24px; */
+            border: 1px solid rgba(90, 46, 166, .10);
+            border-radius: 50px;
+            background: linear-gradient(180deg, #f3f1fa 0%, #e6e3f3 100%);
+            box-shadow: 0 3px 8px rgba(60, 40, 110, .25);
+            text-align: center;
+        }
+
+        .minerdia-pill p {
+            margin: 0;
+            font-family: var(--font-body);
+            font-size: 16px;
+            line-height: 1.4;
+            font-weight: 400;
+            color: #17142b;
+        }
+
+        .minerdia-pill b {
+            font-weight: 700;
+            color: #000;
+        }
+
+        @media (max-width: 991px) {
+            .minerdia-pills-grid {
+                grid-template-columns: 1fr;
+                gap: 14px;
+            }
+        }
+
+        @media (max-width: 575px) {
+            .minerdia-pills-container {
+                padding: 0 16px;
+            }
+
+            .minerdia-pill {
+                min-height: 54px;
+                padding: 10px 18px;
+            }
+
+            .minerdia-pill p {
+                font-size: 15px;
+            }
+        }
+    </style>
+
+    <div class="minerdia-pills-container">
+        <div class="minerdia-pills-grid">
+            <div class="minerdia-pill">
+                <p><b>End-to-end</b>&nbsp;content + paid systems</p>
+            </div>
+            <div class="minerdia-pill">
+                <p><b>Reels</b>&nbsp;·&nbsp;<b>YouTube</b>&nbsp;·&nbsp;<b>Meta &amp; Google Ads</b></p>
+            </div>
+            <div class="minerdia-pill">
+                <p>Reply within&nbsp;<b>5 minutes</b>&nbsp;on WhatsApp</p>
+            </div>
+        </div>
+    </div>
+
+</section>
+
 <section class="minerdia-next-section">
 
     <style>
