@@ -485,7 +485,7 @@ $audit_default = 'Google Ads';
                             <label for="mf-service">Which service are you interested in? <span>*</span></label>
                             <select id="mf-service" name="service" required>
                                 <?php foreach ($audit_services as $service => $budgets) : ?>
-                                    <option value="<?php echo htmlspecialchars($service); ?>" <?php echo $service === $audit_default ? ' selected' : ''; ?>><?php echo htmlspecialchars($service); ?></option>
+                                    <option value="<?php echo htmlspecialchars($service); ?>"<?php echo $service === $audit_default ? ' selected' : ''; ?>><?php echo htmlspecialchars($service); ?></option>
                                 <?php endforeach; ?>
                             </select>
                         </div>

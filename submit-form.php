@@ -20,6 +20,9 @@ $state = lead_clean($_POST['state'] ?? '');
 if ($name === '' || $email === '' || $phone === '' || $state === '') {
     lead_finish(false, 'Please fill all required fields.', 422);
 }
+if (($_POST['consent'] ?? '') !== 'yes') {
+    lead_finish(false, 'Please accept the Terms & Conditions and Privacy Policy.', 422);
+}
 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     lead_finish(false, 'Please enter a valid email address.', 422);
 }

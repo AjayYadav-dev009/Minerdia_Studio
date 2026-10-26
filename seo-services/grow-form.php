@@ -192,6 +192,39 @@
             box-shadow: 0 6px 14px rgba(90, 46, 166, .4);
         }
 
+        /* ---------- Terms & Privacy consent ---------- */
+        .ms-grow .ms-consent {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin: 20px 0 0;
+            font-size: 13px;
+            line-height: 1.5;
+            font-weight: 400;
+            color: #222;
+            cursor: pointer;
+        }
+
+        .ms-grow .ms-consent input[type="checkbox"] {
+            flex: 0 0 18px;
+            width: 18px;
+            height: 18px;
+            margin: 1px 0 0;
+            padding: 0;
+            accent-color: var(--purple);
+            cursor: pointer;
+        }
+
+        .ms-grow .ms-consent a {
+            color: var(--purple);
+            font-weight: 700;
+            text-decoration: underline;
+        }
+
+        .ms-grow .ms-consent a:hover {
+            opacity: .8;
+        }
+
         /* ---------- Responsive ---------- */
         @media (max-width: 991px) {
             .ms-grow-wrap {
@@ -304,6 +337,14 @@
                         </select>
                     </div>
                 </div>
+
+                <label class="ms-consent" for="ms-grow-consent">
+                    <input type="checkbox" id="ms-grow-consent" name="consent" value="yes" required>
+                    <span>I have read and agree to the
+                        <a href="<?php echo BASE; ?>terms-and-conditions/" target="_blank" rel="noopener">Terms &amp; Conditions</a>
+                        and
+                        <a href="<?php echo BASE; ?>privacy-policies/" target="_blank" rel="noopener">Privacy Policy</a>.</span>
+                </label>
 
                 <div class="ms-grow-btnwrap">
                     <button type="submit" class="ms-grow-btn">Submit Form</button>

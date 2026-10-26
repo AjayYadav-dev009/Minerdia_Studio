@@ -130,9 +130,9 @@
                                                     class="ff-el-form-check-input ff-el-form-check-checkbox ff_tc_checkbox"
                                                     value="on" aria-invalid="false" aria-required="true">
                                                 <span class="ff_tc_label">I have read and agree to the
-                                                    <a href="https://minerdiastudio.com/terms-and-conditions/" target="_blank" rel="noopener"><strong>Terms and Conditions</strong></a>
+                                                    <a href="<?php echo BASE; ?>terms-and-conditions/" target="_blank" rel="noopener"><strong>Terms and Conditions</strong></a>
                                                     and
-                                                    <a href="https://minerdiastudio.com/privacy-policy/" target="_blank" rel="noopener"><strong>Privacy Policy</strong></a></span>
+                                                    <a href="<?php echo BASE; ?>privacy-policies/" target="_blank" rel="noopener"><strong>Privacy Policy</strong></a></span>
                                             </label>
                                         </div>
                                     </div>
@@ -173,7 +173,7 @@
             <div class="mff-contact__image-wrap">
 
                 <img
-                    src="assets/image/home/home-2.webp"
+                    src="<?php echo BASE; ?>assets/image/home/home-2.webp"
                     alt="Minerdia Studio digital marketing consultant presenting business growth services"
                     loading="lazy"
                     decoding="async">

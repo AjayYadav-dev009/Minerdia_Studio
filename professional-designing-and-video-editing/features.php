@@ -210,6 +210,39 @@ $states = [
             box-shadow: 0 10px 22px rgba(90, 46, 166, .3);
         }
 
+        /* ---------- Terms & Privacy consent ---------- */
+        .ms-dfeatures .ms-consent {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin: 20px 0 0;
+            font-size: 13px;
+            line-height: 1.5;
+            font-weight: 400;
+            color: #222;
+            cursor: pointer;
+        }
+
+        .ms-dfeatures .ms-consent input[type="checkbox"] {
+            flex: 0 0 18px;
+            width: 18px;
+            height: 18px;
+            margin: 1px 0 0;
+            padding: 0;
+            accent-color: var(--purple);
+            cursor: pointer;
+        }
+
+        .ms-dfeatures .ms-consent a {
+            color: var(--purple);
+            font-weight: 700;
+            text-decoration: underline;
+        }
+
+        .ms-dfeatures .ms-consent a:hover {
+            opacity: .8;
+        }
+
         /* ---------- Responsive ---------- */
         @media (max-width: 991px) {
             .ms-dfeatures-wrap {
@@ -309,6 +342,14 @@ $states = [
                         </select>
                     </div>
                 </div>
+                <label class="ms-consent" for="ms-df-consent">
+                    <input type="checkbox" id="ms-df-consent" name="consent" value="yes" required>
+                    <span>I have read and agree to the
+                        <a href="<?php echo BASE; ?>terms-and-conditions/" target="_blank" rel="noopener">Terms &amp; Conditions</a>
+                        and
+                        <a href="<?php echo BASE; ?>privacy-policies/" target="_blank" rel="noopener">Privacy Policy</a>.</span>
+                </label>
+
                 <button type="submit" class="ms-dform-submit">Submit Form</button>
             </form>
         </div>
