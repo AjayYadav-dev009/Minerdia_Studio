@@ -2,7 +2,7 @@
 $title  = 'Ready to Turn Emails Into Sales?';
 $text   = 'Reach the right audience, increase engagement, and grow your business with email campaigns designed to deliver results.';
 $button = 'Get Started Today';
-$link   = 'https://minerdiastudio.com/free-audit/';
+$link   = 'free-digital-marketing-audit/';
 
 $alt    = 'Email Campaign Management';
 ?>
@@ -133,7 +133,7 @@ $alt    = 'Email Campaign Management';
             <div class="ms-emcta-text">
                 <h2 class="ms-emcta-title"><?php echo htmlspecialchars($title); ?></h2>
                 <p class="ms-emcta-desc"><?php echo htmlspecialchars($text); ?></p>
-                <a class="ms-emcta-btn" href="<?php echo htmlspecialchars($link); ?>"><?php echo htmlspecialchars($button); ?></a>
+                <a class="ms-emcta-btn" href="<?php echo BASE . htmlspecialchars($link); ?>"><?php echo htmlspecialchars($button); ?></a>
             </div>
 
             <div class="ms-emcta-img">

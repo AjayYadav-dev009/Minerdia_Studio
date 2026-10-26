@@ -132,7 +132,7 @@
                                                 <span class="ff_tc_label">I have read and agree to the
                                                     <a href="<?php echo BASE; ?>terms-and-conditions/" target="_blank" rel="noopener"><strong>Terms and Conditions</strong></a>
                                                     and
-                                                    <a href="<?php echo BASE; ?>privacy-policies/" target="_blank" rel="noopener"><strong>Privacy Policy</strong></a></span>
+                                                    <a href="<?php echo BASE; ?>privacy-policy/" target="_blank" rel="noopener"><strong>Privacy Policy</strong></a></span>
                                             </label>
                                         </div>
                                     </div>

@@ -19,7 +19,7 @@ $platforms = [
         'unit'   => 'B',
         'label'  => 'Active users',
         'link'   => '#',
-        'local'  => 'assets/image/services/ads/youtube-ads.png',
+        'local'  => 'assets/image/logo/youtube-ads.png',
         'remote' => $wp . 'youtube-adss.png',
     ],
     [
@@ -29,7 +29,7 @@ $platforms = [
         'unit'   => 'B',
         'label'  => 'Active users',
         'link'   => '#',
-        'local'  => 'assets/image/services/ads/facebook-ads.png',
+        'local'  => 'assets/image/logo/facebook-ads.png',
         'remote' => $wp . 'facebook-ads.png',
     ],
     [
@@ -39,7 +39,7 @@ $platforms = [
         'unit'   => 'B',
         'label'  => 'Active users',
         'link'   => '#',
-        'local'  => 'assets/image/services/ads/instagram-ads.png',
+        'local'  => 'assets/image/logo/instagram-ads.png',
         'remote' => $wp . 'instagram-ads.png',
     ],
     [
@@ -49,7 +49,7 @@ $platforms = [
         'unit'   => 'B',
         'label'  => 'Active users',
         'link'   => '#',
-        'local'  => 'assets/image/services/ads/google-ads.png',
+        'local'  => 'assets/image/logo/google-ads.png',
         'remote' => $wp . 'google-ads.png',
     ],
     [
@@ -59,7 +59,7 @@ $platforms = [
         'unit'   => 'M',
         'label'  => 'Active users',
         'link'   => '#',
-        'local'  => 'assets/image/services/ads/linkedin-ads.png',
+        'local'  => 'assets/image/logo/linkedin-ads.png',
         'remote' => $wp . 'linkedin-ads.png',
     ],
 ];

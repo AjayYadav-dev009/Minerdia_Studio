@@ -515,7 +515,7 @@
     <div class="ms-copyright-links">
         <a href="<?php echo BASE; ?>terms-and-conditions/">Terms &amp; Conditions</a>
         <span>|</span>
-        <a href="<?php echo BASE; ?>privacy-policies/">Privacy Policy</a>
+        <a href="<?php echo BASE; ?>privacy-policy/">Privacy Policy</a>
     </div>
 </div>
 

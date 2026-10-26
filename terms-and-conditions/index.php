@@ -1,6 +1,6 @@
 <?php
-$page_title       = 'Paid Ads Services | Minerdia Studio';
-$page_description = 'Google Ads and Facebook Ads management from Minerdia Studio that turns spend into leads.';
+$page_title       = 'Terms and Conditions | Minerdia Studio';
+$page_description = 'Read the terms and conditions that apply when you use the Minerdia Studio website and hire our digital marketing services.';
 include __DIR__ . '/../include/header.php';
 ?>
 

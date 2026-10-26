@@ -1,4 +1,2 @@
 # Minerdia Studio – show the custom 404 page for any missing URL.
-# Put this file in the site root (same folder as index.php and 404.php).
-# If you already have an .htaccess, just add the line below to it.
 ErrorDocument 404 /404.php

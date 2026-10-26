@@ -7,7 +7,7 @@
 $image_src   = 'assets/image/contact/1.webp';
 $image_alt   = 'Digital Marketing Consultation Services in India';
 $terms_url   = BASE . 'terms-and-conditions/';
-$privacy_url = BASE . 'privacy-policies/';
+$privacy_url = BASE . 'privacy-policy/';
 
 // Must match $ALLOWED_SERVICES in home-page/submit-contact.php
 $services = [
