@@ -413,7 +413,7 @@ $e = function ($s) { return htmlspecialchars((string)$s, ENT_QUOTES | ENT_SUBSTI
 
                 <form id="ms-cf-form" method="POST" action="<?php echo BASE; ?>home-page/submit-contact.php" novalidate>
                     <div class="ms-cf-hp" aria-hidden="true">
-                        <label>Leave this field empty <input type="text" name="website_hp" tabindex="-1" autocomplete="off"></label>
+                        <label>Leave this field empty <input type="text" name="ms_trap_q7" tabindex="-1" autocomplete="nope"></label>
                     </div>
 
                     <div class="ms-cf-row">

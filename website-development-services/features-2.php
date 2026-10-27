@@ -9,42 +9,11 @@ $steps = [
 ];
 
 $states = [
-    'Andhra Pradesh',
-    'Arunachal Pradesh',
-    'Assam',
-    'Bihar',
-    'Chhattisgarh',
-    'Goa',
-    'Gujarat',
-    'Haryana',
-    'Himachal Pradesh',
-    'Jharkhand',
-    'Karnataka',
-    'Kerala',
-    'Madhya Pradesh',
-    'Maharashtra',
-    'Manipur',
-    'Meghalaya',
-    'Mizoram',
-    'Nagaland',
-    'Odisha',
-    'Punjab',
-    'Rajasthan',
-    'Sikkim',
-    'Tamil Nadu',
-    'Telangana',
-    'Tripura',
-    'Uttar Pradesh',
-    'Uttarakhand',
-    'West Bengal',
-    'Andaman and Nicobar Islands',
-    'Chandigarh',
-    'Dadra and Nagar Haveli and Daman and Diu',
-    'Delhi',
-    'Jammu and Kashmir',
-    'Ladakh',
-    'Lakshadweep',
-    'Puducherry',
+    'Andhra Pradesh', 'Arunachal Pradesh', 'Assam', 'Bihar', 'Chhattisgarh', 'Delhi', 'Goa', 'Gujarat', 'Haryana',
+    'Himachal Pradesh', 'Jammu and Kashmir', 'Jharkhand', 'Karnataka', 'Kerala', 'Madhya Pradesh', 'Maharashtra',
+    'Manipur', 'Meghalaya', 'Mizoram', 'Nagaland', 'Odisha', 'Punjab', 'Rajasthan', 'Sikkim', 'Tamil Nadu',
+    'Telangana', 'Tripura', 'Uttar Pradesh', 'Uttarakhand', 'West Bengal', 'Andaman and Nicobar Islands',
+    'Chandigarh', 'Dadra and Nagar Haveli and Daman and Diu', 'Ladakh', 'Lakshadweep', 'Puducherry',
 ];
 ?>
 <section class="ms-wdp">
@@ -56,7 +25,7 @@ $states = [
             box-sizing: border-box;
         }
 
-        /* NOTE: no overflow:hidden on this section or any parent, otherwise position:sticky stops working */
+        /* NOTE: no overflow:hidden on this section or any parent, otherwise the sticky form stops working */
         .ms-wdp {
             --purple: #5A2EA6;
             width: 100%;
@@ -75,61 +44,47 @@ $states = [
         }
 
         /* ---------- Left ---------- */
-        .ms-wdp-label {
-            display: block;
-            margin: 0 0 8px;
-            font-family: var(--font-body);
-            font-size: 18px;
-            font-weight: 400;
-            text-transform: uppercase;
-            color: var(--purple);
-        }
-
         .ms-wdp-title {
-            margin: 0 0 14px;
+            margin: 0 0 18px;
+            max-width: 430px;
             font-size: 34px;
             line-height: 1.25;
             font-weight: 600;
             color: #000;
         }
 
-        .ms-wdp-title span {
-            color: var(--purple);
-        }
-
         .ms-wdp-intro {
-            margin: 0 0 30px;
-            max-width: none;
+            margin: 0 0 24px;
             font-size: 16px;
             line-height: 1.65;
-            font-weight: 300;
+            font-weight: 400;
             color: #222;
         }
 
-        .ms-wdp-step-list {
+        .ms-wdp-list {
             display: grid;
             gap: 19px;
         }
 
-        .ms-wdp-step-card {
+        .ms-wdp-card {
             display: flex;
-            align-items: flex-start;
+            align-items: center;
             gap: 14px;
-            padding: 18px 20px 16px 10px;
+            padding: 16px 20px 15px 12px;
             border-radius: 26px;
             background: #f6f6f6;
             box-shadow:
                 0 6px 16px rgba(0, 0, 0, .22),
                 0 12px 30px rgba(90, 46, 166, .16),
-                -10px 10px 26px rgba(90, 46, 166, .20) !important;
+                -10px 10px 26px rgba(90, 46, 166, .20);
             transition: .3s ease;
         }
 
-        .ms-wdp-step-card:hover {
+        .ms-wdp-card:hover {
             transform: translateY(-4px);
         }
 
-        .ms-wdp-step-icon {
+        .ms-wdp-icon {
             width: 44px;
             height: 44px;
             flex: 0 0 44px;
@@ -140,20 +95,19 @@ $states = [
             background: var(--purple);
             color: #fff;
             font-size: 19px;
-            margin-top: 4px;
         }
 
-        .ms-wdp-step-card h3 {
-            margin: 0 0 6px;
+        .ms-wdp-card h3 {
+            margin: 0 0 4px;
             font-size: 20px;
             line-height: 1.3;
             font-weight: 500;
             color: #000;
         }
 
-        .ms-wdp-step-card p {
+        .ms-wdp-card p {
             margin: 0;
-            font-size: 15.5px;
+            font-size: 16px;
             line-height: 1.6;
             font-weight: 400;
             color: #222;
@@ -166,34 +120,34 @@ $states = [
             will-change: transform;
         }
 
-        .ms-wdp-form-card {
+        .ms-wdp-form {
             padding: 28px 30px 28px;
             border-radius: 22px;
             background: #f6f6f6;
             box-shadow: 0 8px 22px rgba(0, 0, 0, .12);
         }
 
-        .ms-wdp-form-grid {
+        .ms-wdp-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 22px 15px;
         }
 
-        .ms-wdp-form-field label {
+        .ms-wdp-field label {
             display: block;
             margin-bottom: 8px;
-            font-size: 14.5px;
+            font-size: 15px;
             font-weight: 400;
             color: #111;
         }
 
-        .ms-wdp-form-field label span {
+        .ms-wdp-field label span {
             color: #e03131;
             margin-left: 3px;
         }
 
-        .ms-wdp-form-field input,
-        .ms-wdp-form-field select {
+        .ms-wdp-field input,
+        .ms-wdp-field select {
             width: 100%;
             height: 38px;
             padding: 0 16px;
@@ -207,22 +161,22 @@ $states = [
             transition: .25s ease;
         }
 
-        .ms-wdp-form-field select {
+        .ms-wdp-field select {
             padding: 0 12px;
             cursor: pointer;
         }
 
-        .ms-wdp-form-field input::placeholder {
+        .ms-wdp-field input::placeholder {
             color: #8a8a8a;
         }
 
-        .ms-wdp-form-field input:focus,
-        .ms-wdp-form-field select:focus {
+        .ms-wdp-field input:focus,
+        .ms-wdp-field select:focus {
             border-color: var(--purple);
             background: #fff;
         }
 
-        .ms-wdp-form-submit {
+        .ms-wdp-submit {
             display: block;
             margin: 22px auto 0;
             padding: 0 22px;
@@ -231,20 +185,20 @@ $states = [
             border: 1px solid #3d1f7a;
             background: var(--purple);
             color: #fff;
-            font-family: var(--font-body);
+            font-family: var(--font-head);
             font-size: 16px;
             font-weight: 700;
             cursor: pointer;
             transition: .3s ease;
         }
 
-        .ms-wdp-form-submit:hover {
+        .ms-wdp-submit:hover {
             transform: translateY(-2px);
             box-shadow: 0 10px 22px rgba(90, 46, 166, .3);
         }
 
         /* ---------- Terms & Privacy consent ---------- */
-        .ms-wdp .ms-wdp-consent {
+        .ms-wdp .ms-consent {
             display: flex;
             align-items: flex-start;
             gap: 10px;
@@ -256,7 +210,7 @@ $states = [
             cursor: pointer;
         }
 
-        .ms-wdp .ms-wdp-consent input[type="checkbox"] {
+        .ms-wdp .ms-consent input[type="checkbox"] {
             flex: 0 0 18px;
             width: 18px;
             height: 18px;
@@ -266,13 +220,13 @@ $states = [
             cursor: pointer;
         }
 
-        .ms-wdp .ms-wdp-consent a {
+        .ms-wdp .ms-consent a {
             color: var(--purple);
             font-weight: 700;
             text-decoration: underline;
         }
 
-        .ms-wdp .ms-wdp-consent a:hover {
+        .ms-wdp .ms-consent a:hover {
             opacity: .8;
         }
 
@@ -283,12 +237,13 @@ $states = [
                 gap: 36px;
             }
 
-            .ms-wdp-form-col {
-                position: static;
+            .ms-wdp-title {
+                max-width: none;
+                font-size: 30px;
             }
 
-            .ms-wdp-title {
-                font-size: 30px;
+            .ms-wdp-form-col {
+                position: static;
             }
         }
 
@@ -299,29 +254,39 @@ $states = [
 
             .ms-wdp-title {
                 font-size: 26px;
+                text-align: center;
             }
 
             .ms-wdp-intro {
-                font-size: 15px;
+                font-size: 14px;
             }
 
-            .ms-wdp-step-card {
-                padding: 16px 16px 14px 10px;
+            .ms-wdp-card {
+                padding: 14px 16px 13px 10px;
+                gap: 12px;
+                border-radius: 22px;
             }
 
-            .ms-wdp-step-card h3 {
-                font-size: 18px;
+            .ms-wdp-icon {
+                width: 38px;
+                height: 38px;
+                flex-basis: 38px;
+                font-size: 16px;
             }
 
-            .ms-wdp-step-card p {
-                font-size: 14.5px;
+            .ms-wdp-card h3 {
+                font-size: 17px;
             }
 
-            .ms-wdp-form-card {
+            .ms-wdp-card p {
+                font-size: 14px;
+            }
+
+            .ms-wdp-form {
                 padding: 22px 18px;
             }
 
-            .ms-wdp-form-grid {
+            .ms-wdp-grid {
                 grid-template-columns: 1fr;
                 gap: 16px;
             }
@@ -334,10 +299,10 @@ $states = [
             <h2 class="ms-wdp-title">Start Your Website Project Today</h2>
             <p class="ms-wdp-intro"><?php echo htmlspecialchars($intro); ?></p>
 
-            <div class="ms-wdp-step-list">
+            <div class="ms-wdp-list">
                 <?php foreach ($steps as $step) : ?>
-                    <div class="ms-wdp-step-card">
-                        <div class="ms-wdp-step-icon"><i class="fa-regular fa-hand-point-right"></i></div>
+                    <div class="ms-wdp-card">
+                        <div class="ms-wdp-icon"><i class="fa-regular fa-hand-point-right"></i></div>
                         <div>
                             <h3><?php echo htmlspecialchars($step[0]); ?></h3>
                             <p><?php echo htmlspecialchars($step[1]); ?></p>
@@ -348,25 +313,25 @@ $states = [
         </div>
 
         <div class="ms-wdp-form-col">
-            <form class="ms-wdp-form-card" action="<?php echo BASE; ?>submit-form.php" method="post" data-lead-form>
+            <form class="ms-wdp-form" action="<?php echo BASE; ?>submit-form.php" method="post" data-lead-form>
+                <input type="text" name="ms_trap_q7" value="" tabindex="-1" autocomplete="nope" aria-hidden="true" style="position:absolute;left:-9999px;opacity:0;height:0;width:0">
                 <input type="hidden" name="source_page" value="Website Development">
-                <input type="text" name="website_hp" value="" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;opacity:0;height:0;width:0">
-                <div class="ms-wdp-form-grid">
-                    <div class="ms-wdp-form-field">
-                        <label for="ms-wdp-f-name">Full Name <span>*</span></label>
-                        <input type="text" id="ms-wdp-f-name" name="full_name" placeholder="Enter Your Full Name" required>
+                <div class="ms-wdp-grid">
+                    <div class="ms-wdp-field">
+                        <label for="ms-wdp-name">Full Name <span>*</span></label>
+                        <input type="text" id="ms-wdp-name" name="full_name" placeholder="Enter Your Full Name" required>
                     </div>
-                    <div class="ms-wdp-form-field">
-                        <label for="ms-wdp-f-email">Email <span>*</span></label>
-                        <input type="email" id="ms-wdp-f-email" name="email" placeholder="Email Address" required>
+                    <div class="ms-wdp-field">
+                        <label for="ms-wdp-email">Email <span>*</span></label>
+                        <input type="email" id="ms-wdp-email" name="email" placeholder="Email Address" required>
                     </div>
-                    <div class="ms-wdp-form-field">
-                        <label for="ms-wdp-f-phone">Phone Number <span>*</span></label>
-                        <input type="tel" id="ms-wdp-f-phone" name="phone" placeholder="Phone Number" required>
+                    <div class="ms-wdp-field">
+                        <label for="ms-wdp-phone">Phone Number <span>*</span></label>
+                        <input type="tel" id="ms-wdp-phone" name="phone" placeholder="Phone Number" required>
                     </div>
-                    <div class="ms-wdp-form-field">
-                        <label for="ms-wdp-f-state">States <span>*</span></label>
-                        <select id="ms-wdp-f-state" name="state" required>
+                    <div class="ms-wdp-field">
+                        <label for="ms-wdp-state">States <span>*</span></label>
+                        <select id="ms-wdp-state" name="state" required>
                             <option value="">- Select -</option>
                             <?php foreach ($states as $st) : ?>
                                 <option value="<?php echo htmlspecialchars($st); ?>"><?php echo htmlspecialchars($st); ?></option>
@@ -374,15 +339,15 @@ $states = [
                         </select>
                     </div>
                 </div>
-                <label class="ms-wdp-consent" for="ms-wdp-f-consent">
-                    <input type="checkbox" id="ms-wdp-f-consent" name="consent" value="yes" required>
+                <label class="ms-consent" for="ms-wdp-consent">
+                    <input type="checkbox" id="ms-wdp-consent" name="consent" value="yes" required>
                     <span>I have read and agree to the
                         <a href="<?php echo BASE; ?>terms-and-conditions/" target="_blank" rel="noopener">Terms &amp; Conditions</a>
                         and
                         <a href="<?php echo BASE; ?>privacy-policy/" target="_blank" rel="noopener">Privacy Policy</a>.</span>
                 </label>
 
-                <button type="submit" class="ms-wdp-form-submit">Submit Form</button>
+                <button type="submit" class="ms-wdp-submit">Submit Form</button>
             </form>
         </div>
 
@@ -394,7 +359,7 @@ $states = [
             var col = document.querySelector('.ms-wdp-form-col');
             if (!wrap || !col) return;
 
-            var TOP = 100; // distance from top of screen (px) - increase if you have a fixed header
+            var TOP = 150; // same as the original Elementor sticky offset (150px)
             var ticking = false;
 
             function update() {

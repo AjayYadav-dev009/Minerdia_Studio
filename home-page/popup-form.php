@@ -58,7 +58,7 @@ $budgets = [
 
                     <!-- honeypot (spam trap) -->
                     <div style="position:absolute;left:-9999px" aria-hidden="true">
-                        <input type="text" name="website_hp" tabindex="-1" autocomplete="off">
+                        <input type="text" name="ms_trap_q7" tabindex="-1" autocomplete="nope">
                     </div>
 
                     <div class="ff-t-container">

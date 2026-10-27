@@ -56,7 +56,7 @@ function lead_guard($formKey, $cooldown = 30)
     }
 
     // honeypot: real visitors never fill this hidden field -> pretend success, save nothing
-    if (!empty($_POST['website_hp'])) {
+    if (!empty($_POST['ms_trap_q7'])) {
         lead_finish(true, 'Thank you! Our team will contact you shortly.');
     }
 
