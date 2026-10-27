@@ -429,7 +429,9 @@
 
         <div class="ms-footer-col">
             <a class="ms-footer-logo" href="<?php echo BASE; ?>" aria-label="Minerdia Studio Home">
-                <img src="<?php echo e(logo_url(LOGO_FOOTER, 'https://minerdiastudio.com/wp-content/uploads/2026/03/mendria-logo-1.png')); ?>" alt="Minerdia Studio Logo">
+
+                <img src="<?php echo e(logo_url(LOGO_FOOTER, LIVE_BASE . 'assets/image/logo/' . LOGO_FOOTER)); ?>" alt="Minerdia Studio Logo">
+
             </a>
 
             <p class="ms-footer-about">
@@ -451,7 +453,7 @@
                     <span class="ms-contact-icon"><i class="fa-solid fa-envelope"></i></span>
                     <a href="mailto:<?php echo e(EMAIL2); ?>"><?php echo e(EMAIL2); ?></a>
                 </div>
-                
+
                 <div class="ms-contact-item">
                     <span class="ms-contact-icon"><i class="fa-solid fa-phone"></i></span>
                     <a href="tel:<?php echo e(PHONE); ?>"><?php echo e(PHONE_TXT); ?></a>

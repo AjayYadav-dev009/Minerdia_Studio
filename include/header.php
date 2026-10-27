@@ -16,9 +16,11 @@ if (!isset($page_canonical)) {
     $page_canonical = LIVE_BASE . ltrim($__path, '/');
 }
 
-$__share = logo_url(LOGO_SHARE) ? LIVE_BASE . 'assets/image/logo/' . LOGO_SHARE : 'https://minerdiastudio.com/wp-content/uploads/2026/03/mendria-logo-2.png';
+
+$__share = LIVE_BASE . 'assets/image/logo/' . LOGO_SHARE;
 $page_image = $page_image ?? $__share;
-$__logo_header = logo_url(LOGO_HEADER, 'https://minerdiastudio.com/wp-content/uploads/2026/03/mendria-logo-2.png');
+$__logo_header = logo_url(LOGO_HEADER, LIVE_BASE . 'assets/image/logo/' . LOGO_HEADER);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -33,7 +35,8 @@ $__logo_header = logo_url(LOGO_HEADER, 'https://minerdiastudio.com/wp-content/up
     <link rel="stylesheet" href="<?php echo BASE; ?>assets/css/lenis.css">
     <title><?php echo e($page_title); ?></title>
     <meta name="description" content="<?php echo e($page_description); ?>">
-    <?php if ($page_keywords): ?><meta name="keywords" content="<?php echo e($page_keywords); ?>"><?php endif; ?>
+    <?php if ($page_keywords): ?>
+        <meta name="keywords" content="<?php echo e($page_keywords); ?>"><?php endif; ?>
 
     <meta name="robots" content="<?php echo $page_noindex ? 'noindex, nofollow' : 'index, follow'; ?>">
     <link rel="canonical" href="<?php echo e($page_canonical); ?>">
@@ -52,58 +55,73 @@ $__logo_header = logo_url(LOGO_HEADER, 'https://minerdiastudio.com/wp-content/up
 
     <!-- Organization schema -->
     <script type="application/ld+json">
-    <?php echo json_encode([
-        '@context'  => 'https://schema.org',
-        '@type'     => 'Organization',
-        'name'      => SITE_NAME,
-        'url'       => LIVE_BASE,
-        'logo'      => $page_image,
-        'email'     => EMAIL,
-        'telephone' => PHONE,
-        'address'   => ADDRESS,
-        'sameAs'    => [FACEBOOK, PINTEREST, INSTAGRAM, LINKEDIN, YOUTUBE],
-    ], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>
-
+        <?php echo json_encode([
+            '@context'  => 'https://schema.org',
+            '@type'     => 'Organization',
+            'name'      => SITE_NAME,
+            'url'       => LIVE_BASE,
+            'logo'      => $page_image,
+            'email'     => EMAIL,
+            'telephone' => PHONE,
+            'address'   => ADDRESS,
+            'sameAs'    => [FACEBOOK, PINTEREST, INSTAGRAM, LINKEDIN, YOUTUBE],
+        ], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>
     </script>
-<script>
-/* Service-page lead forms (form[data-lead-form]) -> submit-form.php, no page reload */
-document.addEventListener('submit', function (ev) {
-    var form = ev.target;
-    if (!form.matches || !form.matches('form[data-lead-form]')) return;
-    ev.preventDefault();
+    <script>
+        /* Service-page lead forms (form[data-lead-form]) -> submit-form.php, no page reload */
+        document.addEventListener('submit', function(ev) {
+            var form = ev.target;
+            if (!form.matches || !form.matches('form[data-lead-form]')) return;
+            ev.preventDefault();
 
-    var btn = form.querySelector('button[type="submit"]');
-    var msg = form.querySelector('.ms-lead-msg');
-    if (!msg) {
-        msg = document.createElement('p');
-        msg.className = 'ms-lead-msg';
-        msg.setAttribute('role', 'status');
-        msg.style.cssText = 'margin:12px 0 0;font-size:14px;font-weight:600;text-align:center';
-        form.appendChild(msg);
-    }
-    var label = btn ? btn.textContent : '';
-    if (btn) { btn.disabled = true; btn.textContent = 'Sending...'; }
-    msg.style.color = '#3f3b50';
-    msg.textContent = '';
+            var btn = form.querySelector('button[type="submit"]');
+            var msg = form.querySelector('.ms-lead-msg');
+            if (!msg) {
+                msg = document.createElement('p');
+                msg.className = 'ms-lead-msg';
+                msg.setAttribute('role', 'status');
+                msg.style.cssText = 'margin:12px 0 0;font-size:14px;font-weight:600;text-align:center';
+                form.appendChild(msg);
+            }
+            var label = btn ? btn.textContent : '';
+            if (btn) {
+                btn.disabled = true;
+                btn.textContent = 'Sending...';
+            }
+            msg.style.color = '#3f3b50';
+            msg.textContent = '';
 
-    fetch(form.action, { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } })
-        .then(function (r) { return r.json(); })
-        .then(function (d) {
-            msg.style.color = d.ok ? '#1c8a57' : '#c0392b';
-            msg.textContent = d.message;
-            if (d.ok) form.reset();
-        })
-        .catch(function () {
-            msg.style.color = '#c0392b';
-            msg.textContent = 'Network error. Please try again.';
-        })
-        .then(function () { if (btn) { btn.disabled = false; btn.textContent = label; } });
-});
-</script>
+            fetch(form.action, {
+                    method: 'POST',
+                    body: new FormData(form),
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                })
+                .then(function(r) {
+                    return r.json();
+                })
+                .then(function(d) {
+                    msg.style.color = d.ok ? '#1c8a57' : '#c0392b';
+                    msg.textContent = d.message;
+                    if (d.ok) form.reset();
+                })
+                .catch(function() {
+                    msg.style.color = '#c0392b';
+                    msg.textContent = 'Network error. Please try again.';
+                })
+                .then(function() {
+                    if (btn) {
+                        btn.disabled = false;
+                        btn.textContent = label;
+                    }
+                });
+        });
+    </script>
 </head>
 
 <body>
-       <?php include __DIR__ . '/preloader.php'; ?>
+    <?php include __DIR__ . '/preloader.php'; ?>
     <style>
         /* Hero must start at the very top; the header floats over it */
         body {
@@ -932,7 +950,8 @@ document.addEventListener('submit', function (ev) {
                     <div class="minerdia-dropdown-menu minerdia-company-menu">
                         <a href="<?php echo BASE; ?>about-us/">About Us</a>
                         <a href="<?php echo BASE; ?>creative-gallery/">Gallery</a>
-                        <!-- <a href="<?php //echo BASE; ?>contact-us/">Contact Us</a> -->
+                        <!-- <a href="<?php //echo BASE; 
+                                        ?>contact-us/">Contact Us</a> -->
                     </div>
                 </div>
 
