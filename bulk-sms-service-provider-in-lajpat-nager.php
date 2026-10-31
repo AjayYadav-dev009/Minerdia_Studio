@@ -1275,9 +1275,9 @@
 
         .kd-sms-choose-business__grid {
             display: grid;
-            grid-template-columns: minmax(0, 1.08fr) minmax(0, .92fr);
+            grid-template-columns: minmax(0, 1fr);
             align-items: center;
-            gap: 54px
+            gap: 0
         }
 
         .kd-sms-choose-business__content {
@@ -1441,11 +1441,6 @@
                         <span>Lajpat Nagar</span>
                     </h2>
                     <p class="kd-sms-choose-business__paragraph">Different businesses have different needs for their SMS campaigns. Some want to let people know about offers or send verification codes whilst others will need to send critical customer information. At King Digital we offer bulk SMS solutions to meet your business needs.</p>
-                </div>
-                <div class="kd-sms-choose-business__visual">
-                    <div class="kd-sms-choose-business__image-wrap">
-                        <img class="kd-sms-choose-business__image" src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1000&q=85" alt="" loading="lazy" decoding="async">
-                    </div>
                 </div>
             </div>
         </div>

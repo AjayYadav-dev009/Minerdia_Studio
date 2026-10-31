@@ -1058,9 +1058,9 @@
 
     .kd-sms-choose-business__grid {
         display: grid;
-        grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
+        grid-template-columns: minmax(0, 1fr);
         align-items: center;
-        gap: 54px;
+        gap: 0;
     }
 
     .kd-sms-choose-business__content {
@@ -1244,17 +1244,6 @@
                     SMS is a communication channel that sends messages directly to your customers’ mobile messaging inbox (assuming they are in range of a network and other conditions for delivery are met), rather than requiring them to open a particular application.
                 </p>
 
-            </div>
-
-            <div class="kd-sms-choose-business__visual">
-                <div class="kd-sms-choose-business__image-wrap">
-                    <img
-                        class="kd-sms-choose-business__image"
-                        src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1000&q=85"
-                        alt=""
-                        loading="lazy"
-                        decoding="async">
-                </div>
             </div>
 
         </div>
